@@ -1,0 +1,154 @@
+/**
+ *  header css
+ *  
+ */
+
+.header {
+    position:fixed; 
+    z-index:2 !important;
+    width: 100%;
+    background-color: #010409;
+    color: #e6edf3;
+    box-shadow: inset 0 1px #30363d;
+}
+
+.header .globalbar {
+    display: flex;
+    padding: 16px;
+    gap: 12px;
+}
+
+.header .globalbar .inner-start {
+    flex: 1 1 auto;
+    display: flex;
+    gap: 8px;
+}
+
+.header .globalbar .inner-start .app-logo {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    outline-offset: 2px;
+    background-color: #111;
+    background-image: url(/images/my-portfolio-logo.png);
+    background-position: -8px -6px;
+    background-size: 46px;
+    background-repeat: no-repeat;
+    font-size: 0;
+    border: 1px solid #60666d;
+    border-radius: 6px;
+}
+
+.header .globalbar .inner-start .header-context {
+    height: 32px;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+    flex: 1 1 auto;
+}
+
+.header .globalbar .inner-start .header-context ul {
+    display: flex;
+    list-style: none !important;
+    flex-direction: row;
+    height: 100%;
+    margin: 0;
+    padding: 0; 
+}
+
+.header .globalbar .inner-start .header-context ul li {
+    display: inline-grid;
+    grid-auto-flow: column;
+    align-items: center;
+}
+
+.header .globalbar .inner-start .header-context ul li:first-child {
+    flex: 0 100 max-content;
+}
+
+.header .globalbar .inner-start .header-context ul li:last-child {
+    flex: 0 1 max-content;
+}
+
+.header .globalbar .inner-start .header-context .context-item {
+    display: flex;
+    align-items: center;
+    min-width: 3ch;
+    line-height: 1.4285714286;
+    color: inherit;
+    text-decoration: none !important;
+    border-radius: 6px;
+    padding-inline: 8px;
+    padding-block: 6px;
+    font-weight: 600;
+}
+
+.header .globalbar .inner-end {
+    flex: 0 1 auto;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.header .header-button {
+    position: relative;
+    display: grid;
+    grid-auto-columns: max-content;
+    width: 32px;
+    height: 32px;
+    color: #7d8590;
+    background: transparent;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+}
+
+.header .header-button .inbox {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    overflow: visible !important;
+    vertical-align: text-bottom;
+    fill: currentColor;
+    cursor: pointer
+}
+
+.header .header-button.has-indicator::before {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    display: block;
+    width: 8px;
+    height: 8px;
+    content: "";
+    background: #2f81f7;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #010409
+}
+
+.header .header-user {
+    position: relative;
+    background: var(--color-neutral-muted);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    color: #7d8590;
+    background: transparent;
+}
+
+.header .header-user .profile-pic img {
+    border-radius: 6px;
+    box-shadow: 0 0 0 1px #010409;
+    display: inline-block;
+    flex-shrink: 0;
+    line-height: 1;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 100% !important;
+    background-color: #010409;
+    border: 1px solid  #7d8590 !important;
+    border-radius: 50% !important;
+}

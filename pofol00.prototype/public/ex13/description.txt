@@ -1,0 +1,38 @@
+Your Inspiration Folio
+************************
+
+*Characteristics of Your Inspiration Folio Template*
+
+Your Inspiration Folio is a free template which allows you to be present on the web in a professional way thanks to a simple and functional layout at the same time.
+The entire website is developed in a single page: in fact, it is this peculiarity which makes this template outstanding; particularity that is taking hold more and more in freelancing sites lately.
+
+Despite being a single page layout, it is not necessary to scroll with the lateral bar in the browser to navigate through the various sections of the site since a javascript has been used which enables the shifting from one section to another by means of an animation effect: enough clicking with the mouse on the navigation link.
+The part that encompasses the menu remains always fixed on the screen, while the various pages are alternated from time to time in the central section of the template. The limitation of the height dimension in the left section is owed to this fact so as to allow the display even on the monitors of users that use lower resolutions (es. 1024×768).
+
+*Typography also has its own importance*
+
+A lot of attention has been dedicated to the typography as well:  the choice of font, interline, blank spaces, everything to render the aesthetic equilibrium generated at first sight more harmonious.
+For the main section titles, the navigation menu and the Homepage content, it was decided to use a non standard font (denominated “dustismo”) that complies with the rest of the graphic items used.
+The font has been implemented in the inside of the template with the utilization of the Cufon method in order to render the personalization much easier: to personalize these items, it will be sufficient to modify the text content inside the (x)HTML page.
+
+*The various sections Your Inspiration Folio is composed of*
+
+*Home Page*
+
+It is the main page that is displayed once you are on the website. In this section, you can add a slogan, a phrase, a quote which enables you to introduce the users with the message you want to transmit and communicate in a few simple lines.
+
+*About*
+
+In the About page you can insert some information on yourself: title of study, eventual training courses attended, certificates, diplomas. Or you can describe your dreams, your work experiences…in a few words everything that can represent you on the web in a decisive and original way.
+Insert a small picture or even a cartoon just like the one I have inserted: nowdays illustrations are the trend!
+
+*Portfolio*
+
+This section is entirely dedicated to the exhibition of your works. For this particular purpose Fancy-zoom has been used, a plugin of the Mootools framework which allows the display of image enlargement by means of an animated effect. Moreover, in order to make the inserting of your works easier the timThumb script php has been used which is capable of automatically generating the miniatures with no need of losing precious time for doing them manually.
+
+*Contacts*
+
+Those visitors of your website who want to get further information like preventives or something, they will find in this section a contact module that will enable them, in a simple and intuitive way, to directly send an email to your inbox. Also, in this page you can insert other information such as telephone numbers or addresses, in case you want to give the users an alternative contact option.
+
+
+
