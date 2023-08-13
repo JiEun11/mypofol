@@ -1,5 +1,4 @@
 const express = require('express');
-
 const {resLocals, slash, error404, error500} = require('./middlewares');
 const routerMain = require('./main');
 

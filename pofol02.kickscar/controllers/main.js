@@ -10,8 +10,8 @@ module.exports = {
     index: (req, res, next) => {
         res.send('Main Page');
     },
-    accountHome: async (req, res, next) => {
-        try {
+    accountLanding: async (req, res, next) => {
+       try {
             const profile = await modelUser.findByAccount(req.params.account);
 
             if(!profile) {
@@ -49,7 +49,7 @@ module.exports = {
                 projects
             });
 
-        } catch(err){
+       } catch(err){
             next(err);
         }
     }
