@@ -4,7 +4,7 @@ module.exports = {
     findById: async (id) => {
         const conn = await pool.getConnection();
 
-        const [result] = await conn.query('elect account, email, name from user where id=?', [id]);        
+        const [result] = await conn.query('select account, email, name from user where id=?', [id]);        
         conn.release();
             
         return result[0];

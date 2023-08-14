@@ -10,18 +10,46 @@
  
     // 2. application setup
     const app = express()    
-    .use(express.static(path.join(__dirname, process.env.STATIC_RESOURCES_DIRECTORY)))  // 2-1. static
-    
+    .use(express.static(path.join(__dirname, process.env.STATIC_RESOURCES_DIRECTORY)))  // 2-1. static    
     .set('views', path.join(__dirname, 'views'))                                        // 2-2. view(template) engine
     .set('view engine', 'ejs')                                                          //
-
     .use(express.json())                                                                // 2-3. body parsers
     .use(express.urlencoded({extended: true}));                                         //
  
-    // 3. build app router 
+    // 3. swagger setup
+    if(process.env.NODE_ENV === 'development') {
+        const swaggerUi = require('swagger-ui-express');
+        const swaggerJSDoc = require('swagger-jsdoc');
+
+        app.use('/api/docs/', swaggerUi.serve, swaggerUi.setup(swaggerJSDoc({
+            swaggerDefinition: {
+                openapi: '3.0.0',
+                info: {
+                    title: 'My Portfolio APIs',
+                    version: '1.0.0',
+                    description: '',
+                    license: {
+                        name: 'Licensed Under MIT',
+                        url: 'https://spdx.org/licenses/MIT.html',
+                    },
+                    contact: {
+                        name: 'MyPortfolio',
+                        url: 'https://myportfolio.kickscar.me',
+                    }                    
+                },
+                servers: [{
+                    url: `http://localhost:${process.env.PORT}`,
+                    description: 'development server',
+                }]                
+            },
+            apis: ['./routes/*.js']
+        })));
+    }
+
+    // 4. build app router 
     appRouter(app);
     
-    // 4. server startup
+    // 5. server startup
     http
     .createServer(app)
     .on('listening', () => {
