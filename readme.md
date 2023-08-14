@@ -10,6 +10,8 @@
 1. vanila js(pure javascript)
    - dom api
 
+
+
 ## pofol02.bella
 #### 1. backend
 1. rdbms: mariadb, schema.minimal
@@ -20,6 +22,8 @@
    - dom api
    - fetch api
 
+
+
 ## pofol02.kickscar
 #### 1. backend
 1. rdbms: mariadb, schema.v3
@@ -27,9 +31,8 @@
 3. view engine: ejs
 4. model: mysql2, sql based
 #### 2. frontend
-1. vanila js(pure javascript)
-   - dom api
-   - fetch api
+1. jQuery(dom api + $.ajax)
+
 
 ## pofol03.facelift
 #### 1. backend
@@ -39,8 +42,7 @@
 4. model: mysql2, sql based
 #### 2. frontend
 1. facelift
-2. jquery(dom api)
-
+2. jQuery(dom api + $.ajax)
 
 
 

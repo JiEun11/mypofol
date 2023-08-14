@@ -229,7 +229,7 @@ $(() => { PortfolioApp.init(); });
         	<h1>My Work</h1>
         	<h3>Projects</h3>
         	<div class="work__categories">
-        		<button class="category__btn selected" data-filter="*">
+        		<button class="category__btn" data-filter="*">
 					All
 					<span class="category__count">
 					<%=
@@ -239,8 +239,7 @@ $(() => { PortfolioApp.init(); });
 					}, 0)
 					%>
 					</span>
-				</button>
-        		
+				</button>        		
 				<%
 					for(let i = 0; i < projectCategories.length; i++) {
 				%>
@@ -254,12 +253,11 @@ $(() => { PortfolioApp.init(); });
 					}
 				%>
 			</div>
-  
-        	<div class="work__projects">
+        	<div class="work__projects ">
 				<%
 					for(let i = 0; i < projects.length; i++) {
 				%>
-					<a href="#" class="project" data-type="<%=projects[i].categoryName %>">
+					<a href="#" class="project invisible" data-type="<%=projects[i].categoryName %>">
 						<img class="project__img" src="<%=projects[i].image_project %>" alt="<%=projects[i].name %>">
 						<div class="project__description">
 							<h3><%=projects[i].name %></h3>
