@@ -1,0 +1,70 @@
+<%
+if(trainings["certificate"]) {
+%>
+<div class="training certificate">
+    <h4><i class="fa-solid fa-certificate"></i> 자격증</h4>
+    <%
+        for(let i = 0; i < trainings.certificate.length; i++) {
+    %>
+        <div class="training-item">
+            <div class="training__content">
+                <p class="training__name"><%=trainings.certificate[i].title %></p>
+                <p class="training__period"><%=trainings.certificate[i].awarded %></p>
+                <p class="training__description"><%=trainings.certificate[i].description %></p>
+            </div>
+        </div>
+    <%
+        }
+    %>
+</div>
+<%
+}
+%>
+
+<%
+if(trainings["education"]) {
+%>
+<div class="training">
+    <h4><i class="fa-solid fa-award"></i> 교육</h4>
+    <%
+        for(let i = 0; i < trainings.education.length; i++) {
+    %>
+        <div class="training-item">
+            <div class="training__content">
+                <p class="training__name"><%=trainings.education[i].title %></p>
+                <p class="training__period"><%=trainings.education[i].awarded %></p>
+                <p class="training__description"><%=trainings.education[i].description %></p>
+            </div>
+        </div>
+    <%
+        }
+    %>
+</div>
+<%
+}
+%>
+
+<%
+if(trainings["language"]) {
+%>
+<div class="training">
+    <div class="training">
+        <h4><i class="fa-solid fa-language"></i> 외국어</h4>
+        <%
+            for(let i = 0; i < trainings.language.length; i++) {
+        %>
+            <div class="training-item">
+                <div class="training__content">
+                    <p class="training__name"><%=trainings.language[i].title %></p>
+                    <p class="training__period"><%=trainings.language[i].awarded %></p>
+                    <p class="training__description"><%=trainings.language[i].description %></p>
+                </div>
+            </div>
+        <%
+            }
+        %>
+    </div>
+</div>			
+<%
+}
+%>

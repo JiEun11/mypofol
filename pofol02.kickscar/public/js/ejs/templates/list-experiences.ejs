@@ -1,0 +1,16 @@
+<%
+    for(let i = 0; i < experiences.length; i++) {
+%>
+    <div class="major">
+        <div class="job">
+            <img src="<%=experiences[i].imageLogo %>" alt="<%=experiences[i].company %>" class="job__logo">
+            <div class="job__description">
+                <p class="job__name"><%=experiences[i].company %>, <%=experiences[i].title %></p>
+                <p class="job__period"><%=experiences[i].fromDate %> - <%=experiences[i].toDate %></p>
+                <p class="job__name"><%=experiences[i].description %></p>
+            </div>
+        </div>
+    </div>
+<%
+    }
+%>

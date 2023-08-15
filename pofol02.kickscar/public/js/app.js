@@ -1,6 +1,21 @@
-const PortfolioApp = {
+const nonconcurrencify = (fn) => {
+    let lock = null;
 
-    init: function() {
+    return async (...args) => {
+        if(lock) {
+            return;
+        }
+
+        lock = {};
+        const result = await fn(...args);
+        lock = null;
+
+        return result;
+    };
+}
+
+const PortfolioApp = {
+    init: function(userId) {
         $(document).scroll(this._onDocumentScroll);
         $(window).on('wheel', this._onWindowWheel);
 
@@ -10,14 +25,88 @@ const PortfolioApp = {
         $('.arrow-up').click(() => $('.navbar__menu li[data-link="#home"]')[0].dispatchEvent(new Event('click')));        
         $('.navbar__toggle-btn').click(() => $('.navbar__menu').toggleClass('open'));
 
-        $('section.section').each((index, section) => this._itersectionObserver.observe(section));   
+        $('section.section').each((index, section) => this._itersectionObserver.observe(section));
+        
+        this._userId = userId;
     },
-    _activateSection: function(sectionId) {
+    _activateSection: async function(sectionId) {
         $('.navbar__menu li.active').removeClass('active');
         $(`.navbar__menu li[data-link='#${sectionId}']`).addClass('active');
 
         this._targetSectionIdClicked = null;
+
+        // ajax
+        switch(sectionId) {
+            case 'about': {
+                this._fetchExperiences();
+                this._fetchEducations();
+                this._fetchTrainings();
+                break;
+            }
+        }
     },
+    _fetchExperiences: nonconcurrencify(async () => {
+        $('#div-experiences-container .load-indicator').show().next().html('');
+
+        const response = await $.ajax({
+            url: `/api/${PortfolioApp._userId}/experiences`,
+            async: true,
+            type: 'get',
+            dataType: 'json',
+            data: '',
+        });
+
+        if(response.result != "success") {
+            console.error(response.message);
+            return;
+        }
+
+        $('#div-experiences-container .load-indicator').hide().next().html(PortfolioApp._EJSTemplates.listExperiences.render({
+            experiences: response.data
+        }));        
+    }),
+    _fetchEducations: nonconcurrencify(async () => {
+        $('#div-educations-container .load-indicator').show().next().html('');
+
+        const response = await $.ajax({
+            url: `/api/${PortfolioApp._userId}/educations`,
+            async: true,
+            type: 'get',
+            dataType: 'json',
+            data: '',
+        });
+
+        if(response.result != "success") {
+            console.error(response.message);
+            return;
+        }
+
+        $('#div-educations-container .load-indicator').hide().next().html(PortfolioApp._EJSTemplates.listEducations.render({
+            educations: response.data
+        }));        
+    }),
+    _fetchTrainings: nonconcurrencify(async () => {
+        $('#div-trainings-container .load-indicator').show().next().html('');
+
+        const response = await $.ajax({
+            url: `/api/${PortfolioApp._userId}/trainings`,
+            async: true,
+            type: 'get',
+            dataType: 'json',
+            data: '',
+        });
+
+        if(response.result != "success") {
+            console.error(response.message);
+            return;
+        }
+
+        console.log(response.data);
+
+        $('#div-trainings-container .load-indicator').hide().next().html(PortfolioApp._EJSTemplates.listTrainings.render({
+            trainings: response.data
+        }));        
+    }),
     _onDocumentScroll: function() {
         const $navbar = $('#navbar');
         const $homeContainer = $('.home__container');
@@ -41,14 +130,13 @@ const PortfolioApp = {
         const windowHeight = $window.height();
         const bodyHeight = $('body').height();
 
-        console.log(windowScrollTop, windowHeight, bodyHeight);
         if(windowScrollTop === 0) {
-            console.log('select home', 'is this need?');
+            // console.log('select home', 'is this need?');
             return;
         }
 
         if(windowScrollTop + windowHeight === bodyHeight) {
-            console.log('select contact', 'is this need?');
+            // console.log('select contact', 'is this need?');
         }
     },
     _onMenuItemClicked: function() {
@@ -79,6 +167,12 @@ const PortfolioApp = {
             $('.work__projects').removeClass('anim-out');
         }, 300);
     },
+    _EJSTemplates: {
+        listExperiences: new EJS({url: '/js/ejs/templates/list-experiences.ejs'}),
+        listEducations: new EJS({url: '/js/ejs/templates/list-educations.ejs'}),
+        listTrainings: new EJS({url: '/js/ejs/templates/list-trainings.ejs'})
+    },
+    _userId: null,
     _targetSectionIdClicked: null,
     _itersectionObserver: new IntersectionObserver((entries, observer) => entries.forEach((entry) => {
         if( !entry.isIntersecting ||

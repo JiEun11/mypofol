@@ -8,7 +8,7 @@ const modelProject = require("../models/project");
 
 module.exports = {
     index: (req, res, next) => {
-        res.send('Main Page');
+        res.status(200).render('main/index');
     },
     accountHome: async (req, res, next) => {
         try {
@@ -27,7 +27,7 @@ module.exports = {
             const projectCategories = await modelProject.findCategoryByUserId(profile.id);
             const projects = await modelProject.findByUserId(profile.id);
 
-            res.status(200).render('main/index', {
+            res.status(200).render('main/accountHome', {
                 profile,
                 experiences,
                 educations,

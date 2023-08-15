@@ -25,7 +25,7 @@
             swaggerDefinition: {
                 openapi: '3.0.0',
                 info: {
-                    title: 'My Portfolio APIs',
+                    title: 'MyPortfolio APIs',
                     version: '1.0.0',
                     description: '',
                     license: {
@@ -42,7 +42,7 @@
                     description: 'development server',
                 }]                
             },
-            apis: ['./routes/*.js']
+            apis: ['./routes/*.js', './routes/swagger-components/*']
         })));
     }
 

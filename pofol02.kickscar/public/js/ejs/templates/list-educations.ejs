@@ -1,0 +1,33 @@
+<%
+for(let i = 0; i < educations.length; i++) {
+%>
+<div class="job">
+    <img src="<%=educations[i].imageLogo %>" alt="<%=educations[i].title %>" class="job__logo">
+    <div class="job__description">
+        <p class="job__name">
+        <%=
+            {
+                "AA": '준문학사',
+                "AS": '준이학사',
+                "BA": '인문학사', 
+                "BS": '이학사',
+                "BFA": '미술학사',
+                "BL": '법학사',
+                "MA": '인문학석사',
+                "MS": '이학석사',
+                "MFA": '미술학 석사',
+                "MBA": '경영학 석사',
+                "PhD": '박사',
+                "JSD": '법학박사',
+                "MD": '의학박사',
+                "GRD": '졸업',
+                "EX" : '교환학생'
+            }[educations[i].degrees]
+        %>
+        </p>
+        <p class="job__period"><%=educations[i].fromDate %> - <%=educations[i].toDate %></p>
+    </div>
+</div>
+<%
+}
+%>
