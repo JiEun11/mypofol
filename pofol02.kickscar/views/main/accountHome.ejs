@@ -56,18 +56,18 @@ $(() => { PortfolioApp.init(<%=profile.id %>); });
     	<h1>About me</h1>
     	<p><%=profile.description %></p>
 		<!-- Experiences -->
-    	<div class="about__majors" id="div-experiences-container">
-			<div class="load-indicator" style='display:none'></div>
+    	<div class="about__majors container-experiences">
+			<div class="load-indicator"></div>
 			<div class="inner"></div>
     	</div>
 		<!-- Educations -->
-    	<div class="about__jobs" id="div-educations-container">
-			<div class="load-indicator" style='display:none'></div>
+    	<div class="about__jobs container-educations">
+			<div class="load-indicator"></div>
 			<div class="inner"></div>
     	</div>
 		<!-- Trainings -->
-    	<div class="about__training" id="div-trainings-container">
-			<div class="load-indicator" style='display:none'></div>
+    	<div class="about__training container-trainings">
+			<div class="load-indicator"></div>
 			<div class="inner"></div>
     	</div>
     </section>
@@ -77,32 +77,9 @@ $(() => { PortfolioApp.init(<%=profile.id %>); });
     	<div class="section__container">
         	<h1>Skills</h1>
         	<h3>Passion for learning new technologies.</h3>
-			<div class="skillset">
-				<% 
-					for(skillset in skills) {
-				%>
-					<div class="skillset__item">
-						<h3 class="skillset__title"><%=skillset%></h3>
-						<% 
-							for(let i = 0; i < skills[skillset].length; i++) {
-								const skill = skills[skillset][i];
-						%>
-							<div class="skill">
-								<div class="skill__description">
-									<span><%=skill.name %></span>
-									<span>Lvl. <%=skill.level %></span>
-								</div>
-								<div class="skill__bar">
-									<div class="skill__value" style="width: <%=skill.level * 100 / 5 %>%"></div>
-								</div>
-							</div>
-						<%
-							}
-						%>
-					</div>
-				<%
-					}
-				%>
+			<div class="container">
+				<div class="load-indicator"></div>
+				<div class="skillset inner"></div>
     		</div>
     	</div>
 	</section>
@@ -112,45 +89,9 @@ $(() => { PortfolioApp.init(<%=profile.id %>); });
     	<div class="section__container">
         	<h1>My Work</h1>
         	<h3>Projects</h3>
-        	<div class="work__categories">
-        		<button class="category__btn" data-filter="*">
-					All
-					<span class="category__count">
-					<%=
-					projectCategories.reduce(function(allProjectCount, category) {
-						allProjectCount += category.projectCount;
-						return allProjectCount;
-					}, 0)
-					%>
-					</span>
-				</button>        		
-				<%
-					for(let i = 0; i < projectCategories.length; i++) {
-				%>
-					<button class="category__btn" data-filter="<%=projectCategories[i].name %>">
-						<%=projectCategories[i].name %>
-						<span class="category__count">
-						<%=projectCategories[i].projectCount %>
-						</span>
-					</button>
-				<%
-					}
-				%>
-			</div>
-        	<div class="work__projects ">
-				<%
-					for(let i = 0; i < projects.length; i++) {
-				%>
-					<a href="#" class="project invisible" data-type="<%=projects[i].categoryName %>">
-						<img class="project__img" src="<%=projects[i].image_project %>" alt="<%=projects[i].name %>">
-						<div class="project__description">
-							<h3><%=projects[i].name %></h3>
-							<span><%=projects[i].description %></span>
-						</div>
-					</a>
-				<%
-					}
-				%>
+			<div class="container">
+				<div class="load-indicator"></div>
+				<div class="inner"></div>
 			</div>
 		</div>	
     </section>
@@ -192,33 +133,12 @@ $(() => { PortfolioApp.init(<%=profile.id %>); });
     <!-- Contact -->
     <section id="contact" class="section">
     	<h1 class="contact__title">Let's talk</h1>
-		<% if('email' in contacts) { %>
-    		<h2 class="contact__email"><%=contacts.email %></h2>
-    	<% } %>
-		<div class="contact__links">
-			<% if('github' in contacts) { %>
-				<a href="<%=contacts['github'] %>" target="_blank">
-					<i class="fa-brands fa-github"></i>
-				</a>
-			<% } %>
-			<% if('youtube' in contacts) { %>
-	        	<a href="<%=contacts['youtube'] %>" target="_blank">
-					<i class="fa-brands fa-youtube"></i>
-				</a>
-			<% } %>
-			<% if('instagram' in contacts) { %>
-	        	<a href="<%=contacts['instagram'] %>" target="_blank">
-					<i class="fa-brands fa-instagram"></i>
-				</a>
-			<% } %>
-			<% if('blog' in contacts) { %>
-	        	<a href="<%=contacts['blog'] %>" target="_blank">
-					<i class="fa-solid fa-blog"></i>
-				</a>
-			<% } %>
+		<div class="container-contact">
+			<div class="load-indicator"></div>
+			<div class="inner"></div>
 		</div>
     	<p class="contact__rights">
-        	2021 Bella's Dream Coding All rights reserved
+        	2023 Bella's Dream Coding All rights reserved
     	</p>
     </section>
 

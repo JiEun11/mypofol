@@ -20,7 +20,7 @@ const PortfolioApp = {
         $(window).on('wheel', this._onWindowWheel);
 
         $('.navbar__menu li').click(this._onMenuItemClicked);
-        $('.category__btn').click(this._onProjectCategoryBtnClicked);
+        $(document).on('click', '.category__btn', this._onProjectCategoryBtnClicked);
         $('.home__contact').click(() => $('.navbar__menu li[data-link="#contact"]')[0].dispatchEvent(new Event('click')));
         $('.arrow-up').click(() => $('.navbar__menu li[data-link="#home"]')[0].dispatchEvent(new Event('click')));        
         $('.navbar__toggle-btn').click(() => $('.navbar__menu').toggleClass('open'));
@@ -32,8 +32,9 @@ const PortfolioApp = {
     _activateSection: async function(sectionId) {
         $('.navbar__menu li.active').removeClass('active');
         $(`.navbar__menu li[data-link='#${sectionId}']`).addClass('active');
-
         this._targetSectionIdClicked = null;
+
+        console.log(sectionId);
 
         // ajax
         switch(sectionId) {
@@ -43,10 +44,90 @@ const PortfolioApp = {
                 this._fetchTrainings();
                 break;
             }
+            case 'work': {
+                this._fetchProjects();
+                break;
+            }
+            case 'contact': {
+                this._fetchContacts();
+                break;
+            }
+            case 'skills': {
+                this._fetchSkills();
+                break;
+            }
         }
     },
+    _fetchSkills: nonconcurrencify(async () => {
+        //$('#skills .load-indicator').show().next().html('');
+
+        const response = await $.ajax({
+            url: `/api/${PortfolioApp._userId}/skills`,
+            async: true,
+            type: 'get',
+            dataType: 'json',
+            data: '',
+        });
+
+        if(response.result != "success") {
+            console.error(response.message);
+            return;
+        }
+
+        // rendering
+        $('#skills .load-indicator').hide().next().html(PortfolioApp._EJSTemplates.listSkillset.render({
+            skills: response.data
+        }));
+    }),    
+    _fetchContacts: nonconcurrencify(async () => {
+        //$('#contact .load-indicator').show().next().html('');
+
+        const response = await $.ajax({
+            url: `/api/${PortfolioApp._userId}/contacts`,
+            async: true,
+            type: 'get',
+            dataType: 'json',
+            data: '',
+        });
+
+        if(response.result != "success") {
+            console.error(response.message);
+            return;
+        }
+
+        // rendering
+        $('#contact .load-indicator').hide().next().html(PortfolioApp._EJSTemplates.contacts.render({
+            contacts: response.data
+        }));
+    }),
+    _fetchProjects: nonconcurrencify(async () => {
+        //$('#work .load-indicator').show().next().html('');
+        //$('#work .work__projects').html('');
+
+        const response = await $.ajax({
+            url: `/api/${PortfolioApp._userId}/projects`,
+            async: true,
+            type: 'get',
+            dataType: 'json',
+            data: '',
+        });
+
+        if(response.result != "success") {
+            console.error(response.message);
+            return;
+        }
+
+        // rendering
+        $('#work .load-indicator').hide().next().html(PortfolioApp._EJSTemplates.projectCategories.render(response.data));
+        //$('#work .work__projects').html(PortfolioApp._EJSTemplates.listProjects.render({
+        //    projects: response.data.projects
+        //}));
+        
+        // click All button
+        PortfolioApp._onProjectCategoryBtnClicked.call($('.category__btn[data-filter="*"]')[0], new Event('click'));
+    }),
     _fetchExperiences: nonconcurrencify(async () => {
-        $('#div-experiences-container .load-indicator').show().next().html('');
+        //$('#about .container-experiences .load-indicator').show().next().html('');
 
         const response = await $.ajax({
             url: `/api/${PortfolioApp._userId}/experiences`,
@@ -61,12 +142,13 @@ const PortfolioApp = {
             return;
         }
 
-        $('#div-experiences-container .load-indicator').hide().next().html(PortfolioApp._EJSTemplates.listExperiences.render({
+        // rendering
+        $('#about .container-experiences .load-indicator').hide().next().html(PortfolioApp._EJSTemplates.listExperiences.render({
             experiences: response.data
         }));        
     }),
     _fetchEducations: nonconcurrencify(async () => {
-        $('#div-educations-container .load-indicator').show().next().html('');
+        //$('#about .container-educations .load-indicator').show().next().html('');
 
         const response = await $.ajax({
             url: `/api/${PortfolioApp._userId}/educations`,
@@ -81,12 +163,13 @@ const PortfolioApp = {
             return;
         }
 
-        $('#div-educations-container .load-indicator').hide().next().html(PortfolioApp._EJSTemplates.listEducations.render({
+        // rendering
+        $('#about .container-educations .load-indicator').hide().next().html(PortfolioApp._EJSTemplates.listEducations.render({
             educations: response.data
         }));        
     }),
     _fetchTrainings: nonconcurrencify(async () => {
-        $('#div-trainings-container .load-indicator').show().next().html('');
+        //$('#about .container-trainings .load-indicator').show().next().html('');
 
         const response = await $.ajax({
             url: `/api/${PortfolioApp._userId}/trainings`,
@@ -101,9 +184,8 @@ const PortfolioApp = {
             return;
         }
 
-        console.log(response.data);
-
-        $('#div-trainings-container .load-indicator').hide().next().html(PortfolioApp._EJSTemplates.listTrainings.render({
+        // rendering
+        $('#about .container-trainings .load-indicator').hide().next().html(PortfolioApp._EJSTemplates.listTrainings.render({
             trainings: response.data
         }));        
     }),
@@ -170,7 +252,11 @@ const PortfolioApp = {
     _EJSTemplates: {
         listExperiences: new EJS({url: '/js/ejs/templates/list-experiences.ejs'}),
         listEducations: new EJS({url: '/js/ejs/templates/list-educations.ejs'}),
-        listTrainings: new EJS({url: '/js/ejs/templates/list-trainings.ejs'})
+        listTrainings: new EJS({url: '/js/ejs/templates/list-trainings.ejs'}),
+        projectCategories: new EJS({url: '/js/ejs/templates/project-categories.ejs'}),
+        listProjects: new EJS({url: '/js/ejs/templates/list-projects.ejs'}),
+        contacts: new EJS({url: '/js/ejs/templates/contacts.ejs'}),
+        listSkillset: new EJS({url: '/js/ejs/templates/list-skillsets.ejs'})
     },
     _userId: null,
     _targetSectionIdClicked: null,
@@ -185,6 +271,6 @@ const PortfolioApp = {
     }), {
         root: null,
         rootMargin: '0px',
-        threshold: 0.3     
+        threshold: 0.3   
     })
 };

@@ -1,0 +1,40 @@
+<div class="work__categories">
+    <button class="category__btn" data-filter="*">
+        All
+        <span class="category__count">
+        <%=
+        projectCategories.reduce(function(allProjectCount, category) {
+            allProjectCount += category.projectCount;
+            return allProjectCount;
+        }, 0)
+        %>
+        </span>
+    </button>        		
+    <%
+        for(let i = 0; i < projectCategories.length; i++) {
+    %>
+        <button class="category__btn" data-filter="<%=projectCategories[i].name %>">
+            <%=projectCategories[i].name %>
+            <span class="category__count">
+            <%=projectCategories[i].projectCount %>
+            </span>
+        </button>
+    <%
+        }
+    %>
+</div>
+<div class="work__projects">
+    <%
+    for(let i = 0; i < projects.length; i++) {
+    %>
+    <a href="#" class="project" data-type="<%=projects[i].categoryName %>">
+        <img class="project__img" src="<%=projects[i].image_project %>" alt="<%=projects[i].name %>">
+        <div class="project__description">
+            <h3><%=projects[i].name %></h3>
+            <span><%=projects[i].description %></span>
+        </div>
+    </a>
+    <%
+    }
+    %>
+</div>

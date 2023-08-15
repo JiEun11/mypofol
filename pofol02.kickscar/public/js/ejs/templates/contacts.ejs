@@ -1,0 +1,25 @@
+<% if('email' in contacts) { %>
+    <h2 class="contact__email"><%=contacts.email %></h2>
+<% } %>
+<div class="contact__links">
+    <% if('github' in contacts) { %>
+        <a href="<%=contacts['github'] %>" target="_blank">
+            <i class="fa-brands fa-github"></i>
+        </a>
+    <% } %>
+    <% if('youtube' in contacts) { %>
+        <a href="<%=contacts['youtube'] %>" target="_blank">
+            <i class="fa-brands fa-youtube"></i>
+        </a>
+    <% } %>
+    <% if('instagram' in contacts) { %>
+        <a href="<%=contacts['instagram'] %>" target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+    <% } %>
+    <% if('blog' in contacts) { %>
+        <a href="<%=contacts['blog'] %>" target="_blank">
+            <i class="fa-solid fa-blog"></i>
+        </a>
+    <% } %>
+</div>

@@ -19,7 +19,7 @@ exports.ValidAccount = async (req, res, next) => {
 
 exports.Delay1Second = async (req, res, next) => {
     try {
-        await new Promise(resolve => setTimeout(resolve, 500));
+        await new Promise(resolve => setTimeout(resolve, 0));
         next();
     } catch(err){
         next(err);
