@@ -1,6 +1,6 @@
 const modelUser = require("../models/user");
 
-exports.ValidAccount = async (req, res, next) => {
+exports.ValidUserID = async (req, res, next) => {
     try {
         const user = await modelUser.findById(req.params.userid);
 

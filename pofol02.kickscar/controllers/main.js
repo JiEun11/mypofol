@@ -4,7 +4,7 @@ module.exports = {
     index: (req, res, next) => {
         res.status(200).render('main/index');
     },
-    accountLanding: async (req, res, next) => {
+    accountHome: async (req, res, next) => {
        try {
             const profile = await modelUser.findByAccount(req.params.account);
 
