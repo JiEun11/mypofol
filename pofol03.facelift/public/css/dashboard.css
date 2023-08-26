@@ -99,6 +99,13 @@
     color: rgb(82, 90, 99);
 }
 
+.profile-name h1 a:hover span,
+.profile-name h1 a:active span,
+.profile-name h1 a:focus span {
+    color: #FF6F61;
+    outline: none;
+    text-decoration: none;
+}
 
 
 /* sidebar */
