@@ -18,13 +18,13 @@
     gap: 12px;
 }
 
-.header .globalbar .inner-start {
+.header .inner-start {
     flex: 1 1 auto;
     display: flex;
     gap: 8px;
 }
 
-.header .globalbar .inner-start .app-logo {
+.header .inner-start .app-logo {
     display: inline-block;
     width: 32px;
     height: 32px;
@@ -40,7 +40,7 @@
     border-radius: 6px;
 }
 
-.header .globalbar .inner-start .header-context {
+.header .header-context {
     height: 32px;
     width: 100%;
     min-width: 0;
@@ -49,7 +49,7 @@
     flex: 1 1 auto;
 }
 
-.header .globalbar .inner-start .header-context ul {
+.header .header-context ul {
     display: flex;
     list-style: none !important;
     flex-direction: row;
@@ -58,21 +58,21 @@
     padding: 0; 
 }
 
-.header .globalbar .inner-start .header-context ul li {
+.header .header-context ul li {
     display: inline-grid;
     grid-auto-flow: column;
     align-items: center;
 }
 
-.header .globalbar .inner-start .header-context ul li:first-child {
+.header .header-context ul li:first-child {
     flex: 0 100 max-content;
 }
 
-.header .globalbar .inner-start .header-context ul li:last-child {
+.header .header-context ul li:last-child {
     flex: 0 1 max-content;
 }
 
-.header .globalbar .inner-start .header-context .context-item {
+.header .header-context .context-item {
     display: flex;
     align-items: center;
     min-width: 3ch;
@@ -113,7 +113,8 @@
     overflow: visible !important;
     vertical-align: text-bottom;
     fill: currentColor;
-    cursor: pointer
+    cursor: pointer;
+    pointer-events: auto;
 }
 
 .header .header-button.has-indicator::before {
@@ -131,7 +132,7 @@
 
 .header .header-user {
     position: relative;
-    background: var(--color-neutral-muted);
+    background: #010409;
     border-radius: 50%;
     width: 32px;
     height: 32px;
@@ -139,7 +140,7 @@
     background: transparent;
 }
 
-.header .header-user .profile-pic img {
+.header .header-user img {
     border-radius: 6px;
     box-shadow: 0 0 0 1px #010409;
     display: inline-block;
@@ -151,4 +152,7 @@
     background-color: #010409;
     border: 1px solid  #7d8590 !important;
     border-radius: 50% !important;
+    cursor: pointer;
+    pointer-events: auto;
+    touch-action: manipulation;
 }

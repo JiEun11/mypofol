@@ -5,14 +5,24 @@
 
 .skills {
     position: relative;
-    padding: 60px 30px;
     background: #ffffff;
-    border-bottom: 30px solid #F6D155;
+    border-radius: 6px;
+    border: 1px solid #F6D155;    
+    display: flex;
+    padding: 30px 30px;
+    min-height: 760px;
+}
+
+.skills .content-inner {
+    position: relative;
+    width:100%;
 }
 
 .skills .content-header {
     position: relative;
     width: 100%;
+    top: 0;
+    bottom: 0;
     margin-bottom: 30px;
     padding-bottom: 10px;
 }
@@ -36,17 +46,49 @@
     background: #FF6F61;
 }
 
-.skills .skillsets {
-    padding-top: 15px;
+.skills .skills-col {
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.skills .skills-col h3 {
+    display: grid;
+    grid-template-areas: "leadingAction leadingVisual";
+    grid-template-columns: min-content minmax(0, auto);
+    grid-template-rows: min-content;
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.skills .skills-col h3 i {
+    align-items: center;
+    justify-content: left;
+    display: flex;
+    color: #FF6F61;
+    font-size: 1.65rem;
+    min-width: 1.00rem;
+    min-height: 1.75rem;
+}
+
+.skills .skills-col h3 span {
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 2.70rem;
+    padding-top: 3px;
+}
+
+.skills .skillsets .skill-name:first-child {
+    margin-top: 0px;
 }
 
 .skills .skill-name {
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 .skills .skill-name p {
     display: inline-block;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     font-size: 16px;
     font-weight: 400;
 }
