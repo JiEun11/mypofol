@@ -72,13 +72,13 @@
                     <div class="sidebar-content">
                         <nav>
                             <ul>
-                                <li >
+                                <li class="nav-active">
                                     <a href="#">
                                         <span class="item-ico"><i class="fa fa-user"></i></span>
                                         <span class="item-label">공개프로필</span>
                                     </a>
                                 </li>
-                                <li class="nav-active">
+                                <li>
                                     <a href="#">
                                         <span class="item-ico"><i class="fa fa-list-ul"></i></span>
                                         <span class="item-label">경력관리</span>
@@ -116,8 +116,73 @@
                     <div class="subhead">
                         <h2>공개 프로필</h2>
                     </div>
-                    <div class="row align-items-center">
+                    <div class="clearfix gutter d-flex flex-shrink-0 flex-column-reverse flex-md-row">
+                        <div class="col-12 col-md-8">
 
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <dl>
+                                <dt><label class="d-block mb-2">Profile picture</label></dt>
+                                <dd class="avatar-upload-container clearfix position-relative">
+                              
+                                    <form data-turbo="false" class="edit_user" id="" novalidate="novalidate" action="/account/bella" accept-charset="UTF-8" method="post">
+                                        <input type="file" id="avatar_upload" class="manual-file-chooser width-full ml-0" hidden="">
+                                        <div class="avatar-upload">
+                                            <div class="upload-state color-fg-danger file-empty">
+                                                This file is empty.
+                                            </div>
+                              
+                                            <div class="upload-state color-fg-danger too-big">
+                                                Please upload a picture smaller than 1 MB.
+                                            </div>
+                              
+                                <div class="upload-state color-fg-danger bad-dimensions">
+                                  Please upload a picture smaller than 10,000x10,000.
+                                </div>
+                              
+                                <div class="upload-state color-fg-danger bad-file">
+                                  We only support PNG, GIF, or JPG pictures.
+                                </div>
+                              
+                                <div class="upload-state color-fg-danger failed-request">
+                                  Something went really wrong and we can’t process that picture.
+                                </div>
+                              
+                                <div class="upload-state color-fg-danger bad-format">
+                                  File contents don’t match the file extension.
+                                </div>
+                              </div>
+                              
+                              </form>
+                                    <div class="avatar-upload">
+                                      <details class="dropdown details-reset details-overlay">
+                                        <summary aria-haspopup="menu" role="button">
+                                          <img class="avatar rounded-2 avatar-user" src="/images/profile.png" width="200" height="200" alt="@bella">
+                                          <div class="position-absolute color-bg-default rounded-2 color-fg-default px-2 py-1 left-0 bottom-0 ml-2 mb-2 border">
+                                            <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-pencil">
+                                  <path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path>
+                              </svg>
+                                            Edit
+                                          </div>
+                                        </summary>
+                                        <details-menu class="dropdown-menu dropdown-menu-se" style="z-index: 99" role="menu">
+                                          <label for="avatar_upload" class="dropdown-item text-normal" style="cursor: pointer;" role="menuitem" tabindex="0">
+                                            Upload a photo…
+                                          </label>
+                                            <!-- '"` --><!-- </textarea></xmp> --><form data-turbo="false" action="/images/profile.png" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="delete" autocomplete="off"><input type="hidden" name="authenticity_token" value="IlCv2DOvJLVwY9-6015v4-pc3N8QZoAl63HqbuFd7u0wqYemUHvK9uOWarrZcuY_aqz7CxwAk5h-9n95mbcftA">                <button class="btn-link dropdown-item js-detect-gravatar" type="submit" name="op" value="reset" role="menuitem" data-disable-with="" data-confirm="Are you sure you want to reset your current avatar?" data-gravatar-text="Revert to Gravatar" data-url="/settings/gravatar_status">Revert to Gravatar</button>
+                              </form>          </details-menu>
+                                      </details>
+                              
+                                      <div class="upload-state loading position-absolute color-bg-subtle rounded-2" style="top: 0; right: 0; opacity: 0.25; width: 200px; height: 200px;">
+                                        <span class="position-absolute" style="top: 40px; left: 35px;"><svg style="box-sizing: content-box; color: var(--color-icon-primary);" width="64" height="64" viewBox="0 0 16 16" fill="none" data-view-component="true" class="anim-rotate">
+                                <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-opacity="0.25" stroke-width="2" vector-effect="non-scaling-stroke"></circle>
+                                <path d="M15 8a7.002 7.002 0 00-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>
+                              </svg></span>
+                                      </div>
+                                    </div>
+                                </dd>
+                              </dl>
+                        </div>
                     </div>
                 </div>
             </div>

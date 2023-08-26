@@ -13,9 +13,7 @@ a {
     transition: all .3s;
 }
 
-a:hover,
-a:active,
-a:focus {
+a:hover, a:active, a:focus {
     color: #FF6F61;
     outline: none;
     text-decoration: none;

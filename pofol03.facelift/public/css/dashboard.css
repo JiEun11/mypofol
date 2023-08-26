@@ -99,9 +99,7 @@
     color: rgb(82, 90, 99);
 }
 
-.profile-name h1 a:hover span,
-.profile-name h1 a:active span,
-.profile-name h1 a:focus span {
+.profile-name h1 a:hover span, .profile-name h1 a:active span, .profile-name h1 a:focus span {
     color: #FF6F61;
     outline: none;
     text-decoration: none;
@@ -200,9 +198,7 @@
     grid-column: 2/span 2;
     max-width: calc(48rem + 246px + 24px);
     min-width: 0;
-    
     padding: 20px;
-
     background: #fff;
     border: 1px solid #f7cc3e;   
     border-radius: 6px;
@@ -220,6 +216,6 @@
 
 .subhead h2 {
     flex: 1 1 auto;
-    font-size: 24px;
-    font-weight: 400;
+    font-size: 22px;
+    font-weight: 500;
 }
