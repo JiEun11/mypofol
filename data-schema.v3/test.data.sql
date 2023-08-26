@@ -86,12 +86,12 @@ insert into skill values(null, 'Web Server(WAS) / Tomcat, Apache, Nginx', '4', n
 select a.id, a.name, a.level, a.duration, b.name as skillSet from skill a, skillset b where a.skillset_id = b.id and b.user_id = 1;
 
 -- Projects
-desc project_group;
+desc project_category;
 
 insert into project_category values(null, 'Backend', now(), now());
 insert into project_category values(null, 'Frontend', now(), now());
 
-select * from project_group;
+select * from project_category;
 
 desc project;
 
