@@ -1,6 +1,17 @@
 # pofol02  by kickscar
 
 
+## outline
+#### 1. backend
+1. rdbms: mariadb, schema.v3
+2. express mvc/restful
+3. view engine: ejs
+4. model: mysql2, sql based
+5. api docs: swagger-ui-express/swagger-jsdoc
+#### 2. frontend
+1. jQuery(dom api + $.ajax)
+
+
 ## packages installed
 ```sh
 $ npm i express
@@ -32,14 +43,11 @@ $ npm i -D nodemon
 </pre>
 
 
-
 ## run application
-
 #### 1. development
 ```sh
 $ npm run dev
 ```
-
 #### 2. production
 ```sh
 $ npm start
