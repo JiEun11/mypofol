@@ -1,0 +1,112 @@
+/**
+ *  projects css
+ *  
+ */
+
+.projects {
+    position: relative;
+    background: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #F6D155;    
+    display: flex;
+    padding: 30px 30px;
+    min-height: 760px;
+}
+
+.projects .content-inner {
+    position: relative;
+    width:100%;
+}
+
+.projects .content-header {
+    position: relative;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+}
+
+.projects .content-header h2 {
+    color: #222222;
+    font-size: 35px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+.projects .content-header::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background: #FF6F61;
+}
+
+.projects .projects-col {
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.projects .projects-col h3 {
+    display: grid;
+    grid-template-areas: "leadingAction leadingVisual";
+    grid-template-columns: min-content minmax(0, auto);
+    grid-template-rows: min-content;
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.projects .projects-col h3 i {
+    align-items: center;
+    justify-content: left;
+    display: flex;
+    color: #FF6F61;
+    font-size: 1.65rem;
+    min-width: 1.00rem;
+    min-height: 1.75rem;
+}
+
+.projects .projects-col h3 span {
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 2.70rem;
+    padding-top: 3px;
+}
+
+.projects .projectsets .project-name:first-child {
+    margin-top: 0px;
+}
+
+.projects .project-name {
+    margin-top: 10px;
+}
+
+.projects .project-name p {
+    display: inline-block;
+    margin-bottom: 0px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.projects .project-name p:last-child {
+    float: right;
+}
+
+.projects .progress {
+    height: 5px;
+    border: 1px solid #FF6F61;
+    border-radius: 0;
+    background: #ffffff;
+}
+
+.projects .progress .progress-bar {
+    width: 1px;
+    background: #FF6F61;
+    border-radius: 0;
+    transition: 1s;
+}

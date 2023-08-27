@@ -1,0 +1,20 @@
+/**
+ *  app global css
+ *  
+ */
+body {
+    color: #666666;
+    background: #F6D155;
+    font-family: 'AppleSDGothicNeo', 'Noto Sans KR', sans-serif;
+}
+
+a {
+    color: #222222;
+    transition: all .3s;
+}
+
+a:hover, a:active, a:focus {
+    color: #FF6F61;
+    outline: none;
+    text-decoration: none;
+}

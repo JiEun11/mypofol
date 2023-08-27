@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>MyPofol</title>
+<meta charset="UTF-8" />
+<link href="/css/mypofol.css" rel="stylesheet">
+</head>
+<body class="overlay">
+<header>
+  <div class="globalbar">
+	  <div class="inner-start">
+		  <a href="/" class="app-logo">MyPofol</a>
+		</div>
+		<div class="inner-end">
+		  <div class="header-context">
+			  <ul>
+				  <li><a href="/signin" class="context-item">로그인</a></li>            
+					<li><a href="/signup" class="context-item">회원가입</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</header>
+<div class="wrapper">
+  <div class="form position-relative">
+    <div class="form-header p-0">
+      <h1>Join MyPofol</h1>
+    </div>	  
+    <div class="form-body mt-3">
+      <form action="/join" accept-charset="UTF-8" method="post">
+        <label class="form-label" for="email_field">Email</label>
+        <input type="text" name="email" id="email_field" class="form-control input-block" autocapitalize="none" autocorrect="off" autocomplete="username" autofocus="autofocus">      
+          <label class="form-label" for="password">Password</label>
+          <input type="password" name="password" id="password" class="form-control input-block" autocomplete="current-password">            
+          <label class="form-label" for="username">Username</label>
+          <input type="password" name="name" id="username" class="form-control input-block" autocomplete="current-password">            
+          <input type="submit" name="commit" value="Sign up" class="form-btn input-block">
+      </form>
+    </div>
+    <p class="login-callout">
+      MyPofol에 이미 가입했습니다. <a href="/signin">로그인</a>
+    </p>  
+  </div>
+</div>
+</body>
+</html>

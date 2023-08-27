@@ -1,0 +1,152 @@
+/**
+ *  sidebar css
+ *  
+ */
+
+.sidebar {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    margin: 20px -250px 0 0;
+    float: left;
+    overflow: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: gray;
+    z-index: 2 !important;
+    background: #F6D155;
+    padding: 0 10px;
+}
+
+.sidebar .sidebar-header {
+    position: relative;
+    background-color: #F6D155;
+    width: 100%;
+}
+
+.sidebar-header .profile-pic {
+    display: inline-block;
+    width: 100%;
+}
+
+.profile-pic img {
+    border-radius: 6px;
+    box-shadow: 0 0 0 1px #F6D155;
+    display: block;
+    flex-shrink: 0;
+    line-height: 1;
+    overflow: hidden;
+    width: 80%;
+    height: auto;
+    margin: 20px auto;
+    background-color: #F6D155;
+    border: 1px solid  #222222 !important;
+    border-radius: 50% !important;
+}
+
+.sidebar-header .vcard-names {
+    padding: 16px 0;
+    margin: 0;
+    line-height: 1;
+    font-size: 32px;
+    font-weight: 600;
+    color: #222;
+}
+
+.sidebar-header .vcard-names .name {
+    font-size: 24px;
+    line-height: 1.25;
+    word-wrap: break-word;
+    display: block !important;
+    overflow: hidden !important;
+}
+
+.sidebar-header .vcard-names .title {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 350;
+    line-height: 24px;
+    color: #444;
+}
+
+.sidebar-content .navbar {
+    padding: 15px 0;
+    background:#F6D155 !important;
+    flex-direction: column;
+}
+
+.sidebar-content .navbar ul {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-content .navbar li {
+    background: #F6D155;
+    border-radius: 6px;
+    position: relative;
+}
+
+.sidebar-content .navbar li.nav-active,
+.sidebar-content .navbar li.nav-active:hover {
+    outline: 2px solid #0000;
+    background-color: #FF7F50;
+}
+
+.sidebar-content .navbar li:hover {
+    outline: 2px solid #0000;
+    background-color: #FF7F5066;
+}
+
+.sidebar-content .navbar li.nav-active:after {
+    background: #003bae;
+    border-radius: 6px;
+    content: "";
+    height: 1.5rem;
+    left: calc(0.5rem*-1);
+    position: absolute;
+    top: calc(50% - 12px);
+    width: 0.25rem;
+}
+
+.sidebar-content .navbar a {
+    -webkit-tap-highlight-color: transparent;
+    align-items: start;
+    background-color: initial;
+    border: none;
+    border-radius: 6px;
+    color: #F6D155;
+    display: grid;
+    grid-template-areas: "leadingAction leadingVisual label trailingVisual trailingAction";
+    grid-template-columns: min-content min-content minmax(0, auto) min-content min-content;
+    grid-template-rows: min-content;
+    padding-block: calc((2rem - 1.25rem) / 2);
+    padding-inline: 0.5rem;
+    position: relative;
+    text-align: left;
+    width: 100%;
+}
+
+.sidebar-content .navbar a .item-ico {
+    margin-right: 0.5rem;
+    fill: #222;
+    align-items: center;
+    justify-content: center;
+    color: #222;
+    display: flex; 
+    font-size: 1.25rem;
+    min-width: 1.45rem;
+    min-height: 1.65rem;
+}
+
+.sidebar-content .navbar a .item-label {
+    font-weight: 600;
+    color: #222;
+    font-size: 1.00rem;
+    grid-area: label;
+    padding-top: 0.18rem;
+    position: relative;
+}
+
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}

@@ -1,0 +1,122 @@
+/**
+ *  trainings css
+ *  
+ */
+
+.trainings {
+    position: relative;
+    background: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #F6D155;    
+    display: flex;
+    padding: 30px 30px;
+    min-height: 760px;
+}
+
+.trainings .content-inner {
+    position: relative;
+    width:100%;
+}
+
+.trainings .content-header {
+    position: relative;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+}
+
+.trainings .content-header h2 {
+    color: #222222;
+    font-size: 35px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+.trainings .content-header::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background: #FF6F61;
+}
+
+.trainings .training-col {
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.trainings .training-col ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.trainings .training-col li {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    grid-template-areas: "leadingAction leadingVisual leadingVisual";
+    grid-template-columns: 160px 85px auto;
+    grid-template-rows: min-content;
+    text-align: left;   
+}
+
+.trainings .training-col li span {
+    padding: 5px 0 5px 20px;
+}
+
+.trainings .training-col li:nth-child(1) span {
+    padding-top: 0;
+}
+
+.trainings .training-col li span:nth-child(1) {
+    padding-left: 0;
+}
+
+.trainings .training-col h3 {
+    display: grid;
+    grid-template-areas: "leadingAction leadingVisual";
+    grid-template-columns: min-content minmax(0, auto);
+    grid-template-rows: min-content;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.trainings .training-col h3 i {
+    align-items: center;
+    justify-content: left;
+    display: flex;    
+    font-size: 30px;
+    color: #FF6F61;
+}
+
+.trainings .training-col h3 span {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 40px;
+    padding-left: 10px;
+}
+
+.trainings .training-col h4 {
+    font-size: 14px;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.trainings .training-col h5 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.trainings .training-col p {
+    margin: 0;
+}
