@@ -17,6 +17,7 @@ router.get('/signin', controllerMain.signin);
 router.get('/signup', controllerMain.signup);
 
 router.get('/dashboard', controllerAccount.dashboard);
+
 router.get('/:account', interceptorOnlyBella, controllerAccount.profile);
 router.get('/:account/profile', interceptorOnlyBella, controllerAccount.profile);
 router.get('/:account/experiences', interceptorOnlyBella, controllerAccount.experiences);
