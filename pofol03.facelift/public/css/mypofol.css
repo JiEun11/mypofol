@@ -309,3 +309,13 @@ body.error {
     outline: none;
     text-decoration: none;
 }
+
+.content-error pre {
+    text-align: left; 
+    width: fit-content; 
+    padding: 20px; 
+    margin: 0 auto; 
+    background-color: #222; 
+    color: #fff; 
+    border: 1px solid rgb(19, 19, 19)    
+}
