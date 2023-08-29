@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Condensed:400,600');
+
+* {
+  outline: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+a,
+a:visited,
+a:focus,
+a:active,
+a:link {
+  text-decoration: none;
+  outline: 0;
+}
+
+a {
+  color: currentColor;
+  transition: .2s ease-in-out;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  vertical-align: middle;
+  height: auto;
+  width: 100%;
+}    
+
+strong {
+  font-weight: 600;
+}
+
+.page {
+  width: 100%;
+  height: 100vh;
+  background: #fdfdfd;
+  font-family: 'Encode Sans Condensed', sans-serif;
+  font-weight: 600;
+  letter-spacing: .03em;
+  color: #212121;
+}
+
+header {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  background: #212121;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+main {
+  padding: 70px 20px 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+
+
+
+
+
+
+
+#nav-container {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  pointer-events: none;
+}
+
+
+.overlay-side-pannel {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 0px);
+  transition: .3s;
+  background: #000;
+  pointer-events: auto;
+}
+
+.side-pannel {
+  position: fixed;
+  width: 200px;
+  max-width: 200px;
+  top: 0;
+  right: 0;
+  height: calc(100% - 0px);
+  margin-top: 0;
+  transition: transform .3s ease-in-out;
+  will-change: transform;
+  contain: paint;
+  padding: 20px;
+  background: #ececec;
+}
+
+#side-pannel-open, #side-pannel-close {
+  visibility: hidden;
+  display: none;
+  width: 0%;
+  height: 0%;
+  pointer-events: none;
+}
+
+#side-pannel-open:checked ~ .overlay-side-pannel {
+  visibility: visible;
+  opacity: .6;
+}
+
+#side-pannel-close:checked ~ .overlay-side-pannel {
+  visibility: hidden;
+  opacity: 0;
+}
+
+#side-pannel-open:checked ~ .side-pannel {
+  transform: none;
+}
+
+#side-pannel-close:checked ~ .side-pannel {
+  transform: translateX(100%);
+}
+
+
+
+
+
+
+.button {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-appearance: none;
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  height: 70px;
+  width: 30px;
+  cursor: pointer;
+  pointer-events: auto;
+  margin-left: 25px;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.icon-bar {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: #aaa;
+  transition: .3s;
+}
+.icon-bar + .icon-bar {
+  margin-top: 5px;
+}
+
+/*
+#nav-container:focus-within .button {
+  pointer-events: none;
+}
+#nav-container:focus-within .icon-bar:nth-of-type(1) {
+  transform: translate3d(0,8px,0) rotate(45deg);
+}
+#nav-container:focus-within .icon-bar:nth-of-type(2) {
+  opacity: 0;
+}
+#nav-container:focus-within .icon-bar:nth-of-type(3) {
+  transform: translate3d(0,-8px,0) rotate(-45deg);
+}
+*/
+
+
+</style>
+</head>
+<body>
+    <div class="page">
+        <header tabindex="0">Header</header>
+        <div id="nav-container">
+
+
+          
+
+
+          <input type="radio" name="side-pannel-toggle" id="side-pannel-open">
+          <label class="button" for="side-pannel-open">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </label>
+
+          <input type="radio" name="side-pannel-toggle" id="side-pannel-close" checked="checked">
+          <label class="overlay-side-pannel" for="side-pannel-close"></label>
+
+          <div class="side-pannel">
+            <ul>
+              <li><a href="#0">Home</a></li>
+              <li><a href="#0">Services</a></li>
+              <li><a href="#0">Blog</a></li>
+              <li><a href="#0">About</a></li>
+              <li><a href="#0">Contact</a></li>
+              <li class="small"><a href="#0">Facebook</a><a href="#0">Instagram</a></li>
+            </ul>
+          </div>
+        
+
+
+
+        </div>
+        <main>
+          <div class="content">
+            <h2>Off-screen navigation using <span>:focus-within</span></h2>
+            <p>Adding yet another pure CSS technique to the list of off-screen navigation by "hacking" the :focus-within pseudo-class. Have a look at the code to see how it works.</p>
+            <small><strong>NB!</strong> Use a browser that supports :focus-within</small>
+          </div>
+        </main>
+      </div>    
+</body>
+</html>

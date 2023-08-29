@@ -1,0 +1,53 @@
+#side-pannel-open, #side-pannel-close {
+    visibility: hidden;
+    display: none;
+    width: 0%;
+    height: 0%;
+    pointer-events: none;
+}
+  
+.overlay-side-pannel {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 0px);
+    transition: .3s;
+    background: #000;
+    pointer-events: auto;
+    z-index:9; 
+}
+  
+.side-pannel {
+    position: fixed;
+    width: 200px;
+    max-width: 200px;
+    top: 0;
+    right: 0;
+    height: calc(100% - 0px);
+    margin-top: 0;
+    transition: transform .3s ease-in-out;
+    will-change: transform;
+    contain: paint;
+    padding: 20px;
+    background: #ececec;
+      z-index:10;
+}
+  
+#side-pannel-open:checked ~ .overlay-side-pannel {
+    visibility: visible;
+    opacity: .6;
+}
+  
+#side-pannel-close:checked ~ .overlay-side-pannel {
+    visibility: hidden;
+    opacity: 0;
+}
+  
+#side-pannel-open:checked ~ .side-pannel {
+    transform: none;
+}
+  
+#side-pannel-close:checked ~ .side-pannel {
+    transform: translateX(100%);
+}
