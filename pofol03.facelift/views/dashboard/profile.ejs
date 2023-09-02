@@ -7,116 +7,31 @@
 <link href="/images/favicon.ico" rel="icon">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:300;400;600;700;800&display=swap" rel="stylesheet">
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-<link href="/css/app.css" rel="stylesheet">
-<link href="/css/layout.css" rel="stylesheet">
-<link href="/css/header.css" rel="stylesheet">
-<link href="/css/footer.css" rel="stylesheet">
 
-<link href="/css/dashboard.css" rel="stylesheet">
+<link href="/css/common/app.css" rel="stylesheet">
+<link href="/css/common/header.css" rel="stylesheet">
+<link href="/css/common/sidepannel.css" rel="stylesheet">
+<link href="/css/dashboard/layout.css" rel="stylesheet">
+<link href="/css/dashboard/header.css" rel="stylesheet">
+<link href="/css/dashboard/sidebar.css" rel="stylesheet">
+<link href="/css/dashboard/footer.css" rel="stylesheet">
+<link href="/css/dashboard/profile.css" rel="stylesheet">
+
 <script src="https://kit.fontawesome.com/031a3163b7.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="header">
-        <div class="globalbar">
-            <div class="inner-start">
-                <a href="/" class="app-logo">MyPofol</a>
-                <div class="header-context">
-                    <ul>
-                        <li>
-                            <a href="/" class="context-item">dashboard</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="inner-end">
-                <a class="header-button has-indicator">
-                    <svg viewBox="0 0 16 16" class="inbox">
-                        <path d="M2.8 2.06A1.75 1.75 0 0 1 4.41 1h7.18c.7 0 1.333.417 1.61 1.06l2.74 6.395c.04.093.06.194.06.295v4.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25v-4.5c0-.101.02-.202.06-.295Zm1.61.44a.25.25 0 0 0-.23.152L1.887 8H4.75a.75.75 0 0 1 .6.3L6.625 10h2.75l1.275-1.7a.75.75 0 0 1 .6-.3h2.863L11.82 2.652a.25.25 0 0 0-.23-.152Zm10.09 7h-2.875l-1.275 1.7a.75.75 0 0 1-.6.3h-3.5a.75.75 0 0 1-.6-.3L4.375 9.5H1.5v3.75c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25Z"></path>
-                    </svg>
-                </a>
-                <div class="header-user">
-                    <a href="#" >
-                        <img src="/images/profile.png">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
+    <%-include('../includes/common/header') %>
+    <%-include('../includes/common/sidepannel') %>
     <div class="wrapper">
         <div class="content dashboard">
-            <div class="content-header">
-                <div class="content-header-inner">
-                    <div class="profile-pic">
-                        <a href="#">
-                            <img src="/images/profile.png">
-                        </a>
-                    </div>
-                    <div class="profile-name">
-                        <h1>
-                            <a href="/bella" class="color-fg-default">
-                                김지은
-                                <span>(bella)</span>
-                            </a>
-                        </h1>
-                        <div class="d-flex flex-items-center flex-wrap" style="color: var(--fgColor-accent, var(--color-accent-fg))">
-                            <p class="color-fg-muted mb-0 mr-1">
-                                Your personal account
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <a href="/bella" class="btn">Go to my portfoio</a>
-            </div>
+            <%-include('../includes/dashboard/header') %>
             <div class="content-body">
-                <div class="sidebar">
-                    <div class="sidebar-content">
-                        <nav>
-                            <ul>
-                                <li class="nav-active">
-                                    <a href="/dashboard/profile">
-                                        <span class="item-ico"><i class="fa fa-user"></i></span>
-                                        <span class="item-label">공개프로필</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/dashboard/experiences">
-                                        <span class="item-ico"><i class="fa fa-list-ul"></i></span>
-                                        <span class="item-label">경력관리</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/dashboard/educations">
-                                        <span class="item-ico"><i class="fa fa-graduation-cap"></i></span>
-                                        <span class="item-label">학력관리</span>                                    
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/dashboard/trainings">
-                                        <span class="item-ico"><i class="fa fa-award"></i></span>
-                                        <span class="item-label">교육/자격증 관리</span>                                   
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/dashboard/skills">
-                                        <span class="item-ico"><i class="fa fa-code"></i></span>
-                                        <span class="item-label">주요기술</span>                                   
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/dashboard/projects">
-                                        <span class="item-ico"><i class="fa fa-diagram-project"></i></span>
-                                        <span class="item-label">프로젝트</span>                                   
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
+                <%-include('../includes/dashboard/sidebar') %>
                 <div class="main">
                     <div class="subhead">
                         <h2>공개 프로필</h2>
                     </div>
-                    <div class="d-flex flex-shrink-0 flex-column-reverse flex-md-row subbody">
+                    <div class="subbody d-flex flex-shrink-0 flex-column-reverse flex-md-row">
                         <div class="col-12 col-md-8">
                             <form action="/bella/profile" accept-charset="UTF-8" method="post">
                                 <div>
@@ -264,18 +179,7 @@
                     </div>
                 </div>
             </div>
-            <div class="footer">
-                <div class="content-inner">
-                    <div class="row align-items-center">
-                        <div class="col-md-6">
-                            <p>&copy; Copyright 2023 <a href="https://github.com/JiEun11">Bella Jin</a>. All Rights Reserved</p>
-                        </div>
-                        <div class="col-md-6">
-                            <p>Powered by <a href="https://github.com/JiEun11">Bella Jin</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>            
+            <%-include('../includes/common/footer') %>         
         </div>        
     </div>
 </body>

@@ -14,6 +14,7 @@
 
 .header .globalbar {
     display: flex;
+    height: 64px;
     padding: 16px;
     gap: 12px;
 }

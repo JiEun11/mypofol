@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<meta charset="utf-8">
 <title>MyPofol</title>
-<meta charset="UTF-8" />
-<link href="/css/mypofol.css" rel="stylesheet">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="/images/favicon.ico" rel="icon">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="/css/common/app.css" rel="stylesheet">
+<link href="/css/main/mypofol.css" rel="stylesheet">
 </head>
-<body class="overlay">
+<body class="full-wide overlay">
 <header>
   <div class="globalbar">
 	  <div class="inner-start">
@@ -23,10 +29,10 @@
 </header>
 <div class="wrapper">
   <div class="form position-relative">
-    <div class="form-header p-0">
+    <div class="form-header">
       <h1>Sign in to MyPofol</h1>
     </div>	  
-    <div class="form-body mt-3">
+    <div class="form-body">
       <form action="/session" accept-charset="UTF-8" method="post">
         <label class="form-label" for="login_field">Email</label>
         <input type="text" name="login" id="login_field" class="form-control input-block" autocapitalize="none" autocorrect="off" autocomplete="username" autofocus="autofocus">      
