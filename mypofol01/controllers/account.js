@@ -18,7 +18,7 @@ module.exports = {
     skills: async (req, res, next) => {
       try {
         const profile = await modelUser.findByAccount(req.params.account);
-
+        console.log("profile >>> " , profile);
         if(!profile){
           res.status(404).render('error/404');
           return;
@@ -27,8 +27,6 @@ module.exports = {
         res.status(200).render('account/skills', {
           profile,
           skills: skills.reduce((result, skill) => {
-            console.log("result ", result);
-            console.log("skill ", skill);
             (skill.skillSet in result) || (result[skill.skillSet] = [])
             result[skill.skillSet].push(skill);
             return result;
@@ -42,7 +40,7 @@ module.exports = {
     projects: async (req, res, next) => {
       try{
         const profile = await modelUser.findByAccount(req.params.account);
-
+        console.log("profile >>> " , profile);
         if(!profile){
           res.status(404).render('error/404');
           return;

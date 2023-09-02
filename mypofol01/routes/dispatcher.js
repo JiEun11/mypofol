@@ -27,5 +27,6 @@ router.get('/:account/experiences', interceptorOnlyBella, controllerAccount.expe
 router.get('/:account/educations', interceptorOnlyBella, controllerAccount.educations);
 router.get('/:account/trainings', interceptorOnlyBella, controllerAccount.trainings);
 router.get('/:account/skills', interceptorOnlyBella, controllerAccount.skills);
+router.get('/:account/projects', interceptorOnlyBella, controllerAccount.projects);
 
 exports.dispatcher = router;
