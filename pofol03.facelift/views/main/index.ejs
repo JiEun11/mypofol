@@ -9,24 +9,11 @@
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 
 <link href="/css/common/app.css" rel="stylesheet">
-<link href="/css/main/mypofol.css" rel="stylesheet">
+<link href="/css/common/header.css" rel="stylesheet">
+<link href="/css/main/layout.css" rel="stylesheet">
 </head>
 <body class="full-wide">
-	<header>
-		<div class="globalbar">
-			<div class="inner-start">
-				<a href="/" class="app-logo">MyPofol</a>
-			</div>
-			<div class="inner-end">
-				<div class="header-context">
-					<ul>
-						<li><a href="/signin" class="context-item">로그인</a></li>            
-						  <li><a href="/signup" class="context-item">회원가입</a></li>
-					  </ul>
-				</div>
-			</div>
-		</div>
-	</header>
+	<%-include('../includes/common/header-no-auth') %>
 	<div class="wrapper">
 	</div>
 </body>

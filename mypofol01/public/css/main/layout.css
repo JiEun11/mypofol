@@ -1,0 +1,11 @@
+.wrapper {
+    position: relative;
+    top: 64px;
+    margin: 0;
+    width: 100%;
+    height: calc(100vh - 64px);
+}
+
+.overlay .wrapper {
+    background-color: #11111155;
+}

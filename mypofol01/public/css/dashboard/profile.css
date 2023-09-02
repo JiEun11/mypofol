@@ -1,0 +1,222 @@
+/**
+ *  dashboard/profile css
+ *  
+ */
+
+.subbody>[class*=col-] {
+    padding-right: 16px !important;
+    padding-left: 16px !important;
+}
+
+.subbody .col-12:nth-child(2) dl {
+    margin: 15px 0;
+}
+
+.subbody .col-12:nth-child(2) dd {
+    margin-bottom: 0;
+}
+
+.subbody .col-12:nth-child(2) label {
+    display: block !important;
+    margin-bottom: 8px !important;
+    font-weight: 600;
+}
+
+
+/* form */
+.subbody .form-group {
+    margin: 15px 0;
+}
+
+.subbody form hr {
+    height: 0;
+    margin: 15px 0;
+    overflow: hidden;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #ced4da;
+    box-sizing: content-box;
+}
+
+.form-group .d-flex {
+    display: flex !important;
+}
+
+.form-group .ml-2 {
+    margin-left: 8px !important;
+}
+
+.form-group .mt-2 {
+    margin-top: 8px !important;
+}
+
+.form-group .flex-items-center {
+    align-items: center !important;
+}
+
+.form-group .input-sm {
+    min-height: 28px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-size: 12px;
+    line-height: 20px;    
+}
+
+.form-group .flex-auto {
+    flex: auto !important;
+}
+
+.form-group dt {
+    margin: 0 0 6px;
+}
+
+.form-group label {
+    position: static;
+    font-weight: 600;
+    margin: 0;
+}
+
+.form-group dd {
+    margin: 0;
+}
+
+.form-group .form-control {
+    width: 440px;
+    max-width: 100%;
+    margin-right: 5px;
+    background-color: rgb(243, 246, 249);
+}
+
+.form-group .form-select {
+    padding: 5px 12px;
+    font-size: 1rem;
+    line-height: 20px;
+    color: var(--fgColor-default, var(--color-fg-default));
+    vertical-align: middle;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+    transition-property: color,background-color,box-shadow,border-color;    
+    display: inline-block;
+    max-width: 100%;
+    height: 32px;
+    padding-right: 24px;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0iIzU4NjA2OSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNC40MjcgOS40MjdsMy4zOTYgMy4zOTZhLjI1MS4yNTEgMCAwMC4zNTQgMGwzLjM5Ni0zLjM5NkEuMjUuMjUgMCAwMDExLjM5NiA5SDQuNjA0YS4yNS4yNSAwIDAwLS4xNzcuNDI3ek00LjQyMyA2LjQ3TDcuODIgMy4wNzJhLjI1LjI1IDAgMDEuMzU0IDBMMTEuNTcgNi40N2EuMjUuMjUgMCAwMS0uMTc3LjQyN0g0LjZhLjI1LjI1IDAgMDEtLjE3Ny0uNDI3eiIgLz48L3N2Zz4=);
+    background-repeat: no-repeat;
+    background-position: right 4px center;  
+    background-size: 16px;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.form-group .form-control:focus, .form-group .form-select:focus {
+    background-color: #fff;
+    box-shadow: none;
+    outline: none !important;
+    box-shadow: none;
+    border-color: #f85243;    
+}
+
+.form-group .note {
+    min-height: 17px;
+    margin: 4px 0 2px;
+    font-size: 12px;
+}
+
+.user-profile-bio-field-container {
+    position: relative;
+}
+
+.form-group .form-control.user-profile-bio-field {
+    width: 440px;
+    height: 5.35em;
+    min-height: 0;
+}
+
+.form-group button[type='submit'], .form-group input[type='submit'] {
+    margin-top:20px;
+}
+
+.form-group .button-content {
+    align-items: center;
+    display: grid;
+    flex: 1 0 auto;
+    grid-template-areas: "leadingVisual text trailingVisual";
+    grid-template-columns: min-content minmax(0, auto) min-content;
+    place-content: center;
+}
+
+.form-group .button-content .button-label {
+    grid-area: text;
+    line-height: 1.6rem;
+    white-space: nowrap;
+}
+
+/* profile picture upload */
+.profile-upload-container .upload-error {
+    padding: 8px 0;
+    color: rgb(196, 13, 36);
+}
+
+.profile-pic-upload img {
+    background-color: #fff;
+    border-radius: 0.375rem;
+    box-shadow: 0 0 0 1px #FF6F61;
+    display: inline-block;
+    flex-shrink: 0;
+    line-height: 1;
+    overflow: hidden;
+    vertical-align: middle;
+    border-radius: 50% !important;
+}
+
+.profile-pic-upload .btn {
+    border: 1px solid #FF6F61;
+    padding-right: 8px !important;
+    padding-left: 8px !important;
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+    margin-left: 8px !important;
+    margin-bottom: 8px !important;
+    left: 0;
+    bottom: 0;
+}
+
+.profile-pic-upload .btn svg {
+    display: inline-block;
+    overflow: visible !important;
+    vertical-align: text-bottom;
+    fill: currentColor; 
+}
+
+.profile-pic-upload .upload-state {
+    padding: 8px 0;
+    position: absolute !important;
+    border-radius: 6px;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    opacity: 0.55;
+    width: 200px; 
+    height: 200px;
+}
+
+.profile-pic-upload .upload-state span {
+    color: #FF6F61; 
+    top: 70px;
+    left: 70px;
+}
+
+.profile-pic-upload .upload-state span svg {
+    animation: rotate-keyframes 1s linear infinite;
+}
+
+@keyframes rotate-keyframes {
+    100% {
+        transform: rotate(360deg);
+    }    
+}
+
+.profile-upload-container input[type='file'], .profile-upload-container .upload-error, .profile-pic-upload .upload-state {
+    display: none;
+}

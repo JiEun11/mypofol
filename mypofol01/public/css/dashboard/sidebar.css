@@ -1,0 +1,86 @@
+/* dashboard sidebar */
+.content-body .sidebar {
+    grid-column: 1;
+    width: 246px;
+}
+
+.sidebar .sidebar-content {
+    margin-top: 20px;
+    padding-right: 24px;        
+}
+
+.sidebar-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.sidebar-content li {
+    outline: 2px solid #0000;
+    border-radius: 0.375rem;
+    list-style: none;
+    position: relative;
+}
+
+.sidebar-content li:hover {
+    outline: 2px solid #0000;
+    background-color: #FF7F5066;
+}
+
+.sidebar-content li.nav-active, 
+.sidebar-content li.nav-active:hover {
+    outline: 2px solid #0000;
+    background-color: #FF7F50;
+}
+
+.sidebar-content li.nav-active:after {
+    background: #003bae;
+    border-radius: 6px;
+    content: "";
+    height: 24px;
+    left: -10px;
+    position: absolute;
+    top: calc(50% - 12px);
+    width: 0.25rem;
+}
+
+.sidebar-content li a {
+    -webkit-tap-highlight-color: transparent;
+    align-items: start;
+    background-color: initial;
+    border: none;
+    border-radius: 6px;
+    color: #F6D155;
+    display: grid;
+    grid-template-areas: "leadingAction leadingVisual label trailingVisual trailingAction";
+    grid-template-columns: min-content min-content minmax(0, auto) min-content min-content;
+    grid-template-rows: min-content;
+    padding: 2px;
+    position: relative;
+    text-align: left;
+    width: 100%;    
+}
+
+.sidebar-content li a .item-ico {
+    margin-right: 8px;
+    fill: #222;
+    align-items: center;
+    justify-content: center;
+    color: #222;
+    display: flex; 
+    font-size: 15px;
+    min-width: 24px;
+    min-height: 28px;
+}
+
+.sidebar-content li a .item-label {
+    font-weight: 600;
+    color: #222;
+    font-size: 14px;
+    line-height: 28px;
+    grid-area: label;
+    padding-top:2px;
+    position: relative;
+}
+

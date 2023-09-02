@@ -1,7 +1,4 @@
 module.exports = {
-    dashboard: (req, res, next) => {
-        res.status(200).render('account/dashboard');
-    },
     profile: (req, res, next) => {
         res.status(200).render('account/profile');
     },

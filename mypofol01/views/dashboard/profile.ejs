@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>MyPofol</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="/images/favicon.ico" rel="icon">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="/css/common/app.css" rel="stylesheet">
+<link href="/css/common/header.css" rel="stylesheet">
+<link href="/css/common/sidepannel.css" rel="stylesheet">
+<link href="/css/dashboard/layout.css" rel="stylesheet">
+<link href="/css/dashboard/header.css" rel="stylesheet">
+<link href="/css/dashboard/sidebar.css" rel="stylesheet">
+<link href="/css/dashboard/footer.css" rel="stylesheet">
+<link href="/css/dashboard/profile.css" rel="stylesheet">
+
+<script src="https://kit.fontawesome.com/031a3163b7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <%-include('../includes/common/header') %>
+    <%-include('../includes/common/sidepannel') %>
+    <div class="wrapper">
+        <div class="content dashboard">
+            <%-include('../includes/dashboard/header') %>
+            <div class="content-body">
+                <%-include('../includes/dashboard/sidebar') %>
+                <div class="main">
+                    <div class="subhead">
+                        <h2>공개 프로필</h2>
+                    </div>
+                    <div class="subbody d-flex flex-shrink-0 flex-column-reverse flex-md-row">
+                        <div class="col-12 col-md-8">
+                            <form action="/bella/profile" accept-charset="UTF-8" method="post">
+                                <div>
+                                    <dl class="form-group">
+                                      <dt><label for="user_profile_name">이름</label></dt>
+                                      <dd>
+                                        <input class="form-control" type="text" value="김지은" name="user[profile_name]" id="user_profile_name">
+                                        <div class="note">
+                                            본명, 자신의 포트폴리오 또는 이력서의 이름 입니다. 
+                                        </div>
+                                      </dd>
+                                    </dl>
+                                    
+                                    <dl class="form-group">
+                                        <dt><label for="user_profile_email">공개 이메일</label></dt>
+                                        <dd class="d-inline-block">
+                                            <div>
+                                                <div>
+                                                    <select class="form-control form-select" name="user[profile_email]" id="user_profile_email">
+                                                        <option value="">공개할 이메일을 선택하세요.</option>
+                                                        <option selected="selected" value="kickscar@gmail.com">kickscar@gmail.com</option>
+                                                    </select>
+                                                    <p class="note">
+                                                        자신의 포트폴리오 또는 이력서의 연락처로 사용할 이메일 입니다.  
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                      
+                                    <dl class="form-group">
+                                        <dt><label for="user_profile_bio">자기소개</label></dt>
+                                        <dd class="user-profile-bio-field-container">
+                                            <textarea class="form-control user-profile-bio-field" placeholder="간단히 자신을 소개해 주세요." name="user[profile_bio]" id="user_profile_bio"></textarea>
+                                            <p class="note">
+                                                자신의 포트폴리오 또는 이력서의 간단한 자기소개 입니다.
+                                            </p>
+                                        </dd>
+                                    </dl>
+                                                          
+                                    <dl class="form-group">
+                                      <dt><label for="user_profile_location">거주지</label></dt>
+                                      <dd><input class="form-control" type="text" value="Punk Hazard" name="user[profile_location]" id="user_profile_location"></dd>
+                                    </dl>
+
+                                    <hr>
+
+                                    <div class="form-group">
+                                        <label>SNS</label>
+                                        <div class="mt-2 d-flex flex-items-center">
+                                            <span>
+                                                <svg role="img" height="16" viewBox="0 0 16 16" version="1.1" width="16">
+                                                    <path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
+                                                </svg>
+                                            </span>
+                                            <input class="ml-2 form-control flex-auto input-sm" type="text" placeholder="소셜 계정 URL" name="user[profile_social_accounts][url]" value="">
+                                        </div>
+                                        <div class="mt-2 d-flex flex-items-center">
+                                            <span>
+                                                <svg role="img" height="16" viewBox="0 0 16 16" version="1.1" width="16">
+                                                    <path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
+                                                </svg>
+                                            </span>
+                                            <input class="ml-2 form-control flex-auto input-sm" type="text" placeholder="소셜 계정 URL" name="user[profile_social_accounts][url]" value="">
+                                        </div>
+                                        <div class="mt-2 d-flex flex-items-center">
+                                            <span>
+                                                <svg role="img" height="16" viewBox="0 0 16 16" version="1.1" width="16">
+                                                    <path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
+                                                </svg>
+                                            </span>
+                                            <input class="ml-2 form-control flex-auto input-sm" type="text" placeholder="소셜 계정 URL" name="user[profile_social_accounts][url]" value="">
+                                        </div>
+                                        <div class="mt-2 d-flex flex-items-center">
+                                            <span>
+                                                <svg role="img" height="16" viewBox="0 0 16 16" version="1.1" width="16">
+                                                    <path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
+                                                </svg>
+                                            </span>
+                                            <input class="ml-2 form-control flex-auto input-sm" type="text" placeholder="소셜 계정 URL" name="user[profile_social_accounts][url]" value="">
+                                        </div>
+                                        <div class="mt-2 d-flex flex-items-center">
+                                            <span>
+                                                <svg role="img" height="16" viewBox="0 0 16 16" version="1.1" width="16">
+                                                    <path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
+                                                </svg>
+                                            </span>
+                                            <input class="ml-2 form-control flex-auto input-sm" type="text" placeholder="소셜 계정 URL" name="user[profile_social_accounts][url]" value="">
+                                        </div>
+                                        <div class="mt-2 d-flex flex-items-center">
+                                            <span>
+                                                <svg role="img" height="16" viewBox="0 0 16 16" version="1.1" width="16">
+                                                    <path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
+                                                </svg>
+                                            </span>
+                                            <input class="ml-2 form-control flex-auto input-sm" type="text" placeholder="소셜 계정 URL" name="user[profile_social_accounts][url]" value="">
+                                        </div>                                                                                                                        
+                                    </div>
+                                    
+                                    <p class="form-group">
+                                        <button class="btn" type="submit">
+                                            <span class="button-content">
+                                                <span class="button-label">프로필 업데이트</span>
+                                            </span>
+                                        </button>                      
+                                    </p>
+                                </div>
+                        </form>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <dl>
+                                <dt><label>프로필 사진</label></dt>
+                                <dd class="profile-upload-container position-relative">                    
+                                    <form action="/dashboard/profile-pic" accept-charset="UTF-8" method="post">
+                                        <input type="file" id="profile-pic-upload">
+                                        <div>
+                                            <div class="upload-error file-empty">This file is empty.</div>
+                                            <div class="upload-error too-big">Please upload a picture smaller than 1 MB.</div>
+                                            <div class="upload-error bad-dimensions">Please upload a picture smaller than 10,000x10,000.</div>
+                                            <div class="upload-error bad-file">We only support PNG, GIF, or JPG pictures.</div>
+                                            <div class="upload-error failed-request">Something went really wrong and we can’t process that picture.</div>
+                                            <div class="upload-error bad-format">File contents don’t match the file extension.</div>
+                                        </div>
+                                    </form>
+                                    <div class="profile-pic-upload">
+                                        <img src="/images/profile.png" width="200" height="200" alt="@bella">
+                                        <div class="btn position-absolute">
+                                            <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16">
+                                                <path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path>
+                                            </svg>
+                                            수정
+                                        </div>                              
+                                        <div class="upload-state">
+                                            <span class="position-absolute">
+                                                <svg width="64" height="64" viewBox="0 0 16 16" fill="none">
+                                                    <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-opacity="0.25" stroke-width="2" vector-effect="non-scaling-stroke"></circle>
+                                                    <path d="M15 8a7.002 7.002 0 00-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%-include('../includes/common/footer') %>         
+        </div>        
+    </div>
+</body>
+</html>
