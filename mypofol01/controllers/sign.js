@@ -1,8 +1,22 @@
 const modelUser = require('../models/user');
 
 module.exports = {
-  signin: (req, res, next) => {
-      res.status(200).render('main/signin');
+  login: async (req, res, next) => {
+    try {
+      const email = req.body.email;
+      const password = req.body.password;
+      const loginUser = await modelUser.findByEmailPassword(email, password);
+      if(!loginUser){
+        res.status(404).render('error/404');
+        return;
+      }
+      const profile = await modelUser.findByAccount(loginUser.account);
+      console.log("profile >>> ", profile);
+      res.status(200).render('dashboard/profile', {profile});
+    } catch (error) {
+      next(error);
+    }
+      
   },
   join: async (req, res, next) => {
     try {

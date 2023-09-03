@@ -3,11 +3,19 @@ const pool = require('./dbcp');
 module.exports = {
     findByAccount: async (account) => {
         const conn = await pool.getConnection();
-
-        const [result] = await conn.query('select id, account, email, name, title, description, image_profile as imageProfile from user where account=?', [account]);        
+        const sql = 'select id, account, email, name, title, description, image_profile as imageProfile from user where account=?';
+        const [result] = await conn.query(sql, [account]);        
         conn.release();
             
         return result[0];
+    },
+
+    findByEmailPassword: async (email, password) => {
+      const conn = await pool.getConnection();
+      const sql = 'select id, account, email, name, title, description, image_profile as imageProfile from user where email=? and password=?';
+      const [result] = await conn.query(sql, [email, password]);        
+      conn.release();
+      return result[0];
     },
 
     createUserInfo: async (account, email, password) => {
