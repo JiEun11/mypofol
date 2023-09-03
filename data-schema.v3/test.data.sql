@@ -57,7 +57,7 @@ insert into skill values(null, 'Java / Spring', '4', null, now(), now(), 1);
 insert into skill values(null, 'Node.js / Express', '4', null, now(), now(), 1);
 
 insert into skill values(null, 'JavaScript', '4', null, now(), now(), 2);
-insert into skill values(null, 'TypeScriot', '3', null, now(), now(), 2);
+insert into skill values(null, 'TypeScript', '3', null, now(), now(), 2);
 insert into skill values(null, 'HTML5, CSS3 / 웹표준', '4', null, now(), now(), 2);
 insert into skill values(null, 'React.js', '4', null, now(), now(), 2);
 insert into skill values(null, 'jQuery', '4', null, now(), now(), 2);
