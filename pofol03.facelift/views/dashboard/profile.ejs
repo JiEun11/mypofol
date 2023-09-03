@@ -26,7 +26,7 @@
         <div class="content dashboard">
             <%-include('../includes/dashboard/header') %>
             <div class="content-body">
-                <%-include('../includes/dashboard/sidebar') %>
+                <%-include('../includes/dashboard/sidebar', {active: 'profile'}) %>
                 <div class="main">
                     <div class="subhead">
                         <h2>공개 프로필</h2>
@@ -139,7 +139,7 @@
                                         </button>                      
                                     </p>
                                 </div>
-                        </form>
+                            </form>
                         </div>
                         <div class="col-12 col-md-4">
                             <dl>

@@ -13,5 +13,8 @@ module.exports = {
     },
     skills: (req, res, next) => {
         res.status(200).render('account/skills');
+    },
+    projects: (req, res, next) => {
+        res.status(200).render('account/projects');
     }
 }
