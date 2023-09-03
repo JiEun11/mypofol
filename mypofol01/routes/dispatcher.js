@@ -19,6 +19,7 @@ router.get('/signin', controllerMain.signin);
 router.get('/signup', controllerMain.signup);
 
 router.post('/join', controllerSign.join);
+router.post('/login', controllerSign.login);
 
 router.get('/dashboard', controllerDashboard.profile);
 router.get('/dashboard/profile', controllerDashboard.profile);
