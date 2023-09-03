@@ -18,7 +18,6 @@ module.exports = {
     skills: async (req, res, next) => {
       try {
         const profile = await modelUser.findByAccount(req.params.account);
-        console.log("profile >>> " , profile);
         if(!profile){
           res.status(404).render('error/404');
           return;
@@ -40,7 +39,6 @@ module.exports = {
     projects: async (req, res, next) => {
       try{
         const profile = await modelUser.findByAccount(req.params.account);
-        console.log("profile >>> " , profile);
         if(!profile){
           res.status(404).render('error/404');
           return;
