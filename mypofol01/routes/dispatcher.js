@@ -1,5 +1,6 @@
 const express = require('express');
 const controllerMain = require('../controllers/main');
+const controllerSign = require('../controllers/sign')
 const controllerDashboard = require('../controllers/dashboard');
 const controllerAccount = require('../controllers/account');
 
@@ -16,6 +17,8 @@ const interceptorOnlyBella = async (req, res, next) => {
 router.get('/', controllerMain.index);
 router.get('/signin', controllerMain.signin);
 router.get('/signup', controllerMain.signup);
+
+router.post('/join', controllerSign.join);
 
 router.get('/dashboard', controllerDashboard.profile);
 router.get('/dashboard/profile', controllerDashboard.profile);
