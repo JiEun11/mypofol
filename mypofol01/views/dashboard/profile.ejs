@@ -38,7 +38,7 @@
                                     <dl class="form-group">
                                       <dt><label for="user_profile_name">이름</label></dt>
                                       <dd>
-                                        <input class="form-control" type="text" value="김지은" name="user[profile_name]" id="user_profile_name">
+                                        <input class="form-control" type="text" value="<%=profile.name %>" name="user[profile_name]" id="user_profile_name">
                                         <div class="note">
                                             본명, 자신의 포트폴리오 또는 이력서의 이름 입니다. 
                                         </div>
@@ -52,7 +52,7 @@
                                                 <div>
                                                     <select class="form-control form-select" name="user[profile_email]" id="user_profile_email">
                                                         <option value="">공개할 이메일을 선택하세요.</option>
-                                                        <option selected="selected" value="kickscar@gmail.com">kickscar@gmail.com</option>
+                                                        <option selected="selected" value="<%=profile.email %>"><%=profile.email %></option>
                                                     </select>
                                                     <p class="note">
                                                         자신의 포트폴리오 또는 이력서의 연락처로 사용할 이메일 입니다.  
@@ -65,7 +65,7 @@
                                     <dl class="form-group">
                                       <dt><label for="user_profile_title">타이틀</label></dt>
                                       <dd>
-                                        <input class="form-control" type="text" value="Full Stack Developer" name="user[profile_title]" id="user_profile_title">
+                                        <input class="form-control" type="text" value="<%=profile.title %>" name="user[profile_title]" id="user_profile_title">
                                         <div class="note">
                                             자신의 업무 타이틀입니다. 
                                         </div>
@@ -75,7 +75,11 @@
                                     <dl class="form-group">
                                         <dt><label for="user_profile_bio">자기소개</label></dt>
                                         <dd class="user-profile-bio-field-container">
+                                            <% if(profile.description) { %>
+                                              <textarea class="form-control user-profile-bio-field" placeholder="<%=profile.description %>" name="user[profile_bio]" id="user_profile_bio"></textarea>
+                                            <% }else{ %>
                                             <textarea class="form-control user-profile-bio-field" placeholder="간단히 자신을 소개해 주세요." name="user[profile_bio]" id="user_profile_bio"></textarea>
+                                            <% } %>
                                             <p class="note">
                                                 자신의 포트폴리오 또는 이력서의 간단한 자기소개 입니다.
                                             </p>
