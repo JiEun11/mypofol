@@ -82,3 +82,11 @@ button, input {
     display: block;
     width: 100%;    
 }
+
+.flex-auto {
+    flex: auto !important;
+}
+
+.flex-justify-end {
+    justify-content: flex-end !important;
+}
