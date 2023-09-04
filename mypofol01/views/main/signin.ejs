@@ -23,7 +23,7 @@
       <div class="form-body">
         <form action="/login" accept-charset="UTF-8" method="post">
           <label class="form-label" for="login_field">Email</label>
-          <input type="text" name="email" id="login_field" value="<%=email %>" class="form-control input-block" autocapitalize="none" autocorrect="off" autocomplete="username" autofocus="autofocus">      
+          <input type="text" name="email" id="login_field" value="<%=typeof email !== 'undefined' ? email : '' %>" class="form-control input-block" autocapitalize="none" autocorrect="off" autocomplete="username" autofocus="autofocus">      
           <div class="position-relative">
             <label class="form-label" for="password">Password</label>
             <input type="password" name="password" id="password" class="form-control input-block" autocomplete="current-password">            

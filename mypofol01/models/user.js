@@ -17,11 +17,12 @@ module.exports = {
       conn.release();
       return result[0];
     },
-
-    createUserInfo: async (account, email, password) => {
+    insert: async (account, email, password) => {
       const conn = await pool.getConnection();
-      const sql = `INSERT INTO USER (account, email, password, name, title, created_at, last_updated_at) VALUES(?,?,?,?,?,?,?)`;
-      const [result] = await conn.query(sql, [account, email, password, account, 'init title', new Date(), new Date()]);
+      
+      const sql = `insert into user(account, email, password, image_profile, created_at, last_updated_at) values(?, ?, password(?), '/images/default-user.jpg', now(), now())`;
+      const result = await conn.query(sql, [account, email, password]);
+      
       conn.release();
   
       return result;
