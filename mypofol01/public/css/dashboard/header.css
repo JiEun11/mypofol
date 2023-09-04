@@ -22,7 +22,7 @@
     flex: auto !important;
 }
 
-.dashboard .btn {
+.btn {
     position: relative;
     display: inline-block;
     font-size: 0.90rem;
@@ -43,7 +43,7 @@
     transition-property: color,background-color,box-shadow,border-color;
 }
 
-.dashboard .btn:focus {
+.btn:focus {
     box-shadow: none;
     outline: none !important;
     box-shadow: none;

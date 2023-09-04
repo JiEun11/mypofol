@@ -13,8 +13,5 @@ module.exports = {
     },
     skills: (req, res, next) => {
         res.status(200).render('dashboard/skills');
-    },
-    educations: (req, res, next) => {
-        res.status(200).render('dashboard/educations');
     }
 }

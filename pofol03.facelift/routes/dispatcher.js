@@ -20,6 +20,8 @@ router.get('/signup', controllerMain.signup);
 router.get('/dashboard', controllerDashboard.profile);
 router.get('/dashboard/profile', controllerDashboard.profile);
 router.get('/dashboard/experiences', controllerDashboard.experiences);
+router.get('/dashboard/educations', controllerDashboard.educations);
+router.get('/dashboard/trainings', controllerDashboard.trainings);
 
 router.get('/:account', interceptorOnlyBella, controllerAccount.profile);
 router.get('/:account/profile', interceptorOnlyBella, controllerAccount.profile);

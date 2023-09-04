@@ -32,42 +32,86 @@
                         <h2>경력 관리</h2>
                     </div>
                     <div class="subbody">
-                        <div class="col-12 col-md-12">
- 
-                            <div class="box">
-                                <div class="box-header"></div>
-                                <div class="box-row">            
-                                    <div class="d-flex flex-column flex-auto col-12">
-                                        <span class="f5"><strong>포스코 DX, Smart IT 사업실 포스코 IT 사업부, ERP 섹선</strong></span>
-                                        <span>
-                                            <span class="f6">2022.6</span>
-                                            <i>~</i>
-                                            <span class="f6"></span>
+                        <div class="col-12 col-md-12 position-relative">
+                            <input type="radio" name="show-register-form" id="check-register-form-visible">
+                            <input type="radio" name="show-register-form" id="check-register-form-invisible" checked="checked">
+                            <div class="flex-buttons">
+                                <label for="check-register-form-visible">
+                                    <i class="fa-solid fa-list-ul"></i>
+                                    경력 추가
+                                    <i class="fa-solid fa-caret-down"></i>
+                                </label>
+                            </div>
+                            <div class="box register-form">
+                                <div class="box-top">
+                                    <label for="check-register-form-invisible">
+                                        <i class="fa-solid fa-caret-up"></i>
+                                    </label>
+                                </div>                                
+                                <div class="box-row">
+                                    <div class="row-content">
+                                        <span class="form-group">
+                                            <input class="form-control" type="text" placeholder="회사/조직" value="" name="">
                                         </span>
-                                        <span class="f6">사원 / 정규직</span>
-                                        <span class="f6">Java 풀스택 개발 / 운영</span>
+                                        <fieldset class="form-group">
+                                            <input class="form-control" type="text" placeholder="시작 년.월.일" value="" name="">
+                                            <i>~</i>
+                                            <input class="form-control" placeholder="종료 년.월.일" value="" name="">
+                                        </fieldset>
+                                        <span class="form-group">
+                                            <input class="form-control" placeholder="직책/타이틀" type="text" value="" name="">
+                                        </span>
+                                        <span class="form-group">
+                                            <textarea class="form-control user-profile-bio-field" placeholder="업무/성과 설명" name=""></textarea>
+                                        </span>
+                                        <p class="form-group">
+                                            <button class="btn" type="submit">
+                                                <span class="button-content">
+                                                    <span class="button-label">등록</span>
+                                                </span>
+                                            </button>
+                                            <label class="btn" for="check-register-form-invisible">
+                                                <span class="button-content">
+                                                    <span class="button-label">취소</span>
+                                                </span>
+                                            </label>                                                                   
+                                        </p>                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="box">
+                                <div class="box-header">
+                                    <button><i class="fa-solid fa-trash-can"></i> 삭제</button>
+                                </div>
+                                <div class="box-row">
+                                    <div class="row-content">
+                                        <span class="form-group">
+                                            <input class="form-control" type="text" placeholder="회사/조직" value="포스코 DX, Smart IT 사업실 포스코 IT 사업부, ERP 섹선" name="">
+                                        </span>
+                                        <fieldset class="form-group">
+                                            <input class="form-control" type="text" placeholder="시작 년.월.일" value="2022.6" name="">
+                                            <i>~</i>
+                                            <input class="form-control" placeholder="종료 년.월.일" value="" name="">
+                                        </fieldset>
+                                        <span class="form-group">
+                                            <input class="form-control" type="text" placeholder="직책/타이틀" value="사원 / 정규직" name="">
+                                        </span>
+                                        <span class="form-group">
+                                            <textarea class="form-control description-field" placeholder="프로젝트 설명" name="">Java 풀스택 개발 / 운영</textarea>
+                                        </span>
+                                        <p class="form-group">
+                                            <button class="btn" type="submit">
+                                                <span class="button-content">
+                                                    <span class="button-label">업데이트</span>
+                                                </span>
+                                            </button>                      
+                                        </p>                                        
                                     </div>
                                 </div>
                                 <div class="box-bottom"></div>
                             </div>
 
-                            <div class="box">
-                                <div class="box-header"></div>
-                                <div class="box-row">            
-                                    <div class="d-flex flex-column flex-auto col-12">
-                                        <span class="f5"><strong>포스코 DX, Smart IT 사업실 포스코 IT 사업부, ERP 섹선</strong></span>
-                                        <span>
-                                            <span class="f6">2022.6</span>
-                                            <i>~</i>
-                                            <span class="f6"></span>
-                                        </span>
-                                        <span class="f6">사원 / 정규직</span>
-                                        <span class="f6">Java 풀스택 개발 / 운영</span>
-                                    </div>
-                                </div>
-                                <div class="box-bottom"></div>
-                            </div>
-                                                        
                         </div>
                     </div>
                 </div>

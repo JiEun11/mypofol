@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>MyPofol</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="/images/favicon.ico" rel="icon">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="/css/common/app.css" rel="stylesheet">
+<link href="/css/common/header.css" rel="stylesheet">
+<link href="/css/common/sidepannel.css" rel="stylesheet">
+<link href="/css/dashboard/layout.css" rel="stylesheet">
+<link href="/css/dashboard/header.css" rel="stylesheet">
+<link href="/css/dashboard/sidebar.css" rel="stylesheet">
+<link href="/css/dashboard/footer.css" rel="stylesheet">
+<link href="/css/dashboard/trainings.css" rel="stylesheet">
+
+<script src="https://kit.fontawesome.com/031a3163b7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <%-include('../includes/common/header') %>
+    <%-include('../includes/common/sidepannel') %>
+    <div class="wrapper">
+        <div class="content dashboard">
+            <%-include('../includes/dashboard/header') %>
+            <div class="content-body">
+                <%-include('../includes/dashboard/sidebar', {active: 'trainings'}) %>
+                <div class="main">
+                    <div class="subhead">
+                        <h2>교육/자격증 관리</h2>
+                    </div>
+                    <div class="subbody">
+                        <div class="col-12 col-md-12 position-relative">
+                            <input type="radio" name="show-register-form" id="check-register-form-visible">
+                            <input type="radio" name="show-register-form" id="check-register-form-invisible" checked="checked">
+                            <div class="flex-buttons">
+                                <label for="check-register-form-visible">
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                    교육/자격증 추가
+                                    <i class="fa-solid fa-caret-down"></i>
+                                </label>
+                            </div>
+
+                            <div class="box register-form">
+                                <div class="box-top">
+                                    <label for="check-register-form-invisible">
+                                        <i class="fa-solid fa-caret-up"></i>
+                                    </label>
+                                </div>                                
+                                <div class="box-row">
+                                    <div class="row-content">
+                                        <span class="form-group">
+                                            <select class="form-control form-select" name="">
+                                                <option selected="selected" value="">종류</option>
+                                                <option value="certificate">자격증</option>
+                                                <option value="education">교육훈련</option>
+                                                <option value="language">외국어</option>
+                                            </select>
+                                        </span>                                        
+                                        <span class="form-group">
+                                            <input class="form-control" type="text" placeholder="자격증/교육훈련/외국어" value="" name="">
+                                        </span>
+                                        <fieldset class="form-group">
+                                            <input class="form-control" type="text" placeholder="취득/수료 년.월.일" value="" name="">
+                                        </fieldset>
+                                        <span class="form-group">
+                                            <textarea class="form-control description-field" placeholder="특이사항(레벨/점수/급수)" name=""></textarea>
+                                        </span>                                        
+                                        <p class="form-group">
+                                            <button class="btn" type="submit">
+                                                <span class="button-content">
+                                                    <span class="button-label">등록</span>
+                                                </span>
+                                            </button>
+                                            <label class="btn" for="check-register-form-invisible">
+                                                <span class="button-content">
+                                                    <span class="button-label">취소</span>
+                                                </span>
+                                            </label>                                                                   
+                                        </p>                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="box">
+                                <div class="box-header">
+                                    <button><i class="fa-solid fa-trash-can"></i> 삭제</button>
+                                </div>
+                                <div class="box-row">
+                                    <div class="row-content">
+                                        <span class="form-group">
+                                            <select class="form-control form-select" name="">
+                                                <option value="">종류</option>
+                                                <option selected="selected" value="certificate">자격증</option>
+                                                <option value="education">교육훈련</option>
+                                                <option value="language">외국어</option>
+                                            </select>
+                                        </span>                                        
+                                        <span class="form-group">
+                                            <input class="form-control" type="text" placeholder="자격증/교육훈련/외국어" value="정보처리기사" name="">
+                                        </span>
+                                        <fieldset class="form-group">
+                                            <input class="form-control" type="text" placeholder="취득/수료 년.월.일" value="2022.12" name="">
+                                        </fieldset>
+                                        <span class="form-group">
+                                            <textarea class="form-control description-field" placeholder="특이사항(레벨/점수/급수)" name=""></textarea>
+                                        </span>      
+                                        <p class="form-group">
+                                            <button class="btn" type="submit">
+                                                <span class="button-content">
+                                                    <span class="button-label">업데이트</span>
+                                                </span>
+                                            </button>                      
+                                        </p>                                        
+                                    </div>
+                                </div>
+                                <div class="box-bottom"></div>
+                            </div>
+
+                            <div class="box">
+                                <div class="box-header">
+                                    <button><i class="fa-solid fa-trash-can"></i> 삭제</button>
+                                </div>
+                                <div class="box-row">
+                                    <div class="row-content">
+                                        <span class="form-group">
+                                            <select class="form-control form-select" name="">
+                                                <option value="">종류</option>
+                                                <option selected="selected" value="certificate">자격증</option>
+                                                <option value="education">교육훈련</option>
+                                                <option value="language">외국어</option>
+                                            </select>
+                                        </span>                                        
+                                        <span class="form-group">
+                                            <input class="form-control" type="text" placeholder="자격증/교육훈련/외국어" value="리눅스마스터" name="">
+                                        </span>
+                                        <fieldset class="form-group">
+                                            <input class="form-control" type="text" placeholder="취득/수료 년.월.일" value="2018.09" name="">
+                                        </fieldset>
+                                        <span class="form-group">
+                                            <textarea class="form-control description-field" placeholder="특이사항(레벨/점수/급수)" name="">2급</textarea>
+                                        </span>      
+                                        <p class="form-group">
+                                            <button class="btn" type="submit">
+                                                <span class="button-content">
+                                                    <span class="button-label">업데이트</span>
+                                                </span>
+                                            </button>                      
+                                        </p>                                        
+                                    </div>
+                                </div>
+                                <div class="box-bottom"></div>
+                            </div>
+                            
+                            <div class="box">
+                                <div class="box-header">
+                                    <button><i class="fa-solid fa-trash-can"></i> 삭제</button>
+                                </div>
+                                <div class="box-row">
+                                    <div class="row-content">
+                                        <span class="form-group">
+                                            <select class="form-control form-select" name="">
+                                                <option value="">종류</option>
+                                                <option value="certificate">자격증</option>
+                                                <option selected="selected" value="education">교육훈련</option>
+                                                <option value="language">외국어</option>
+                                            </select>
+                                        </span>                                        
+                                        <span class="form-group">
+                                            <input class="form-control" type="text" placeholder="자격증/교육훈련/외국어" value="포스코 청년 IT 아카데미" name="">
+                                        </span>
+                                        <fieldset class="form-group">
+                                            <input class="form-control" type="text" placeholder="취득/수료 년.월.일" value="2022.05" name="">
+                                        </fieldset>
+                                        <span class="form-group">
+                                            <textarea class="form-control description-field" placeholder="특이사항(레벨/점수/급수)" name=""></textarea>
+                                        </span>      
+                                        <p class="form-group">
+                                            <button class="btn" type="submit">
+                                                <span class="button-content">
+                                                    <span class="button-label">업데이트</span>
+                                                </span>
+                                            </button>                      
+                                        </p>                                        
+                                    </div>
+                                </div>
+                                <div class="box-bottom"></div>
+                            </div> 
+                            
+                            <div class="box">
+                                <div class="box-header">
+                                    <button><i class="fa-solid fa-trash-can"></i> 삭제</button>
+                                </div>
+                                <div class="box-row">
+                                    <div class="row-content">
+                                        <span class="form-group">
+                                            <select class="form-control form-select" name="">
+                                                <option value="">종류</option>
+                                                <option value="certificate">자격증</option>
+                                                <option value="education">교육훈련</option>
+                                                <option selected="selected" value="language">외국어</option>
+                                            </select>
+                                        </span>                                        
+                                        <span class="form-group">
+                                            <input class="form-control" type="text" placeholder="자격증/교육훈련/외국어" value="OPIC" name="">
+                                        </span>
+                                        <fieldset class="form-group">
+                                            <input class="form-control" type="text" placeholder="취득/수료 년.월.일" value="2021.06" name="">
+                                        </fieldset>
+                                        <span class="form-group">
+                                            <textarea class="form-control description-field" placeholder="특이사항(레벨/점수/급수)" name="">레벨 IH</textarea>
+                                        </span>      
+                                        <p class="form-group">
+                                            <button class="btn" type="submit">
+                                                <span class="button-content">
+                                                    <span class="button-label">업데이트</span>
+                                                </span>
+                                            </button>                      
+                                        </p>                                        
+                                    </div>
+                                </div>
+                                <div class="box-bottom"></div>
+                            </div>                            
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%-include('../includes/common/footer') %>         
+        </div>        
+    </div>
+</body>
+</html>
