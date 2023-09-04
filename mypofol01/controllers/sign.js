@@ -6,8 +6,9 @@ module.exports = {
       const email = req.body.email;
       const password = req.body.password;
       const loginUser = await modelUser.findByEmailPassword(email, password);
+
       if(!loginUser){
-        res.status(404).render('error/404');
+        res.status(404).render('main/signin', {email});
         return;
       }
       const profile = await modelUser.findByAccount(loginUser.account);
