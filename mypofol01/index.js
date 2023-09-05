@@ -3,6 +3,7 @@
     const path = require('path');
     const dotenv = require('dotenv');    
     const express = require('express');
+    const session = require('express-session');
     const {appRouter} = require('./routes');
 
     // 1. application environment variables
@@ -14,7 +15,16 @@
     .set('views', path.join(__dirname, 'views'))                                        // 2-2. view(template) engine
     .set('view engine', 'ejs')                                                          //
     .use(express.json())                                                                // 2-3. body parsers
-    .use(express.urlencoded({extended: true}));                                         //
+    .use(express.urlencoded({extended: true}))                                          //
+
+    /*
+      세션 처리 추가
+    */    
+    .use(session({ 
+        secret: 'mypofol-session',
+        resave: false,
+        saveUninitialized: false  
+    }));
 
     // 3. swagger setup
     if(process.env.NODE_ENV === 'development') {

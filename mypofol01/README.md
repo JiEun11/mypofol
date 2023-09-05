@@ -16,6 +16,7 @@
 ## packages installed
 ```sh
 $ npm i express
+$ npm i express-session
 $ npm i mysql2 
 $ npm i ejs
 $ npm i dotenv
