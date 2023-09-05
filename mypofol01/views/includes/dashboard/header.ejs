@@ -2,14 +2,16 @@
     <div class="content-header-inner">
         <div class="profile-pic">
             <a href="#">
-                <img src="/images/profile.png">
+                <img src="<%=req.session.authUser.imageProfile %>">
             </a>
         </div>
         <div class="profile-name">
             <h1>
-                <a href="/bella" class="color-fg-default">
-                    김지은
-                    <span>(bella)</span>
+                <a href="/<%=req.session.authUser.account %>" class="color-fg-default">
+                    <%=req.session.authUser.name || req.session.authUser.account  %>
+                    <% if(req.session.authUser.name) { %>
+                    <span>(<%=req.session.authUser.account  %>)</span>
+                    <% } %>
                 </a>
             </h1>
             <div class="d-flex flex-items-center flex-wrap" style="color: var(--fgColor-accent, var(--color-accent-fg))">
@@ -19,5 +21,5 @@
             </div>
         </div>
     </div>
-    <a href="/bella" class="btn">Go to my portfoio</a>
+    <a href="/<%=req.session.authUser.account %>" class="btn">Go to my portfoio</a>
 </div>

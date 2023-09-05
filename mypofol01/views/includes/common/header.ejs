@@ -2,13 +2,15 @@
     <div class="globalbar">
         <div class="inner-start">
             <a href="/" class="app-logo">MyPofol</a>
-            <div class="header-context">
-                <ul>
-                    <li>
-                        <a href="/bella" class="context-item">bella</a>
-                    </li>
-                </ul>
-            </div>
+            <% if(typeof pathName !== 'undefined') { %>
+                <div class="header-context">
+                    <ul>
+                        <li>
+                            <a href="<%=pathLink %>" class="context-item"><%=pathName %></a>
+                        </li>
+                    </ul>
+                </div>
+            <% } %>
         </div>
         <div class="inner-end">
             <% if(req.session.authUser) { %>      
