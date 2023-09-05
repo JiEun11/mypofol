@@ -5,7 +5,7 @@
 $ mysql -u root -p
 MariaDB [(none)]> create database mypofol;
 MariaDB [(none)]> create user 'mypofol'@'localhost' identified by 'mypofol';
-MariaDB [(none)]> grant all privileges on portfolio_v3.* to 'pofol'@'localhost';
+MariaDB [(none)]> grant all privileges on mypofol.* to 'pofol'@'localhost';
 MariaDB [(none)]> flush privileges;
 ```
 
