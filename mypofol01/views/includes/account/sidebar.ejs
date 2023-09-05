@@ -2,11 +2,11 @@
     <div class="sidebar-header">
         <div class="profile-pic">
             <a href="#">
-                <img src="/images/profile.png">
+                <img src="<%=req.account.imageProfile %>">
             </a>
         </div>
         <h1 class="vcard-names">
-            <span class="name">bella</span>
+            <span class="name"><%=req.account.account %></span>
             <span class="title">Fullstack JavaScript Developer</span>
         </h1>
     </div>
@@ -14,37 +14,37 @@
         <nav class="navbar">
             <ul>
                 <li class="<%=(active == 'profile' ? 'nav-active' : '') %>">
-                    <a href="/bella/profile">
+                    <a href="/<%=req.account.account %>/profile">
                         <span class="item-ico"><i class="fa fa-address-card"></i></span>
                         <span class="item-label">프로필</span>
                     </a>
                 </li>
                 <li class="<%=(active == 'experiences' ? 'nav-active' : '') %>">
-                    <a href="/bella/experiences">
+                    <a href="/<%=req.account.account %>/experiences">
                         <span class="item-ico"><i class="fa fa-list-ul"></i></span>
                         <span class="item-label">경력</span>
                     </a>
                 </li>
                 <li class="<%=(active == 'educations' ? 'nav-active' : '') %>">
-                    <a href="/bella/educations">
+                    <a href="/<%=req.account.account %>/educations">
                         <span class="item-ico"><i class="fa fa-graduation-cap"></i></span>
                         <span class="item-label">학력</span>                                    
                     </a>
                 </li>
                 <li class="<%=(active == 'trainings' ? 'nav-active' : '') %>">
-                    <a href="/bella/trainings">
+                    <a href="/<%=req.account.account %>/trainings">
                         <span class="item-ico"><i class="fa fa-award"></i></span>
                         <span class="item-label">교육 및 자격증</span>                                   
                     </a>
                 </li>
                 <li class="<%=(active == 'skills' ? 'nav-active' : '') %>">
-                    <a href="/bella/skills">
+                    <a href="/<%=req.account.account %>/skills">
                         <span class="item-ico"><i class="fa fa-code"></i></span>
                         <span class="item-label">주요기술</span>                                   
                     </a>
                 </li>
                 <li class="<%=(active == 'projects' ? 'nav-active' : '') %>">
-                    <a href="/bella/projects">
+                    <a href="/<%=req.account.account %>/projects">
                         <span class="item-ico"><i class="fa fa-diagram-project"></i></span>
                         <span class="item-label">프로젝트</span>                                   
                     </a>

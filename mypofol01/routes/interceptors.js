@@ -1,12 +1,14 @@
 const modelUser = require('../models/user');
 
 exports.authorized = (req, res, next) => {
-    if(req.session.authUser) {       
-        next();
+    console.log(req.session.authUser);
+
+    if(!req.session.authUser) {       
+        res.redirect('/signin');   
         return;
     } 
-    
-    res.redirect('/signin');
+
+    next();
 }
 
 exports.validAccount = async (req, res, next) => {
@@ -24,9 +26,6 @@ exports.validAccount = async (req, res, next) => {
          * 
          *  다음 핸들러에 account(user) 정보를 보냄(화면의 왼쪽 /includes/account/sidebar 여기 그릴 라고!!)
          * 
-         *  req.locals.account = user;  
-         *  이렇게 하면 view 로 바로 넘어가고 다음 핸들러로는 넘어가지 않음! 다음 핸들러에서 account(user) 정보를 사용할 수 있으니깐
-         *  아래 처럼!
          *  
          */
         req.account = account;

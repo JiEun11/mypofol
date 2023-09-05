@@ -3,7 +3,6 @@ const pool = require('./dbcp');
 module.exports = {
     findByUserId: async (userId) => {
         const conn = await pool.getConnection();
-
         /**
          * 
          * portfolio_v3 가 mypofol 로 바꼈음
