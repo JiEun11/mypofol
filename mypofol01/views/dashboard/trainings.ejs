@@ -20,7 +20,10 @@
 <script src="https://kit.fontawesome.com/031a3163b7.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <%-include('../includes/common/header') %>
+    <%-include('../includes/common/header', {
+        pathName: 'dashboard',
+        pathLink: '/dashboard'
+    }) %>
     <%-include('../includes/common/sidepannel') %>
     <div class="wrapper">
         <div class="content dashboard">

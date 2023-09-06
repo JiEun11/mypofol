@@ -61,6 +61,11 @@
 }
 
 .sidebar-header .vcard-names .title {
+    display:inline-block;
+    width: 280px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
     font-size: 20px;
     font-style: normal;
     font-weight: 350;

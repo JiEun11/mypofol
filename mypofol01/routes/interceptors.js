@@ -1,8 +1,6 @@
 const modelUser = require('../models/user');
 
 exports.authorized = (req, res, next) => {
-    console.log(req.session.authUser);
-
     if(!req.session.authUser) {       
         res.redirect('/signin');   
         return;
@@ -21,14 +19,12 @@ exports.validAccount = async (req, res, next) => {
 
         /**
          *  
-         *  있는 계정인지 확인하면서 계정정보를 뽑아서 다음 핸들러나 화면을 그릴 때 사용함!!
-         *  그러니깐 중요한 인터셉터임!!
-         * 
-         *  다음 핸들러에 account(user) 정보를 보냄(화면의 왼쪽 /includes/account/sidebar 여기 그릴 라고!!)
-         * 
+         *  존재하는 계정인지 확인하고 계정(user)정보를 뽑아서 다음 핸들러나 view에 req.account 객체로 자동으로 전달함
+         *  view에 전달된 req.account는 주로 화면의 왼쪽 /includes/account/sidebar 렌더링에 
          *  
          */
         req.account = account;
+        
         next();
     } catch(err){
         next(err);

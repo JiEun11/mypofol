@@ -10,10 +10,17 @@
 
 <link href="/css/common/app.css" rel="stylesheet">
 <link href="/css/common/header.css" rel="stylesheet">
+<link href="/css/main/layout.css" rel="stylesheet">
+<link href="/css/common/sidepannel.css" rel="stylesheet">
 <link href="/css/error/content.css" rel="stylesheet">
+
+<script src="https://kit.fontawesome.com/031a3163b7.js" crossorigin="anonymous"></script>
 </head>
 <body>
-	<%-include('../includes/common/header-no-auth') %>
+	<%-include('../includes/common/header') %>
+	<% if(req.session.authUser) { %>
+		<%-include('../includes/common/sidepannel') %>
+	<% } %>	
 	<div class="wrapper">
 		<div class="content-error">
 			<h1>Sorry, this page isn't available.</h1>
