@@ -5,10 +5,10 @@
 $ mysql -u root -p
 MariaDB [(none)]> create database mypofol;
 MariaDB [(none)]> create user 'mypofol'@'localhost' identified by 'mypofol';
-MariaDB [(none)]> grant all privileges on portfolio_v3.* to 'pofol'@'localhost';
+MariaDB [(none)]> grant all privileges on portfolio_v3.* to 'pofol'@'localhost'; 
 MariaDB [(none)]> flush privileges;
 ```
-
+질문: 'pofol'@'localhost' 아니고 'mypofol'@'localhost' 아닌가요,,?
 #### 2. workbench
 1. Connection 생성
 2. Model 파일(mypofol.mwb) forward engineering

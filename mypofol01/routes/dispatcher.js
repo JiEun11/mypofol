@@ -9,7 +9,7 @@ const router = express.Router();
 
 
 //
-// 회 먹는다고 좋아서 안 바꾼거 주석 -_-;;;
+// 회 먹는다고 좋아서 안 바꾼거 주석 -_-;;; 지송합니다...ㅎ
 // validAccount 로 바꿈
 //
 // const interceptorOnlyBella = async (req, res, next) => {
