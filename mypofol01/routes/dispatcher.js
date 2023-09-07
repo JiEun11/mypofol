@@ -6,10 +6,8 @@ const controllerAccount = require('../controllers/account');
 const {authorized, validAccount} = require('./interceptors');
 
 const router = express.Router();
-
-
 //
-// 회 먹는다고 좋아서 안 바꾼거 주석 -_-;;; 지송합니다...ㅎ
+// 회 먹는다고 좋아서 안 바꾼거 주석 -_-;;;
 // validAccount 로 바꿈
 //
 // const interceptorOnlyBella = async (req, res, next) => {
@@ -19,6 +17,8 @@ const router = express.Router();
 //     }    
 //     next();
 // };
+// -> dasgboard/profile 작업해보려다가 볼 수록 헷갈려가지고
+// 흐름 타고 타고 보는 중이에요,,,
 //
 
 router.get('/', controllerMain.index);
