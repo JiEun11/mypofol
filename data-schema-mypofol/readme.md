@@ -9,6 +9,8 @@ MariaDB [(none)]> grant all privileges on mypofol.* to 'mypofol'@'localhost';
 MariaDB [(none)]> flush privileges;
 ```
 질문: 'pofol'@'localhost' 아니고 'mypofol'@'localhost' 아닌가요,,?
+대답: 응! 그냥 application 이름이라 별생각 없이 계정, 비번, 디비 다 mypofol로 했어 
+
 #### 2. workbench
 1. Connection 생성
 2. Model 파일(mypofol.mwb) forward engineering
