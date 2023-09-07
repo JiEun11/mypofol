@@ -6,7 +6,7 @@ insert
 values (null, 'bella', 'shdudtnr3939@gmail.com', password('1234'), '김지은', 'World-renowned Software Engineer', '경기도 성남시 중원구', 'Hello, This is DreamCoder Full of Inspiration.',  '/upload-images/1e9b025b67079428922a41d5bc6aa952.jpg', now(), now());
 
 select * from user;
-
+select id, account, email, name, title, description, image_profile as imageProfile from user where email='soo' and password='soo';
 
 -- experience 추가
 desc experience;
