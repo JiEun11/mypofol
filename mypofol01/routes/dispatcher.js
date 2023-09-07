@@ -29,6 +29,9 @@ router.post('/login', controllerSign.login);
 
 // 만약 dashboard에서는 자기꺼만 수정가능이므로 필요한 것들은 authorized의 session안에 정보들을 뽑아쓰면 되는거고
 // 굳이 validAccount 해줄 필요가 없어서 없는 것임 => 이해한게 맞을까요,,?
+// 아 근데 dashboard profile에서 이름,이메일,자기소개,거주지,SNS 결국 user table들의 정보들을 다 가져와서 보여주고
+// upsert 해줘야하면 controllerDashboard.profile에서 modelUser 불러서 유저정보들 한번 더 가져오는게
+// 일반적인지 아니면 session의 authUser 값들을 보여주는게 일반적인지 궁금합니다
 router.get('/dashboard', authorized, controllerDashboard.profile);
 router.get('/dashboard/profile', authorized, controllerDashboard.profile);
 router.get('/dashboard/experiences', authorized, controllerDashboard.experiences);
