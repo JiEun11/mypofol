@@ -18,7 +18,7 @@ module.exports = {
       */
       const conn = await pool.getConnection();
       
-      const sql = 'select id, account, name, image_profile as imageProfile from user where email=? and password=password(?)';
+      const sql = 'select id, account, name, email, image_profile as imageProfile from user where email=? and password=password(?)';
       const [result] = await conn.query(sql, [email, password]);
 
       conn.release();
