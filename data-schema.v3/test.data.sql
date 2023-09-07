@@ -10,14 +10,13 @@ select id, account, email, name, title, description, image_profile as imageProfi
 
 -- experience 추가
 desc experience;
-desc education;
 
 insert into experience values(null, '사원 / 정규직', '포스코 DX/Smart IT 사업실 포스코 IT 사업부 ERP섹션', 'Java 풀스택 개발/운영', '2019-01-00', null, '/upload-images/1f1b025b67079428922a41d5bc6aa952.jpg', now(), now(), 1); 
 
 select id, title, company, description, date_format(from_date, "%Y-%m") as fromDate, if(to_date is null, "재직", date_format(to_date, "%Y-%m")) as toDate, image_logo as imageLogo from experience where user_id=1;
 
 -- education 추가
-desc training;
+desc education;
 
 insert into education values(null, '단국 대학교 / 응용 컴퓨터 공학과', '2016-03-00', '2022-02-00', 'BS', '/upload-images/2a1b025b67072421922a41d5bc6ab351.png', now(), now(), 1); 
 insert into education values(null, '체코 오스트라바 공과 대학교 / 컴퓨터 엔지니어링', '2020-09-00', '2020-12-00', 'EX', '/upload-images/3b1b025b0707a421922a41d5bc6abe51.png', now(), now(), 1); 
