@@ -32,6 +32,9 @@ router.post('/login', controllerSign.login);
 // 아 근데 dashboard profile에서 이름,이메일,자기소개,거주지,SNS 결국 user table들의 정보들을 다 가져와서 보여주고
 // upsert 해줘야하면 controllerDashboard.profile에서 modelUser 불러서 유저정보들 한번 더 가져오는게
 // 일반적인지 아니면 session의 authUser 값들을 보여주는게 일반적인지 궁금합니다
+// --> 지금 운영 코드 생각해보니 session에서 필요값들 뽑아서 API로 컴포넌트마다 필요한 값들 가져오게 되어있는게 대부분인 것 같고
+// session에 있는 값들을 그대로 state 만들어서 넣어주는 애들도 있는 거 같아요!!
+// 저도 session에 있는 값들로 model.user의 findByAccount 한번 더 써서 해주는게 더 나으려나요?
 router.get('/dashboard', authorized, controllerDashboard.profile);
 router.get('/dashboard/profile', authorized, controllerDashboard.profile);
 router.get('/dashboard/experiences', authorized, controllerDashboard.experiences);
