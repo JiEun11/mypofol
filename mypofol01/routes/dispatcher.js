@@ -27,6 +27,8 @@ router.get('/signup', controllerMain.signup);
 router.post('/join', controllerSign.join);
 router.post('/login', controllerSign.login);
 
+// 만약 dashboard에서는 자기꺼만 수정가능이므로 필요한 것들은 authorized의 session안에 정보들을 뽑아쓰면 되는거고
+// 굳이 validAccount 해줄 필요가 없어서 없는 것임 => 이해한게 맞을까요,,?
 router.get('/dashboard', authorized, controllerDashboard.profile);
 router.get('/dashboard/profile', authorized, controllerDashboard.profile);
 router.get('/dashboard/experiences', authorized, controllerDashboard.experiences);
