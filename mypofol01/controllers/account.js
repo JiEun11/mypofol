@@ -22,7 +22,7 @@ module.exports = {
          *  route(dispatcher.js) 보면 앞에 validAccount 인터셉터가 있다! 그치?
          *  validAccount 구현에 설명 달아 놓았으니 읽어 보고
          * 
-         *  쟤 때문에 아래는 할 필요가 없음 req.account에 이 정보가 있음!! --> 봐도봐도 진심 짱이네,,
+         *  쟤 때문에 아래는 할 필요가 없음 req.account에 이 정보가 있음!! --> 봐도봐도 진심 짱이네,, --> ♡
          *  ejs 에서도 참조 가능!! 따라서 따로 세팅해 줄 필요가 없음
          * 
          *  아 참고로...
