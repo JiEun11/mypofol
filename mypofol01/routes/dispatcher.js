@@ -27,14 +27,61 @@ router.get('/signup', controllerMain.signup);
 router.post('/join', controllerSign.join);
 router.post('/login', controllerSign.login);
 
-// 만약 dashboard에서는 자기꺼만 수정가능이므로 필요한 것들은 authorized의 session안에 정보들을 뽑아쓰면 되는거고
-// 굳이 validAccount 해줄 필요가 없어서 없는 것임 => 이해한게 맞을까요,,?
-// 아 근데 dashboard profile에서 이름,이메일,자기소개,거주지,SNS 결국 user table들의 정보들을 다 가져와서 보여주고
-// upsert 해줘야하면 controllerDashboard.profile에서 modelUser 불러서 유저정보들 한번 더 가져오는게
-// 일반적인지 아니면 session의 authUser 값들을 보여주는게 일반적인지 궁금합니다
+// 1. 만약 dashboard에서는 자기꺼만 수정가능이므로 필요한 것들은 authorized의 session안에 정보들을 뽑아쓰면 되는거고
+//    굳이 validAccount 해줄 필요가 없어서 없는 것임 => 이해한게 맞을까요,,?
+// 2. 아 근데 dashboard profile에서 이름,이메일,자기소개,거주지,SNS 결국 user table들의 정보들을 다 가져와서 보여주고
+//    upsert 해줘야하면 controllerDashboard.profile에서 modelUser 불러서 유저정보들 한번 더 가져오는게
+//    일반적인지 아니면 session의 authUser 값들을 보여주는게 일반적인지 궁금합니다
 // --> 지금 운영 코드 생각해보니 session에서 필요값들 뽑아서 API로 컴포넌트마다 필요한 값들 가져오게 되어있는게 대부분인 것 같고
 // session에 있는 값들을 그대로 state 만들어서 넣어주는 애들도 있는 거 같아요!!
-// 저도 session에 있는 값들로 model.user의 findByAccount 한번 더 써서 해주는게 더 나으려나요?
+// 3. 저도 session에 있는 값들로 model.user의 findByAccount 한번 더 써서 해주는게 더 나으려나요?
+
+/*
+답변
+
+1. 일단 디비 스키마를 바바
+   user 와 profile로 나누어 놨지? (멀티 프로필 지원)
+
+2.   
+/{사용자계정}/profile (또는 /{사용자계정})
+/dashboard/profile (또는 /dashboard)
+여긴 profile 테이블과 연관 있고
+
+3.
+user 테이블의 내용은
+req.session.authUser
+req.account
+와 연관이 있어
+
+4.
+req.session.authUser
+는 로그인 사용자의 정보로 주로 헤더나 오른쪽 sliding 메뉴에 보여지는 정보가 되고
+
+req.account
+는 /{사용자계정} 에 접근할 때 외쪽 sidebar의 보여지는 정보가 됨
+
+5.
+github랑 비슷해
+니가 로그인하고 내 계정으로 왔을 때랑 똑같어
+mypofol에서도 회원가입하고 로그인 한 후, /bella 로 가바 (bella는 회원 가입 필요없이 거의 모든 정보가 있는 테스트 계정으로 SQL로 때려 넣은 계정)
+
+5.
+req.session.authUser 즉 세션에 저장할 내용은 최소 여야 해.
+id(PK) 정도가 이상적이지만 헤더나 오른쪽 sliding 메뉴에 보여 지는 정보를 매번 디비에 접근해서 가져오면 부담이니
+id, account, name, title, image_profile 이 정도만 세션에 저장 한거지
+리액트로 가면 로그인 할 때 클라이언트로 던져 주면 되면 세션에 id 정도만 저장하면 될 꺼 같고
+
+6. profile은 아까도 말했지만
+/{사용자계정}/profile (또는 /{사용자계정})
+/dashboard/profile (또는 /dashboard)
+접근할 때만 디비에서 가져 오면 됨
+
+/{사용자계정}/profile 일 땐 req.account 에서 id 가져와서 profile model에서 프로필 정보 가져오면 되고
+/dashboard/profile 일 땐 req.session.authUser 에서 id 가져와서 profile model에서 프로필 정보 가져오면 되고
+
+*/
+
+
 router.get('/dashboard', authorized, controllerDashboard.profile);
 router.get('/dashboard/profile', authorized, controllerDashboard.profile);
 router.get('/dashboard/experiences', authorized, controllerDashboard.experiences);
