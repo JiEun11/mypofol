@@ -24,6 +24,10 @@ const router = express.Router();
 router.get('/', controllerMain.index);
 router.get('/signin', controllerMain.signin);
 router.get('/signup', controllerMain.signup);
+
+// 20230908 #2
+// /joinsuccess 추가
+router.get('/joinsuccess', controllerSign.joinsuccess);
 router.post('/join', controllerSign.join);
 router.post('/login', controllerSign.login);
 

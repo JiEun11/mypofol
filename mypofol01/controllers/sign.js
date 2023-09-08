@@ -70,10 +70,26 @@ module.exports = {
       const password = req.body.password;
 
       await modelUser.insert(account, email, password);
-      res.status(200).render('sign/joinsuccess');
-    
+
+      // 20230908 #1
+      // DB insert 작업을 하는 요청인 경우 redirect가 기본임
+      // 브라우저의 URL 변화가 없으면 사용자가 새로고침을 계속 하면 디비에 계속 inert 됨
+      // 회원 가입 후, /joinsuccess 로 리다이렉트 (아래 joinsuccess 함수 참고)
+
+      // res.status(200).render('sign/joinsuccess');
+      res.redirect("/joinsuccess");
+
     } catch (error) {
       next(error);
     }
+  },
+  // 20230908 #2
+  // /joinsuccess handler 추가
+  joinsuccess: (req, res, next) => {
+      if(req.session.authUser) {
+          res.redirect("/dashboard");
+          return;
+      }
+      res.status(200).render('sign/joinsuccess');
   }    
 }

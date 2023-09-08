@@ -11,22 +11,16 @@
 <link href="/css/common/app.css" rel="stylesheet">
 <link href="/css/common/header.css" rel="stylesheet">
 <link href="/css/main/layout.css" rel="stylesheet">
-<link href="/css/main/form.css" rel="stylesheet">
+<link href="/css/main/welcome.css" rel="stylesheet">
 </head>
-<body class="full-wide overlay">
-	<%-include('../includes/common/header-no-auth') %>
+<body class="full-wide welcome">
+  <%-include('../includes/common/header') %>
   <div class="wrapper">
-    <div class="form position-relative">
-      <div class="form-header">
-        <h1>Sign in</h1>
+        <p class="greetings">
+          MyPofol 가입이 완료 되었습니다! <br>
+          <a class="btn" href="/signin">로그인</a> 
+        </p>  
       </div>
-      <div class="form-body">
-        회원가입에 성공했습니다.
-      </div>
-      <p class="login-callout">
-        로그인 하시겠습니까? <a href="/signin">로그인</a>
-      </p>  
-    </div>
   </div>
 </body>
 </html>
