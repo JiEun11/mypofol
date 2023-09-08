@@ -68,8 +68,8 @@ mypofol에서도 회원가입하고 로그인 한 후, /bella 로 가바 (bella�
 5.
 req.session.authUser 즉 세션에 저장할 내용은 최소 여야 해.
 id(PK) 정도가 이상적이지만 헤더나 오른쪽 sliding 메뉴에 보여 지는 정보를 매번 디비에 접근해서 가져오면 부담이니
-id, account, name, title, image_profile 이 정도만 세션에 저장 한거지
-리액트로 가면 로그인 할 때 클라이언트로 던져 주면 되면 세션에 id 정도만 저장하면 될 꺼 같고
+id, account, name, email, image_profile 이 정도만 세션에 저장 한거지!(email은 필요 없을 꺼 같넹? 빼주고...)
+리액트로 프론트엔드를 만들면 로그인 할 때 프론트엔드로 저 정보를 던져 주면 되니깐 그 때 백엔드(노드)의 세션에 id 정도만 저장하면 될 꺼 같고
 
 6. profile은 아까도 말했지만
 /{사용자계정}/profile (또는 /{사용자계정})
