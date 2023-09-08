@@ -88,7 +88,7 @@ id, account, name, email, image_profile 이 정도만 세션에 저장 한거지
    그니깐, 회원 가입 할때 지금 구현을 조금 수정 해야 하지?
    몰깡? 안 알려줌 생각해바 ㅋ 
 */
-
+// GOT IT... I keep considering how I can fix it and solve it... Umm... haha...
 
 router.get('/dashboard', authorized, controllerDashboard.profile);
 router.get('/dashboard/profile', authorized, controllerDashboard.profile);
