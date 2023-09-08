@@ -79,6 +79,10 @@ id, account, name, email, image_profile 이 정도만 세션에 저장 한거지
 /{사용자계정}/profile 일 땐 req.account 에서 id 가져와서 profile model에서 프로필 정보 가져오면 되고
 /dashboard/profile 일 땐 req.session.authUser 에서 id 가져와서 profile model에서 프로필 정보 가져오면 되고
 
+7. 아!!! 이건 찡 니가 생각해 주길 바라고 일부러 안했는데...
+   예전 스키마 v3 에서 mypofol 로 스키마를 바꾸면서 user -< profile 이렇게 됐쟎어?
+   그니깐, 회원 가입 할때 지금 구현을 조금 수정 해야 하지?
+   몰깡? 안 알려줌 생각해바 ㅋ 
 */
 
 
