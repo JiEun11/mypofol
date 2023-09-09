@@ -1,4 +1,4 @@
--- user 추가
+-- account 추가
 desc account;
 
 insert
@@ -12,25 +12,29 @@ desc profile;
 
 insert
   into profile
-values (null, 
+values (null,
+        '김지은',  
         'shdudtnr3939@gmail.com', 
-        '김지은',
-         '/upload-images/1e9b025b67079428922a41d5bc6aa952.jpg',
         'Hello, This is DreamCoder Full of Inspiration.', 
         '경기도 성남시 중원구',
         '010-9959-9896',
         'https://www.instagram.com/bella___jin',
-        'https://github.com/JiEun11', 'https://velog.io/@devbella',
+        'https://github.com/JiEun11',
+        'https://velog.io/@devbella',
         'https://www.youtube.com/channel/UCffzrqaHP8JB53GHuzmLMDw', 
         '', 
         '',
-        now(), now(), 1);
+        '/upload-images/1e9b025b67079428922a41d5bc6aa952.jpg',
+        now(),
+        now(),
+        1);
 
 select * from profile where account_id=1;
 
 select a.id, a.name as accountName, p.image as profileImage, a.status from account a, profile p where a.id = p.account_id and a.name='bella';
-select id, name, status as profileImage from account where name=?;
-select a.id, a.name as accountName, p.name profileName, p.image as profileImage from account a, profile p where a.id = p.account_id and email=? and password=password(?);
+-- 여기에 이게 왜?? 스크립트 돌리다 에러 나쟎어 -_- 이 새끼를 어떻게 하지..... -_ㅜ 
+-- select id, name, status as profileImage from account where name=?;
+-- select a.id, a.name as accountName, p.name profileName, p.image as profileImage from account a, profile p where a.id = p.account_id and email=? and password=password(?);
 select a.id, a.name as accountName, p.name profileName, p.image as profileImage from account a, profile p where a.id = p.account_id and a.email='shdudtnr3939@gmail.com' and a.password=password(1234);
 
 -- experience 추가
