@@ -28,6 +28,9 @@ values (null,
 
 select * from profile where account_id=1;
 
+select a.id, a.name as accountName, p.name profileName, p.image as profileImage from account a, profile p where a.id = p.account_id and email=? and password=password(?);
+select a.id, a.name as accountName, p.name profileName, p.image as profileImage from account a, profile p where a.id = p.account_id and a.email='shdudtnr3939@gmail.com' and a.password=password(1234);
+
 -- experience 추가
 desc experience;
 
