@@ -36,12 +36,12 @@
                     </div>
                     <div class="subbody">
                         <div class="col-12 col-md-8">
-                            <form action="/bella/profile" accept-charset="UTF-8" method="post">
+                            <form action="<%=req.session.authUser.accountName %>/profile" accept-charset="UTF-8" method="post">
                                 <div>
                                     <dl class="form-group">
                                       <dt><label for="user_profile_name">이름</label></dt>
                                       <dd>
-                                        <input class="form-control" type="text" value="<%=req.session.authUser.name %>" name="user[profile_name]" id="user_profile_name">
+                                        <input class="form-control" type="text" value="<%=req.session.authUser.profileName %>" name="user[profile_name]" id="user_profile_name">
                                         <div class="note">
                                             본명, 자신의 포트폴리오 또는 이력서의 이름 입니다. 
                                         </div>
@@ -160,7 +160,7 @@
                                         </div>
                                     </form>
                                     <div class="profile-pic-upload">
-                                        <img src="/images/default-user.jpg" width="200" height="200" alt="@bella">
+                                        <img src="/images/default_profile.png" width="200" height="200" alt="@bella">
                                         <div class="btn position-absolute">
                                             <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16">
                                                 <path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path>

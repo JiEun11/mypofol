@@ -3,7 +3,7 @@ const pool = require('./dbcp');
 module.exports = {
     findByAccount: async (account) => {
         const conn = await pool.getConnection();
-        const sql = 'select id, name, status as imageProfile from account where account=?';
+        const sql = 'select a.id, a.name as accountName, p.image as profileImage, a.status from account a, profile p where a.id = p.account_id and a.name=?';
         const [result] = await conn.query(sql, [account]);        
         conn.release();
             

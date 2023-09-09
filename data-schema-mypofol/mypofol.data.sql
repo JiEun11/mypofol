@@ -28,6 +28,8 @@ values (null,
 
 select * from profile where account_id=1;
 
+select a.id, a.name as accountName, p.image as profileImage, a.status from account a, profile p where a.id = p.account_id and a.name='bella';
+select id, name, status as profileImage from account where name=?;
 select a.id, a.name as accountName, p.name profileName, p.image as profileImage from account a, profile p where a.id = p.account_id and email=? and password=password(?);
 select a.id, a.name as accountName, p.name profileName, p.image as profileImage from account a, profile p where a.id = p.account_id and a.email='shdudtnr3939@gmail.com' and a.password=password(1234);
 
