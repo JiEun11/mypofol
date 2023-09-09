@@ -1,17 +1,21 @@
 -- user 추가
-desc user;
+desc account;
 
 insert
-  into user
-values (null, 'bella', 'shdudtnr3939@gmail.com', password('1234'), '김지은', 'World-renowned Software Engineer', '/upload-images/1e9b025b67079428922a41d5bc6aa952.jpg', now(), now());
+  into account
+values (null, 'bella', 'shdudtnr3939@gmail.com', password('1234'), 'World-renowned Software Engineer', now(), now());
 
-select * from user;
+select * from account;
 
 -- profile 추가
+desc profile;
+
 insert
   into profile
 values (null, 
         'shdudtnr3939@gmail.com', 
+        '김지은',
+         '/upload-images/1e9b025b67079428922a41d5bc6aa952.jpg',
         'Hello, This is DreamCoder Full of Inspiration.', 
         '경기도 성남시 중원구',
         '010-9959-9896',
@@ -22,14 +26,14 @@ values (null,
         '',
         now(), now(), 1);
 
-select * from profile where user_id=1;
+select * from profile where account_id=1;
 
 -- experience 추가
 desc experience;
 
 insert into experience values(null, '사원 / 정규직', '포스코 DX/Smart IT 사업실 포스코 IT 사업부 ERP섹션', 'Java 풀스택 개발/운영', '2019-01-00', null, '/upload-images/1f1b025b67079428922a41d5bc6aa952.jpg', now(), now(), 1); 
 
-select id, title, company, description, date_format(from_date, "%Y-%m") as fromDate, if(to_date is null, "재직", date_format(to_date, "%Y-%m")) as toDate, image_logo as imageLogo from experience where user_id=1;
+select id, title, company, description, date_format(from_date, "%Y-%m") as fromDate, if(to_date is null, "재직", date_format(to_date, "%Y-%m")) as toDate, image_logo as imageLogo from experience where account_id=1;
 
 -- education 추가
 desc education;
@@ -38,7 +42,7 @@ insert into education values(null, '단국 대학교 / 응용 컴퓨터 공학�
 insert into education values(null, '체코 오스트라바 공과 대학교 / 컴퓨터 엔지니어링', '2020-09-00', '2020-12-00', 'EX', '/upload-images/3b1b025b0707a421922a41d5bc6abe51.png', now(), now(), 1); 
 insert into education values(null, '천안 북일 여자고등학교', '2013-03-00', '2016-02-00', 'GRD', '/upload-images/3f1e029ba707a421922a4115bceabe39.jpg', now(), now(), 1);
 
-select id, title, date_format(from_date, "%Y-%m") as fromDate, if(to_date is null, "재학중", date_format(to_date, "%Y-%m")) as toDate, degrees, image_logo as imageLogo from education where user_id=1 order by from_date desc;
+select id, title, date_format(from_date, "%Y-%m") as fromDate, if(to_date is null, "재학중", date_format(to_date, "%Y-%m")) as toDate, degrees, image_logo as imageLogo from education where account_id=1 order by from_date desc;
 
 
 -- training 추가
@@ -50,7 +54,7 @@ insert into training values(null, 'certificate', '리눅스마스터', '2018-09-
 insert into training values(null, 'language', 'OPIC', '2021-06-00', '레벨 IH', now(), now(), 1);
 insert into training values(null, 'language', 'TOFEL', '2020-02-00', '73점', now(), now(), 1);
 
-select id, type, title, date_format(awarded, "%Y-%m") as awarded, ifnull(description, "") as description from training where user_id=1 order by type, awarded desc;
+select id, type, title, date_format(awarded, "%Y-%m") as awarded, ifnull(description, "") as description from training where account_id=1 order by type, awarded desc;
 
 
 -- skillset 추가
@@ -99,7 +103,7 @@ insert into skill values(null, 'Cloud Computing / AWS, GCP', '4', null, now(), n
 insert into skill values(null, 'Web Server(WAS) / Tomcat, Apache, Nginx', '4', null, now(), now(), 6);
 
 
-select a.id, a.name, a.level, a.duration, b.name as skillSet from skill a, skillset b where a.skillset_id = b.id and b.user_id = 1;
+select a.id, a.name, a.level, a.duration, b.name as skillSet from skill a, skillset b where a.skillset_id = b.id and b.account_id = 1;
 
 -- Projects
 desc project;
@@ -110,7 +114,7 @@ insert into project values(null, '내부 회계 관리 시스템', null, '포스
 insert into project values(null, '포트폴리오 서비스, MyPortfolio', null, '회원들의 포트폴리오 제작 / 관리 서비스 (개인 프로젝트)', '/upload-images/5k1t011cn188a81102ya4125mcka2159.png', '2022-01-00', '2022-03-00', now(), now(), 1);
 
 
-select a.name, a.role, a.description, a.image_project, date_format(from_date, "%Y-%m") as fromDate, if(to_date is null, "현재", date_format(to_date, "%Y-%m")) as toDate from project a where a.user_id=1;
+select a.name, a.role, a.description, a.image_project, date_format(from_date, "%Y-%m") as fromDate, if(to_date is null, "현재", date_format(to_date, "%Y-%m")) as toDate from project a where a.account_id=1;
 
 
 
