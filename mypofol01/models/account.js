@@ -3,7 +3,7 @@ const pool = require('./dbcp');
 module.exports = {
     findByAccount: async (account) => {
         const conn = await pool.getConnection();
-        const sql = 'select id, account, name, title, image_profile as imageProfile from user where account=?';
+        const sql = 'select id, name, status as imageProfile from account where account=?';
         const [result] = await conn.query(sql, [account]);        
         conn.release();
             
@@ -18,7 +18,7 @@ module.exports = {
       */
       const conn = await pool.getConnection();
       
-      const sql = 'select id, account, name, image_profile as imageProfile from user where email=? and password=password(?)';
+      const sql = 'select a.id, a.name as accountName, p.name profileName, p.image as profileImage from account a, profile p where a.id = p.account_id and a.email=? and a.password=password(?)';
       const [result] = await conn.query(sql, [email, password]);
 
       conn.release();
@@ -36,9 +36,11 @@ module.exports = {
 
       const conn = await pool.getConnection();
       
-      const sql = `insert into user(account, email, password, image_profile, created_at, last_updated_at) values(?, ?, password(?), '/images/default-user.jpg', now(), now())`;
+      const sqlToAccount = `insert into account(name, email, password, created_at, last_updated_at) values(?, ?, password(?), now(), now())`;
       await conn.query(sql, [account, email, password]);
 
+      const sqlToProfile= `insert into profile(image, created_at, last_updated_at) values('/images/default_profile.jpg', now(), now())`;
+      await conn.query(sql);
       conn.release();
     }
 };

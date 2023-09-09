@@ -1,4 +1,4 @@
-const modelUser = require('../models/user');
+const modelUser = require('../models/account');
 
 module.exports = {
   login: async (req, res, next) => {
@@ -15,7 +15,7 @@ module.exports = {
       const email = req.body.email;
       const password = req.body.password;
       const loginUser = await modelUser.findByEmailPassword(email, password);
-
+      console.log('loginUser >>>>> ' , loginUser);
       if(!loginUser) {
         /*
         사용자가 이메일과 비밀번호가 잘못 되었는데 왜 404 Not Found?

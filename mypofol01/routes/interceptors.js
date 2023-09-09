@@ -1,4 +1,4 @@
-const modelUser = require('../models/user');
+const modelAccount = require('../models/account');
 
 exports.authorized = (req, res, next) => {
     if(!req.session.authUser) {       
@@ -11,7 +11,7 @@ exports.authorized = (req, res, next) => {
 
 exports.validAccount = async (req, res, next) => {
     try {
-        const account = await modelUser.findByAccount(req.params.account);
+        const account = await modelAccount.findByAccount(req.params.account);
         if(!account) {
             res.status(404).render('error/404');
             return;
