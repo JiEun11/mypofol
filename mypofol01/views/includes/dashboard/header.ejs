@@ -2,15 +2,15 @@
     <div class="content-header-inner">
         <div class="profile-pic">
             <a href="#">
-                <img src="<%=req.session.authUser.imageProfile %>">
+                <img src="<%=req.session.authUser.profileImage %>">
             </a>
         </div>
         <div class="profile-name">
             <h1>
-                <a href="/<%=req.session.authUser.account %>" class="color-fg-default">
-                    <%=req.session.authUser.name || req.session.authUser.account  %>
-                    <% if(req.session.authUser.name) { %>
-                    <span>(<%=req.session.authUser.account  %>)</span>
+                <a href="/<%=req.session.authUser.accountName %>" class="color-fg-default">
+                    <%=req.session.authUser.accountName || req.session.authUser.profileName  %>
+                    <% if(req.session.authUser.accountName) { %>
+                    <span>(<%=req.session.authUser.profileName  %>)</span>
                     <% } %>
                 </a>
             </h1>
@@ -21,5 +21,5 @@
             </div>
         </div>
     </div>
-    <a href="/<%=req.session.authUser.account %>" class="btn">Go to my portfoio</a>
+    <a href="/<%=req.session.authUser.accountName %>" class="btn">Go to my portfoio</a>
 </div>
