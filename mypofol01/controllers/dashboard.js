@@ -1,5 +1,17 @@
+const modelProfile = require('../models/profile');
 module.exports = {
-    profile: (req, res, next) => {
+    profile: async (req, res, next) => {
+      try {
+        const profile = await modelProfile.findByAccountId(req.session.authAccount.id);
+        console.log('profile >>>> ', profile);
+        res.status(200).render('dashboard/profile', {
+          profile
+        });
+      } catch (error) {
+        next(error)
+      }
+      
+
         res.status(200).render('dashboard/profile');
     },
     experiences: (req, res, next) => {
