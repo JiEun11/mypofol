@@ -109,6 +109,7 @@ module.exports = {
     // 개발자라 할 수 없을 정도로 참담한 수준이여~
     // 딴 일때문에 사정상 테스트를 모해 잘 실행 되는 것을 확인 할 수 없으면 커밋 하지 마라.
     // 회사에서 안 그래? -_-;;; 
+    // --> 아 썜이 보고 체크한다고 생각 못 하고 저 혼자 한다 생각해서 1차로 고친거만 올린건데 다 체크해주셨네,, 넵
     // 
     //  const sqlToProfile= `insert into profile(image, created_at, last_updated_at) values('/images/default_profile.jpg', now(), now())`;
     //  await conn.query(sql);
@@ -131,7 +132,7 @@ module.exports = {
       // insert 된 row의 id(PK)를 반환 해주고
       // 이 것을 Profile Model 의 insert에서 사용해 insert 해야한다. (models/profile.js 추가 했음)
       // controllers/sign 의 join() 함수 참고 해
-      // 
+      // --> 제가 내일까지 완성시키려고 했던건데,,, 타이밍이 안 맞았던 거 같습니다 
       return result.insertId;
     }    
     
