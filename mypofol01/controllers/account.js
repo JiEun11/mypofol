@@ -60,10 +60,8 @@ module.exports = {
         });
       } catch (error) {
         /**
-         *  
          * 빼먹지 말고 꼭 next(err) 그래야 500 에러 페이지 나온다.
          * 에러나면 응답이 안와.... 계속 브라우저 빙글빙글 돈다. --> next()만 해주면 된다고 생각했어여..
-         * 
          */
         next(err);
       }
@@ -75,7 +73,6 @@ module.exports = {
         /**
          *  여기도 위와 마찬가지!!!
          *  인터셉터는 많이 쓰는 기능이니깐 꼭 이해 해줘라
-         * 
          */
 
         // const profile = await modelUser.findByAccount(req.params.account);

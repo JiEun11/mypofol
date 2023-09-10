@@ -18,21 +18,21 @@ module.exports = {
          *    nonAuthorized
          *    - 인증을 안하고 접근해야 하는 데 한 경우 /dashboard로 리다이렉트
          */
-        if(req.session.authUser) {
+        if(req.session.authAccount) {
             res.redirect("/dashboard");
             return;
         }
         res.status(200).render('main/index');
     },
     signin: (req, res, next) => {
-        if(req.session.authUser) {
+        if(req.session.authAccount) {
             res.redirect("/dashboard");
             return;
         }
         res.status(200).render('main/signin');
     },
     signup: (req, res, next) => {
-        if(req.session.authUser) {
+        if(req.session.authAccount) {
             res.redirect("/dashboard");
             return;
         }

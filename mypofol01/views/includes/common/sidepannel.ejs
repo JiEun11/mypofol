@@ -8,15 +8,15 @@
                 <div class="side-pannel-title-wrap">
                     <div class="d-flex">
                         <div class="side-pannel-user">
-                            <img src="<%=req.session.authUser.profileImage %>">
+                            <img src="<%=req.session.authAccount.profileImage %>">
                         </div>
                         <div class="overflow-hidden d-flex width-full">
                             <div class="lh-condensed overflow-hidden d-flex flex-column ml-2 f5 mr-auto width-full">
                                 <span class="title">
-                                    <span><%=req.session.authUser.accountName %></span>
+                                    <span><%=req.session.authAccount.name %></span>
                                 </span>
                                 <span class="title sub">
-                                    <span><%=req.session.authUser.profileName %></span>
+                                    <span><%=req.session.authAccount.profileName %></span>
                                 </span>
                             </div>
                         </div>
@@ -36,7 +36,7 @@
             <nav class="action-list">
                 <ul>
                     <li>
-                        <a href="/<%=req.session.authUser.accountName %>">
+                        <a href="/<%=req.session.authAccount.name %>">
                             <span class="action-list-item-ico">
                                 <i class="fa fa-user"></i>
                             </span>
