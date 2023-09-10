@@ -17,7 +17,6 @@ module.exports = {
     },
     skills: async (req, res, next) => {
       try {
-
         /**
          *  route(dispatcher.js) 보면 앞에 validAccount 인터셉터가 있다! 그치?
          *  validAccount 구현에 설명 달아 놓았으니 읽어 보고
@@ -33,8 +32,7 @@ module.exports = {
          *  디비가 바껴서 user와 profile은 분리됐다.
          *  꼭 참고해서 바라~~ data-schema-mypofol 폴더 확인해라
          * 
-         */
-        
+         */        
         // const profile = await modelUser.findByAccount(req.params.account);
         // if(!profile){
         //  res.status(404).render('error/404');
@@ -49,8 +47,9 @@ module.exports = {
         //     return result;
         //   }, {})
         // });
-
-        const skills = await modelSkill.findByUserId(req.account.id);
+        
+        // 20230910 #9
+        const skills = await modelSkill.findByAccountId(req.account.id);
         res.status(200).render('account/skills', {
           skills: skills.reduce((result, skill) => {
             (skill.skillSet in result) || (result[skill.skillSet] = [])
@@ -69,12 +68,10 @@ module.exports = {
     },
     projects: async (req, res, next) => {
       try {
-
         /**
          *  여기도 위와 마찬가지!!!
          *  인터셉터는 많이 쓰는 기능이니깐 꼭 이해 해줘라
          */
-
         // const profile = await modelUser.findByAccount(req.params.account);
         // if(!profile){
         //  res.status(404).render('error/404');
@@ -85,8 +82,9 @@ module.exports = {
         //   account: req.account,
         //   projects
         // });
-
-        const projects = await modelProject.findByUserId(req.account.id);
+        
+        // 20230910 #8
+        const projects = await modelProject.findByAccountId(req.account.id);
         res.status(200).render('account/projects', {
           projects
         });

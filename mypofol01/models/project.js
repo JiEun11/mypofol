@@ -1,8 +1,8 @@
 const pool = require('./dbcp');
 
 module.exports = {
-    findByUserId: async (userId) => {
-        const conn = await pool.getConnection();
+    // 20230910 #8
+    findByAccountId: async (accountId) => {
         /**
          * 
          * portfolio_v3 가 mypofol 로 바꼈음
@@ -16,35 +16,41 @@ module.exports = {
          * 
          */
         const sql = `
-            select a.name,
-                   a.role,
-                   a.description,
-                   a.image_project,
+            select name,
+                   role,
+                   description,
+                   image_project,
                    date_format(from_date, "%Y-%m") as fromDate,
                    if(to_date is null, "현재", date_format(to_date, "%Y-%m")) as toDate
-              from project a
-             where a.user_id=?;
+              from project
+             where account_id=?;
         `;
-        const [result] = await conn.query(sql, [userId]);        
-        conn.release();
-            
-        return result;
-    },    
-    findCategoryByUserId: async (userId) => {
-        const conn = await pool.getConnection();
 
-        const sql = `
-            select c.id, c.name, d.projectCount
-              from project_category c,
-                   (select b.id, count(*) as projectCount
-                      from project a, project_category b
-                     where a.project_category_id = b.id
-                       and a.user_id=? group by b.id) d
-             where c.id = d.id;
-        `;
-        const [result] = await conn.query(sql, [userId]);        
+        const conn = await pool.getConnection();
+        const [result] = await conn.query(sql, [accountId]);        
         conn.release();
             
         return result;
     }
+    //
+    // Project Category는 없어 졌다!
+    //
+    // ,
+    // findCategoryByAccountId: async (accountId) => {
+    //     const sql = `
+    //         select c.id, c.name, d.projectCount
+    //           from project_category c,
+    //                (select b.id, count(*) as projectCount
+    //                   from project a, project_category b
+    //                  where a.project_category_id = b.id
+    //                    and a.user_id=? group by b.id) d
+    //          where c.id = d.id;
+    //     `;
+    //
+    //     const conn = await pool.getConnection();
+    //     const [result] = await conn.query(sql, [accountId]);        
+    //     conn.release();
+            
+    //     return result;
+    // }
 };
