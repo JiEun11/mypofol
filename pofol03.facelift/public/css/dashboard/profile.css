@@ -123,11 +123,11 @@
     font-size: 12px;
 }
 
-.user-profile-bio-field-container {
+.description {
     position: relative;
 }
 
-.form-group .form-control.user-profile-bio-field {
+.form-group .form-control.description {
     width: 440px;
     height: 5.35em;
     min-height: 0;

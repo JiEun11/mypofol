@@ -36,12 +36,12 @@
                     </div>
                     <div class="subbody">
                         <div class="col-12 col-md-8">
-                            <form action="<%=req.session.authAccount.name %>/profile" accept-charset="UTF-8" method="post">
+                            <form action="/dashboard/updateProfile" accept-charset="UTF-8" method="post">
                                 <div>
                                     <dl class="form-group">
-                                      <dt><label for="user_profile_name">이름</label></dt>
+                                      <dt><label for="name">이름</label></dt>
                                       <dd>
-                                        <input class="form-control" type="text" value="<%=profile.name %>" name="user[profile_name]" id="user_profile_name">
+                                        <input class="form-control" type="text" value="<%=profile.name %>" name="profile[name]" id="name">
                                         <div class="note">
                                             본명, 자신의 포트폴리오 또는 이력서의 이름 입니다. 
                                         </div>
@@ -49,35 +49,33 @@
                                     </dl>
                                     
                                     <dl class="form-group">
-                                        <dt><label for="user_profile_email">공개 이메일</label></dt>
-                                        <dd class="d-inline-block">
-                                            <div>
-                                                <div>
-                                                    <select class="form-control form-select" name="user[profile_email]" id="user_profile_email">
-                                                        <option value="">공개할 이메일을 선택하세요.</option>
-                                                        <option selected="selected" value="<%=profile.email %>"><%=profile.email %></option>
-                                                    </select>
-                                                    <p class="note">
-                                                        자신의 포트폴리오 또는 이력서의 연락처로 사용할 이메일 입니다.  
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </dd>
+                                      <dt><label for="name">이메일</label></dt>
+                                      <dd>
+                                        <input class="form-control" type="text" value="<%=profile.email %>" name="profile[email]" id="email">
+                                        <div class="note">
+                                          자신의 포트폴리오 또는 이력서의 연락처로 사용할 이메일 입니다.
+                                        </div>
+                                      </dd>
                                     </dl>
                       
                                     <dl class="form-group">
-                                        <dt><label for="user_profile_bio">자기소개</label></dt>
-                                        <dd class="user-profile-bio-field-container">
-                                            <textarea class="form-control user-profile-bio-field" placeholder="간단히 자신을 소개해 주세요." value name="user[profile_bio]" id="user_profile_bio"><%=profile.description %></textarea>
+                                        <dt><label for="description">자기소개</label></dt>
+                                        <dd class="description-container">
+                                            <textarea class="form-control description" placeholder="간단히 자신을 소개해 주세요." value name="profile[description]" id="profile_description"><%=profile.description %></textarea>
                                             <p class="note">
                                                 자신의 포트폴리오 또는 이력서의 간단한 자기소개 입니다.
                                             </p>
                                         </dd>
                                     </dl>
-                                                          
+                                    
                                     <dl class="form-group">
-                                      <dt><label for="user_profile_location">거주지</label></dt>
-                                      <dd><input class="form-control" type="text" value="<%=profile.district %>" name="user[profile_location]" id="user_profile_location"></dd>
+                                      <dt><label for="phone">전화번호</label></dt>
+                                      <dd><input class="form-control" type="text" value="<%=profile.phone %>" name="profile[phone]" id="phone"></dd>
+                                    </dl>
+
+                                    <dl class="form-group">
+                                      <dt><label for="district">거주지</label></dt>
+                                      <dd><input class="form-control" type="text" value="<%=profile.district %>" name="profile[district]" id="district"></dd>
                                     </dl>
 
                                     <hr>
@@ -90,7 +88,7 @@
                                                     <path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
                                                 </svg>
                                             </span>
-                                            <input class="ml-2 form-control flex-auto input-sm" type="text" placeholder="소셜 계정 URL" name="user[profile_social_accounts][url]" value="<%=profile.link1 %>">
+                                            <input class="ml-2 form-control flex-auto input-sm" type="text" placeholder="소셜 계정 URL" name="profile[social_accounts][link]" value="<%=profile.link1 %>">
                                         </div>
                                         <div class="mt-2 d-flex flex-items-center">
                                             <span>
@@ -98,7 +96,7 @@
                                                     <path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
                                                 </svg>
                                             </span>
-                                            <input class="ml-2 form-control flex-auto input-sm" type="text" placeholder="소셜 계정 URL" name="user[profile_social_accounts][url]" value="<%=profile.link2 %>">
+                                            <input class="ml-2 form-control flex-auto input-sm" type="text" placeholder="소셜 계정 URL" name="profile[social_accounts][link]" value="<%=profile.link2 %>">
                                         </div>
                                         <div class="mt-2 d-flex flex-items-center">
                                             <span>
@@ -106,7 +104,7 @@
                                                     <path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
                                                 </svg>
                                             </span>
-                                            <input class="ml-2 form-control flex-auto input-sm" type="text" placeholder="소셜 계정 URL" name="user[profile_social_accounts][url]" value="<%=profile.link3 %>">
+                                            <input class="ml-2 form-control flex-auto input-sm" type="text" placeholder="소셜 계정 URL" name="profile[social_accounts][link]" value="<%=profile.link3 %>">
                                         </div>
                                         <div class="mt-2 d-flex flex-items-center">
                                             <span>
@@ -114,7 +112,7 @@
                                                     <path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
                                                 </svg>
                                             </span>
-                                            <input class="ml-2 form-control flex-auto input-sm" type="text" placeholder="소셜 계정 URL" name="user[profile_social_accounts][url]" value="<%=profile.link4 %>">
+                                            <input class="ml-2 form-control flex-auto input-sm" type="text" placeholder="소셜 계정 URL" name="profile[social_accounts][link]" value="<%=profile.link4 %>">
                                         </div>
                                         <div class="mt-2 d-flex flex-items-center">
                                             <span>
@@ -122,7 +120,7 @@
                                                     <path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
                                                 </svg>
                                             </span>
-                                            <input class="ml-2 form-control flex-auto input-sm" type="text" placeholder="소셜 계정 URL" name="user[profile_social_accounts][url]" value="<%=profile.link5 %>">
+                                            <input class="ml-2 form-control flex-auto input-sm" type="text" placeholder="소셜 계정 URL" name="profile[social_accounts][link]" value="<%=profile.link5 %>">
                                         </div>
                                         <div class="mt-2 d-flex flex-items-center">
                                             <span>
@@ -130,7 +128,7 @@
                                                     <path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
                                                 </svg>
                                             </span>
-                                            <input class="ml-2 form-control flex-auto input-sm" type="text" placeholder="소셜 계정 URL" name="user[profile_social_accounts][url]" value="<%=profile.link6 %>">
+                                            <input class="ml-2 form-control flex-auto input-sm" type="text" placeholder="소셜 계정 URL" name="profile[social_accounts][link]" value="<%=profile.link6 %>">
                                         </div>                                                                                                                        
                                     </div>
                                     
