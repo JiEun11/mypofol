@@ -36,7 +36,7 @@ module.exports = {
   지금 처럼 맘대로 막 지어바 그럼 막 내 의견도 전달해 줄깨
   납득이 가면 수정하고 납득이 안 가면 냅둬~~ 니가 짜는 거니깐. 
   */
-  updateByDefault: async (profile) => {
+  update: async (profile) => {
     /*
     const conn = await pool.getConnection();
 

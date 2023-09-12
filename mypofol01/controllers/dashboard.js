@@ -39,7 +39,7 @@ module.exports = {
       const profile = Object.assign(req.body.profile, {
         accountId: req.session.authAccount.id
       });
-      const update = await modelProfile.updateByDefault(profile);
+      const update = await modelProfile.update(profile);
 
       console.log("update value >>>> ", update);
       // 여기가 맞지!!
