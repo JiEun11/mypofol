@@ -8,15 +8,39 @@ module.exports = {
         });
       } catch (error) {
         next(error);
-      }
-        res.status(200).render('dashboard/profile');
+      }      
+      // 20230911 #1   
+      // res.status(200).render('dashboard/profile');
     },
     updateProfile: async (req, res, next) => {
       try{
         console.log('update >>>>> ', req.body.profile);
-        const accountId = req.session.authAccount.id;
-        const profile = req.body.profile;
-        const update = await modelProfile.updateByDefault(accountId, profile);
+
+        //
+        // 20230911 #2 (for using named-placeholders)
+        //
+
+        // const accountId = req.session.authAccount.id;
+        // const profile = req.body.profile;        
+        // const update = await modelProfile.updateByDefault(accountId, profile);
+        
+        // 
+        // req.body.profile를 수정 하지 않고 clone 뜨고 accountId를 추가 하기 위해 Object.assign를 사용
+        // 
+        // const profile = req.body.profile;
+        // profile.accountId = req.session.authAccount.id;
+        //
+        // 이래도 되지만, req.body를 수정하는 것은 좋아 보이지 않음
+        //  
+        //  a = Object.assign(b, c)
+        //  a = b + c
+        // 
+
+        const profile = Object.assign(req.body.profile, {
+          accountId: req.session.authAccount.id
+        });
+        const update = await modelProfile.updateByDefault(profile);
+
         console.log("update value >>>> " , update);
       }catch(error){
         next(error);
