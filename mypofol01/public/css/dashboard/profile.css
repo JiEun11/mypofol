@@ -152,6 +152,11 @@
     white-space: nowrap;
 }
 
+.form-group textarea.form-control {
+    height: 150px;
+    font-size: 0.85rem;
+}
+
 /* profile picture upload */
 .profile-upload-container .upload-error {
     padding: 8px 0;
