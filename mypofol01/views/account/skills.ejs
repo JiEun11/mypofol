@@ -33,36 +33,34 @@
                         <h2>주요기술</h2>
                     </div>
                     <div class="row align-items-top">
-                      <%
-                        for(skillset in skills){
-                      %>
+                      <% for(skillsetName in skills) { %>
                         <div class="col-md-6">
                             <div class="skills-col">
                                 <h3>
                                     <i class="fa fa-ellipsis-vertical"></i>
-                                    <span><%=skillset %></span>
+                                    <span><%=skillsetName %></span>
                                 </h3>
                                 <div class="skillsets">
-                                  <% 
-                                    for(let i = 0; i < skills[skillset].length; i++) {
-                                      const skill = skills[skillset][i];
-                                  %>
+                                  <!--%  
+                                    for(let i = 0; i < skills[skillsetName].length; i++) {
+                                      const skill = skills[skillsetName][i];
+                                  %-->
+                                  <% skills[skillsetName].forEach(function(skill) { %>
                                     <div class="skill-name">
-                                        <p><%=skill.name %></p><p>Lvl. <%=skill.level %></p>
+                                        <p><%=skill.name %></p>
+                                        <p>Lvl. <%=skill.level %></p>
                                     </div>
                                     <div class="progress">
                                         <div class="progress-bar" role="progressbar" aria-valuenow="<%=skill.level %>" aria-valuemin="0" aria-valuemax="5" style="width: calc((<%=skill.level %>/5)*100%)"></div>
                                     </div>
-                                  <%
+                                  <% }) %>
+                                  <!--%
                                     }
-                                  %>
+                                  %-->
                                 </div>
                             </div>                        
                         </div>
-
-                      <% 
-                        }
-                      %>   
+                      <% } %>   
                     </div>
                 </div>
             </div>
