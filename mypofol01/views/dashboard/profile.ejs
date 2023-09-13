@@ -57,7 +57,7 @@
                                         </div>
                                       </dd>
                                     </dl>
-                      
+                                      
                                     <dl class="form-group">
                                         <dt><label for="description">자기소개</label></dt>
                                         <dd class="description-container">
@@ -67,10 +67,15 @@
                                             </p>
                                         </dd>
                                     </dl>
+
+                                    <dl class="form-group">
+                                        <dt><label for="birth">출생년월</label></dt>
+                                        <dd><input class="form-control" type="month" value="" name="profile[birth]" id="birth"></dd>
+                                    </dl>
                                     
                                     <dl class="form-group">
                                       <dt><label for="phone">전화번호</label></dt>
-                                      <dd><input class="form-control" type="text" value="<%=profile.phone %>" name="profile[phone]" id="phone"></dd>
+                                      <dd><input class="form-control" type="tel" id="phone" value="<%=profile.phone %>" name="profile[phone]" placeholder="010-0000-0000" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required></dd>
                                     </dl>
 
                                     <dl class="form-group">
@@ -78,6 +83,11 @@
                                       <dd><input class="form-control" type="text" value="<%=profile.district %>" name="profile[district]" id="district"></dd>
                                     </dl>
 
+                                    <dl class="form-group">
+                                        <dt><label for="blog">블로그</label></dt>
+                                        <dd><input class="form-control" type="url" value="" name="profile[blog]" id="blog"></dd>
+                                    </dl>
+  
                                     <hr>
 
                                     <div class="form-group">
@@ -88,7 +98,7 @@
                                                     <path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
                                                 </svg>
                                             </span>
-                                            <input class="ml-2 form-control flex-auto input-sm" type="text" placeholder="소셜 계정 URL" name="profile[link1]" value="<%=profile.link1 %>">
+                                            <input class="ml-2 form-control flex-auto input-sm" type="url" placeholder="소셜 계정 URL" name="profile[link1]" value="<%=profile.link1 %>">
                                         </div>
                                         <div class="mt-2 d-flex flex-items-center">
                                             <span>
@@ -96,7 +106,7 @@
                                                     <path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
                                                 </svg>
                                             </span>
-                                            <input class="ml-2 form-control flex-auto input-sm" type="text" placeholder="소셜 계정 URL" name="profile[link2]" value="<%=profile.link2 %>">
+                                            <input class="ml-2 form-control flex-auto input-sm" type="url" placeholder="소셜 계정 URL" name="profile[link2]" value="<%=profile.link2 %>">
                                         </div>
                                         <div class="mt-2 d-flex flex-items-center">
                                             <span>
@@ -104,7 +114,7 @@
                                                     <path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
                                                 </svg>
                                             </span>
-                                            <input class="ml-2 form-control flex-auto input-sm" type="text" placeholder="소셜 계정 URL" name="profile[link3]" value="<%=profile.link3 %>">
+                                            <input class="ml-2 form-control flex-auto input-sm" type="url" placeholder="소셜 계정 URL" name="profile[link3]" value="<%=profile.link3 %>">
                                         </div>
                                         <div class="mt-2 d-flex flex-items-center">
                                             <span>
@@ -112,7 +122,7 @@
                                                     <path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
                                                 </svg>
                                             </span>
-                                            <input class="ml-2 form-control flex-auto input-sm" type="text" placeholder="소셜 계정 URL" name="profile[link4]" value="<%=profile.link4 %>">
+                                            <input class="ml-2 form-control flex-auto input-sm" type="url" placeholder="소셜 계정 URL" name="profile[link4]" value="<%=profile.link4 %>">
                                         </div>
                                         <div class="mt-2 d-flex flex-items-center">
                                             <span>
@@ -120,7 +130,7 @@
                                                     <path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
                                                 </svg>
                                             </span>
-                                            <input class="ml-2 form-control flex-auto input-sm" type="text" placeholder="소셜 계정 URL" name="profile[link5]" value="<%=profile.link5 %>">
+                                            <input class="ml-2 form-control flex-auto input-sm" type="url" placeholder="소셜 계정 URL" name="profile[link5]" value="<%=profile.link5 %>">
                                         </div>
                                         <div class="mt-2 d-flex flex-items-center">
                                             <span>
@@ -128,7 +138,7 @@
                                                     <path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
                                                 </svg>
                                             </span>
-                                            <input class="ml-2 form-control flex-auto input-sm" type="text" placeholder="소셜 계정 URL" name="profile[link6]" value="<%=profile.link6 %>">
+                                            <input class="ml-2 form-control flex-auto input-sm" type="url" placeholder="소셜 계정 URL" name="profile[link6]" value="<%=profile.link6 %>">
                                         </div>                                                                                                                        
                                     </div>
                                     

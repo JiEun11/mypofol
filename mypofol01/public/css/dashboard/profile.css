@@ -152,6 +152,15 @@
     white-space: nowrap;
 }
 
+.form-group textarea.form-control {
+    height: 200px;
+    font-size: 0.85rem;
+}
+
+.form-group input[type='month'].form-control, .form-group input[type='tel'].form-control {
+    width: 150px;
+}
+
 /* profile picture upload */
 .profile-upload-container .upload-error {
     padding: 8px 0;

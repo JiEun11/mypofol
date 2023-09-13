@@ -228,8 +228,8 @@ fieldset.form-group i {
 }
 
 fieldset.form-group .form-control {
-   width: 100px;
-   max-width: 100px;
+   width: 110px;
+   max-width: 110px;
 }
 
 textarea.form-control.description-field {
