@@ -124,7 +124,7 @@ insert into project values(null, '내부 회계 관리 시스템', null, '포스
 insert into project values(null, '포트폴리오 서비스, MyPortfolio', null, '회원들의 포트폴리오 제작 / 관리 서비스 (개인 프로젝트)', '/upload-images/5k1t011cn188a81102ya4125mcka2159.png', '2022-01-00', '2022-03-00', now(), now(), 1);
 
 
-select a.name, a.role, a.description, a.image_project, date_format(from_date, "%Y-%m") as fromDate, if(to_date is null, "현재", date_format(to_date, "%Y-%m")) as toDate from project a where a.account_id=1;
+select a.id, a.name, a.role, a.description, a.image_project, date_format(from_date, "%Y-%m") as fromDate, if(to_date is null, "현재", date_format(to_date, "%Y-%m")) as toDate from project a where a.account_id=1;
 
 
 
