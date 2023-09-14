@@ -32,20 +32,19 @@
                     <div class="content-header">
                         <h2>프로젝트</h2>
                     </div>
-                    <div class="row align-items-top">
+                    <div class="row align-items-center">
                         <% projects.forEach(function(project) { %>
-                            <div class="col-md-6">
-                                <div class="projects-col">
-                                    <h3>
-                                        <i class="fa fa-ellipsis-vertical"></i>
-                                        <span><%=project.name %></span>
-                                    </h3>
-                                    <p>
-                                        <%=project.description %>
-                                    </p>
-                                </div>                        
+                        <div class="col-md-12">
+                            <div class="prj-col">
+                                <span><%=project.fromDate %> <i>~</i> <%=project.toDate %></span>
+                                <h3><%=project.name %></h3>
+                                <h4><%=project.role %></h4>
+                                <p>
+                                    <%=project.description %>
+                                </p>
                             </div>
-                        <% }); %>                 
+                        </div>
+                        <% }) %> 
                     </div>
                 </div>
             </div>
