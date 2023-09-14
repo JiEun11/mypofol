@@ -16,7 +16,8 @@ module.exports = {
          * 
          */
         const sql = `
-            select name,
+            select id,
+                   name,
                    role,
                    description,
                    image_project,

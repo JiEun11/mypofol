@@ -91,6 +91,7 @@ router.post('/dashboard/updateProfile', authorized, controllerDashboard.updatePr
 router.get('/dashboard/experiences', authorized, controllerDashboard.experiences);
 router.get('/dashboard/educations', authorized, controllerDashboard.educations);
 router.get('/dashboard/trainings', authorized, controllerDashboard.trainings);
+router.get('/dashboard/projects', authorized, controllerDashboard.projects);
 
 router.get('/:account', validAccount, authorized, controllerAccount.profile);
 router.get('/:account/profile', validAccount, authorized, controllerAccount.profile);
