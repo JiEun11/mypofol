@@ -27,7 +27,8 @@ values (null,
         '/upload-images/1e9b025b67079428922a41d5bc6aa952.jpg',
         now(),
         now(),
-        1);
+        1,
+        '1997-12-11');
 
 select * from profile where account_id=1;
 

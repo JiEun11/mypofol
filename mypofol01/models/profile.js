@@ -4,7 +4,7 @@ const toUnnamed = require('named-placeholders')();
 module.exports = {
   findByAccountId: async (accountId) => {
     const sql = `
-      select id, name, email, description, district, phone, image, link1, link2, link3, link4, link5, link6
+      select id, name, email, description, district, phone, image, link1, link2, link3, link4, link5, link6, birth
         from profile
        where account_id = ?
     `;
@@ -93,6 +93,7 @@ module.exports = {
              link5 = :link5,
              link6 = :link6,
              last_updated_at = now()
+             birth = :birth
        where account_id = :accountId
     `, profile);
 
