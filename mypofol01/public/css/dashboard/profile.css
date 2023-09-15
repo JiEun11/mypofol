@@ -226,6 +226,8 @@
     }    
 }
 
-.profile-upload-container input[type='file'], .profile-upload-container .upload-error, .profile-pic-upload .upload-state {
+.profile-upload-container input[type='file'],
+.profile-upload-container .upload-error *,
+.profile-pic-upload .upload-state {
     display: none;
 }

@@ -83,43 +83,42 @@
                                 </div>
                             </div>
 
-                            <div class="box">
-                              <% for(let i in projects) { %>
-                                <% console.log('project >>> ' , projects[i]) %>
-                                <div class="box-header">
-                                    <button><i class="fa-solid fa-trash-can"></i> 삭제</button>
-                                </div>
-                                <div class="box-row">
-                                    <div class="row-content">
-                                        <span class="form-group">
-                                          <input class="form-control" type="hidden" value="<%= projects[i].id %>" name="project[id]" >
-                                        </span>
-                                        <span class="form-group">
-                                            <input class="form-control" type="text" placeholder="프로젝트명" value="<%= projects[i].name %>" name="project[name]" required>
-                                        </span>
-                                        <fieldset class="form-group">
-                                            <input class="form-control" type="month" value="<%=projects[i].fromDate %>" placeholder="0000-00" name="project[fromDate]" required>
-                                            <i>~</i>
-                                            <input class="form-control" type="month" value="<%=projects[i].toDate %>" placeholder="0000-00" name="project[toDate]">
-                                        </fieldset>
-                                        <span class="form-group">
-                                            <input class="form-control" type="text" placeholder="역할" value="<%=projects[i].role %>" name="project[role]" required>
-                                        </span>
-                                        <span class="form-group">
-                                            <textarea class="form-control description-field" placeholder="프로젝트 설명" name="project[description]"><%=projects[i].description %></textarea>
-                                        </span>
-                                        <p class="form-group">
-                                            <button class="btn" type="submit">
-                                                <span class="button-content">
-                                                    <span class="button-label">업데이트</span>
-                                                </span>
-                                            </button>                      
-                                        </p>                                        
+                            <% projects.forEach((project) => { %>
+                                <div class="box">                         
+                                    <div class="box-header">
+                                        <button><i class="fa-solid fa-trash-can"></i> 삭제</button>
                                     </div>
+                                    <div class="box-row">
+                                        <div class="row-content">
+                                            <span class="form-group">
+                                            <input class="form-control" type="hidden" value="<%= projects.id %>" name="project[id]" >
+                                            </span>
+                                            <span class="form-group">
+                                                <input class="form-control" type="text" placeholder="프로젝트명" value="<%= project.name %>" name="project[name]" required>
+                                            </span>
+                                            <fieldset class="form-group">
+                                                <input class="form-control" type="month" value="<%=project.fromDate %>" placeholder="0000-00" name="project[fromDate]" required>
+                                                <i>~</i>
+                                                <input class="form-control" type="month" value="<%=project.toDate %>" placeholder="0000-00" name="project[toDate]">
+                                            </fieldset>
+                                            <span class="form-group">
+                                                <input class="form-control" type="text" placeholder="역할" value="<%=project.role %>" name="project[role]" required>
+                                            </span>
+                                            <span class="form-group">
+                                                <textarea class="form-control description-field" placeholder="프로젝트 설명" name="project[description]"><%=project.description %></textarea>
+                                            </span>
+                                            <p class="form-group">
+                                                <button class="btn" type="submit">
+                                                    <span class="button-content">
+                                                        <span class="button-label">업데이트</span>
+                                                    </span>
+                                                </button>                      
+                                            </p>                                        
+                                        </div>
+                                    </div>
+                                    <div class="box-bottom"></div>
                                 </div>
-                                <% } %>  
-                                <div class="box-bottom"></div>
-                            </div>
+                            <% }) %>
 
                         </div>
                     </div>

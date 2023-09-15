@@ -3,7 +3,7 @@
  *  
  */
 
-.subbody > div {
+ .subbody > div {
    padding: 0 20px;
  }
 
@@ -230,11 +230,6 @@ fieldset.form-group i {
 fieldset.form-group .form-control {
    width: 110px;
    max-width: 110px;
-}
-
-textarea.form-control.description-field {
-   height: 4.35em;
-   min-height: 0;
 }
 
 .form-group .button-content {

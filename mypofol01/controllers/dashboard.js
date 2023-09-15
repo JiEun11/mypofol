@@ -1,5 +1,6 @@
 const modelProfile = require('../models/profile');
-const modelProjects = require('../models/project');
+const modelProject = require('../models/project');
+
 module.exports = {
   profile: async (req, res, next) => {
     try {
@@ -69,7 +70,7 @@ module.exports = {
   },
   projects: async (req, res, next) => {
     try {
-      const projects = await modelProjects.findByAccountId(req.session.authAccount.id);
+      const projects = await modelProject.findByAccountId(req.session.authAccount.id);
       console.log("projects >>>> ", projects);
       res.status(200).render('dashboard/projects', {
         projects

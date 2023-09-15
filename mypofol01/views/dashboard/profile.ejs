@@ -18,6 +18,52 @@
 <link href="/css/dashboard/profile.css" rel="stylesheet">
 
 <script src="https://kit.fontawesome.com/031a3163b7.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+$(() => {
+    $('#profile-pic-upload').change(async (e) => { 
+        var file = e.target.files[0];
+        
+        if(!file) {
+            return;
+        }  
+        
+        console.log(file);
+            
+        try {
+            const formData = new FormData();
+            formData.append('file', file);
+    
+            const response = await fetch('/dashboard/profile-pic', {
+                credentials: "same-origin",
+                method: 'post',
+                headers: { 
+                    'Accept': 'application/json'
+                },
+                body: formData
+            });
+    
+            if (!response.ok) {
+                throw `${response.status} ${response.statusText}`;
+            }
+    
+            const json = await response.json();
+            if (json.result !== 'success') {
+                throw json.message;
+            }
+
+            console.log(json);
+
+        } catch (err) {
+            console.error(err);
+        }
+    });
+});
+
+function upload() {
+    $('#profile-pic-upload').trigger('click');
+};    
+</script>
 </head>
 <body>
     <%-include('../includes/common/header', {
@@ -157,19 +203,19 @@
                                 <dt><label>프로필 사진</label></dt>
                                 <dd class="profile-upload-container position-relative">                    
                                     <form action="/dashboard/profile-pic" accept-charset="UTF-8" method="post">
-                                        <input type="file" id="profile-pic-upload">
-                                        <div>
-                                            <div class="upload-error file-empty">This file is empty.</div>
-                                            <div class="upload-error too-big">Please upload a picture smaller than 1 MB.</div>
-                                            <div class="upload-error bad-dimensions">Please upload a picture smaller than 10,000x10,000.</div>
-                                            <div class="upload-error bad-file">We only support PNG, GIF, or JPG pictures.</div>
-                                            <div class="upload-error failed-request">Something went really wrong and we can’t process that picture.</div>
-                                            <div class="upload-error bad-format">File contents don’t match the file extension.</div>
+                                        <input type="file" id="profile-pic-upload" multiple="false" accept="image/*">
+                                        <div class="upload-error">
+                                            <div class="file-empty">This file is empty.</div>
+                                            <div class="too-big">Please upload a picture smaller than 1 MB.</div>
+                                            <div class="bad-dimensions">Please upload a picture smaller than 10,000x10,000.</div>
+                                            <div class="bad-file">We only support PNG, GIF, or JPG pictures.</div>
+                                            <div class="failed-request">Something went really wrong and we can’t process that picture.</div>
+                                            <div class="bad-format">File contents don’t match the file extension.</div>
                                         </div>
                                     </form>
                                     <div class="profile-pic-upload">
-                                        <img src="<%=profile.image %>" width="200" height="200" alt="@bella">
-                                        <div class="btn position-absolute">
+                                        <img src="<%=profile.image %>" width="200" height="200" alt="@<%=req.session.authAccount.name %>">
+                                        <div class="btn position-absolute" onclick="upload();">
                                             <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16">
                                                 <path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path>
                                             </svg>
