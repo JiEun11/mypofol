@@ -21,8 +21,8 @@ module.exports = {
                    role,
                    description,
                    image_project,
-                   date_format(from_date, "%Y-%m") as fromDate,
-                   if(to_date is null, "현재", date_format(to_date, "%Y-%m")) as toDate
+                   from_date as fromDate,
+                   if(to_date is null, "현재", to_date) as toDate
               from project
              where account_id=?;
         `;

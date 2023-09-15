@@ -57,9 +57,9 @@
                                             <input class="form-control" type="text" placeholder="회사/조직" value="" name="" required>
                                         </span>
                                         <fieldset class="form-group">
-                                            <input class="form-control" type="month" value="" name="" required>
+                                            <input class="form-control" type="month" placeholder="0000-00" value="" name="" required>
                                             <i>~</i>
-                                            <input class="form-control" type="month" value="" name="">
+                                            <input class="form-control" type="month" placeholder="0000-00" value="" name="">
                                         </fieldset>
                                         <span class="form-group">
                                             <input class="form-control" placeholder="직책/타이틀" type="text" value="" name="" required>
@@ -98,9 +98,9 @@
                                             <input class="form-control" type="text" placeholder="프로젝트명" value="<%= projects[i].name %>" name="project[name]" required>
                                         </span>
                                         <fieldset class="form-group">
-                                            <input class="form-control" type="month" value="<%=projects[i].fromDate %>" name="project[fromDate]" required>
+                                            <input class="form-control" type="month" value="<%=projects[i].fromDate %>" placeholder="0000-00" name="project[fromDate]" required>
                                             <i>~</i>
-                                            <input class="form-control" type="month" value="<%=projects[i].toDate %>" name="project[toDate]">
+                                            <input class="form-control" type="month" value="<%=projects[i].toDate %>" placeholder="0000-00" name="project[toDate]">
                                         </fieldset>
                                         <span class="form-group">
                                             <input class="form-control" type="text" placeholder="역할" value="<%=projects[i].role %>" name="project[role]" required>
