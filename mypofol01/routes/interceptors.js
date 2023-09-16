@@ -1,13 +1,22 @@
 const modelAccount = require('../models/account');
 
-exports.authorized = (req, res, next) => {
+exports.authorizeNotRequired = (req, res, next) => {
     if(!req.session.authAccount) {       
-        res.redirect('/signin');   
+        res.redirect('/');   
         return;
     } 
 
-    next();
+    next && next();
 }
+
+exports.authorizeRequired = (req, res, next) => {
+  if(!req.session.authAccount) {       
+      res.redirect('/?signin');   
+      return;
+  } 
+
+  next && next();
+};
 
 exports.validAccount = async (req, res, next) => {
     try {
