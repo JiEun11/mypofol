@@ -46,7 +46,7 @@
                                 </label>
                             </div>
                             <div class="box register-form">
-                              <form action="/dashboard/insertProject" accept-charset="UTF-8" method="post">
+                              <form action="/dashboard/project/create" accept-charset="UTF-8" method="post">
                                 <div class="box-top">
                                     <label for="check-register-form-invisible">
                                         <i class="fa-solid fa-caret-up"></i>
@@ -88,13 +88,13 @@
                             <% projects.forEach((project) => { %>
                                 <div class="box">                         
                                     <div class="box-header">
-                                        <button><i class="fa-solid fa-trash-can"></i> 삭제</button>
+                                        <a href="/dashboard/project/delete?id=<%=project.id %>"><i class="fa-solid fa-trash-can"></i> 삭제</a>
                                     </div>
                                     <div class="box-row">
                                         <div class="row-content">
-                                          <form action="/dashboard/updateProject" accept-charset="UTF-8" method="post">
+                                          <form action="/dashboard/project/update" accept-charset="UTF-8" method="post">
                                             <span class="form-group">
-                                            <input class="form-control" type="hidden" value="<%= project.id %>" name="project[id]" >
+                                            <input class="form-control" type="hidden" value="<%=project.id %>" name="project[id]" >
                                             </span>
                                             <span class="form-group">
                                                 <input class="form-control" type="text" placeholder="프로젝트명" value="<%= project.name %>" name="project[name]" required>

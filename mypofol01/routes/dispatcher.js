@@ -19,10 +19,11 @@ router.post('/dashboard/profile-pic', authorizeRequired, controllerDashboard.upl
 router.get('/dashboard/experiences', authorizeRequired, controllerDashboard.experiences);
 router.get('/dashboard/educations', authorizeRequired, controllerDashboard.educations);
 router.get('/dashboard/trainings', authorizeRequired, controllerDashboard.trainings);
-router.get('/dashboard/projects', authorizeRequired, controllerDashboard.projects);
 
-router.post('/dashboard/insertProject', authorizeRequired, controllerDashboard.insertProject);
-router.post('/dashboard/updateProject', authorizeRequired, controllerDashboard.updateProject);
+router.get('/dashboard/projects', authorizeRequired, controllerDashboard.projects);
+router.post('/dashboard/project/create', authorizeRequired, controllerDashboard.insertProject);
+router.post('/dashboard/project/update', authorizeRequired, controllerDashboard.updateProject);
+router.get('/dashboard/project/delete', authorizeRequired, controllerDashboard.deleteProject);
 
 router.get(['/:account', '/:account/profile'], validAccount, authorizeRequired, controllerAccount.profile);
 router.get('/:account/experiences', validAccount, authorizeRequired, controllerAccount.experiences);

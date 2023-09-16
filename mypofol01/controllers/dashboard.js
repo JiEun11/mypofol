@@ -89,6 +89,7 @@ module.exports = {
       next(error);
     }
   },
+
   updateProject: async (req, res, next) => {
     try {
       const project = Object.assign(req.body.project, {
@@ -96,6 +97,14 @@ module.exports = {
       });
 
       await modelProject.update(project);
+      res.redirect('/dashboard/projects')
+    } catch (error) {
+      next(error)
+    }
+  },
+  deleteProject: async (req, res, next) => {
+    try {
+      await modelProject.delete(req.query.id, req.session.authAccount.id);
       res.redirect('/dashboard/projects')
     } catch (error) {
       next(error)

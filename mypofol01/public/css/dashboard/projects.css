@@ -45,7 +45,7 @@
    border-width: 1px;
 }
 
-.box-header button {
+.box-header a {
    display: inline-block;
    border: none;
    outline: none;
@@ -60,7 +60,7 @@
    pointer-events: auto;
 }
 
-.box-header button:hover {
+.box-header a:hover {
    color: #f85243;    
 }
 
