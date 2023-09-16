@@ -1,57 +1,51 @@
-const pool = require('./dbcp');
+const pool = require("./dbcp");
+const toUnnamed = require('named-placeholders')();
 
 module.exports = {
-    // 20230910 #8
-    findByAccountId: async (accountId) => {
-        /**
-         * 
-         * portfolio_v3 가 mypofol 로 바꼈음
-         * 자세한 정보는 mypofol/data-schema-mypofol 에 readme.md 확인
-         * 참고로, project_category는 없앴음.
-         * 
-         * 이전 너가 만든 포폴은 저게 필요했는데, 새포폴에서는 필요 없어 없앴음!
-         * pofol01.kickscar
-         * pofol02.kickscar
-         * 가 실행에 문제가 없어야 하기 때문에 mypofol 데이터베이스를 새로 만들었음. 참고!
-         * 
-         */
-        const sql = `
+  findByAccountId: async (accountId) => {
+    const sql = `
             select id,
                    name,
                    role,
                    description,
                    image_project,
                    from_date as fromDate,
-                   if(to_date is null, "현재", to_date) as toDate
+                   if(to_date is null, '' , to_date) as toDate
               from project
              where account_id=?;
         `;
 
-        const conn = await pool.getConnection();
-        const [result] = await conn.query(sql, [accountId]);        
-        conn.release();
-            
-        return result;
-    }
-    //
-    // Project Category는 없어 졌다!
-    //
-    // ,
-    // findCategoryByAccountId: async (accountId) => {
-    //     const sql = `
-    //         select c.id, c.name, d.projectCount
-    //           from project_category c,
-    //                (select b.id, count(*) as projectCount
-    //                   from project a, project_category b
-    //                  where a.project_category_id = b.id
-    //                    and a.user_id=? group by b.id) d
-    //          where c.id = d.id;
-    //     `;
-    //
-    //     const conn = await pool.getConnection();
-    //     const [result] = await conn.query(sql, [accountId]);        
-    //     conn.release();
-            
-    //     return result;
-    // }
+    const conn = await pool.getConnection();
+    const [result] = await conn.query(sql, [accountId]);
+    conn.release();
+
+    return result;
+  },
+
+  insert: async (project) => {
+    const sql = toUnnamed(`
+      insert into project 
+      values(null, :name, :role, :description, null, :fromDate, :toDate, now(), now(), :accountId);
+        `, project);
+
+    const conn = await pool.getConnection();
+    const [result] = await conn.query(...sql);
+    conn.release();
+
+    return result;
+  },
+
+  update: async (project) => {
+    const sql = toUnnamed(`
+      update project 
+      set name = :name, role = :role, description = :description, from_date= :fromDate, to_date = :toDate
+      where id = :id and account_id = :accountId;
+        `, project);
+
+    const conn = await pool.getConnection();
+    const [result] = await conn.query(...sql);
+    conn.release();
+
+    return result;
+  }
 };

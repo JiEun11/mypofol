@@ -36,7 +36,7 @@ module.exports = {
   signout: async (req, res, next) => {
     try {
       await req.session.destroy();
-      res.redirect('/')
+      res.redirect('/');
     } catch (error) {
       next && next(error)
     }

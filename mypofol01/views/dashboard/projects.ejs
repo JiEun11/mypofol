@@ -46,6 +46,7 @@
                                 </label>
                             </div>
                             <div class="box register-form">
+                              <form action="/dashboard/insertProject" accept-charset="UTF-8" method="post">
                                 <div class="box-top">
                                     <label for="check-register-form-invisible">
                                         <i class="fa-solid fa-caret-up"></i>
@@ -54,18 +55,18 @@
                                 <div class="box-row">
                                     <div class="row-content">
                                         <span class="form-group">
-                                            <input class="form-control" type="text" placeholder="회사/조직" value="" name="" required>
+                                            <input class="form-control" type="text" placeholder="회사/조직" value="" name="project[name]" required>
                                         </span>
                                         <fieldset class="form-group">
-                                            <input class="form-control" type="month" placeholder="0000-00" value="" name="" required>
+                                            <input class="form-control" type="month" placeholder="0000-00" value="" name="project[fromDate]" required>
                                             <i>~</i>
-                                            <input class="form-control" type="month" placeholder="0000-00" value="" name="">
+                                            <input class="form-control" type="month" placeholder="0000-00" value="" name="project[toDate]">
                                         </fieldset>
                                         <span class="form-group">
-                                            <input class="form-control" placeholder="직책/타이틀" type="text" value="" name="" required>
+                                            <input class="form-control" placeholder="역할" type="text" value="" name="project[role]" required>
                                         </span>
                                         <span class="form-group">
-                                            <textarea class="form-control user-profile-bio-field" placeholder="업무/성과 설명" name=""></textarea>
+                                            <textarea class="form-control user-profile-bio-field" placeholder="프로젝트 설명" name="project[description]"></textarea>
                                         </span>
                                         <p class="form-group">
                                             <button class="btn" type="submit">
@@ -81,6 +82,7 @@
                                         </p>                                        
                                     </div>
                                 </div>
+                              </form>
                             </div>
 
                             <% projects.forEach((project) => { %>
@@ -90,8 +92,9 @@
                                     </div>
                                     <div class="box-row">
                                         <div class="row-content">
+                                          <form action="/dashboard/updateProject" accept-charset="UTF-8" method="post">
                                             <span class="form-group">
-                                            <input class="form-control" type="hidden" value="<%= projects.id %>" name="project[id]" >
+                                            <input class="form-control" type="hidden" value="<%= project.id %>" name="project[id]" >
                                             </span>
                                             <span class="form-group">
                                                 <input class="form-control" type="text" placeholder="프로젝트명" value="<%= project.name %>" name="project[name]" required>
@@ -114,6 +117,7 @@
                                                     </span>
                                                 </button>                      
                                             </p>                                        
+                                          </form>
                                         </div>
                                     </div>
                                     <div class="box-bottom"></div>

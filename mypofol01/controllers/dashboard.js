@@ -77,4 +77,28 @@ module.exports = {
       next(error);
     }
   },
+  insertProject: async (req, res, next) => {
+    try { 
+      const project = Object.assign(req.body.project, {
+        accountId: req.session.authAccount.id,
+      });
+
+      await modelProject.insert(project);
+      res.redirect('/dashboard/projects')
+    } catch (error) {
+      next(error);
+    }
+  },
+  updateProject: async (req, res, next) => {
+    try {
+      const project = Object.assign(req.body.project, {
+        accountId: req.session.authAccount.id,
+      });
+
+      await modelProject.update(project);
+      res.redirect('/dashboard/projects')
+    } catch (error) {
+      next(error)
+    }
+  }
 };

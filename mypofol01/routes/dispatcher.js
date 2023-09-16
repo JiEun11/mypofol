@@ -9,7 +9,7 @@ const router = express.Router();
 router.get('/', controllerMain.index, validAccount, controllerAccount.profile);
 
 router.get('/welcome', authorizeNotRequired, controllerMain.welcome);
-router.get('/signout', authorizeNotRequired, controllerMain.signout);
+router.get('/signout', authorizeRequired, controllerMain.signout);
 router.post('/auth', authorizeNotRequired, controllerMain.auth);
 router.post('/signup', authorizeNotRequired, controllerMain.signup);
 
@@ -20,6 +20,9 @@ router.get('/dashboard/experiences', authorizeRequired, controllerDashboard.expe
 router.get('/dashboard/educations', authorizeRequired, controllerDashboard.educations);
 router.get('/dashboard/trainings', authorizeRequired, controllerDashboard.trainings);
 router.get('/dashboard/projects', authorizeRequired, controllerDashboard.projects);
+
+router.post('/dashboard/insertProject', authorizeRequired, controllerDashboard.insertProject);
+router.post('/dashboard/updateProject', authorizeRequired, controllerDashboard.updateProject);
 
 router.get(['/:account', '/:account/profile'], validAccount, authorizeRequired, controllerAccount.profile);
 router.get('/:account/experiences', validAccount, authorizeRequired, controllerAccount.experiences);

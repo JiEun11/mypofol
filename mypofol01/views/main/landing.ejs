@@ -48,10 +48,10 @@
 			<div class="form-body">
 				<form action="/auth" accept-charset="UTF-8" method="post">
 					<label class="form-label" for="login_field">Email</label>
-					<input type="text" name="email" id="login_field" value="<%=typeof email !== 'undefined' ? email : '' %>" class="form-control input-block" autocapitalize="none" autocorrect="off" autocomplete="username" autofocus="autofocus">      
+					<input type="text" name="email" id="login_field" value="<%=typeof email !== 'undefined' ? email : '1234' %>" class="form-control input-block" autocapitalize="none" autocorrect="off" autocomplete="username" autofocus="autofocus">      
 					<div class="position-relative">
 					<label class="form-label" for="password">Password</label>
-					<input type="password" name="password" id="password" class="form-control input-block" autocomplete="current-password">            
+					<input type="password" name="password" id="password" class="form-control input-block" value="1234" autocomplete="current-password">            
 					<input type="submit" name="commit" value="Sign in" class="form-btn input-block">      
 					<a class="label-link" id="forgot-password" tabindex="0" href="/password_reset">비밀번호를 잊었습니까?</a>
 					</div>
