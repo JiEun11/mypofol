@@ -58,28 +58,4 @@ module.exports = {
       next && next(error);
     }
   },
-
-  uploadProfilePic: async function (req, res, next) {
-    try {
-      const file = req.file;
-
-      if (!file) {
-        throw 'upload file empty';
-      }
-
-      const content = fs.readFileSync(file.path);
-
-      const storeDirectory = path.join(path.dirname(require.main.filename), process.env.STATIC_RESOURCES_DIRECTORY, process.env.UPLOADIMAGE_STORE_LOCATION);
-      const storePath = path.join(storeDirectory, file.filename) + path.extname(file.originalname);
-      const url = path.join(process.env.UPLOADIMAGE_STORE_LOCATION, file.filename) + path.extname(file.originalname);
-
-      fs.existsSync(storeDirectory) || fs.mkdirSync(storeDirectory);
-      fs.writeFileSync(storePath, content, { flag: 'w+' });
-      fs.unlinkSync(file.path);
-
-      res.status(200).json({ url });
-    } catch (error) {
-      next(error);
-    }
-  }
 }

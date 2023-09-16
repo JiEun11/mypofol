@@ -15,6 +15,7 @@ router.post('/signup', authorizeNotRequired, controllerMain.signup);
 
 router.get(['/dashboard', '/dashboard/profile'], authorizeRequired, controllerDashboard.profile);
 router.post('/dashboard/updateProfile', authorizeRequired, controllerDashboard.updateProfile);
+router.post('/dashboard/profile-pic', authorizeRequired, controllerDashboard.uploadProfilePic);
 router.get('/dashboard/experiences', authorizeRequired, controllerDashboard.experiences);
 router.get('/dashboard/educations', authorizeRequired, controllerDashboard.educations);
 router.get('/dashboard/trainings', authorizeRequired, controllerDashboard.trainings);

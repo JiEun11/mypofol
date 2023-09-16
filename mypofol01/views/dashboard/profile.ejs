@@ -42,11 +42,11 @@ $(() => {
                 },
                 body: formData
             });
-    
+
             if (!response.ok) {
                 throw `${response.status} ${response.statusText}`;
             }
-    
+            
             const json = await response.json();
             if (json.result !== 'success') {
                 throw json.message;
@@ -55,7 +55,7 @@ $(() => {
             console.log(json);
 
         } catch (err) {
-            console.error(err);
+            console.log(err);
         }
     });
 });

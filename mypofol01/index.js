@@ -4,6 +4,7 @@
     const dotenv = require('dotenv');    
     const express = require('express');
     const session = require('express-session');
+    const multer = require('multer');
     const {appRouter} = require('./routes');
 
     // 1. application environment variables
@@ -16,7 +17,7 @@
     .set('view engine', 'ejs')                                                          //
     .use(express.json())                                                                // 2-3. body parsers
     .use(express.urlencoded({extended: true}))                                          //
-
+    .use(multer({dest: path.join(__dirname, process.env.MULTER_TEMPORARY_STORE)}).single('file')) // multipart
     /*
       세션 처리 추가
     */    
