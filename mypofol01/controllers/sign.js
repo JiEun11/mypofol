@@ -5,9 +5,6 @@ const modelProfile = require('../models/profile');
 module.exports = {
   login: async (req, res, next) => {
     try {      
-      /**
-       * 인증이 되어 있는 경우 접근하면 /dashboard(/dashboard/profile)로 리다이렉트
-       */
       if(req.session.authAccount) {
         res.redirect("/dashboard");
         return;
@@ -18,11 +15,6 @@ module.exports = {
       const account = await modelAccount.findByEmailAndPassword(email, password);
       console.log('account >>>>> ' , account);
       if(!account) {
-        /*
-        사용자가 이메일과 비밀번호가 잘못 되었는데 왜 404 Not Found?
-        email과 함께 다시 로인 폼 보여주기
-        */
-        // res.status(404).render('error/404');
         res.status(200).render('main/signin', {email});
 
         return;
