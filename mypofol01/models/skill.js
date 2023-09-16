@@ -1,7 +1,6 @@
 const pool = require('./dbcp');
 
 module.exports = {
-  // 20230910 #9
   findByAccountId: async (accountId) => {
     const sql = `
         select a.id, a.name, a.level, a.duration, b.name as skillSet

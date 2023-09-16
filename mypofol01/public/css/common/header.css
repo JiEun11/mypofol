@@ -3,7 +3,7 @@
  *  
  */
 
-.header {
+ .header {
     position:fixed; 
     z-index:2 !important;
     width: 100%;
@@ -85,6 +85,9 @@
     padding-block: 6px;
     font-size: 14px;
     font-weight: 600;
+    cursor: pointer;
+    pointer-events: auto;
+    touch-action: manipulation;
 }
 
 .header .globalbar .inner-end {

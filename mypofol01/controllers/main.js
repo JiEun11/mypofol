@@ -33,6 +33,7 @@ module.exports = {
       next && next(error);
     }
   },
+  
   signout: async (req, res, next) => {
     try {
       await req.session.destroy();

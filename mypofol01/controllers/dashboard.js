@@ -16,6 +16,7 @@ module.exports = {
       next(error);
     }
   },
+  
   updateProfile: async (req, res, next) => {
     try {
       const profile = Object.assign(req.body.profile, {
@@ -77,6 +78,7 @@ module.exports = {
       next(error);
     }
   },
+
   insertProject: async (req, res, next) => {
     try { 
       const project = Object.assign(req.body.project, {

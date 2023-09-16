@@ -24,9 +24,10 @@ module.exports = {
 
   insert: async (project) => {
     const sql = toUnnamed(`
-      insert into project 
-      values(null, :name, :role, :description, null, :fromDate, :toDate, now(), now(), :accountId)
-        `, project);
+      insert
+        into project 
+      values (null, :name, :role, :description, null, :fromDate, :toDate, now(), now(), :accountId)
+    `, project);
 
     const conn = await pool.getConnection();
     const [result] = await conn.query(...sql);
@@ -38,9 +39,10 @@ module.exports = {
   update: async (project) => {
     const sql = toUnnamed(`
       update project 
-      set name = :name, role = :role, description = :description, from_date= :fromDate, to_date = :toDate
-      where id = :id and account_id = :accountId
-        `, project);
+         set name = :name,role = :role, description = :description, from_date= :fromDate, to_date = :toDate
+       where id = :id
+         and account_id = :accountId
+    `, project);
 
     const conn = await pool.getConnection();
     const [result] = await conn.query(...sql);
@@ -51,9 +53,11 @@ module.exports = {
   
   delete : async (id, accountId) => {
     const sql = `
-      delete from project 
-      where id = ? and account_id = ?
-      `;
+      delete
+        from project 
+       where id = ?
+         and account_id = ?
+    `;
 
     const conn = await pool.getConnection();
     const [result] = await conn.query(sql,[id, accountId]);

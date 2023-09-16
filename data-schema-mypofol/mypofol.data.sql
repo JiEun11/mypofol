@@ -3,7 +3,7 @@ desc account;
 
 insert
   into account
-values (null, 'bella', 'shdudtnr3939@gmail.com', password('1234'), 'World-renowned Software Engineer', now(), now());
+values (null, 'bella', '1234', password('1234'), 'World-renowned Software Engineer', now(), now());
 
 select * from account;
 
