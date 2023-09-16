@@ -93,9 +93,7 @@
                                     <div class="box-row">
                                         <div class="row-content">
                                           <form action="/dashboard/project/update" accept-charset="UTF-8" method="post">
-                                            <span class="form-group">
                                             <input class="form-control" type="hidden" value="<%=project.id %>" name="project[id]" >
-                                            </span>
                                             <span class="form-group">
                                                 <input class="form-control" type="text" placeholder="프로젝트명" value="<%= project.name %>" name="project[name]" required>
                                             </span>
