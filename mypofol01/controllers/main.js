@@ -10,6 +10,17 @@ module.exports = {
     res.status(200).render('main/landing', { theme: 'welcome' });
   },
 
+  signup: async (req, res, next) => {
+    try {
+      const accountId = await modelAccount.insert(req.body.account);
+      await modelProfile.insertByDefault(accountId);
+
+      res.redirect("/welcome");
+    } catch (error) {
+      next && next(error);
+    }
+  },
+  
   signout: async (req, res, next) => {
     try {
       await req.session.destroy();
