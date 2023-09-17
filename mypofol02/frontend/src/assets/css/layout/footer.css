@@ -1,0 +1,42 @@
+/**
+ *  dashboard footer css
+ *  
+ */
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 30px;
+    padding: 10px 0 20px 0;
+    background: #F6D155;
+}
+
+.footer .col-md-6:last-child {
+    text-align: right;
+}
+
+@media(max-width: 767.98px) {
+    .footer .col-md-6,
+    .footer .col-md-6:last-child{
+        text-align: center;
+    }
+}
+
+.footer p {
+    color: #222222;
+    margin: 0;
+}
+
+.footer a {
+    color: #FF6F61;
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.footer a:hover {
+    color: #222222;
+}
+
+.dashboard .footer {
+    border-top: 1px solid #d2ab2ad7;
+}

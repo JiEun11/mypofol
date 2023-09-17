@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 export default function Account() {
-  const { accountId } = useParams();
+  const { accountName } = useParams();
   const [projects, setProjects] = useState(null);
 
-  const onButtonClickGet = async () => {
+  const fetchProjects = async () => {
     try {
-      const response = await fetch(`/api/${accountId}/projects`, {
+      const response = await fetch(`/api/${accountName}/projects`, {
         method: "get",
         headers: {
           "Content-Type": "application/json",
@@ -32,6 +32,14 @@ export default function Account() {
     } catch (err) {
       console.error(err);
     }
+  }
+
+  useEffect(()=> {
+    fetchProjects();
+  }, []);
+
+  const onButtonClickGet = () => {
+    fetchProjects();
   };
 
   const onButtonClickCreate = async () => {
@@ -100,8 +108,8 @@ export default function Account() {
 
   return (
     <div>
-      <h1>Hello {accountId} </h1>
-      <h3>{accountId}님의 학력사항</h3>
+      <h1>Hello {accountName} </h1>
+      <h3>{accountName}님의 학력사항</h3>
       <ul>
         {projects && projects.map((project) => (
           <li key={project.id}>
