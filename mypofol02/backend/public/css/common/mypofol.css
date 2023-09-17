@@ -1,0 +1,88 @@
+/**
+ *  global css
+ *  
+ */
+
+ *, ::after, ::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    color: #666666;
+    background: #F6D155;
+    font-family: 'AppleSDGothicNeo', 'Noto Sans KR', sans-serif;
+}
+
+body.full-wide {
+	height: 100vh;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+	background-image: url(/images/my-portfolio.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 800px;    
+}
+
+a {
+    color: #222222;
+    text-decoration: none;
+}
+
+a:hover, a:active, a:focus {
+    color: #FF6F61;
+    outline: none;
+    text-decoration: none;
+}
+
+button, input {
+    overflow: visible;
+}
+
+.width-full {
+    width: 100%;
+}
+
+.lh-condensed {
+    line-height: 1.25 !important;
+}
+
+.f5 {
+    font-size: 14px !important;
+}
+
+.f6 {
+    font-size: 12px !important;
+}
+
+.ml-2 {
+    margin-left: 8px !important;
+}
+
+.position-relative {
+    position: relative !important
+}
+
+.input-block {
+    margin-top: 0;
+    margin-bottom: 10px;
+    display: block;
+    width: 100%;    
+}
+
+.flex-auto {
+    flex: auto !important;
+}
+
+.flex-justify-end {
+    justify-content: flex-end !important;
+}

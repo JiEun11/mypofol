@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>My Portfolio</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="/images/favicon.ico" rel="icon">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/common/mypofol.css" rel="stylesheet">
+<link href="/css/common/header.css" rel="stylesheet">
+<link href="/css/main/landing.css" rel="stylesheet">
+</head>
+<body class="full-wide <%=theme %>">
+	<%-include('../includes/common/header') %>
+	<div class="wrapper">
+		<% if(theme === 'welcome') { %>
+			<p class="greetings">
+				MyPofol 가입이 완료 되었습니다! <br>
+				<label class="btn" for="dialog-signin-popup">로그인</label> 
+			</p> 
+		<% } %>	
+		<input type="radio" name="dialog-popup-toggle" id="dialog-signin-popup" <%=typeof req.query.signin !== 'undefined' || typeof email !== 'undefined' ? 'checked="checked"' : '' %>>
+		<input type="radio" name="dialog-popup-toggle" id="dialog-signup-popup">
+		<div class="form position-relative" id="dialog-signup">
+			<div class="form-header">
+				<h1>Sign up</h1>
+			</div>	  
+			<div class="form-body">
+				<form action="/signup" accept-charset="UTF-8" method="post">
+					<label class="form-label" for="email_field">Email</label>
+					<input type="text" name="account[email]" id="email_field" class="form-control input-block" autocapitalize="none" autocorrect="off" autocomplete="username" autofocus="autofocus">      
+					<label class="form-label" for="password">Password</label>
+					<input type="password" name="account[password]" id="password" class="form-control input-block" autocomplete="current-password">            
+					<label class="form-label" for="username">Username</label>
+					<input type="text" name="account[name]" id="username" class="form-control input-block" autocomplete="current-password">            
+					<input type="submit" name="commit" value="Sign up" class="form-btn input-block">
+				</form>
+			</div>
+			<p class="login-callout">
+				My Portfolio에 이미 가입했습니다. <label for="dialog-signin-popup">로그인</label>
+			</p>  
+		</div>
+		<div class="form position-relative" id="dialog-signin">
+			<div class="form-header">
+				<h1>Sign in</h1>
+			</div>	  
+			<div class="form-body">
+				<form action="/auth" accept-charset="UTF-8" method="post">
+					<label class="form-label" for="login_field">Email</label>
+					<input type="text" name="email" id="login_field" value="<%=typeof email !== 'undefined' ? email : '1234' %>" class="form-control input-block" autocapitalize="none" autocorrect="off" autocomplete="username" autofocus="autofocus">      
+					<div class="position-relative">
+					<label class="form-label" for="password">Password</label>
+					<input type="password" name="password" id="password" class="form-control input-block" value="1234" autocomplete="current-password">            
+					<input type="submit" name="commit" value="Sign in" class="form-btn input-block">      
+					<a class="label-link" id="forgot-password" tabindex="0" href="/password_reset">비밀번호를 잊었습니까?</a>
+					</div>
+				</form>
+			</div>
+			<p class="login-callout">
+				My Portfolio에 처음입니까? <label for="dialog-signup-popup">가입하기</label>
+			</p>  
+		</div>
+	</div>
+</body>
+</html>

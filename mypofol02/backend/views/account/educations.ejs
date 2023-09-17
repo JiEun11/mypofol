@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>MyPofol</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="/images/favicon.ico" rel="icon">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="/css/common/mypofol.css" rel="stylesheet">
+<link href="/css/common/header.css" rel="stylesheet">
+<link href="/css/common/sidepannel.css" rel="stylesheet">
+<link href="/css/account/layout.css" rel="stylesheet">
+<link href="/css/account/sidebar.css" rel="stylesheet">
+<link href="/css/account/footer.css" rel="stylesheet">
+<link href="/css/account/educations.css" rel="stylesheet">
+
+<script src="https://kit.fontawesome.com/031a3163b7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <%-include('../includes/common/header', {
+        pathName: req.account.name,
+        pathLink: "/" + req.account.name
+    }) %>
+    <%-include('../includes/common/sidepannel') %>
+    <div class="wrapper">
+        <%-include('../includes/account/sidebar', {active: 'educations'}) %>
+        <div class="content">
+            <div class="educations">
+                <div class="content-inner">
+                    <div class="content-header">
+                        <h2>학력</h2>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-md-12">
+                            <div class="edu-col">
+                                <span>2016.3 <i>~</i> 2022.2</span>
+                                <h3>단국대학교 / 응용컴퓨터공학과</h3>
+                                <p>이학사</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="edu-col">
+                                <span>2020.9 <i>~</i> 2021.4</span>
+                                <h3>체코 오스트라바 공과대학 / 컴퓨터공학 전공</h3>
+                                <p>교환학생</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="edu-col">
+                                <span>2013.3 <i>~</i> 2016.2</span>
+                                <h3>천안 북일여자고등학교</h3>
+                                <p>졸업</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%-include('../includes/common/footer') %>
+        </div>
+    </div> 
+</body>
+</html>

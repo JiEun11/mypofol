@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>MyPofol</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="/images/favicon.ico" rel="icon">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="/css/common/mypofol.css" rel="stylesheet">
+<link href="/css/common/header.css" rel="stylesheet">
+<link href="/css/common/sidepannel.css" rel="stylesheet">
+<link href="/css/account/layout.css" rel="stylesheet">
+<link href="/css/account/sidebar.css" rel="stylesheet">
+<link href="/css/account/footer.css" rel="stylesheet">
+<link href="/css/account/trainings.css" rel="stylesheet">
+
+<script src="https://kit.fontawesome.com/031a3163b7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <%-include('../includes/common/header', {
+        pathName: req.account.name,
+        pathLink: "/" + req.account.name
+    }) %>
+    <%-include('../includes/common/sidepannel') %>
+    <div class="wrapper">
+        <%-include('../includes/account/sidebar', {active: 'trainings'}) %>
+        <div class="content">
+            <div class="trainings">
+                <div class="content-inner">
+                    <div class="content-header">
+                        <h2>교육 및 자격증</h2>
+                    </div>
+                    <div class="row align-items-top">
+                        <div class="col-md-12">
+                            <div class="training-col">
+                                <h3>
+                                    <i class="fa fa-award"></i>
+                                    <span>교육</span>
+                                </h3>
+                                <ul>
+                                    <li>
+                                        <span>포스코 청년 IT 아카데미</span><span>2022-05</span><span></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="training-col">                                
+                                <h3>
+                                    <i class="fa fa-certificate"></i>
+                                    <span>자격증</span>
+                                </h3>
+                                <ul>
+                                    <li>
+                                        <span>정보처리기사</span><span>2022-12</span><span></span>
+                                    </li>
+                                    <li>
+                                        <span>리눅스마스터</span><span>2018-09</span><span>2급</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="training-col">                                
+                                <h3>
+                                    <i class="fa fa-language"></i>
+                                    <span>외국어</span>
+                                </h3>
+                                <ul>
+                                    <li>
+                                        <span>OPIC</span><span>2021-06</span><span>레벨 IH</span>
+                                    </li>
+                                    <li>
+                                        <span>TOFEL</span><span>2020-02</span><span>73점</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <%-include('../includes/common/footer') %>
+        </div>
+    </div>
+</body>
+</html>

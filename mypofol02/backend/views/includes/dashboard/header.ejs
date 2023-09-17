@@ -1,0 +1,25 @@
+<div class="content-header">
+    <div class="content-header-inner">
+        <div class="profile-pic">
+            <a href="#">
+                <img src="<%=req.session.authAccount.profileImage %>">
+            </a>
+        </div>
+        <div class="profile-name">
+            <h1>
+                <a href="/<%=req.session.authAccount.name %>" class="color-fg-default">
+                    <%=req.session.authAccount.profileName || req.session.authAccount.name %>
+                    <% if(req.session.authAccount.profileName) { %>
+                    <span>(<%=req.session.authAccount.name  %>)</span>
+                    <% } %>
+                </a>
+            </h1>
+            <div class="d-flex flex-items-center flex-wrap" style="color: var(--fgColor-accent, var(--color-accent-fg))">
+                <p class="color-fg-muted mb-0 mr-1">
+                    Your personal account
+                </p>
+            </div>
+        </div>
+    </div>
+    <a href="/<%=req.session.authAccount.name %>" class="btn">Go to my portfoio</a>
+</div>
