@@ -2,6 +2,7 @@ const express = require('express');
 const controllerMain = require('../controllers/main');
 const controllerDashboard = require('../controllers/dashboard');
 const controllerAccount = require('../controllers/account');
+const controllerApiAccount = require('../controllers/api/account');
 const {authorizeNotRequired, authorizeRequired, validAccount} = require('./interceptors');
 
 const router = express.Router();
@@ -31,5 +32,9 @@ router.get('/:account/educations', validAccount, authorizeRequired, controllerAc
 router.get('/:account/trainings', validAccount, authorizeRequired, controllerAccount.trainings);
 router.get('/:account/skills', validAccount, authorizeRequired, controllerAccount.skills);
 router.get('/:account/projects', validAccount, authorizeRequired, controllerAccount.projects);
+
+router.get(`/api/:account/projects`, validAccount, controllerApiAccount.projects);
+router.post(`/api/:account/projects`, validAccount, controllerApiAccount.insertProject);
+router.delete(`/api/:account/projects`, validAccount, controllerApiAccount.deleteProject);
 
 exports.dispatcher = router;

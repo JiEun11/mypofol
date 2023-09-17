@@ -23,6 +23,7 @@ module.exports = {
   },
 
   insert: async (project) => {
+    console.log('project >>>> ', project);
     const sql = toUnnamed(`
       insert
         into project 
