@@ -1,11 +1,9 @@
 import React from 'react';
+import {useRoutes} from 'react-router';
+import Account from './Account';
 
-function App(props) {
-  return (
-    <div>
-      <h1>hello</h1>
-    </div>
-  );
+export default function App() {
+  return useRoutes([
+      { path:':accountId', element: <Account /> },
+  ]);
 }
-
-export default App;
