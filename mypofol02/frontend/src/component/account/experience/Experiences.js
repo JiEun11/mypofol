@@ -3,9 +3,9 @@ import LayoutAccount from '../../../layout/LayoutAccount';
 
 import '../../../assets/css/account/experiences.css';
 
-function Experiences(path) {
+function Experiences() {
   return (
-    <LayoutAccount path={path} >
+    <LayoutAccount >
       <div class="experiences">
                 <div class="content-inner">
                     <div class="content-header">
