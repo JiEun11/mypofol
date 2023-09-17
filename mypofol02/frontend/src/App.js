@@ -8,9 +8,9 @@ import Experiences from './component/account/experience/Experiences';
 export default function App() {
   return useRoutes([
     { path:':accountName', element: <Test /> },
-    { path:':accountName/profile', element: <Profile path={`profile`} />},
-    { path:':accountName/educations', element: <EducationList path={`educations`}/>},
-    { path:':accountName/experiences', element: <Experiences path={`experiences`} />},
+    { path:':accountName/profile', element: <Profile />},
+    { path:':accountName/educations', element: <EducationList />},
+    { path:':accountName/experiences', element: <Experiences />},
     // { path: '*', element: <Error404 />}
 ]);
 }
