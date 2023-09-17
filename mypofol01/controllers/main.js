@@ -3,10 +3,6 @@ const modelProfile = require('../models/profile');
 
 module.exports = {
   index: (req, res, next) => {
-    if (req.session.authAccount) {
-      next && next();
-      return;
-    }
     res.status(200).render('main/landing', { theme: '' });
   },
 
@@ -14,26 +10,6 @@ module.exports = {
     res.status(200).render('main/landing', { theme: 'welcome' });
   },
 
-  signin: (req, res, next) => {
-    if (req.session.authAccount) {
-      res.redirect("/dashboard");
-      return;
-    }
-    res.status(200).render('main/signin');
-  },
-
-  signup: async (req, res, next) => {
-    try {
-
-      const accountId = await modelAccount.insert(req.body.account);
-      await modelProfile.insertByDefault(accountId);
-
-      res.redirect("/welcome");
-    } catch (error) {
-      next && next(error);
-    }
-  },
-  
   signout: async (req, res, next) => {
     try {
       await req.session.destroy();
