@@ -3,7 +3,11 @@ const modelProfile = require('../models/profile');
 
 module.exports = {
   index: (req, res, next) => {
-    res.status(200).render('main/landing', { theme: '' });
+    if (req.session.authAccount) {
+      next && next();
+      return;
+    }
+    res.status(200).render("main/landing", { theme: "" });
   },
 
   welcome: (req, res, next) => {
