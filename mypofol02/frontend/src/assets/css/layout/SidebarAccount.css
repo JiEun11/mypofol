@@ -1,9 +1,9 @@
 /**
- *  sidebar css
+ *  SidebarAccount css
  *  
  */
 
- .sidebar {
+.sidebar {
     position: fixed;
     width: 300px;
     height: 100%;

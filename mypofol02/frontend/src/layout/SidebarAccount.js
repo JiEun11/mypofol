@@ -1,34 +1,33 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { NavLink } from "react-router-dom";
-import '../../assets/css/account/sidebar.css';
+import {NavLink} from "react-router-dom";
+import '../assets/css/layout/SidebarAccount.css';
 
-const Sidebar = () => {
-
+const SidebarAccount = () => {
   const { accountName } = useParams();
 
   return (
-    <div class="sidebar">
-      <div class="sidebar-header">
-        <div class="profile-pic">
+    <div className="sidebar">
+      <div className="sidebar-header">
+        <div className="profile-pic">
           <a href="#">
             <img src="/images/default_profile.png" />
           </a>
         </div>
-        <h1 class="vcard-names">
-          <span class="name">bella</span>
-          <span class="title">developer</span>
+        <h1 className="vcard-names">
+          <span className="name">bella</span>
+          <span className="title">developer</span>
         </h1>
       </div>
-      <div class="sidebar-content">
-        <nav class="navbar">
+      <div className="sidebar-content">
+        <nav className="navbar">
           <ul>
             <li>
               <NavLink to={`/${accountName}/profile`}>
                 <span className="item-ico">
                   <i className="fa fa-address-card"></i>
                 </span>
-                <span className="item-label">프로필</span>
+                <span className="item-label">프로필</span>           
               </NavLink>
             </li>
             <li>
@@ -78,4 +77,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default SidebarAccount;

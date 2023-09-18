@@ -1,9 +1,8 @@
 import React from "react";
 import { useParams } from "react-router";
 
-import LayoutAccount from '../../layout/LayoutAccount';
-
-import "../../assets/css/account/profile.css";
+import LayoutAccount from '../../../layout/LayoutAccount';
+import "../../../assets/css/component/account/Profile.css";
 
 const Profile = () => {
   const { accountName } = useParams();

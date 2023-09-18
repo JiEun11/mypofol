@@ -1,16 +1,16 @@
 import React from 'react';
 import {useRoutes} from 'react-router';
-import Profile from './component/account/Profile';
-import EducationList from './component/account/education';
-import Test from './component/Test';
-import Experiences from './component/account/experience/Experiences';
+
+import Profile from './component/account/profile';
+import Educations from './component/account/education';
+import Experiences from './component/account/experience';
 
 export default function App() {
   return useRoutes([
-    { path:':accountName', element: <Test /> },
+    { path:':accountName', element: <Profile /> },
     { path:':accountName/profile', element: <Profile />},
-    { path:':accountName/educations', element: <EducationList />},
+    { path:':accountName/educations', element: <Educations />},
     { path:':accountName/experiences', element: <Experiences />},
     // { path: '*', element: <Error404 />}
-]);
+  ]);
 }
