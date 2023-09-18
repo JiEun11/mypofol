@@ -1,7 +1,12 @@
 import React from "react";
+import { useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import '../../assets/css/account/sidebar.css';
 
 const Sidebar = () => {
+
+  const { accountName } = useParams();
+
   return (
     <div class="sidebar">
       <div class="sidebar-header">
@@ -18,52 +23,52 @@ const Sidebar = () => {
       <div class="sidebar-content">
         <nav class="navbar">
           <ul>
-            <li class="nav-active">
-              <a href="/bella/profile">
-                <span class="item-ico">
-                  <i class="fa fa-address-card"></i>
+            <li>
+              <NavLink to={`/${accountName}/profile`}>
+                <span className="item-ico">
+                  <i className="fa fa-address-card"></i>
                 </span>
-                <span class="item-label">프로필</span>
-              </a>
+                <span className="item-label">프로필</span>
+              </NavLink>
             </li>
-            <li class="">
+            <li>
               <a href="/bella/experiences">
-                <span class="item-ico">
-                  <i class="fa fa-list-ul"></i>
+                <span className="item-ico">
+                  <i className="fa fa-list-ul"></i>
                 </span>
-                <span class="item-label">경력</span>
+                <span className="item-label">경력</span>
               </a>
             </li>
-            <li class="">
-              <a href="/bella/educations">
-                <span class="item-ico">
-                  <i class="fa fa-graduation-cap"></i>
+            <li>
+              <NavLink to={`/${accountName}/educations`}>
+                <span className="item-ico">
+                  <i className="fa fa-graduation-cap"></i>
                 </span>
-                <span class="item-label">학력</span>
-              </a>
+                <span className="item-label">학력</span>
+              </NavLink>
             </li>
-            <li class="">
+            <li>
               <a href="/bella/trainings">
-                <span class="item-ico">
-                  <i class="fa fa-award"></i>
+                <span className="item-ico">
+                  <i className="fa fa-award"></i>
                 </span>
-                <span class="item-label">교육 및 자격증</span>
+                <span className="item-label">교육 및 자격증</span>
               </a>
             </li>
-            <li class="">
+            <li>
               <a href="/bella/skills">
-                <span class="item-ico">
-                  <i class="fa fa-code"></i>
+                <span className="item-ico">
+                  <i className="fa fa-code"></i>
                 </span>
-                <span class="item-label">주요기술</span>
+                <span className="item-label">주요기술</span>
               </a>
             </li>
-            <li class="">
+            <li>
               <a href="/bella/projects">
-                <span class="item-ico">
-                  <i class="fa fa-diagram-project"></i>
+                <span className="item-ico">
+                  <i className="fa fa-diagram-project"></i>
                 </span>
-                <span class="item-label">프로젝트</span>
+                <span className="item-label">프로젝트</span>
               </a>
             </li>
           </ul>

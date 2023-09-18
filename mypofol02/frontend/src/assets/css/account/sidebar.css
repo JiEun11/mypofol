@@ -3,7 +3,7 @@
  *  
  */
 
-.sidebar {
+ .sidebar {
     position: fixed;
     width: 300px;
     height: 100%;
@@ -86,24 +86,18 @@
     margin: 0;
 }
 
-.sidebar-content .navbar li {
-    background: #F6D155;
-    border-radius: 6px;
-    position: relative;
-}
-
-.sidebar-content .navbar li.nav-active,
-.sidebar-content .navbar li.nav-active:hover {
+.sidebar-content .navbar a.active,
+.sidebar-content .navbar a.active:hover {
     outline: 2px solid #0000;
     background-color: #FF7F50;
 }
 
-.sidebar-content .navbar li:hover {
+.sidebar-content .navbar a:hover {
     outline: 2px solid #0000;
     background-color: #FF7F5066;
 }
 
-.sidebar-content .navbar li.nav-active:after {
+.sidebar-content .navbar a.active:after {
     background: #003bae;
     border-radius: 6px;
     content: "";
@@ -152,6 +146,3 @@
     padding-top: 0.18rem;
     position: relative;
 }
-
-@media (min-width: 768px) {}
-@media (min-width: 992px) {}
