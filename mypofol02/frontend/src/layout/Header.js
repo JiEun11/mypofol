@@ -7,13 +7,16 @@ const Header = ({a, openDialog}) => {
             <div className="globalbar">
                 <div className="inner-start">
                     <a href="/" className="app-logo">MyPofol</a>
-                    <div className="header-context">
-                        <ul>
-                            <li>
-                                <a href="/bella" className="context-item">bella</a>
-                            </li>
-                        </ul>
-                    </div>
+                    {   !a ? 
+                        <div className="header-context">
+                            <ul>
+                                <li>
+                                    <a href="/bella" className="context-item">bella</a>
+                                </li>
+                            </ul>
+                        </div> :
+                        null
+                    }
                 </div>
                 <div className="inner-end">
                     {
