@@ -15,24 +15,14 @@ const Index = () => {
 
     return (
         <>
-            <Header
-                a={true}
-                openDialog={openDialog} />
+            <Header a={true} openDialog={openDialog} />
             <div className={ dialog === 'signup' || dialog === 'signin' ? "wrapper overlay" : "wrapper" }>
-                {
-                    theme === 'welcome' ?
-                        <Welcome 
-                            openDialog={openDialog}/> :
-                        null
-                }
+                { theme === 'welcome' ? <Welcome openDialog={openDialog}/> : null }
                 {
                     dialog === 'signup' ?
-                        <DialogSignup
-                            openDialog={openDialog}
-                            setTheme={setTheme} /> :
+                        <DialogSignup openDialog={openDialog} setTheme={setTheme} /> :
                         dialog === 'signin' ?
-                            <DialogSignin
-                                openDialog={openDialog} /> :
+                            <DialogSignin openDialog={openDialog} /> :
                             null
                 }
             </div> 

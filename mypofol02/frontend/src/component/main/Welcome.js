@@ -5,10 +5,10 @@ const Welcome = ({openDialog}) => {
     return (
         <p className="greetings">
             MyPofol 가입이 완료 되었습니다! <br/>
-            <label
+            <label 
                 className="btn"
                 onClick={() => {
-                    openDialog('signin');
+                    openDialog('signin');s
                 }}>로그인</label> 
         </p> 
     );

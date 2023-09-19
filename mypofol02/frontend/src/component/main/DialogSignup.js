@@ -61,46 +61,16 @@ const DialogSignup = ({openDialog, setTheme}) => {
                         }
                     }}>
 
-                    <label
-                        className='form-label'
-                        htmlFor='email'>Email</label>
-                    <input 
-                        type='email'
-                        name='email'
-                        id='email'
-                        className='form-control input-block'
-                        autoCapitalize='none'
-                        autoCorrect='off'
-                        autoFocus='autofocus'
-                        required />
+                    <label className='form-label' htmlFor='email'>Email</label>
+                    <input type='email' name='email' id='email' className='form-control input-block' autoCapitalize='none' autoCorrect='off' autoFocus='autofocus' required />
 
-                    <label
-                        className='form-label'
-                        htmlFor='password'>Password</label>
-                    <input
-                        type='password'
-                        name='password'
-                        id='password'
-                        className='form-control input-block'
-                        autoComplete='current-password'
-                        required />            
+                    <label className='form-label' htmlFor='password'>Password</label>
+                    <input type='password' name='password' id='password' className='form-control input-block' autoComplete='current-password' required />            
                     
-                    <label
-                        className='form-label'
-                        htmlFor='username'>Username</label>
-
-                    <input
-                        type='text'
-                        name='name'
-                        id='username'
-                        className='form-control input-block'
-                        autoComplete='username'
-                        required />            
+                    <label className='form-label' htmlFor='username'>Username</label>
+                    <input type='text' name='name' id='username' className='form-control input-block' autoComplete='username' equired />            
                     
-                    <input
-                        type='submit'
-                        value="Sign up"
-                        className='form-btn input-block' />
+                    <input type='submit' value='Sign up' className='form-btn input-block' />
                 </form>
             </div>
             <p className='login-callout'>
