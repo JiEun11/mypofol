@@ -20,19 +20,6 @@ body {
     font-family: 'AppleSDGothicNeo', 'Noto Sans KR', sans-serif;
 }
 
-body.full-wide {
-	height: 100vh;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #212529;
-    text-align: left;
-	background-image: url(/images/my-portfolio.png);
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-size: 800px;    
-}
-
 a {
     color: #222222;
     text-decoration: none;

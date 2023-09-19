@@ -1,14 +1,17 @@
 const express = require('express');
+const {authorizeNotRequired, authorizeRequired, validAccount} = require('./interceptors');
+
 const controllerMain = require('../controllers/main');
 const controllerDashboard = require('../controllers/dashboard');
 const controllerAccount = require('../controllers/account');
-const controllerApiAccount = require('../controllers/api/account');
-const {authorizeNotRequired, authorizeRequired, validAccount} = require('./interceptors');
+
+const apiControllerAccount = require('../controllers/api/account');
+const apiControllerMain = require('../controllers/api/main');
 
 const router = express.Router();
 
-router.get('/', controllerMain.index, validAccount, controllerAccount.profile);
 
+router.get('/', controllerMain.index, validAccount, controllerAccount.profile);
 router.get('/welcome', authorizeNotRequired, controllerMain.welcome);
 router.get('/signout', authorizeRequired, controllerMain.signout);
 router.post('/auth', authorizeNotRequired, controllerMain.auth);
@@ -33,8 +36,12 @@ router.get('/:account/trainings', validAccount, authorizeRequired, controllerAcc
 router.get('/:account/skills', validAccount, authorizeRequired, controllerAccount.skills);
 router.get('/:account/projects', validAccount, authorizeRequired, controllerAccount.projects);
 
-router.get(`/api/:account/projects`, validAccount, controllerApiAccount.projects);
-router.post(`/api/:account/projects`, validAccount, controllerApiAccount.insertProject);
-router.delete(`/api/:account/projects`, validAccount, controllerApiAccount.deleteProject);
+
+/* APIs */
+router.post(`/api/signup`, apiControllerMain.signup);
+
+router.get(`/api/:account/projects`, validAccount, apiControllerAccount.projects);
+router.post(`/api/:account/projects`, validAccount, apiControllerAccount.insertProject);
+router.delete(`/api/:account/projects`, validAccount, apiControllerAccount.deleteProject);
 
 exports.dispatcher = router;

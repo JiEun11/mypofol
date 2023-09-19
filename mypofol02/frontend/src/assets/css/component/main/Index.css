@@ -1,4 +1,4 @@
-body.full-wide {
+.full-wide {
 	height: 100vh;
     font-size: 14px;
     font-weight: 400;
@@ -11,18 +11,24 @@ body.full-wide {
 	background-size: 800px;    
 }
 
-body.full-wide.welcome {
+.full-wide.welcome {
     background-position: center 220px;
     background-size: 600px;   
 	background-image: url(../../../images/welcome.png);
 }
 
-.wrapper {
+.full-wide .wrapper {
     position: relative;
     top: 64px;
     margin: 0;
     width: 100%;
+    max-width: 100%;
+    min-width: 100%;
     height: calc(100vh - 64px);
+}
+
+.full-wide .wrapper.overlay {
+    background-color: #11111155;
 }
 
 .form {
@@ -131,8 +137,4 @@ body.full-wide.welcome {
     right: 0 !important;
     top: 2px !important;
     position: absolute !important;
-}
-
-.wrapper:has(#dialog-signin-popup:checked), .wrapper:has(#dialog-signup-popup:checked) {
-    background-color: #11111155;
 }

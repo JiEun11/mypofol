@@ -1,24 +1,109 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import '../../assets/css/component/main/DialogSignin.css';
 
-const DialogSignup = ({openDialog}) => {
+const DialogSignup = ({openDialog, setTheme}) => {
+    const refForm = useRef(null);
+
     return (
-        <div className="form position-relative">
-            <div className="form-header">
+        <div className='form position-relative'>
+            <div className='form-header'>
                 <h1>Sign up</h1>
             </div>	  
-            <div className="form-body">
-                <form action="/signup" acceptCharset="UTF-8" method="post">
-                    <label className="form-label" htmlFor="email">Email</label>
-                    <input type="text" name="account[email]" id="email" className="form-control input-block" autoCapitalize="none" autoCorrect="off" autoComplete="username" autoFocus="autofocus"/>      
-                    <label className="form-label" htmlFor="password">Password</label>
-                    <input type="password" name="account[password]" id="password" className="form-control input-block" autoComplete="current-password"/>            
-                    <label className="form-label" htmlFor="username">Username</label>
-                    <input type="text" name="account[name]" id="username" className="form-control input-block" autoComplete="current-password"/>            
-                    <input type="submit" name="commit" value="Sign up" className="form-btn input-block"/>
+            <div className='form-body'>
+                <form
+                    ref={refForm}
+                    action='/api/signup'
+                    acceptCharset='UTF-8'
+                    method='post'
+                    onSubmit={async (e) => {
+                        e.preventDefault();
+
+                        try {
+                            // form data serialized to object
+                            const account = Array.from(e.target, (input) => {
+                                return {n: input.name, v: input.value};
+                            })
+                            .filter(({n}) => n !== '')
+                            .reduce((res, {n, v}) => {
+                                res[n] = v;
+                                return res;
+                            }, {});
+
+                            // reset form
+                            refForm.current.reset();
+
+                            console.log(account, e.target.method, e.target.action);
+
+                            // post
+                            const response = await fetch(e.target.action, {
+                                method: e.target.method,
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'Accept': 'application/json'
+                                },
+                                body:JSON.stringify(account)
+                            });
+                
+                            if (!response.ok) {
+                                throw new Error(`${response.status} ${response.statusText}`);
+                            }
+                
+                            const json = await response.json();
+                
+                            if(json.result !== 'success') {
+                                throw new Error(`${json.result} ${json.message}`);
+                            }
+
+                            openDialog('');
+                            setTheme('welcome');
+                        } catch(err) {
+                            console.error(err);
+                        }
+                    }}>
+
+                    <label
+                        className='form-label'
+                        htmlFor='email'>Email</label>
+                    <input 
+                        type='email'
+                        name='email'
+                        id='email'
+                        className='form-control input-block'
+                        autoCapitalize='none'
+                        autoCorrect='off'
+                        autoFocus='autofocus'
+                        required />
+
+                    <label
+                        className='form-label'
+                        htmlFor='password'>Password</label>
+                    <input
+                        type='password'
+                        name='password'
+                        id='password'
+                        className='form-control input-block'
+                        autoComplete='current-password'
+                        required />            
+                    
+                    <label
+                        className='form-label'
+                        htmlFor='username'>Username</label>
+
+                    <input
+                        type='text'
+                        name='name'
+                        id='username'
+                        className='form-control input-block'
+                        autoComplete='username'
+                        required />            
+                    
+                    <input
+                        type='submit'
+                        value="Sign up"
+                        className='form-btn input-block' />
                 </form>
             </div>
-            <p className="login-callout">
+            <p className='login-callout'>
                 <span>My Portfolio에 이미 가입했습니다. </span>
                 <label onClick={() => {
                     openDialog('signin');

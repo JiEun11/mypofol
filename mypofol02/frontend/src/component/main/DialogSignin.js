@@ -7,7 +7,13 @@ const DialogSignin = ({openDialog}) => {
                 <h1>Sign in</h1>
             </div>	  
             <div className="form-body">
-                <form action="/auth" acceptCharset="UTF-8" method="post">
+                <form 
+                    action="/auth"
+                    acceptCharset="UTF-8"
+                    method="post"
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                    }}>
                     <label className="form-label" htmlFor="email">Email</label>
                     <input type="text" name="email" id="email" className="form-control input-block" autoCapitalize="none" autoCorrect="off" autoComplete="username" autoFocus="autofocus"/>      
                     <div className="position-relative">
