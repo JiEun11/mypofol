@@ -1,0 +1,24 @@
+.login-callout {
+    padding: 24px 16px;
+    text-align: center;
+    background-color: #fff;
+    background-color: #f6f8fa;
+    margin-top: 0 !important;
+    margin-bottom: 10px;
+    border: 1px solid hsla(210,18%,87%,1);
+    border-radius: 0 0 6px 6px;
+}
+
+.login-callout label {
+    cursor: pointer;
+    pointer-events: auto;
+    touch-action: manipulation;
+    color: #0969da;
+    text-decoration: none;
+}
+
+.login-callout label:hover, .login-callout label:focus {
+    color: #FF6F61;
+    outline: none;
+    text-decoration: none;
+}
