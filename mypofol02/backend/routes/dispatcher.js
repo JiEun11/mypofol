@@ -39,6 +39,7 @@ router.get('/:account/projects', validAccount, authorizeRequired, controllerAcco
 
 /* APIs */
 router.post(`/api/signup`, apiControllerMain.signup);
+router.post(`/api/auth`, apiControllerMain.auth);
 
 router.get(`/api/:account/projects`, validAccount, apiControllerAccount.projects);
 router.post(`/api/:account/projects`, validAccount, apiControllerAccount.insertProject);

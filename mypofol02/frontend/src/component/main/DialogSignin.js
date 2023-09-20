@@ -1,19 +1,63 @@
-import React from 'react';
-import {NavLink} from "react-router-dom";
+import React, { useRef } from 'react';
+import {NavLink, useNavigate} from "react-router-dom";
 
 const DialogSignin = () => {
+  const navigate = useNavigate();
+  const refForm = useRef(null);
+
     return (
         <div className='form position-relative'>
             <div className='form-header'>
                 <h1>Sign in</h1>
             </div>	  
             <div className='form-body'>
-                <form 
-                    action='/auth'
+                <form
+                    ref={refForm}
+                    action='/api/auth'
                     acceptCharset='UTF-8'
                     method='post'
-                    onSubmit={(e) => {
-                        e.preventDefault();
+                    onSubmit={ async (e) => {
+                      e.preventDefault();
+
+                      try {
+                        const account = Array.from(e.target, (input)=>{
+                          return {n: input.name, v:input.value};
+                        })
+                        .filter(({n}) => n !== '')
+                        .reduce((res, {n, v}) => {
+                            res[n] = v;
+                            return res;
+                        }, {});
+
+                        // reset form
+                        refForm.current.reset();
+
+                        console.log(account, e.target.method, e.target.action);
+
+                        // post
+                        const response = await fetch(e.target.action, {
+                          method: e.target.method,
+                          headers: {
+                              'Content-Type': 'application/json',
+                              'Accept': 'application/json'
+                          },
+                          body:JSON.stringify(account)
+                      });
+                      console.log('response >>> ' , response);
+                      if (!response.ok) {
+                          throw new Error(`${response.status} ${response.statusText}`);
+                      }
+          
+                      const json = await response.json();
+          
+                      if(json.result !== 'success') {
+                          throw new Error(`${json.result} ${json.message}`);
+                      }
+
+                      navigate("/");
+                      } catch (error) {
+                        console.error(error);
+                      }
                     }}>
                     <label className='form-label' htmlFor='email'>Email</label>
                     <input type='text' name='email' id='email' className='form-control input-block' autoCapitalize='none' autoCorrect='off' autoComplete='username' autoFocus='autofocus' required/>      
