@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
 
-const DialogSignin = ({openDialog}) => {
+const DialogSignin = () => {
     return (
         <div className='form position-relative'>
             <div className='form-header'>

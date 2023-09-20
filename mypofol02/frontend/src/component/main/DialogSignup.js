@@ -3,7 +3,7 @@ import {useNavigate, NavLink} from "react-router-dom";
 
 import '../../assets/css/component/main/DialogSignin.css';
 
-const DialogSignup = ({setTheme}) => {
+const DialogSignup = () => {
     const navigate = useNavigate();
     const refForm = useRef(null);
 
