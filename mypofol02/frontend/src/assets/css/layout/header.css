@@ -90,6 +90,11 @@
     touch-action: manipulation;
 }
 
+.header .header-context .context-item a, .header .header-context .context-item a:hover {
+    color: #e6edf3;
+    text-decoration: none;
+}
+
 .header .globalbar .inner-end {
     flex: 0 1 auto;
     display: flex;

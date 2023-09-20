@@ -1,15 +1,12 @@
 import React from 'react';
+import {NavLink} from "react-router-dom";
 import '../../assets/css/component/main/Welcome.css';
 
 const Welcome = ({openDialog}) => {
     return (
         <p className="greetings">
             MyPofol 가입이 완료 되었습니다! <br/>
-            <label 
-                className="btn"
-                onClick={() => {
-                    openDialog('signin');s
-                }}>로그인</label> 
+            <NavLink to={"/signin"}>로그인</NavLink>
         </p> 
     );
 };

@@ -5,26 +5,16 @@ import DialogSignup from './DialogSignup';
 import DialogSignin from './DialogSignin';
 
 import '../../assets/css/component/main/Index.css';
-const Index = () => {
-    const [theme, setTheme] = useState('');
-    const [dialog, openDialog] = useState(null);
-    
-    useEffect(() => {
-        document.body.classList.add(...(theme === 'welcome' ? ['full-wide', 'welcome'] : ['full-wide']));
-    }, [theme]);
+const Index = ({dialog, theme}) => {
+
+    document.body.classList.add(...(theme === 'welcome' ? ['full-wide', 'welcome'] : ['full-wide']));
 
     return (
         <>
-            <Header a={true} openDialog={openDialog} />
+            <Header a={true} />
             <div className={ dialog === 'signup' || dialog === 'signin' ? "wrapper overlay" : "wrapper" }>
-                { theme === 'welcome' ? <Welcome openDialog={openDialog}/> : null }
-                {
-                    dialog === 'signup' ?
-                        <DialogSignup openDialog={openDialog} setTheme={setTheme} /> :
-                        dialog === 'signin' ?
-                            <DialogSignin openDialog={openDialog} /> :
-                            null
-                }
+                { theme === 'welcome' ? <Welcome /> : null }
+                { dialog === 'signup' ? <DialogSignup /> : dialog === 'signin' ? <DialogSignin /> : null }
             </div> 
         </>
     );

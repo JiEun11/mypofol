@@ -1,7 +1,10 @@
 import React, {useRef} from 'react';
+import {useNavigate, NavLink} from "react-router-dom";
+
 import '../../assets/css/component/main/DialogSignin.css';
 
-const DialogSignup = ({openDialog, setTheme}) => {
+const DialogSignup = ({setTheme}) => {
+    const navigate = useNavigate();
     const refForm = useRef(null);
 
     return (
@@ -54,8 +57,8 @@ const DialogSignup = ({openDialog, setTheme}) => {
                                 throw new Error(`${json.result} ${json.message}`);
                             }
 
-                            openDialog('');
-                            setTheme('welcome');
+                            navigate("/welcome");
+
                         } catch(err) {
                             console.error(err);
                         }
@@ -68,16 +71,16 @@ const DialogSignup = ({openDialog, setTheme}) => {
                     <input type='password' name='password' id='password' className='form-control input-block' autoComplete='current-password' required />            
                     
                     <label className='form-label' htmlFor='username'>Username</label>
-                    <input type='text' name='name' id='username' className='form-control input-block' autoComplete='username' equired />            
+                    <input type='text' name='name' id='username' className='form-control input-block' autoComplete='username' required />            
                     
                     <input type='submit' value='Sign up' className='form-btn input-block' />
                 </form>
             </div>
             <p className='login-callout'>
                 <span>My Portfolio에 이미 가입했습니다. </span>
-                <label onClick={() => {
-                    openDialog('signin');
-                }}>로그인</label>
+                <label>
+                    <NavLink to={"/signin"}>로그인</NavLink>   
+                </label>
             </p>  
         </div>
     );

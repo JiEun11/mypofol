@@ -9,7 +9,7 @@
     border-radius: 0 0 6px 6px;
 }
 
-.login-callout label {
+.login-callout a {
     cursor: pointer;
     pointer-events: auto;
     touch-action: manipulation;
@@ -17,7 +17,7 @@
     text-decoration: none;
 }
 
-.login-callout label:hover, .login-callout label:focus {
+.login-callout a:hover, .login-callout a:focus {
     color: #FF6F61;
     outline: none;
     text-decoration: none;

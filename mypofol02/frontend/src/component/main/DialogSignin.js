@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink} from "react-router-dom";
 
 const DialogSignin = ({openDialog}) => {
     return (
@@ -26,9 +27,9 @@ const DialogSignin = ({openDialog}) => {
             </div>
             <p className='login-callout'>
                 <span>My Portfolio에 처음입니까? </span>
-                <label onClick={() => {
-                    openDialog('signup');
-                }}>가입하기</label>
+                <label>
+                    <NavLink to={"/signup"}>회원가입</NavLink>
+                </label>
             </p>  
         </div>
     );

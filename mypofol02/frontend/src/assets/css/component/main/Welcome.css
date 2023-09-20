@@ -1,4 +1,4 @@
-.full-wide.welcome .greetings {
+.welcome .greetings {
     position: relative !important;
     top:470px;
     width: fit-content;
@@ -10,7 +10,7 @@
     text-align: center;  
 }
 
-.full-wide.welcome .btn {
+.welcome .greetings a {
     position: relative;
     display: inline-block;
     font-size: 0.90rem;
@@ -32,7 +32,7 @@
     transition-property: color,background-color,box-shadow,border-color;
 }
 
-.full-wide.welcome .btn:focus, .full-wide.welcome .btn:hover{
+.welcome .greetings a:focus, .welcome .greetings a:hover{
     box-shadow: none;
     outline: none !important;
     box-shadow: none;

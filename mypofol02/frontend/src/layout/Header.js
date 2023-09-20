@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink} from "react-router-dom";
 import '../assets/css/layout/Header.css';
 
 const Header = ({a, openDialog}) => {
@@ -25,18 +26,19 @@ const Header = ({a, openDialog}) => {
                             <div className="header-context">
                             <ul>
                                 <li>
-                                    <label className="context-item" onClick={() => {
-                                        openDialog('signin');
-                                    }}>로그인</label>
+                                    <label className="context-item">
+                                        <NavLink to={"/signin"}>로그인</NavLink>
+                                    </label>
                                 </li>            
                                 <li>
-                                    <label className="context-item" onClick={() => {
-                                        openDialog('signup');
-                                    }}>회원가입</label>
+                                    <label className="context-item">
+                                        <NavLink to={"/signup"}>회원가입</NavLink>
+                                    </label>
                                 </li>
                             </ul>
                             </div>
-                        </> :
+                        </>
+                        :
                         <>    
                             <a className="header-button has-indicator">
                                 <svg viewBox="0 0 16 16" className="inbox">
