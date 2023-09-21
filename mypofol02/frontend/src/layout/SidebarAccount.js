@@ -31,12 +31,12 @@ const SidebarAccount = () => {
               </NavLink>
             </li>
             <li>
-              <a href='/bella/experiences'>
-                <span className='item-ico'>
+              <NavLink to={`/${accountName}/experiences`} >
+              <span className='item-ico'>
                   <i className='fa fa-list-ul'></i>
                 </span>
                 <span className='item-label'>경력</span>
-              </a>
+              </NavLink>
             </li>
             <li>
               <NavLink to={`/${accountName}/educations`}>
@@ -47,28 +47,28 @@ const SidebarAccount = () => {
               </NavLink>
             </li>
             <li>
-              <a href='/bella/trainings'>
+              <NavLink to={`/${accountName}/trainings`}>
                 <span className='item-ico'>
                   <i className='fa fa-award'></i>
                 </span>
                 <span className='item-label'>교육 및 자격증</span>
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a href='/bella/skills'>
+              <NavLink to={`/${accountName}/skills`}>
                 <span className='item-ico'>
                   <i className='fa fa-code'></i>
                 </span>
                 <span className='item-label'>주요기술</span>
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a href='/bella/projects'>
+              <NavLink to={`/${accountName}/projects`}>
                 <span className='item-ico'>
                   <i className='fa fa-diagram-project'></i>
                 </span>
                 <span className='item-label'>프로젝트</span>
-              </a>
+              </NavLink>
             </li>
           </ul>
         </nav>
