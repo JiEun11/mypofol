@@ -9,45 +9,45 @@ const Profile = () => {
 
   return (
     <LayoutAccount>
-          <div class="profile">
-            <div class="content-inner">
-              <div class="content-header">
+          <div className="profile">
+            <div className="content-inner">
+              <div className="content-header">
                 <h2>프로필</h2>
               </div>
-              <div class="row align-items-center">
-                <div class="col-md-12">
+              <div className="row align-items-center">
+                <div className="col-md-12">
                   <ul>
                     <li>
                       <h3>
-                        <i class="fa fa-user"></i>
+                        <i className="fa fa-user"></i>
                         <span>이름</span>
                       </h3>
                       <span>김지은</span>
                     </li>
                     <li>
                       <h3>
-                        <i class="fa fa-cake-candles"></i>
+                        <i className="fa fa-cake-candles"></i>
                         <span>생년월일</span>
                       </h3>
                       <span>1997-12-11</span>
                     </li>
                     <li>
                       <h3>
-                        <i class="fa fa-house"></i>
+                        <i className="fa fa-house"></i>
                         <span>거주지</span>
                       </h3>
                       <span>경기도 성남시 중원구</span>
                     </li>
                     <li>
                       <h3>
-                        <i class="fa fa-location-dot"></i>
+                        <i className="fa fa-location-dot"></i>
                         <span>연락처</span>
                       </h3>
                       <span>010-4761-6934</span>
                     </li>
                     <li>
                       <h3>
-                        <i class="fa fa-envelope"></i>
+                        <i className="fa fa-envelope"></i>
                         <span>이메일</span>
                       </h3>
                       <span>shdudtnr3939@gmail.com</span>
@@ -56,7 +56,7 @@ const Profile = () => {
                   <ul>
                     <li>
                       <h3>
-                        <i class="fa fa-blog"></i>
+                        <i className="fa fa-blog"></i>
                         <span>블로그</span>
                       </h3>
                       <span>
@@ -67,7 +67,7 @@ const Profile = () => {
                     </li>
                     <li>
                       <h3>
-                        <i class="fa-brands fa-github"></i>
+                        <i className="fa-brands fa-github"></i>
                         <span>GitHub</span>
                       </h3>
                       <span>
@@ -78,7 +78,7 @@ const Profile = () => {
                     </li>
                     <li>
                       <h3>
-                        <i class="fa-brands fa-youtube"></i>
+                        <i className="fa-brands fa-youtube"></i>
                         <span>YouTube</span>
                       </h3>
                       <span>
@@ -91,7 +91,7 @@ const Profile = () => {
                     </li>
                     <li>
                       <h3>
-                        <i class="fa-brands fa-instagram"></i>
+                        <i className="fa-brands fa-instagram"></i>
                         <span>Instagram</span>
                       </h3>
                       <span>
@@ -105,7 +105,7 @@ const Profile = () => {
                   </ul>
                   <div>
                     <h3>
-                      <i class="fa fa-pen-nib"></i>
+                      <i className="fa fa-pen-nib"></i>
                       <span>자기소개</span>
                     </h3>
                     <p>
@@ -122,13 +122,13 @@ const Profile = () => {
                 </div>
               </div>
             </div>
-            <div class="large-btn">
+            <div className="large-btn">
               <div>
-                <a class="btn" href="#">
-                  <i class="fa fa-download"></i>Resume
+                <a className="btn" href="#">
+                  <i className="fa fa-download"></i>Resume
                 </a>
-                <a class="btn" href="#">
-                  <i class="fa fa-hands-helping"></i>Hire Me
+                <a className="btn" href="#">
+                  <i className="fa fa-hands-helping"></i>Hire Me
                 </a>
               </div>
             </div>
