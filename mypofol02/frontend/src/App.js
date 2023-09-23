@@ -7,6 +7,7 @@ import Educations from './component/account/education';
 import Experiences from './component/account/experience';
 import Trainings from './component/account/training';
 import Skills from './component/account/skill';
+import Projects from './component/account/project';
 
 export default function App() {
   /*
@@ -32,6 +33,7 @@ export default function App() {
         <Route path={':accountName/experiences'} element={<Experiences />} />
         <Route path={':accountName/trainings'} element={<Trainings />} />
         <Route path={':accountName/skills'} element={<Skills />} />
+        <Route path={':accountName/projects'} element={<Projects />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
