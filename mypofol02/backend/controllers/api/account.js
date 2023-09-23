@@ -1,6 +1,16 @@
+const modelProfile = require("../../models/profile");
 const modelProject = require("../../models/project");
 
 module.exports = {
+  profile: async (req, res, next) => {
+    try {
+      const profile = await modelProfile.findByAccountId(req.account.id);
+      res.status(200).json(profile);
+    } catch (err) {
+      next(err);
+    }
+  },
+
   projects: async (req, res, next) => {
     try {
       const projects = await modelProject.findByAccountId(req.account.id);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
 import LayoutAccount from '../../../layout/LayoutAccount';
@@ -6,6 +6,38 @@ import "../../../assets/css/component/account/Profile.css";
 
 const Profile = () => {
   const { accountName } = useParams();
+  const [profile, setProfile] = useState(null);
+
+  const fetchProfile = async () => {
+    try {
+      console.log('profile');
+      const response = await fetch(`/api/${accountName}/profile`, {
+        method: "get",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: null,
+      });
+      if (!response.ok) {
+        throw new Error(`${response.status} ${response.statusText}`);
+      }
+
+      const json = await response.json();
+
+      if (json.result !== "success") {
+        throw new Error(`${json.result} ${json.message}`);
+      }
+
+      setProfile(json.data);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  useEffect(()=>{
+    fetchProfile();
+  }, []);
 
   return (
     <LayoutAccount>
@@ -22,35 +54,35 @@ const Profile = () => {
                         <i className="fa fa-user"></i>
                         <span>이름</span>
                       </h3>
-                      <span>김지은</span>
+                      <span>{profile && profile.name}</span>
                     </li>
                     <li>
                       <h3>
                         <i className="fa fa-cake-candles"></i>
                         <span>생년월일</span>
                       </h3>
-                      <span>1997-12-11</span>
+                      <span>{profile && profile.birth}</span>
                     </li>
                     <li>
                       <h3>
                         <i className="fa fa-house"></i>
                         <span>거주지</span>
                       </h3>
-                      <span>경기도 성남시 중원구</span>
+                      <span>{profile && profile.district}</span>
                     </li>
                     <li>
                       <h3>
                         <i className="fa fa-location-dot"></i>
                         <span>연락처</span>
                       </h3>
-                      <span>010-4761-6934</span>
+                      <span>{profile && profile.phone}</span>
                     </li>
                     <li>
                       <h3>
                         <i className="fa fa-envelope"></i>
                         <span>이메일</span>
                       </h3>
-                      <span>shdudtnr3939@gmail.com</span>
+                      <span>{profile && profile.email}</span>
                     </li>
                   </ul>
                   <ul>
@@ -60,8 +92,8 @@ const Profile = () => {
                         <span>블로그</span>
                       </h3>
                       <span>
-                        <a href="https://velog.io/@devbella" target="_blank">
-                          https://velog.io/@devbella
+                        <a href={profile && profile.blog} target="_blank">
+                        {profile && profile.blog}
                         </a>
                       </span>
                     </li>
@@ -71,8 +103,8 @@ const Profile = () => {
                         <span>GitHub</span>
                       </h3>
                       <span>
-                        <a href="https://github.com/JiEun11" target="_blank">
-                          https://github.com/JiEun11
+                        <a href={profile && profile.link2} target="_blank">
+                        {profile && profile.link2}
                         </a>
                       </span>
                     </li>
@@ -83,9 +115,9 @@ const Profile = () => {
                       </h3>
                       <span>
                         <a
-                          href="https://www.youtube.com/channel/UCffzrqaHP8JB53GHuzmLMDw"
+                          href={profile && profile.link3}
                           target="_blank">
-                          https://www.youtube.com/channel/UCffzrqaHP8JB53GHuzmLMDw
+                          {profile && profile.link3}
                         </a>
                       </span>
                     </li>
@@ -96,9 +128,9 @@ const Profile = () => {
                       </h3>
                       <span>
                         <a
-                          href="https://www.instagram.com/bella___jin"
+                          href={profile && profile.link1}
                           target="_blank">
-                          https://www.instagram.com/bella___jin
+                          {profile && profile.link1}
                         </a>
                       </span>
                     </li>
@@ -109,14 +141,7 @@ const Profile = () => {
                       <span>자기소개</span>
                     </h3>
                     <p>
-                      자유로운 개발자 문화에서 크리에이티브한 개발자로 성장하고
-                      싶습니다.
-                      <br />
-                      자유로운 아이디어 공유를 통해 발전하는 개발자가 되고
-                      싶습니다.
-                      <br />
-                      사람 좋아! 대화 좋아! 혼자 헤매지 말자! 소통하는 개발자,
-                      인사드립니다.
+                      {profile && profile.description}
                     </p>
                   </div>
                 </div>
