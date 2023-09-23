@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import LayoutAccount from '../../../layout/LayoutAccount';
-import Experience from './Experience';
+import ExperienceItem from './ExperienceItem';
 
 import '../../../assets/css/component/account/Experiences.css';
 import { useParams } from 'react-router';
@@ -48,7 +48,7 @@ function Experiences() {
                     </div>
                     <div className="row align-items-center">
                       {experiences && experiences.map((experience) => (
-                        <Experience key={experience.id} experience={experience} />
+                        <ExperienceItem key={experience.id} experience={experience} />
                       ))}
                     </div>
                 </div>
