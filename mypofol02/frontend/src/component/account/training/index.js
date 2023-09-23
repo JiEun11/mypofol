@@ -1,8 +1,48 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
+
 import LayoutAccount from "../../../layout/LayoutAccount";
+import CertificateItem from "./CertificateItem";
+import EducationItem from './EducationItem';
+import LanguageItem from './LanguageItem';
+
 import '../../../assets/css/component/account/Trainings.css';
 
+
+
 const index = () => {
+  const { accountName } = useParams();
+  const [trainings, setTrainings] = useState(null);
+
+  const fetchTrainings = async () => {
+    try {
+      const response = await fetch(`/api/${accountName}/trainings`, {
+        method: "get",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: null,
+      });
+      if (!response.ok) {
+        throw new Error(`${response.status} ${response.statusText}`);
+      }
+
+      const json = await response.json();
+
+      if (json.result !== "success") {
+        throw new Error(`${json.result} ${json.message}`);
+      }
+      setTrainings(json.data);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  useEffect(()=>{
+    fetchTrainings();
+  }, []);
+
   return (
     <LayoutAccount>
       <div className="trainings">
@@ -18,11 +58,8 @@ const index = () => {
                   <span>교육</span>
                 </h3>
                 <ul>
-                  <li>
-                    <span>포스코 청년 IT 아카데미</span>
-                    <span>2022-05</span>
-                    <span></span>
-                  </li>
+                  {trainings && trainings.map((training) => training.type === "education" 
+                    ? <EducationItem key={training.id} training={training} /> : null)}
                 </ul>
               </div>
             </div>
@@ -34,16 +71,8 @@ const index = () => {
                   <span>자격증</span>
                 </h3>
                 <ul>
-                  <li>
-                    <span>정보처리기사</span>
-                    <span>2022-12</span>
-                    <span></span>
-                  </li>
-                  <li>
-                    <span>리눅스마스터</span>
-                    <span>2018-09</span>
-                    <span>2급</span>
-                  </li>
+                {trainings && trainings.map((training) => training.type === "certificate" 
+                    ? <CertificateItem key={training.id} training={training} /> : null)}
                 </ul>
               </div>
             </div>
@@ -55,16 +84,8 @@ const index = () => {
                   <span>외국어</span>
                 </h3>
                 <ul>
-                  <li>
-                    <span>OPIC</span>
-                    <span>2021-06</span>
-                    <span>레벨 IH</span>
-                  </li>
-                  <li>
-                    <span>TOFEL</span>
-                    <span>2020-02</span>
-                    <span>73점</span>
-                  </li>
+                {trainings && trainings.map((training) => training.type === "language" 
+                    ? <LanguageItem key={training.id} training={training} /> : null)}
                 </ul>
               </div>
             </div>

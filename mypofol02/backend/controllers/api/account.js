@@ -1,6 +1,7 @@
 const modelProfile = require("../../models/profile");
 const modelExperience = require("../../models/experience");
 const modelEducation = require("../../models/education");
+const modelTraining = require("../../models/training");
 const modelProject = require("../../models/project");
 
 module.exports = {
@@ -26,6 +27,15 @@ module.exports = {
     try {
       const educations = await modelEducation.findByAccountId(req.account.id);
       res.status(200).json(educations);
+    } catch (err) {
+      next(err);
+    }
+  },
+
+  trainings: async (req, res, next) => {
+    try {
+      const trainings = await modelTraining.findByAccountId(req.account.id);
+      res.status(200).json(trainings);
     } catch (err) {
       next(err);
     }

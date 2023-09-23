@@ -47,6 +47,8 @@ router.get(`/api/:account/experiences`, validAccount, apiControllerAccount.exper
 
 router.get(`/api/:account/educations`, validAccount, apiControllerAccount.educations);
 
+router.get(`/api/:account/trainings`, validAccount, apiControllerAccount.trainings);
+
 router.get(`/api/:account/projects`, validAccount, apiControllerAccount.projects);
 router.post(`/api/:account/projects`, validAccount, apiControllerAccount.insertProject);
 router.delete(`/api/:account/projects`, validAccount, apiControllerAccount.deleteProject);
