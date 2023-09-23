@@ -1,9 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 
 import LayoutAccount from '../../../layout/LayoutAccount';
+import EducationItem from './EducationItem';
+
 import '../../../assets/css/component/account/Educations.css';
 
+
 const Educations = () => {
+  const { accountName } = useParams();
+  const [educations, setEducations] = useState(null);
+
+  const fetchEducations = async () => {
+    try {
+      const response = await fetch(`/api/${accountName}/educations`, {
+        method: "get",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: null,
+      });
+      if (!response.ok) {
+        throw new Error(`${response.status} ${response.statusText}`);
+      }
+
+      const json = await response.json();
+
+      if (json.result !== "success") {
+        throw new Error(`${json.result} ${json.message}`);
+      }
+      setEducations(json.data);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  useEffect(()=>{
+    fetchEducations();
+  }, []);
+
   return (
     <LayoutAccount>
       <div className="educations">
@@ -12,27 +48,9 @@ const Educations = () => {
                         <h2>학력</h2>
                     </div>
                     <div className="row align-items-center">
-                        <div className="col-md-12">
-                            <div className="edu-col">
-                                <span>2016.3 <i>~</i> 2022.2</span>
-                                <h3>단국대학교 / 응용컴퓨터공학과</h3>
-                                <p>이학사</p>
-                            </div>
-                        </div>
-                        <div className="col-md-12">
-                            <div className="edu-col">
-                                <span>2020.9 <i>~</i> 2021.4</span>
-                                <h3>체코 오스트라바 공과대학 / 컴퓨터공학 전공</h3>
-                                <p>교환학생</p>
-                            </div>
-                        </div>
-                        <div className="col-md-12">
-                            <div className="edu-col">
-                                <span>2013.3 <i>~</i> 2016.2</span>
-                                <h3>천안 북일여자고등학교</h3>
-                                <p>졸업</p>
-                            </div>
-                        </div>
+                      {educations && educations.map((education) => (
+                        <EducationItem key={education.id} education={education} />
+                      ))}
                     </div>
                 </div>
             </div>

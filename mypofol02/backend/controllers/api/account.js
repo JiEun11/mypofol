@@ -1,5 +1,6 @@
 const modelProfile = require("../../models/profile");
 const modelExperience = require("../../models/experience");
+const modelEducation = require("../../models/education");
 const modelProject = require("../../models/project");
 
 module.exports = {
@@ -16,6 +17,15 @@ module.exports = {
     try {
       const experiences = await modelExperience.findByAccountId(req.account.id);
       res.status(200).json(experiences);
+    } catch (err) {
+      next(err);
+    }
+  },
+
+  educations : async (req, res, next) => {
+    try {
+      const educations = await modelEducation.findByAccountId(req.account.id);
+      res.status(200).json(educations);
     } catch (err) {
       next(err);
     }
