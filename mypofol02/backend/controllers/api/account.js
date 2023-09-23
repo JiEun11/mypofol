@@ -1,4 +1,5 @@
 const modelProfile = require("../../models/profile");
+const modelExperience = require("../../models/experience");
 const modelProject = require("../../models/project");
 
 module.exports = {
@@ -6,6 +7,15 @@ module.exports = {
     try {
       const profile = await modelProfile.findByAccountId(req.account.id);
       res.status(200).json(profile);
+    } catch (err) {
+      next(err);
+    }
+  },
+
+  experiences : async (req, res, next) => {
+    try {
+      const experiences = await modelExperience.findByAccountId(req.account.id);
+      res.status(200).json(experiences);
     } catch (err) {
       next(err);
     }

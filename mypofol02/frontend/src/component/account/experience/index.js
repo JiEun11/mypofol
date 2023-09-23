@@ -1,9 +1,44 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import LayoutAccount from '../../../layout/LayoutAccount';
+import Experience from './Experience';
+
 import '../../../assets/css/component/account/Experiences.css';
+import { useParams } from 'react-router';
 
 function Experiences() {
+  const { accountName } = useParams();
+  const [experiences, setExperiences] = useState(null);
+
+  const fetchExperiences = async () => {
+    try {
+      const response = await fetch(`/api/${accountName}/experiences`, {
+        method: "get",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: null,
+      });
+      if (!response.ok) {
+        throw new Error(`${response.status} ${response.statusText}`);
+      }
+
+      const json = await response.json();
+
+      if (json.result !== "success") {
+        throw new Error(`${json.result} ${json.message}`);
+      }
+      setExperiences(json.data);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  useEffect(()=>{
+    fetchExperiences();
+  }, []);
+
   return (
     <LayoutAccount >
       <div className="experiences">
@@ -12,14 +47,9 @@ function Experiences() {
                         <h2>경력</h2>
                     </div>
                     <div className="row align-items-center">
-                        <div className="col-md-12">
-                            <div className="exp-col">
-                                <span>2022.6 <i>~</i> </span>
-                                <h3>포스코 DX, Smart IT 사업실 포스코 IT 사업부, ERP 섹선</h3>
-                                <h4>사원 / 정규직</h4>
-                                <h5>Java 풀스택 개발 / 운영</h5>
-                            </div>
-                        </div>
+                      {experiences && experiences.map((experience) => (
+                        <Experience key={experience.id} experience={experience} />
+                      ))}
                     </div>
                 </div>
             </div>
