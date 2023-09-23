@@ -10,7 +10,6 @@ const Profile = () => {
 
   const fetchProfile = async () => {
     try {
-      console.log('profile');
       const response = await fetch(`/api/${accountName}/profile`, {
         method: "get",
         headers: {
