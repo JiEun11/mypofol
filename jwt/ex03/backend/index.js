@@ -104,7 +104,6 @@ app.get("/api/refresh-token", async (req, res) => {
     try {
         const cookieRefreshToken = req.cookies[process.env.REFRESH_TOKEN_COOKIE_NAME];
 
-        console.log(cookieRefreshToken);
         if (!cookieRefreshToken) {
             throw new Error('Refresh Token Not Exist in Cookie');
         }
@@ -116,14 +115,14 @@ app.get("/api/refresh-token", async (req, res) => {
         const accessToken = jwt.sign(account, process.env.ACCESS_TOKEN_SECRET, JSON.parse(process.env.ACCESS_TOKEN_GEN_OPTIONS));
         const refreshToken = jwt.sign(account, process.env.REFRESH_TOKEN_SECRET, JSON.parse(process.env.REFRESH_TOKEN_GEN_OPTIONS));
         
-        console.log(new Date().toUTCString());
+        console.log("[server] Token Refresh at ", new Date().toUTCString());
         res
             .header({'X-Mypofol-Refresh-Token-At': new Date().toUTCString() })
             .cookie(process.env.REFRESH_TOKEN_COOKIE_NAME, refreshToken, JSON.parse(process.env.REFRESH_TOKEN_COOKIE_GEN_OPTIONS))
             .json({ accessToken });
 
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         return res.json(null);
     }
 });

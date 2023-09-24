@@ -1,13 +1,18 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from "react-router-dom";
-import { useAuthContext } from '../../auth';
+import {useParams, useNavigate, useLocation} from "react-router-dom";
+import {useAuthContext} from '../../auth';
 import LayoutAccount from "../../layout/LayoutAccount";
 
 export default function Profile() {
-    const {accountName} = useParams();
-    const {token} = useAuthContext();
+    console.log("profile rendering");
 
+    const {accountName} = useParams();
+    const {token, storeToken} = useAuthContext();
     const [profile, setProfile] = useState(null);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
 
     const fetchProfile = async () => {
         try {
@@ -26,14 +31,17 @@ export default function Profile() {
                 throw new Error(`${response.status} ${response.statusText}`);
             }   
 
-            console.log("!!!!!!!" + response.headers.get('X-Mypofol-Refresh-Token-At'));
-
             const json = await response.json();
-
-            console.log(json);
-
             if (json.result !== 'success') {
                 throw new Error(`${json.result} ${json.message}`);
+            }
+
+            const accessTokenRefreshedAt = response.headers.get('X-Mypofol-Refresh-Token-At');
+
+            // Access Token이 재발급 되었으면,
+            if(accessTokenRefreshedAt) {
+                storeToken(json.data.accessToken);
+                return;
             }
 
             setProfile(json.data.profile);
@@ -44,10 +52,9 @@ export default function Profile() {
     };
 
     useEffect(() => {
-        setTimeout(() => {
-            fetchProfile();
-        }, 2000);
-    }, []);
+        console.log("mount");
+        fetchProfile();
+    }, [token]);
 
     return (
         <LayoutAccount>
