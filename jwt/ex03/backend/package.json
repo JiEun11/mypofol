@@ -1,7 +1,7 @@
 {
   "name": "ex03-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "#### install packages ```sh $ npm init -y $ npm i -D nodemon $ npm i jsonwebtoken cookie-parser express dotenv ```",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index"

@@ -2,6 +2,7 @@
 
 #### install packages
 ```sh
+$ npm init -y
 $ npm i -D nodemon
 $ npm i jsonwebtoken cookie-parser express dotenv
 ```
@@ -14,5 +15,4 @@ $ npm i jsonwebtoken cookie-parser express dotenv
 ```sh
 $ npm run dev
 ```
- 
 
