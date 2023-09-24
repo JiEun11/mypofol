@@ -2,7 +2,7 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 import '../assets/css/layout/Header.css';
 
-const Header = ({a, openDialog}) => {
+const Header = ({a}) => {
     return (
         <header className='header'>
             <div className='globalbar'>
@@ -20,7 +20,7 @@ const Header = ({a, openDialog}) => {
                     }
                 </div>
                 <div className='inner-end'>
-                    {
+                {
                         a ?
                         <> 
                             <div className='header-context'>

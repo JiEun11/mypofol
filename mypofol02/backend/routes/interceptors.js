@@ -20,10 +20,7 @@ exports.authorizeRequired = (req, res, next) => {
 
 exports.validAccount = async (req, res, next) => {
   try {
-    const account = await modelAccount.findByName(
-      req.params.account ||
-        (req.session.authAccount && req.session.authAccount.name)
-    );
+    const account = await modelAccount.findByName(req.params.account);
     if (!account) {
       res.status(404).render("error/404");
       return;
