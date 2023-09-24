@@ -54,7 +54,6 @@ app.use((req, res, next) => {
         }
 
         next?.();
-
     } catch (error) {
         next?.(error);
     }
