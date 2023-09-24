@@ -1,9 +1,11 @@
 import React, { useRef } from 'react';
 import {NavLink, useNavigate} from "react-router-dom";
+import { useAuthContext } from '../../auth';
 
 const DialogSignin = () => {
   const navigate = useNavigate();
   const refForm = useRef(null);
+  const { storeToken } = useAuthContext();
 
     return (
         <div className='form position-relative'>
@@ -43,18 +45,19 @@ const DialogSignin = () => {
                           },
                           body:JSON.stringify(account)
                       });
-                      console.log('response >>> ' , response);
+
                       if (!response.ok) {
                           throw new Error(`${response.status} ${response.statusText}`);
                       }
           
                       const json = await response.json();
-          
+                      console.log(json);
                       if(json.result !== 'success') {
                           throw new Error(`${json.result} ${json.message}`);
                       }
 
-                      navigate("/");
+                      storeToken(json.data.accessToken);
+                      
                       } catch (error) {
                         console.error(error);
                       }

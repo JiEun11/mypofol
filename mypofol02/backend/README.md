@@ -24,6 +24,7 @@ $ npm i cross-env
 $ npm i -D swagger-ui-express
 $ npm i -D swagger-jsdoc
 $ npm i -D nodemon
+$ npm i jsonwebtoken cookie-parser
 ```
 
 ## project structure

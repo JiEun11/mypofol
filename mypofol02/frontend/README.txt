@@ -6,7 +6,7 @@ $ npm init -y
         $ npm i -D webpack webpack-cli webpack-dev-server style-loader css-loader node-sass sass-loader babel-loader @babel/core @babel/cli @babel/preset-env @babel/preset-react @babel/plugin-transform-runtime @babel/plugin-syntax-throw-expressions concurrently
 
     2) react library
-        $ npm i react react-dom react-addons-update react-router react-router-dom prop-types react-modal styled-components
+        $ npm i react react-dom react-addons-update react-router react-router-dom prop-types react-modal styled-components react-cookie jwt-decode
 
 3. webpack.config.js 설정 (https://github.com/poscoict-bitacademy/react-practices/tree/main/mysite07 참고)
 4. babel.config.json 설정 (https://github.com/poscoict-bitacademy/react-practices/tree/main/mysite07 참고)

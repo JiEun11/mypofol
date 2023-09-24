@@ -40,6 +40,8 @@ router.get('/:account/projects', validAccount, authorizeRequired, controllerAcco
 /* APIs */
 router.post(`/api/signup`, apiControllerMain.signup);
 router.post(`/api/auth`, apiControllerMain.auth);
+router.get(`/api/refresh-token`, apiControllerMain.refreshToken);
+router.get(`/api/signout`, apiControllerMain.signout);
 
 router.get(`/api/:account/profile`, validAccount, apiControllerAccount.profile);
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Routes, Route, Navigate, useRoutes } from 'react-router';
+import { AuthContextRouter, AuthRoutes } from './auth';
+
 import Index from './component/main';
 import Profile from './component/account/profile';
 import Educations from './component/account/education';
@@ -21,21 +23,23 @@ export default function App() {
   ]);
   */
   return (
-    <Router>
-      <Routes>
-        <Route path={'/'} element={<Index />} />
+    <AuthContextRouter>
+      <AuthRoutes>
+      <Route path={'/'} element={<Index />} />
         <Route path={'/welcome'} element={<Index theme='welcome' />} />
         <Route path={'/signin'} element={<Index dialog='signin' />} />
         <Route path={'/signup'} element={<Index dialog='signup' />} />        
-        <Route path={':accountName'} element={<Profile />} />
+      </AuthRoutes>
+      <AuthRoutes authenticated>
+      <Route path={':accountName'} element={<Profile />} />
         <Route path={':accountName/profile'} element={<Profile />} />
         <Route path={':accountName/educations'} element={<Educations />} />
         <Route path={':accountName/experiences'} element={<Experiences />} />
         <Route path={':accountName/trainings'} element={<Trainings />} />
         <Route path={':accountName/skills'} element={<Skills />} />
         <Route path={':accountName/projects'} element={<Projects />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </Router>
+      </AuthRoutes>
+    </AuthContextRouter>
+    
   );
 }
