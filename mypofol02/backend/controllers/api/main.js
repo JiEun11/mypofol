@@ -63,7 +63,12 @@ module.exports = {
       .json({ accessToken });
 
     } catch (err) {
-      console.error(err);
+      //
+      // JWT 구현 플로우 상 에러 아닌데 화면에 에러 로그 터져서 오해 할까바 주석 처리
+      // 파일 로그로 남기는 좋은데
+      // 아! morgan / winston 로그 처리 알려 주겠씀
+      // 
+      // console.error(err);
       return res.json(null)
     }
   }

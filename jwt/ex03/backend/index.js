@@ -115,7 +115,6 @@ app.get("/api/refresh-token", async (req, res) => {
         const accessToken = jwt.sign(account, process.env.ACCESS_TOKEN_SECRET, JSON.parse(process.env.ACCESS_TOKEN_GEN_OPTIONS));
         const refreshToken = jwt.sign(account, process.env.REFRESH_TOKEN_SECRET, JSON.parse(process.env.REFRESH_TOKEN_GEN_OPTIONS));
         
-        console.log("[server] Token Refresh at ", new Date().toUTCString());
         res
             .header({'X-Mypofol-Refresh-Token-At': new Date().toUTCString() })
             .cookie(process.env.REFRESH_TOKEN_COOKIE_NAME, refreshToken, JSON.parse(process.env.REFRESH_TOKEN_COOKIE_GEN_OPTIONS))
