@@ -3,23 +3,21 @@ import { useParams } from "react-router";
 
 import LayoutAccount from "../../../layout/LayoutAccount";
 import "../../../assets/css/component/account/Profile.css";
-import { useAuthContext } from '../../../auth';
 
 const Profile = () => {
   const { accountName } = useParams();
   const [profile, setProfile] = useState(null);
-  const { storeToken } = useAuthContext();
 
   const fetchProfile = async () => {
-    try {
+    try {      
       const response = await fetch(`/api/${accountName}/profile`, {
-        method: "get",
+        method: 'get',
         headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: null,
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
       });
+
       if (!response.ok) {
         throw new Error(`${response.status} ${response.statusText}`);
       }
@@ -31,6 +29,7 @@ const Profile = () => {
       }
 
       setProfile(json.data);
+
     } catch (err) {
       console.error(err);
     }
@@ -144,41 +143,13 @@ const Profile = () => {
         </div>
         <div className="large-btn">
           <div>
-            <a
-              className="btn"
-              href=""
-              onClick={async (e) => {
-                e.preventDefault();
-                try {
-                  const response = await fetch(`/api/signout`, {
-                    method: "get",
-                    headers: {
-                      "Content-Type": "application/json",
-                      "Accept": "application/json",
-                    },
-                  });
-
-                  if (!response.ok) {
-                    throw new Error(
-                      `${response.status} ${response.statusText}`
-                    );
-                  }
-
-                  const json = await response.json();
-
-                  if (json.result !== "success") {
-                    throw new Error(`${json.result} ${json.message}`);
-                  }
-                  console.log(json.data);
-                  storeToken(null);
-                } catch (error) {
-                  console.error(error);
-                }
-              }}>
-              <i className="fa fa-download"></i>SIGNOUT
+            <a className="btn" href="#">
+              <i className="fa fa-download"></i>
+              <span>Resume</span>
             </a>
             <a className="btn" href="#">
-              <i className="fa fa-hands-helping"></i>Hire Me
+              <i className="fa fa-hands-helping"></i>
+              <span>Hire Me</span>
             </a>
           </div>
         </div>

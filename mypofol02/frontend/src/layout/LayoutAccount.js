@@ -1,10 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Header from './Header';
 import Sidebar from './SidebarAccount';
 import Footer from './Footer';
+
 import "../assets/css/layout/LayoutAccount.css";
 
-const LayoutAccount = ({children}) => {
+const LayoutAccount = ({ children }) => {
+  
+  useEffect(() => {
+    document.body.className = '';
+  }, []);
+
   return (
     <>
       <Header />
@@ -15,7 +21,6 @@ const LayoutAccount = ({children}) => {
           <Footer />
         </div>
       </div>
-      
     </>
   );
 };

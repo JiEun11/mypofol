@@ -6,7 +6,6 @@ import EducationItem from './EducationItem';
 
 import '../../../assets/css/component/account/Educations.css';
 
-
 const Educations = () => {
   const { accountName } = useParams();
   const [educations, setEducations] = useState(null);
@@ -36,24 +35,24 @@ const Educations = () => {
     }
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchEducations();
   }, []);
 
   return (
     <LayoutAccount>
       <div className="educations">
-                <div className="content-inner">
-                    <div className="content-header">
-                        <h2>학력</h2>
-                    </div>
-                    <div className="row align-items-center">
-                      {educations && educations.map((education) => (
-                        <EducationItem key={education.id} education={education} />
-                      ))}
-                    </div>
-                </div>
-            </div>
+        <div className="content-inner">
+          <div className="content-header">
+            <h2>학력</h2>
+          </div>
+          <div className="row align-items-center">
+            {educations && educations.map((education) => (
+              <EducationItem key={education.id} education={education} />
+            ))}
+          </div>
+        </div>
+      </div>
     </LayoutAccount>
   );
 };

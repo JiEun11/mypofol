@@ -13,7 +13,7 @@ const Index = ({dialog, theme}) => {
 
     return (
         <>
-            <Header a={true} />
+            <Header />
             <div className={ dialog === 'signup' || dialog === 'signin' ? "wrapper overlay" : "wrapper" }>
                 { theme === 'welcome' ? <Welcome /> : null }
                 { dialog === 'signup' ? <DialogSignup /> : dialog === 'signin' ? <DialogSignin /> : null }
