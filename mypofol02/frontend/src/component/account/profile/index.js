@@ -40,7 +40,7 @@ const Profile = () => {
   }, []);
 
   return (
-    <LayoutAccount>
+    <LayoutAccount account={'hahah'}>
       <div className="profile">
         <div className="content-inner">
           <div className="content-header">
