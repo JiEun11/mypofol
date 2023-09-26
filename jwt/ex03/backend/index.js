@@ -139,7 +139,7 @@ app.get(
 
             if (!token) {
                 console.log("wrong token format or token is not sended");
-                return res.sendStatus(400)
+                return res.status(400).json(null);
             }
 
             const verified = await jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
@@ -151,7 +151,6 @@ app.get(
 
         } catch (error) {
             return res.redirect('/api/refresh-token');
-            // return res.sendStatus(403)
         }
     },
 
