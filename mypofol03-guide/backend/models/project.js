@@ -23,7 +23,6 @@ module.exports = {
   },
 
   insert: async (project) => {
-    console.log('project >>>> ', project);
     const sql = toUnnamed(`
       insert
         into project 
@@ -51,8 +50,8 @@ module.exports = {
 
     return result;
   },
-  
-  delete : async (id, accountId) => {
+
+  delete: async (id, accountId) => {
     const sql = `
       delete
         from project 
@@ -61,7 +60,7 @@ module.exports = {
     `;
 
     const conn = await pool.getConnection();
-    const [result] = await conn.query(sql,[id, accountId]);
+    const [result] = await conn.query(sql, [id, accountId]);
     conn.release();
 
     return result;

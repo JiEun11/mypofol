@@ -4,9 +4,9 @@ import LayoutAccount from "../../../layout/LayoutAccount";
 import '../../../assets/css/component/account/Projects.css';
 
 const index = () => {
-  return (
-    <LayoutAccount>
-      <div className="projects">
+    return (
+        <LayoutAccount>
+            <div className="projects">
                 <div className="content-inner">
                     <div className="content-header">
                         <h2>프로젝트</h2>
@@ -25,8 +25,8 @@ const index = () => {
                     </div>
                 </div>
             </div>
-    </LayoutAccount>
-  );
+        </LayoutAccount>
+    );
 };
 
 export default index;

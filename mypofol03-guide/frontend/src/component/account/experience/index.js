@@ -6,7 +6,6 @@ import ExperienceItem from './ExperienceItem';
 
 import '../../../assets/css/component/account/Experiences.css';
 
-
 function Experiences() {
   const { accountName } = useParams();
   const [experiences, setExperiences] = useState(null);
@@ -36,24 +35,24 @@ function Experiences() {
     }
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchExperiences();
   }, []);
 
   return (
     <LayoutAccount >
       <div className="experiences">
-                <div className="content-inner">
-                    <div className="content-header">
-                        <h2>경력</h2>
-                    </div>
-                    <div className="row align-items-center">
-                      {experiences && experiences.map((experience) => (
-                        <ExperienceItem key={experience.id} experience={experience} />
-                      ))}
-                    </div>
-                </div>
-            </div>
+        <div className="content-inner">
+          <div className="content-header">
+            <h2>경력</h2>
+          </div>
+          <div className="row align-items-center">
+            {experiences && experiences.map((experience) => (
+              <ExperienceItem key={experience.id} experience={experience} />
+            ))}
+          </div>
+        </div>
+      </div>
     </LayoutAccount>
   );
 }

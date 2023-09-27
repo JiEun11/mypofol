@@ -4,7 +4,7 @@ const Education = ({ education }) => {
   return (
     <div className="col-md-12">
       <div className="edu-col">
-      <span>
+        <span>
           {education.fromDate}<i>~</i>{education.toDate}
         </span>
         <h3>{education.title}</h3>

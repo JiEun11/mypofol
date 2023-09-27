@@ -7,9 +7,9 @@ exports.resLocals = (req, res, next) => {
 exports.acceptOnlyJsonRequest = (req, res, next) => {
     /* if request with accept html */
     if (req.accepts('html')) {
-      return res.status(400).end();
+        return res.status(400).end();
     }
-  
+
     /* if request with accept json */
     next?.();
 }

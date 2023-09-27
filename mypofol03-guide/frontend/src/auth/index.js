@@ -1,11 +1,11 @@
-import React, {createContext, useState, useContext} from 'react';
-import {Navigate, Outlet, RouterProvider, createBrowserRouter} from 'react-router-dom';
+import React, { createContext, useState, useContext } from 'react';
+import { Navigate, Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 
 /**
  *  <AuthContextRouter />
  */
-export const AuthContextRouter = ({children}) => {
+export const AuthContextRouter = ({ children }) => {
     const routesPublic = [];
     const routesAuthNotRequired = {
         path: '/',
@@ -29,7 +29,7 @@ export const AuthContextRouter = ({children}) => {
 
     const browserRouter = createBrowserRouter([...routesPublic, routesAuthNotRequired, routesAuthRequired]);
     return (
-        <AuthContextProvider> 
+        <AuthContextProvider>
             <RouterProvider router={browserRouter} />
         </AuthContextProvider>
     );
@@ -38,7 +38,7 @@ export const AuthContextRouter = ({children}) => {
 /**
  *  <AuthRoutes />
  */
-export const AuthRoutes = ({children}) => {
+export const AuthRoutes = ({ children }) => {
     return (
         children
     );
@@ -57,7 +57,7 @@ export const useAuthContext = () => {
 //
 const AuthContext = createContext('');
 
-const AuthContextProvider = ({children}) => {
+const AuthContextProvider = ({ children }) => {
     // 새 access token 발급받음: 반드시 동기 통신!
     syncFetchToken();
 
@@ -75,18 +75,18 @@ const AuthContextProvider = ({children}) => {
 }
 
 const AuthRequired = () => {
-    const {token} = useAuthContext();
-    return !token ? <Navigate to='/signin' /> : <Outlet />; 
+    const { token } = useAuthContext();
+    return !token ? <Navigate to='/signin' /> : <Outlet />;
 }
 
 const AuthNotRequired = () => {
-    const {token} = useAuthContext();
+    const { token } = useAuthContext();
 
-    if(!token) {
+    if (!token) {
         return <Outlet />;
     }
-  
-    const decoded = jwt_decode(token); 
+
+    const decoded = jwt_decode(token);
     return <Navigate to={`/${decoded.name}`} />;
 }
 
@@ -94,16 +94,16 @@ var ACCESSTOKEN;
 
 const syncFetchToken = () => {
     const xhr = new XMLHttpRequest();
-    
+
     xhr.addEventListener('load', () => {
-        if(xhr.status !== 200) {
+        if (xhr.status !== 200) {
             console.error(`${xhr.responseURL} ${xhr.status} (${xhr.statusText})`);
             return;
         }
 
         const json = JSON.parse(xhr.responseText);
 
-        if(!json.data) {
+        if (!json.data) {
             // cookie에 refresh token이 없거나(after logout 또는 first start), 또는 기간이 만료, 또는 유효 않은 refresh token를 cookie로 보냈음.
             console.log('Access token could not be issued with refresh token: EMPTY(logout or first start), EXPIRED or INVALID refresh token');
             return;

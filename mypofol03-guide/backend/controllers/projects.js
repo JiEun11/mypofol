@@ -24,23 +24,23 @@ exports.get = async (req, res, next) => {
 };
 
 exports.update = async (req, res, next) => {
-    // try {
-    //     const project = Object.assign(req.body.project, {
-    //       accountId: req.session.authAccount.id,
-    //     });
+    try {
+        const project = Object.assign(req.body.project, {
+            accountId: req.session.authAccount.id,
+        });
 
-    //     await modelProject.update(project);
-    //     res.redirect('/dashboard/projects')
-    //   } catch (error) {
-    //     next(error)
-    //   }
+        await modelProject.update(project);
+        res.redirect('/dashboard/projects')
+    } catch (error) {
+        next(error)
+    }
 };
 
 exports.delete = async (req, res, next) => {
-    // try {
-    //     await modelProject.delete(req.query.id, req.account.id);
-    //     res.json(req.query.id);
-    // } catch (error) {
-    //     next?.(error);
-    // }
+    try {
+        await modelProject.delete(req.query.id, req.account.id);
+        res.json(req.query.id);
+    } catch (error) {
+        next?.(error);
+    }
 };

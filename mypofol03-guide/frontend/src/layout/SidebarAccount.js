@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import '../assets/css/layout/SidebarAccount.css';
 
 const SidebarAccount = () => {
@@ -27,12 +27,12 @@ const SidebarAccount = () => {
                 <span className='item-ico'>
                   <i className='fa fa-address-card'></i>
                 </span>
-                <span className='item-label'>프로필</span>           
+                <span className='item-label'>프로필</span>
               </NavLink>
             </li>
             <li>
               <NavLink to={`/${accountName}/experiences`} >
-              <span className='item-ico'>
+                <span className='item-ico'>
                   <i className='fa fa-list-ul'></i>
                 </span>
                 <span className='item-label'>경력</span>

@@ -18,7 +18,7 @@ exports.auth = async (req, res) => {
   const authAccount = await modelAccount.findByEmailAndPassword(email, password);
   console.log(`[server][jwt] authentication: ${authAccount}`);
 
-  if(!authAccount) {
+  if (!authAccount) {
     /* Authentication fails... */
     res.json(null);
     return;

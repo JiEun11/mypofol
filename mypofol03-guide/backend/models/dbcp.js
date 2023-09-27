@@ -1,8 +1,8 @@
 const path = require('path');
-const dotenv = require('dotenv'); 
+const dotenv = require('dotenv');
 const mysql = require('mysql2/promise');
 
-dotenv.config({path: path.join(__dirname, '../config/db.env')})
+dotenv.config({ path: path.join(__dirname, '../config/db.env') })
 
 module.exports = mysql.createPool({
     host: process.env.DB_HOST,

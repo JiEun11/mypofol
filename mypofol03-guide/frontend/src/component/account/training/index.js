@@ -8,8 +8,6 @@ import LanguageItem from './LanguageItem';
 
 import '../../../assets/css/component/account/Trainings.css';
 
-
-
 const index = () => {
   const { accountName } = useParams();
   const [trainings, setTrainings] = useState(null);
@@ -39,7 +37,7 @@ const index = () => {
     }
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchTrainings();
   }, []);
 
@@ -58,7 +56,7 @@ const index = () => {
                   <span>교육</span>
                 </h3>
                 <ul>
-                  {trainings && trainings.map((training) => training.type === "education" 
+                  {trainings && trainings.map((training) => training.type === "education"
                     ? <EducationItem key={training.id} training={training} /> : null)}
                 </ul>
               </div>
@@ -71,7 +69,7 @@ const index = () => {
                   <span>자격증</span>
                 </h3>
                 <ul>
-                {trainings && trainings.map((training) => training.type === "certificate" 
+                  {trainings && trainings.map((training) => training.type === "certificate"
                     ? <CertificateItem key={training.id} training={training} /> : null)}
                 </ul>
               </div>
@@ -84,7 +82,7 @@ const index = () => {
                   <span>외국어</span>
                 </h3>
                 <ul>
-                {trainings && trainings.map((training) => training.type === "language" 
+                  {trainings && trainings.map((training) => training.type === "language"
                     ? <LanguageItem key={training.id} training={training} /> : null)}
                 </ul>
               </div>

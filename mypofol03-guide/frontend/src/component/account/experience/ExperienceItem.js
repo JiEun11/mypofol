@@ -1,7 +1,7 @@
 import React from "react";
 // import '../../../assets/css/component/account/Experiences.css'; --여기는 이거 import 안 해도 되는거 맞죠?
 
-const Experience = ({experience}) => {
+const Experience = ({ experience }) => {
   return (
     <div className="col-md-12">
       <div className="exp-col">
