@@ -1,0 +1,40 @@
+.welcome .greetings {
+    position: relative !important;
+    top:470px;
+    width: fit-content;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    font-weight: 800;
+    padding-right: 16px !important;
+    padding-left: 16px !important;
+    text-align: center;  
+}
+
+.welcome .greetings a {
+    position: relative;
+    display: inline-block;
+    font-size: 0.90rem;
+    font-weight: 700;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid;
+    border-radius: 6px;
+    padding: 8px 16px;
+    margin-top: 15px;
+    line-height: 20px;
+    appearance: none;    
+    color: #222;
+    background-color: #FF6F61;
+    border-color: #FF6F61;
+    transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+    transition-property: color,background-color,box-shadow,border-color;
+}
+
+.welcome .greetings a:focus, .welcome .greetings a:hover{
+    box-shadow: none;
+    outline: none !important;
+    box-shadow: none;
+    border-color: #f85243;
+}
