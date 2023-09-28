@@ -4,8 +4,9 @@ import { AuthContextRouter, AuthRoutes } from './auth';
 
 import Index from './component/main';
 import AccountProfile from './component/account/profile';
+import AccountExperiences from './component/account/experiences';
+
 import AccountEducations from './component/account/education';
-import AccountExperiences from './component/account/experience';
 import AccountTrainings from './component/account/training';
 import AccountSkills from './component/account/skill';
 import AccountProjects from './component/account/project';

@@ -3,7 +3,6 @@ import { useParams, useNavigate } from "react-router";
 
 import { useAuthContext } from '../../../auth';
 import LayoutAccount from "../../../layout/LayoutAccount";
-import LayoutMain from "../../../layout/LayoutMain";
 
 import "../../../assets/css/component/account/Profile.css";
 
@@ -96,11 +95,11 @@ const Profile = () => {
                 </li>
                 <li>
                   <h3><i className="fa-brands fa-youtube"></i> <span>YouTube</span></h3>
-                  <span><a href={profile?.link3} target="_blank"> {profile?.link3}</a></span>
+                  <span><a href={profile?.link3} target="_blank">{profile?.link3}</a></span>
                 </li>
                 <li>
                   <h3><i className="fa-brands fa-instagram"></i> <span>Instagram</span></h3>
-                  <span><a href={profile?.link1} target="_blank"> {profile?.link1}</a></span>
+                  <span><a href={profile?.link1} target="_blank">{profile?.link1}</a></span>
                 </li>
               </ul>
               <div>

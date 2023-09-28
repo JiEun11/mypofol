@@ -1,24 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useParams, useNavigate } from 'react-router';
 
+import { useAuthContext } from '../../../auth';
 import LayoutAccount from '../../../layout/LayoutAccount';
 import ExperienceItem from './ExperienceItem';
 
-import '../../../assets/css/component/account/Experiences.css';
+import '../../../assets/css/component/account/experiences/index.css';
 
 function Experiences() {
-  const { accountName } = useParams();
   const [experiences, setExperiences] = useState(null);
+
+  const { token, storeToken } = useAuthContext();
+  const { accountName } = useParams();
+  const navigate = useNavigate();
 
   const fetchExperiences = async () => {
     try {
       const response = await fetch(`/api/${accountName}/experiences`, {
         method: "get",
         headers: {
+          'Authorization': `bearer ${token}`,          
           "Content-Type": "application/json",
           "Accept": "application/json",
-        },
-        body: null,
+        }
       });
       if (!response.ok) {
         throw new Error(`${response.status} ${response.statusText}`);
@@ -29,15 +33,18 @@ function Experiences() {
       if (json.result !== "success") {
         throw new Error(`${json.result} ${json.message}`);
       }
+
       setExperiences(json.data);
+    
     } catch (err) {
       console.error(err);
+      navigate('/error');
     }
   }
 
   useEffect(() => {
     fetchExperiences();
-  }, []);
+  }, [token]);
 
   return (
     <LayoutAccount >
