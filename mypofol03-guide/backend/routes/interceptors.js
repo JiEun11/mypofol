@@ -12,7 +12,7 @@ exports.verifyToken = async (req, res, next) => {
     }
 
     const verified = await jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-    console.log(`[server][jwt] verified: ${verified}`);
+    console.log(`[server][jwt] verified: ${JSON.stringify(verified)}`);
 
     req.authAccount = {
       id: verified.id

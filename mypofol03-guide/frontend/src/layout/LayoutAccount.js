@@ -64,7 +64,7 @@ const LayoutAccount = ({ children }) => {
 
   return (
     <>
-      <Header />
+      <Header path={account ? { link: account.name, name: account.name } : null}/>
       <div className={'wrapper'}>
         { /* 서버로 부터 account 정보를 가져와야 그릴 수 있는 컴포넌트들이기 때문에 상태 account에 의존하여 선택 렌더링 함 */
           account ?
