@@ -5,7 +5,7 @@
     [backend  ]$ npm i
     ```
 
-2.  패키지 설치 후, 실행
+2.  패키지 설치 후, 실행: package.json 스크립팅 참고
 
 #### 프로젝트 구조
 <pre>
@@ -40,14 +40,14 @@
 |       |--- skills.js            [주로 skill table CRUD] 
 |       |--- trainings.js         [주로 training table CRUD]
 |--- /views
-|       |--- index.ejs            [react application bundle(main.js) 랜딩 view, * 404 에러 view 역할하는 것을 이해할 필요 있음]
+|       |--- index.ejs            [react application bundle(main.js) 랜딩 view, * 404 에러 view 역할하는 것도 이해할 필요가 있음]
 |       |--- /error               
 |       |       |--- 404.ejs      [404 에러 페이지: 404 view는 index.ejs이기 때문에 거의 필요 없음]
 |       |       |--- 500.ejs      [500 에러 페이지: API 호출의 Internal Error 외의 Internal Error 발생 시 view]   
 |--- /public
-|       |--- /css                 [대부분  CSS가 react app에 번들 되기 때문에 필요 없으나 landing 페이지나 전역 스타일링 정도 필요]
-|       |--- /images              [webpack 번들링 작업시 해싱 이미지 위치 번들링 되지 않는 이미지 URL(예: 디폴트 프로필 이미지)]
-|       |--- /upload-images       [webpack 번들링 되지 않는 사용자 업로드 이미지]
+|       |--- /css                 [대부분  CSS가 react app에 번들되기 때문에 필요 없으나 landing 페이지나 전역 스타일링 정도는 필요]
+|       |--- /images              [webpack 번들링 작업시 해싱 이미지 위치 / 번들링 되지 않는 이미지 URL(예: 디폴트 프로필 이미지)]
+|       |--- /upload-images       [webpack 번들링 되지 않는 사용자 업로드 이미지의 위치]
 |       |--- /js
 |       |      |--- main.js       [webpack 번들링 최종 결과물]                  
 |--- /multer-temporary-store 
