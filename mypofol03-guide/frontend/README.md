@@ -46,7 +46,7 @@
 |      |      |      |      |--- LayoutMain.css
 |      |      |      |      |--- LayoutAccount.css
 |      |      |      |      |--- SidebarAccount.css
-|      |--- /auth                                                    [jwt client for react 구현 패키지]
+|      |--- /auth                                                    [JWT Client for React 구현 패키지]
 |      |      |--- index.js                                          [component/auth 패키지 내의 export 컴포넌트 설정: AuthContextRouter, AuthRoutes, useAuthContext]
 |      |      |--- AuthContextRouter.js                              [접근 제어 라우터: JWT 기반]
 |      |      |--- AuthRoutes.js                                     [접근 제어가 필요한 Route 컴포넌트들의 컨테이터 컴포넌트]
