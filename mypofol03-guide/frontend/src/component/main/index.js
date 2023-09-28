@@ -7,18 +7,12 @@ import DialogSignin from './DialogSignin';
 
 import '../../assets/css/component/main/Index.css';
 
-const Index = ({ dialog, theme }) => {
-    useEffect(() => {
-        document.body.classList = [];
-
-        document.body.classList.add('full-wide');
-        theme && document.body.classList.add(theme);
-    });
-
+const Index = ({ theme, dialog }) => {
     return (
-        <LayoutMain overlay={dialog === 'signup' || dialog === 'signin'}>
+        <LayoutMain theme overlay={dialog}>
             {theme === 'welcome' ? <Welcome /> : null}
-            {dialog === 'signup' ? <DialogSignup /> : dialog === 'signin' ? <DialogSignin /> : null}
+            {dialog === 'signup' ? <DialogSignup /> : null}
+            {dialog === 'signin' ? <DialogSignin /> : null}
         </LayoutMain>
     );
 };
