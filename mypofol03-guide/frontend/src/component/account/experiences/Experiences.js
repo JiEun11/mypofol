@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router';
-
 import { useAuthContext } from '../../../auth';
-import LayoutAccount from '../../../layout/LayoutAccount';
+import { LayoutAccount } from '../../../layout';
 import ExperienceItem from './ExperienceItem';
-
-import '../../../assets/css/component/account/experiences/index.css';
+import '../../../assets/css/component/account/experiences/Experiences.css';
 
 function Experiences() {
   const [experiences, setExperiences] = useState(null);

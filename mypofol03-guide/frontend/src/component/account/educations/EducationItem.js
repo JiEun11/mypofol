@@ -1,6 +1,6 @@
 import React from "react";
 
-const Education = ({ education }) => {
+const EducationItem = ({ education }) => {
   return (
     <div className="col-md-12">
       <div className="edu-col">
@@ -14,4 +14,4 @@ const Education = ({ education }) => {
   );
 };
 
-export default Education;
+export default EducationItem;

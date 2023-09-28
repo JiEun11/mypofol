@@ -1,9 +1,8 @@
 import React from 'react';
-import LayoutAccount from "../../../layout/LayoutAccount";
+import { LayoutAccount } from '../../../layout';
 import '../../../assets/css/component/account/Skills.css';
 
-
-const index = () => {
+const Skills = () => {
     return (
         <LayoutAccount>
             <div className="skills">
@@ -36,4 +35,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default Skills;

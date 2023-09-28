@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-
-import LayoutAccount from "../../../layout/LayoutAccount";
+import { LayoutAccount } from '../../../layout';
 import CertificateItem from "./CertificateItem";
 import EducationItem from './EducationItem';
 import LanguageItem from './LanguageItem';
-
 import '../../../assets/css/component/account/Trainings.css';
 
-const index = () => {
+const Trainings = () => {
   const { accountName } = useParams();
   const [trainings, setTrainings] = useState(null);
 
@@ -94,4 +92,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Trainings;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
-import '../../assets/css/component/main/Welcome.css';
+import '../../assets/css/component/Main/Welcome.css';
 
 const Welcome = () => {
     return (

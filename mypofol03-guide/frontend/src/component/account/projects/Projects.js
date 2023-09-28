@@ -1,6 +1,5 @@
 import React from 'react';
-
-import LayoutAccount from "../../../layout/LayoutAccount";
+import { LayoutAccount } from '../../../layout';
 import '../../../assets/css/component/account/Projects.css';
 
 const index = () => {

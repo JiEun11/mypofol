@@ -1,24 +1,17 @@
 import React from 'react';
 import { Routes, Route } from 'react-router';
 import { AuthContextRouter, AuthRoutes } from './auth';
-
-import Index from './component/main';
-import AccountProfile from './component/account/profile';
-import AccountExperiences from './component/account/experiences';
-
-import AccountEducations from './component/account/education';
-import AccountTrainings from './component/account/training';
-import AccountSkills from './component/account/skill';
-import AccountProjects from './component/account/project';
+import { Main } from './component/main';
+import { AccountProfile, AccountExperiences, AccountTrainings, AccountEducations, AccountSkills, AccountProjects } from './component/account';
 
 export default function App() {
   return (
     <AuthContextRouter>
       <AuthRoutes>
-        <Route path={'/'} element={<Index />} />
-        <Route path={'/welcome'} element={<Index theme='welcome' />} />
-        <Route path={'/signin'} element={<Index dialog='signin' />} />
-        <Route path={'/signup'} element={<Index dialog='signup' />} />
+        <Route path={'/'} element={<Main />} />
+        <Route path={'/welcome'} element={<Main theme='welcome' />} />
+        <Route path={'/signin'} element={<Main dialog='signin' />} />
+        <Route path={'/signup'} element={<Main dialog='signup' />} />
       </AuthRoutes>
       <AuthRoutes authenticated>
         <Route path={'/:accountName'} element={<AccountProfile />} />
@@ -31,7 +24,7 @@ export default function App() {
       </AuthRoutes>
       <Routes>
         { /* Index 컴포넌트에 Error Theme 추가하고 /error 라우팅 */ }
-        <Route path={'/error'} element={<Index theme='error' />} />
+        <Route path={'/error'} element={<Main theme='error' />} />
       </Routes>
     </AuthContextRouter>
   );

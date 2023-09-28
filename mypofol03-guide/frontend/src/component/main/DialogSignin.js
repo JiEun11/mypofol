@@ -1,8 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuthContext } from '../../auth';
-
-import '../../assets/css/component/main/DialogSignin.css';
+import '../../assets/css/component/Main/DialogSignin.css';
 
 const DialogSignin = () => {
     const refForm = useRef(null);

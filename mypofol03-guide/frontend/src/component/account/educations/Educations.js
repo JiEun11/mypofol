@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-
-import LayoutAccount from '../../../layout/LayoutAccount';
+import { LayoutAccount } from '../../../layout';
 import EducationItem from './EducationItem';
-
 import '../../../assets/css/component/account/Educations.css';
 
 const Educations = () => {

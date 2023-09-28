@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router";
-
-import { useAuthContext } from '../../../auth';
-import LayoutAccount from "../../../layout/LayoutAccount";
-
-import "../../../assets/css/component/account/Profile.css";
+import { useAuthContext } from '../../auth';
+import { LayoutAccount } from '../../layout';
+import "../../assets/css/component/account/Profile.css";
 
 const Profile = () => {
   const [profile, setProfile] = useState(null);
