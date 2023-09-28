@@ -14,7 +14,7 @@ const router = express.Router();
 /* APIs */
 router.post('/signup', controllerAccount.create);
 
-router.post('/auth', delayForTest, controllerJWT.auth);
+router.post('/auth', controllerJWT.auth);
 router.get('/refresh-token', controllerJWT.refreshToken);
 router.get('/signout', controllerJWT.signout);
 
