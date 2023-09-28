@@ -30,6 +30,7 @@ export default function App() {
         <Route path={'/:accountName/projects'} element={<AccountProjects />} />
       </AuthRoutes>
       <Routes>
+        { /* Index 컴포넌트에 Error Theme 추가하고 /error 라우팅 */ }
         <Route path={'/error'} element={<Index theme='error' />} />
       </Routes>
     </AuthContextRouter>

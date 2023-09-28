@@ -19,7 +19,7 @@ const Profile = () => {
         method: 'get',
         redirect: "follow", // redirect 응답 URL로 요청을 다시 하기 위해, (액세스 토큰이 기간이 만료되면 /api/refresh-token 리다이렉션 응답을 받을 수 있음)
         headers: {
-          'Authorization': `bearer ${token}`,
+          'Authorization': `bearer ${token}`,  // token를 Header Authorization 에 추가
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         }
@@ -44,6 +44,9 @@ const Profile = () => {
       setProfile(json.data);
 
     } catch (error) {
+      // 통신 에러가 나면 error 컴포넌트로 돌리고
+      // 개발 중에는 화면에 내용 확인!
+      // console.* 함수들은 development mode 일때는 작동하지만 production 모드일 때는 작동 안함(src/index.js 확인)
       console.error(error);
       navigate('/error');
     }
@@ -51,7 +54,7 @@ const Profile = () => {
 
   useEffect(() => {
     fetchProfile();
-  }, [token]);
+  }, [token]);  //token 상태 변화에 작동시켜야 토큰 만료될 시 다시 fetchProfile 작동 시켜 다시 렌더링 할 수 있음.
 
   return (
     <LayoutAccount>
