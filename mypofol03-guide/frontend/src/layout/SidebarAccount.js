@@ -1,29 +1,29 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
+
 import '../assets/css/layout/SidebarAccount.css';
 
-const SidebarAccount = () => {
-  const { accountName } = useParams();
+const SidebarAccount = ({ account }) => {
+  console.log(account);
 
   return (
     <div className='sidebar'>
       <div className='sidebar-header'>
         <div className='profile-pic'>
           <a href='#'>
-            <img src='/images/default_profile.png' />
+            <img src={account.profileImage} />
           </a>
         </div>
         <h1 className='vcard-names'>
-          <span className='name'>bella</span>
-          <span className='title'>developer</span>
+          <span className='name'>{account.name}</span>
+          <span className='title'>{account.status}</span>
         </h1>
       </div>
       <div className='sidebar-content'>
         <nav className='navbar'>
           <ul>
             <li>
-              <NavLink to={`/${accountName}/profile`}>
+              <NavLink to={`/${account.name}/profile`}>
                 <span className='item-ico'>
                   <i className='fa fa-address-card'></i>
                 </span>
@@ -31,7 +31,7 @@ const SidebarAccount = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to={`/${accountName}/experiences`} >
+              <NavLink to={`/${account.name}/experiences`} >
                 <span className='item-ico'>
                   <i className='fa fa-list-ul'></i>
                 </span>
@@ -39,7 +39,7 @@ const SidebarAccount = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to={`/${accountName}/educations`}>
+              <NavLink to={`/${account.name}/educations`}>
                 <span className='item-ico'>
                   <i className='fa fa-graduation-cap'></i>
                 </span>
@@ -47,7 +47,7 @@ const SidebarAccount = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to={`/${accountName}/trainings`}>
+              <NavLink to={`/${account.name}/trainings`}>
                 <span className='item-ico'>
                   <i className='fa fa-award'></i>
                 </span>
@@ -55,7 +55,7 @@ const SidebarAccount = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to={`/${accountName}/skills`}>
+              <NavLink to={`/${account.name}/skills`}>
                 <span className='item-ico'>
                   <i className='fa fa-code'></i>
                 </span>
@@ -63,7 +63,7 @@ const SidebarAccount = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to={`/${accountName}/projects`}>
+              <NavLink to={`/${account.name}/projects`}>
                 <span className='item-ico'>
                   <i className='fa fa-diagram-project'></i>
                 </span>

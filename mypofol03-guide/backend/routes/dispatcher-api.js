@@ -18,6 +18,7 @@ router.post('/auth', delayForTest, controllerJWT.auth);
 router.get('/refresh-token', controllerJWT.refreshToken);
 router.get('/signout', controllerJWT.signout);
 
+router.get('/:account', verifyToken, validAccount, controllerAccount.get);
 router.get('/:account/profile', verifyToken, validAccount, controllerProfile.get);
 router.get('/:account/experiences', verifyToken, validAccount, controllerExperiences.get);
 router.get('/:account/educations', verifyToken, validAccount, controllerEducations.get);
