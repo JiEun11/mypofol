@@ -21,7 +21,7 @@
 |--- /src
 |      |--- index.js                                                 [Webpack Bundling Entry]
 |      |--- App.js                                                   [Application Router 설정 컴포넌트]
-|      |--- /assets                                                  [Component Resources Dorectory]
+|      |--- /assets                                                  [Component Resources Directory]
 |      |      |--- /images
 |      |      |--- /css
 |      |      |      |--- /component
