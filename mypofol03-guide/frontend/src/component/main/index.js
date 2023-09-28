@@ -9,7 +9,7 @@ import '../../assets/css/component/main/Index.css';
 
 const Index = ({ theme, dialog }) => {
     return (
-        <LayoutMain theme overlay={dialog}>
+        <LayoutMain theme={theme} overlay={dialog}>
             {theme === 'welcome' ? <Welcome /> : null}
             {dialog === 'signup' ? <DialogSignup /> : null}
             {dialog === 'signin' ? <DialogSignin /> : null}
