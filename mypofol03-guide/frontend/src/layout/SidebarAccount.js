@@ -4,8 +4,6 @@ import { NavLink } from 'react-router-dom';
 import '../assets/css/layout/SidebarAccount.css';
 
 const SidebarAccount = ({ account }) => {
-  console.log(account);
-
   return (
     <div className='sidebar'>
       <div className='sidebar-header'>
