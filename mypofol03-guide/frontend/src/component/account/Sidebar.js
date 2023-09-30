@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import '../assets/css/layout/SidebarAccount.css';
+import '../../assets/css/account/Sidebar.css';
 
-const SidebarAccount = ({ account }) => {
+const Sidebar = ({ account }) => {
   return (
     <div className='sidebar'>
       <div className='sidebar-header'>
@@ -75,4 +75,4 @@ const SidebarAccount = ({ account }) => {
   );
 };
 
-export default SidebarAccount;
+export default Sidebar;

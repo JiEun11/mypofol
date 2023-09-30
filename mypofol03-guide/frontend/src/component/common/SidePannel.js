@@ -1,8 +1,12 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { useAuthContext } from '../auth';
+import { useAuthContext } from '../../auth';
 
-import '../assets/css/layout/SidePannel.css';
+import '../../assets/css/common/SidePannel.css';
+
+const onCickActionListItem = (e) => {
+    console.log(e.target.href); 
+};
 
 const SidePannel = ({ account, open, openToggle }) => {
     const { storeToken } = useAuthContext();
@@ -47,17 +51,19 @@ const SidePannel = ({ account, open, openToggle }) => {
                     <nav className='action-list'>
                         <ul>
                             <li>
-                                <NavLink to={`/${account.name}`}>
+                                <NavLink to={`/${account.name}`} onClick={() => {
+                                    openToggle((open) => !open);
+                                }}>
                                     <span className='action-list-item-ico'><i className='fa fa-user'></i></span>
                                     <span className='action-list-item-label'>나의 포트폴리오</span>
                                 </NavLink>
                             </li>
                             <li></li>
                             <li>
-                                <a href='/dashboard/profile'>
+                                <NavLink to={'/dashboard/profile'}>
                                     <span className='action-list-item-ico'><i className='fa fa-address-card'></i></span>
                                     <span className='action-list-item-label'>프로필 수정</span>
-                                </a>
+                                </NavLink>
                             </li>
                             <li>
                                 <NavLink to={'/dashboard/educations'}>
@@ -109,13 +115,11 @@ const SidePannel = ({ account, open, openToggle }) => {
                                                 "Accept": "application/json",
                                             }
                                         });
-
                                         if (!response.ok) {
                                             throw new Error(`${response.status} ${response.statusText}`);
                                         }
 
                                         const json = await response.json();
-
                                         if (json.result !== "success") {
                                             throw new Error(`${json.result} ${json.message}`);
                                         }
@@ -125,6 +129,7 @@ const SidePannel = ({ account, open, openToggle }) => {
 
                                     } catch (error) {
                                         console.error(error);
+                                        navigate('/error');
                                     }
                                 }}>
                                     <span className='action-list-item-ico'><i className='fa fa-right-from-bracket'></i></span>

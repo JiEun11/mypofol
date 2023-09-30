@@ -1,10 +1,8 @@
 import React from 'react';
-import { LayoutAccount } from '../../../layout';
-import '../../../assets/css/component/account/Projects.css';
+import '../../../assets/css/account/projects/Projects.css';
 
-const index = () => {
+const Projects = ({ accountName }) => {
     return (
-        <LayoutAccount>
             <div className="projects">
                 <div className="content-inner">
                     <div className="content-header">
@@ -24,8 +22,7 @@ const index = () => {
                     </div>
                 </div>
             </div>
-        </LayoutAccount>
     );
 };
 
-export default index;
+export default Projects;

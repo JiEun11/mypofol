@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useNavigate, NavLink } from "react-router-dom";
-import '../../assets/css/component/Main/DialogSignin.css';
+import '../../assets/css/main/DialogSignin.css';
 
 const DialogSignup = () => {
     const navigate = useNavigate();

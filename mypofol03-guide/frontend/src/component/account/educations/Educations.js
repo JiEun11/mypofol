@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
-import { LayoutAccount } from '../../../layout';
 import EducationItem from './EducationItem';
-import '../../../assets/css/component/account/Educations.css';
+import '../../../assets/css/account/educations/Educations.css';
 
-const Educations = () => {
-  const { accountName } = useParams();
+const Educations = ({ accountName }) => {
   const [educations, setEducations] = useState(null);
 
   const fetchEducations = async () => {
@@ -38,20 +35,18 @@ const Educations = () => {
   }, []);
 
   return (
-    <LayoutAccount>
-      <div className="educations">
-        <div className="content-inner">
-          <div className="content-header">
-            <h2>학력</h2>
-          </div>
-          <div className="row align-items-center">
-            {educations && educations.map((education) => (
-              <EducationItem key={education.id} education={education} />
-            ))}
-          </div>
+    <div className="educations">
+      <div className="content-inner">
+        <div className="content-header">
+          <h2>학력</h2>
+        </div>
+        <div className="row align-items-center">
+          {educations && educations.map((education) => (
+            <EducationItem key={education.id} education={education} />
+          ))}
         </div>
       </div>
-    </LayoutAccount>
+    </div>
   );
 };
 
