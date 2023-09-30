@@ -1,7 +1,7 @@
 const path = require("path");
 const jwt = require("jsonwebtoken");
 const dotenv = require('dotenv');
-const modelAccount = require("../models/account");
+const { modelAccount } = require("../models");
 
 dotenv.config({ path: path.join(__dirname, '../config/jwt.env') });
 

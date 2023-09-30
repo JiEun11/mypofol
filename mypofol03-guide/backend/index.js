@@ -3,10 +3,9 @@ const http = require("http");
 const path = require("path");
 const dotenv = require("dotenv");
 const express = require("express");
-const session = require("express-session");
 const multer = require("multer");
 const cookieParser = require("cookie-parser");
-const { appRouter } = require("./routes");
+const appRouter = require("./routes");
 
 // 1. application environment variables
 dotenv.config({ path: path.join(__dirname, "config/app.env") });

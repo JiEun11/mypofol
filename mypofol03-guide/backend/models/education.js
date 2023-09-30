@@ -1,5 +1,4 @@
 const pool = require('./dbcp');
-const toUnnamed = require('named-placeholders')();
 
 module.exports = {
   findByAccountId: async (accountId) => {
@@ -11,7 +10,7 @@ module.exports = {
                degrees,
                image_logo as imageLogo
           from education
-         where account_id=?
+         where account_id = ?
       order by from_date desc
     `;
 

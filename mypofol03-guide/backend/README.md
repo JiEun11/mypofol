@@ -15,12 +15,14 @@
 |       |--- mariadb.env          [RDBMS(Mariadb) 연결 정보 및 Connection Pool 설정 프로퍼티] 
 |       |--- jwt.env              [JWT 비밀키, issue 옵션]
 |--- /routes
-|       |--- index.js             [dispathers & middlewares 설정: *설정순서중요]
+|       |--- index.js             [routes 패키지 export 설정: appRouter(app-router)]
+|       |--- app-router.js        [application router: 애플리케이션의 dispathers & middlewares 설정: *설정순서중요]
 |       |--- dispatcher-api.js    [ /api 시작하는 요청을 인터셉터들과 컨트롤러 함수들에 체인]
 |       |--- dispatcher.js        [ /    시작하는 요청을 인터셉터들과 컨트롤러 함수들에 체인]
 |       |--- interceptors.js      [인터셉터들: verifyToken, validAccount, delayForTest]
 |       |--- middlewares.js       [미들웨어들: resLocals, acceptOnlyJsonRequest, jsonResult, error404, error500]
 |--- /controllers
+|       |--- index.js             [controllers 패키지 export 설정: controllerJWT, controllerProjects, controllerAccount, controllerProfile, ... ]
 |       |--- jwt.js               [jwt기반 보안 요청 처리: auth, signout, refreshToken]
 |       |--- main.js              [react application(bundle, main.js) landing]            
 |       |--- account.js           [acccount 관련 CRUD API 요청 처리] 
@@ -31,6 +33,7 @@
 |       |--- skills.js            [skills 관련 CRUD API 요청 처리]
 |       |--- training.js          [training 관련 CRUD API 요청 처리]
 |--- /models
+|       |--- index.js             [models 패키지 export 설정: modelAccount, modelEducation, modelExperience, modelProfile, ... ]
 |       |--- dbcp.js              [Connection Pool 생성 함수 정의 및 익스포트]
 |       |--- account.js           [주로 account table CRUD] 
 |       |--- educations.js        [주로 education table CRUD]

@@ -1,13 +1,6 @@
 const express = require('express');
 const { validAccount, verifyToken, delayForTest } = require('./interceptors');
-
-const controllerJWT = require('../controllers/jwt');
-const controllerAccount = require('../controllers/account');
-const controllerProfile = require('../controllers/profile');
-const controllerExperiences = require('../controllers/experiences');
-const controllerEducations = require('../controllers/educations');
-const controllerTrainings = require('../controllers/trainings');
-const controllerProjects = require('../controllers/projects');
+const { controllerJWT, controllerProjects, controllerAccount, controllerProfile, controllerExperiences, controllerEducations, controllerTrainings } = require('../controllers');
 
 const router = express.Router();
 
@@ -27,6 +20,5 @@ router.get('/:account/trainings', verifyToken, validAccount, controllerTrainings
 router.get('/:account/projects', verifyToken, validAccount, controllerProjects.get);
 router.post('/:account/projects', verifyToken, validAccount, controllerProjects.create);
 router.delete('/:account/projects', verifyToken, validAccount, controllerProjects.delete);
-
 
 exports.dispatcherApi = router;

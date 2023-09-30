@@ -1,4 +1,4 @@
-const modelTraining = require("../models/training");
+const { modelTraining } = require("../models");
 
 exports.get = async (req, res, next) => {
     try {

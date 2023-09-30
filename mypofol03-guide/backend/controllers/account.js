@@ -1,5 +1,4 @@
-const modelAccount = require("../models/account");
-const modelProfile = require("../models/profile");
+const { modelAccount, modelProfile }= require("../models");
 
 exports.get = async (req, res, next) => {
     try {

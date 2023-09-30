@@ -1,4 +1,4 @@
-const modelExperience = require("../models/experience");
+const { modelExperience } = require("../models");
 
 exports.get = async (req, res, next) => {
     try {

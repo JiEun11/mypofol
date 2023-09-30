@@ -2,7 +2,6 @@ const pool = require('./dbcp');
 const toUnnamed = require('named-placeholders')();
 
 module.exports = {
-
   findByName: async (name) => {
     const sql = `
       select a.id, a.name, a.status, b.name as profileName, b.image as profileImage

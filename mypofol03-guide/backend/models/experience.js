@@ -1,5 +1,4 @@
 const pool = require("./dbcp");
-const toUnnamed = require('named-placeholders')();
 
 module.exports = {
   findByAccountId: async (accountId) => {
