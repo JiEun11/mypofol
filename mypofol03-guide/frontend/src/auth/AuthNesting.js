@@ -5,7 +5,7 @@ import jwt_decode from 'jwt-decode';
 
 export const AuthRequired = () => {
     const { token } = useAuthContext();
-    return !token ? <Navigate to='/signin' /> : <Outlet context={jwt_decode(token)}/>;
+    return !token ? <Navigate to='/signin' /> : <Outlet context={jwt_decode(token)} />;
 }
 
 export const AuthNotRequired = () => {
@@ -17,4 +17,9 @@ export const AuthNotRequired = () => {
 
     const decoded = jwt_decode(token);
     return <Navigate to={`/${decoded.name}`} />;
+}
+
+export const AuthAccountContext = () => {
+    const { token } = useAuthContext();
+    return <Outlet context={token && jwt_decode(token)} />;
 }

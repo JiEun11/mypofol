@@ -13,8 +13,6 @@ const LayoutAccount = () => {
     const navigate = useNavigate();
     const authAccount = useOutletContext();
 
-    console.log("----->", authAccount);
-
     const fetchAccount = async () => {
         try {
             const response = await fetch(`/api/${accountName}`, {

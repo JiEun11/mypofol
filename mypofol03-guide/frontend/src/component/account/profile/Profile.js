@@ -10,6 +10,7 @@ const Profile = () => {
   const accountName = useOutletContext();
 
   const fetchProfile = async () => {
+
     try {
       const response = await fetch(`/api/${accountName}/profile`, {
         method: 'get',

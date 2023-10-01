@@ -8,7 +8,6 @@ import { AccountProfile, AccountExperiences, AccountTrainings, AccountEducations
 export default function App() {
   return (
     <AuthContextRouter>
-      
       <AuthRoutes>
         <Route path={'/'} element={<LayoutMain />} >
           <Route index element={<Main />} />

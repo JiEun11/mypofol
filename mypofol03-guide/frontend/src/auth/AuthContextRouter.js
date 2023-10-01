@@ -1,11 +1,12 @@
 import React from 'react';
 import { Route, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { AuthContextProvider } from './AuthContextProvider';
-import { AuthNotRequired, AuthRequired } from './AuthNesting';
+import { AuthAccountContext, AuthNotRequired, AuthRequired } from './AuthNesting';
 import { AuthRoutes } from './AuthRoutes';
 
 export const AuthContextRouter = ({ children }) => {
     const routesPublic =  {
+        element: <AuthAccountContext />,
         path: '/',
         children: []
     };
