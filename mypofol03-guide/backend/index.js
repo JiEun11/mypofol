@@ -5,12 +5,13 @@ const dotenv = require("dotenv");
 const express = require("express");
 const multer = require("multer");
 const cookieParser = require("cookie-parser");
+const morgan = require("morgan");
 const appRouter = require("./routes");
 
-// 1. application environment variables
+// application environment variables
 dotenv.config({ path: path.join(__dirname, "config/app.env") });
 
-// 2. application setup
+// application setup
 const app = express()
   .use(express.static(path.join(__dirname, process.env.STATIC_RESOURCES_DIRECTORY)))
   .set("views", path.join(__dirname, "views"))
@@ -20,7 +21,22 @@ const app = express()
   .use(multer({ dest: path.join(__dirname, process.env.MULTER_TEMPORARY_STORE), }).single("file"))
   .use(cookieParser());
 
-// 3. swagger setup
+// morgan setup
+if (process.env.NODE_ENV === 'production') {
+  // custom
+  app.use(morgan(':remote-addr - :remote-user] [:date[web]] :method :url HTTP/:http-version :status :response-time ms'));
+} else {
+  //
+  // 1. combined :remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent"
+  // 2. common :remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length]
+  // 3. dev :method :url :status :response-time ms - :res[content-length]
+  // 4. short :remote-addr :remote-user :method :url HTTP/:http-version :status :res[content-length] - :response-time ms
+  // 5. tiny :method :url :status :res[content-length] - :response-time ms
+  //
+  app.use(morgan('dev'));
+}
+
+// swagger setup
 if (process.env.NODE_ENV === "development") {
   const swaggerUi = require("swagger-ui-express");
   const swaggerJSDoc = require("swagger-jsdoc");
@@ -58,10 +74,10 @@ if (process.env.NODE_ENV === "development") {
   );
 }
 
-// 4. build app router
+// build app router
 appRouter(app);
 
-// 5. server startup
+// server startup
 http
   .createServer(app)
   .on("listening", () => {
