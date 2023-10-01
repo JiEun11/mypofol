@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { useParams, useNavigate, Outlet } from 'react-router-dom';
+import { useParams, useNavigate, Outlet, useOutletContext } from 'react-router-dom';
 import { useAuthContext } from '../../auth';
 import Header from './Header';
 import Footer from './Footer';
@@ -11,9 +11,9 @@ const LayoutAccount = () => {
     const { token, storeToken } = useAuthContext();
     const { accountName } = useParams();
     const navigate = useNavigate();
+    const authAccount = useOutletContext();
 
-
-    // const ContentComponent = { profile, experiences, trainings, educations, projects, skills }[content];
+    console.log("----->", authAccount);
 
     const fetchAccount = async () => {
         try {
@@ -65,8 +65,8 @@ const LayoutAccount = () => {
     }, [accountName]); // URL Path의 accountName이 달라 지면(accountName에 의존하여) fetchAccount 실행.       
 
     return (
-        <>
-            <Header path={account ? { link: account.name, name: account.name } : null} />
+        <> 
+            <Header path={account ? { link: account.name, name: account.name } : null} account={authAccount} />
             <div className={'wrapper'}>
                 {   /* 서버로 부터 account 정보를 가져와야 그릴 수 있는 컴포넌트들이기 때문에 상태 account에 의존하여 선택 렌더링 함 */
                     account ?

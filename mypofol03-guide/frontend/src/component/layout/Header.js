@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAuthContext } from '../../auth';
 import SidePannel from './SidePannel';
-import jwt_decode from "jwt-decode";
 import '../../assets/css/layout/Header.css';
 
-const Header = React.memo(({ path }) => {
+const Header = ({ path, account }) => {
     const { token } = useAuthContext();
     const [openSidePannel, setOpenSidePannel] = useState(false);
-    const account = token && jwt_decode(token);
 
     return (
         <>
@@ -80,6 +78,6 @@ const Header = React.memo(({ path }) => {
             }
         </>
     );
-});
+};
 
 export default Header;
