@@ -1,23 +1,19 @@
 import React, {useState, useEffect} from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Outlet } from 'react-router-dom';
 import { useAuthContext } from '../../auth';
-import { Header, Footer } from '../common';
-import Sidebar from './Sidebar';
-import profile from './profile';
-import experiences from './experiences';
-import trainings from './trainings';
-import educations from './educations';
-import projects from './projects';
-import skills from './skills';
-import '../../assets/css/account/Account.css';
+import Header from './Header';
+import Footer from './Footer';
+import SidebarAccount from './SidebarAccount';
+import '../../assets/css/layout/LayoutAccount.css';
 
-const Account = ({ content }) => {
+const LayoutAccount = () => {
     const [account, setAccount] = useState(null);
     const { token, storeToken } = useAuthContext();
     const { accountName } = useParams();
     const navigate = useNavigate();
 
-    const ContentComponent = { profile, experiences, trainings, educations, projects, skills }[content];
+
+    // const ContentComponent = { profile, experiences, trainings, educations, projects, skills }[content];
 
     const fetchAccount = async () => {
         try {
@@ -75,9 +71,9 @@ const Account = ({ content }) => {
                 {   /* 서버로 부터 account 정보를 가져와야 그릴 수 있는 컴포넌트들이기 때문에 상태 account에 의존하여 선택 렌더링 함 */
                     account ?
                         <>
-                            <Sidebar account={account} />
+                            <SidebarAccount account={account} />
                             <div className={'content'}>
-                                <ContentComponent accountName={accountName} />
+                                <Outlet context={accountName}/>
                                 <Footer />
                             </div>
                         </>
@@ -89,4 +85,4 @@ const Account = ({ content }) => {
     );
 };
 
-export default Account;
+export default LayoutAccount;

@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../../auth';
 
-import '../../assets/css/common/SidePannel.css';
+import '../../assets/css/layout/SidePannel.css';
 
 const onCickActionListItem = (e) => {
     console.log(e.target.href); 

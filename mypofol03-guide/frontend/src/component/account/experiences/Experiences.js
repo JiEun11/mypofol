@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate, useOutletContext } from 'react-router';
 import { useAuthContext } from '../../../auth';
 import ExperienceItem from './ExperienceItem';
 import '../../../assets/css/account/experiences/Experiences.css';
 
-function Experiences({accountName}) {
+function Experiences() {
   const [experiences, setExperiences] = useState(null);
   const { token, storeToken } = useAuthContext();
   const navigate = useNavigate();
+  const accountName = useOutletContext();
 
   const fetchExperiences = async () => {
     try {

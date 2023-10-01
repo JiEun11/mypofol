@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAuthContext } from '../../auth';
-import jwt_decode from "jwt-decode";
-
 import SidePannel from './SidePannel';
-import '../../assets/css/common/Header.css';
+import jwt_decode from "jwt-decode";
+import '../../assets/css/layout/Header.css';
 
 const Header = React.memo(({ path }) => {
     const { token } = useAuthContext();

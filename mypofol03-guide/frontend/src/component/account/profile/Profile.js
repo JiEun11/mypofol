@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useOutletContext } from'react-router';
 import { useAuthContext } from '../../../auth';
 import "../../../assets/css/account/profile/Profile.css";
 
-const Profile = ({accountName}) => {
+const Profile = () => {
   const [profile, setProfile] = useState(null);
   const { token, storeToken } = useAuthContext();
-
   const navigate = useNavigate();
+  const accountName = useOutletContext();
 
   const fetchProfile = async () => {
     try {
@@ -50,7 +50,7 @@ const Profile = ({accountName}) => {
 
   useEffect(() => {
     fetchProfile();
-  }, [token]);  //token 상태 변화에 작동시켜야 토큰 만료될 시 다시 fetchProfile 작동 시켜 다시 렌더링 할 수 있음.
+  }, [token, accountName]);  //token 상태 변화에 작동시켜야 토큰 만료될 시 다시 fetchProfile 작동 시켜 다시 렌더링 할 수 있음.
 
   return (
     <div className="profile">

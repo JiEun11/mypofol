@@ -1,7 +1,10 @@
 import React from 'react';
+import { useOutletContext } from 'react-router';
 import '../../../assets/css/account/skills/Skills.css';
 
-const Skills = ({ accountName }) => {
+const Skills = () => {
+    const accountName = useOutletContext();
+
     return (
         <div className="skills">
             <div className="content-inner">

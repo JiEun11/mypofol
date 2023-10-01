@@ -25,8 +25,7 @@
 |      |      |--- /images
 |      |      |--- /css
 |      |      |      |--- /main
-|      |      |      |      |--- Main.css
-|      |      |      |      |--- DialogSignin.css
+|      |      |      |      |--- Dialog.css
 |      |      |      |      |--- Welcome.css
 |      |      |      |--- /account
 |      |      |      |      |--- profile
@@ -43,11 +42,13 @@
 |      |      |      |      |--- trainings
 |      |      |      |      |     |--- Trainings.css
 |      |      |      |--- /dashboard
-|      |      |      |--- /common
+|      |      |      |--- /layout
 |      |      |      |      |--- Header.css
 |      |      |      |      |--- Footer.css
 |      |      |      |      |--- SidePannel.css
 |      |      |      |      |--- SidebarAccount.css
+|      |      |      |      |--- LayoutAccount.css
+|      |      |      |      |--- LayoutMain.css
 |      |--- /auth                                                    [JWT Client for React 구현 패키지]
 |      |      |--- index.js                                          [component/auth 패키지 내의 export 컴포넌트 설정: AuthContextRouter, AuthRoutes, useAuthContext]
 |      |      |--- AuthContextRouter.js                              [접근 제어 라우터: Context 내에 access token 저장 관리]
@@ -56,15 +57,14 @@
 |      |      |--- AuthNesting.js                                    [Neting Routes 기반 Authentication Validation Helper]
 |      |--- /component                      
 |      |      |--- /main                                             [Main Component 구현 패키지]
-|      |      |      |--- index.js                                   [component/main 패키지 내의 export 컴포넌트 설정: Main]
+|      |      |      |--- index.js                                   [component/main 패키지 내의 export 컴포넌트 설정: Main, DialogSign, DialogSignup, Welcome, Error]
 |      |      |      |--- Main.js
 |      |      |      |--- DialogSignin.js
 |      |      |      |--- DialogSignup.js
 |      |      |      |--- Welcome.js
+|      |      |      |--- Error.js
 |      |      |--- /account                                          [account 메뉴에 라우팅 되는 Component들의 구현 패키지]
 |      |      |      |--- index.js                                   [component/account 패키지 내의 export 컴포넌트 설정: Profile, Experiences, Projects, Educations, Skills, Trainings]
-|      |      |      |--- Account.js                                 [자식 profile, experience, ... 등의 공통 Component 처리 및 Layout 역할을 하는 부모 컴포넌트]        
-|      |      |      |--- Sidebar.js                                 [account 컴포넌트들의 공통 사이드바 메뉴 컴포넌트] 
 |      |      |      |--- /profile                                   [Profile Component 구현 패키지]        
 |      |      |      |      |--- index.js                            [component/profile 패키지 내의 export 컴포넌트 설정: Profile]
 |      |      |      |      |--- Profile.js                                
@@ -86,9 +86,13 @@
 |      |      |      |      |--- index.js                            [component/trainings 패키지 내의 export 컴포넌트 설정: Trainings]
 |      |      |      |      |--- Trainings.js
 |      |      |--- /dashboard
-|      |      |--- /common                                           [common components 구현 패키지]
-|      |      |      |--- index.js                                   [component/common 패키지 내의 export 컴포넌트 설정: Header, Footer]
+|      |      |--- /layout                                           [layout components 구현 패키지]
+|      |      |      |--- index.js                                   [component/layout 패키지 내의 export 컴포넌트 설정: LayoutMain, LayoutAccount]
 |      |      |      |--- Header.js
 |      |      |      |--- Footer.js
 |      |      |      |--- SidePannel.js
+|      |      |      |--- LayoutAccount.js                           [Profile, Experience, Education, ... 등의 Outlet 컴포넌트 들의 Layout 제공 컴포넌트]        
+|      |      |      |--- SidebarAccount.js                          [account 공통 사이드바 메뉴 컴포넌트] 
+|      |      |      |--- LayoutMain.js                              [Main, Welcome, DialogSignin, ... 등의 Outlet 컴포넌트 들의 Layout 제공 컴포넌트] 
+
 </pre>

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useOutletContext } from 'react-router';
 import EducationItem from './EducationItem';
 import '../../../assets/css/account/educations/Educations.css';
 
-const Educations = ({ accountName }) => {
+const Educations = () => {
   const [educations, setEducations] = useState(null);
+  const accountName = useOutletContext();
 
   const fetchEducations = async () => {
     try {

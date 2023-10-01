@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import '../../assets/css/account/Sidebar.css';
+import '../../assets/css/layout/SidebarAccount.css';
 
 const Sidebar = ({ account }) => {
   return (

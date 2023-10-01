@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import CertificateItem from "./CertificateItem";
+import { useOutletContext } from 'react-router';
+import CertificateItem from './CertificateItem';
 import EducationItem from './EducationItem';
 import LanguageItem from './LanguageItem';
 import '../../../assets/css/account/trainings/Trainings.css';
 
-const Trainings = ({ accountName }) => {
+const Trainings = () => {
   const [trainings, setTrainings] = useState(null);
+  const accountName = useOutletContext();
 
   const fetchTrainings = async () => {
     try {

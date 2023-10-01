@@ -21,7 +21,6 @@ export const useAuthContext = () => {
     return useContext(AuthContext);
 }
 
-
 // Fetch new access token issued with refresh token based (synchronous fetch) 
 var ACCESSTOKEN;
 
