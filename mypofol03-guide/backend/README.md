@@ -9,7 +9,7 @@
 
 #### 프로젝트 구조
 <pre>
-|--- index.js                     [node-express web application 설정 및 그 web application이 실행될 서버 생성 및 실행]
+|--- index.js                     [node-express web application 설정 및 the web application을 실행(runtime)할 서버 생성 및 실행]
 |--- /config
 |       |--- app.env              [node-express web application 설정 프로퍼티: 서버 서비스 포트, 정적 웹 자원 위치, 등,,,] 
 |       |--- mariadb.env          [RDBMS(Mariadb) 연결 정보 및 Connection Pool 설정 프로퍼티] 
