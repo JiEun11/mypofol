@@ -52,7 +52,7 @@ if (process.env.NODE_ENV === 'development') {
   app.use('/api/docs/', swaggerUi.serve, handler);
 }
 
-// 7. build app router
+// 7. build application router
 const appRouter = require('./routes');
 appRouter(app);
 

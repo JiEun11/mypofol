@@ -14,13 +14,22 @@
 |       |--- app.env              [node-express web application 설정 프로퍼티: 서버 서비스 포트, 정적 웹 자원 위치, 등,,,] 
 |       |--- mariadb.env          [RDBMS(Mariadb) 연결 정보 및 Connection Pool 설정 프로퍼티] 
 |       |--- jwt.env              [JWT 비밀키, issue 옵션]
+|       |--- swagger.json         [Swagger API Docs 옵션]
+|--- /logger                      [winston logger 패키지]
+|       |--- index.js             [winston logger 패키지 export 설정: winstonLogger: unnamed export]
+|       |--- logger-winston.js    [winston logger 생성(설정)]
+|--- /middlewares                 [미들웨어 패키지]
+|       |--- index.js             [미들웨어 패키지 패키지 export 설정: acceptOnlyJsonRequest, jsonResult, error404, error500]
+|       |--- error.js             [error hadler 미들웨어]
+|       |--- json.js              [json io 미들웨어]
+|       |--- web-flow.js          [요청(req), 응답(res) 전처리/후처리 미들웨어]
 |--- /routes
 |       |--- index.js             [routes 패키지 export 설정: appRouter(app-router)]
+|       |--- /swagger-components  [Swagger API Docs Schema Component 정의(YAML 파일) 디렉토리]
 |       |--- app-router.js        [application router: 애플리케이션의 dispathers & middlewares 설정: *설정순서중요]
 |       |--- dispatcher-api.js    [ /api 시작하는 요청을 인터셉터들과 컨트롤러 함수들에 체인]
 |       |--- dispatcher.js        [ /    시작하는 요청을 인터셉터들과 컨트롤러 함수들에 체인]
 |       |--- interceptors.js      [인터셉터들: verifyToken, validAccount, delayForTest]
-|       |--- middlewares.js       [미들웨어들: resLocals, acceptOnlyJsonRequest, jsonResult, error404, error500]
 |--- /controllers
 |       |--- index.js             [controllers 패키지 export 설정: controllerJWT, controllerProjects, controllerAccount, controllerProfile, ... ]
 |       |--- jwt.js               [jwt기반 보안 요청 처리: auth, signout, refreshToken]
@@ -53,6 +62,9 @@
 |       |--- /upload-images       [webpack 번들링 되지 않는 사용자 업로드 이미지의 위치]
 |       |--- /js
 |       |      |--- main.js       [webpack 번들링 최종 결과물]                  
-|--- /multer-temporary-store 
+|--- /multer-temporary-store      [git ignored: multer 업로드 파일 임시 저장 디렉토리]
+|--- /logs                        [git ignored: winston logging 파일 디렉토리]
+|--- /node_modules                [git ignored: 의존성, 설치 패키지]
+
 </pre>
 

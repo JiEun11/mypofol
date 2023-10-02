@@ -3,7 +3,7 @@ const winstonDaily = require('winston-daily-rotate-file');
 const path = require('path');
 
 //
-// Sererity(Log Level) : RFC5424
+// Severity(Log Level) : RFC5424
 // error: 0, warn: 1, info: 2, http: 3, verbose: 4, debug: 5, silly: 6
 //
 
