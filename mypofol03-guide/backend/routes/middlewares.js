@@ -1,3 +1,5 @@
+const logger = require('../logger');
+
 exports.resLocals = (req, res, next) => {
     res.locals.req = req;
     res.locals.res = res;
@@ -61,7 +63,7 @@ exports.error404 = (req, res) => {
 
 exports.error500 = (error, req, res, next) => {
     /* logging */
-    console.error(error.stack);
+    logger.error(error.stack);
 
     /* if request with accept html */
     if (req.accepts('html')) {

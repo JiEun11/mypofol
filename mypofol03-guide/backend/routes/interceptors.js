@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const modelAccount = require('../models/account');
+const logger = require('../logger');
 
 exports.verifyToken = async (req, res, next) => {
   try {
@@ -7,12 +8,12 @@ exports.verifyToken = async (req, res, next) => {
     const token = authHeader?.split(' ')[1];
 
     if (!token) {
-      console.log('[server][jwt] wrong token format or token is not sended');
+      logger.info('[server][jwt] wrong token format or token is not sended');
       return res.status(400).json(null);
     }
 
     const verified = await jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-    console.log(`[server][jwt] verified: ${JSON.stringify(verified)}`);
+    logger.info(`[server][jwt] verified: ${JSON.stringify(verified)}`);
 
     req.authAccount = {
       id: verified.id
@@ -21,16 +22,16 @@ exports.verifyToken = async (req, res, next) => {
     next?.();
 
   } catch (error) {
-    console.log('[server][jwt] redirect: /api/refresh-token');
+    logger.info('[server][jwt] redirect: /api/refresh-token');
     return res.redirect('/api/refresh-token');
   }
 };
 
 exports.validAccount = async (req, res, next) => {
   try {
-    const account = await modelAccount.findByName(req.params.account);
+    const account = await modelAccount.findByName(req.params.accountName);
     if (!account) {
-      throw new Error(`Invalid Account(${req.params.account})`);
+      throw new Error(`Invalid Account(${req.params.accountName})`);
     }
 
     req.account = account;

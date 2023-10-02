@@ -2,6 +2,7 @@ const path = require("path");
 const jwt = require("jsonwebtoken");
 const dotenv = require('dotenv');
 const { modelAccount } = require("../models");
+const logger = require('../logger');
 
 dotenv.config({ path: path.join(__dirname, '../config/jwt.env') });
 
@@ -16,7 +17,7 @@ exports.auth = async (req, res) => {
   const password = req.body.password;
 
   const authAccount = await modelAccount.findByEmailAndPassword(email, password);
-  console.log(`[server][jwt] authentication: ${authAccount}`);
+  logger.info(`[server][jwt] authentication: ${authAccount}`);
 
   if (!authAccount) {
     /* Authentication fails... */

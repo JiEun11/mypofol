@@ -3,7 +3,12 @@
 
 ## JavaScript Project
 **/node_modules
+
+## Node Application
 **/multer-temporary-store
+**/logs
+
+## React Application
 **/public/js/bundle.js
 **/public/js/main.js
 
