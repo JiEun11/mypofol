@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>mongod</string>
+
+	<key>Program</key>
+	<string>/Users/kickscar/Applications/MongoDB/mongodb-macos-aarch64-6.0.8/bin/mongod</string>
+
+	<key>ProgramArguments</key>
+	<array>
+		<string>mongod</string>
+		<string>--config</string>
+		<string>/Users/kickscar/mongodb/etc/mongod.conf</string>
+	</array>
+			
+	<key>RunAtLoad</key>
+	<true/>
+			
+	<key>KeepAlive</key>
+	<false/>
+			
+	<key>WorkingDirectory</key>
+	<string>/Users/kickscar/mongodb/var</string>
+			
+	<key>RunAtLoad</key>
+	<true/>
+			
+	<key>KeepAlive</key>
+	<false/>
+			
+	<key>WorkingDirectory</key>
+	<string>/Users/kickscar/mongodb/var</string>
+			
+	<key>StandardErrorPath</key>
+	<string>/Users/kickscar/mongodb/var/output.log</string>
+			
+	<key>StandardOutPath</key>
+	<string>/Users/kickscar/mongodb/var/output.log</string>						
+	
+	<key>HardResourceLimits</key>
+	<dict>
+		<key>NumberOfFiles</key>
+		<integer>64000</integer>
+	</dict>
+			
+	<key>SoftResourceLimits</key>
+	<dict>
+       		<key>NumberOfFiles</key>
+         	<integer>64000</integer>
+	</dict>
+</dict>
+</plist>
