@@ -1,0 +1,4 @@
+use('sample-mflix');
+
+// 감독이 10명 이상 공동 감독 한 영화 검색
+db.movies.find({ $where: 'this.directors?.length > 10'}, {directors: 1})

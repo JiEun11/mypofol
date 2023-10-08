@@ -1,0 +1,266 @@
+[
+  {
+    "_id": {
+      "$oid": "573a1393f29313caabcdbfb0"
+    },
+    "directors": [
+      "Norman Ferguson",
+      "James Algar",
+      "Samuel Armstrong",
+      "Ford Beebe Jr.",
+      "Jim Handley",
+      "T. Hee",
+      "Wilfred Jackson",
+      "Hamilton Luske",
+      "Bill Roberts",
+      "Paul Satterfield",
+      "Ben Sharpsteen"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "573a1397f29313caabce6b75"
+    },
+    "directors": [
+      "Alf Brustellin",
+      "Rainer Werner Fassbinder",
+      "Alexander Kluge",
+      "Maximiliane Mainka",
+      "Beate Mainka-Jellinghaus",
+      "Peter Schubert",
+      "Bernhard Sinkel",
+      "Hans Peter Cloos",
+      "Edgar Reitz",
+      "Katja Rupè",
+      "Volker Schlèndorff"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "573a13aaf29313caabd21d3f"
+    },
+    "directors": [
+      "Youssef Chahine",
+      "Amos Gitai",
+      "Alejandro Gonzèlez Ièèrritu",
+      "Shèhei Imamura",
+      "Claude Lelouch",
+      "Ken Loach",
+      "Samira Makhmalbaf",
+      "Mira Nair",
+      "Idrissa Ouedraogo",
+      "Sean Penn",
+      "Danis Tanovic"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "573a13aaf29313caabd222cb"
+    },
+    "directors": [
+      "Youssef Chahine",
+      "Amos Gitai",
+      "Alejandro Gonzèlez Ièèrritu",
+      "Shèhei Imamura",
+      "Claude Lelouch",
+      "Ken Loach",
+      "Samira Makhmalbaf",
+      "Mira Nair",
+      "Idrissa Ouedraogo",
+      "Sean Penn",
+      "Danis Tanovic"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "573a13b0f29313caabd32b70"
+    },
+    "directors": [
+      "Olivier Assayas",
+      "Frèdèric Auburtin",
+      "Emmanuel Benbihy",
+      "Gurinder Chadha",
+      "Sylvain Chomet",
+      "Ethan Coen",
+      "Joel Coen",
+      "Isabel Coixet",
+      "Wes Craven",
+      "Alfonso Cuarèn",
+      "Gèrard Depardieu",
+      "Christopher Doyle",
+      "Richard LaGravenese",
+      "Vincenzo Natali",
+      "Alexander Payne",
+      "Bruno Podalydès",
+      "Walter Salles",
+      "Oliver Schmitz",
+      "Nobuhiro Suwa",
+      "Daniela Thomas",
+      "Tom Tykwer",
+      "Gus Van Sant"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "573a13b8f29313caabd4d14d"
+    },
+    "directors": [
+      "Fatih Akin",
+      "Yvan Attal",
+      "Randall Balsmeyer",
+      "Allen Hughes",
+      "Shunji Iwai",
+      "Wen Jiang",
+      "Shekhar Kapur",
+      "Joshua Marston",
+      "Mira Nair",
+      "Natalie Portman",
+      "Brett Ratner"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "573a13c4f29313caabd6bb38"
+    },
+    "directors": [
+      "Elizabeth Banks",
+      "Steven Brill",
+      "Steve Carr",
+      "Rusty Cundieff",
+      "James Duffy",
+      "Griffin Dunne",
+      "Peter Farrelly",
+      "Patrik Forsberg",
+      "Will Graham",
+      "James Gunn",
+      "Brett Ratner",
+      "Jonathan van Tulleken",
+      "Bob Odenkirk"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "573a13cef29313caabd86112"
+    },
+    "directors": [
+      "Ferran Brooks",
+      "Kevin Macdonald",
+      "Alejandro Romeo",
+      "Hiroaki Aikawa",
+      "Natalia Andreadis",
+      "Jack Attridge",
+      "Cristina Bocchialini",
+      "Zillah Bowes",
+      "Andrea Dalla Costa",
+      "Lisa Cottrell-Bentley",
+      "Alejo Crisèstomo",
+      "Ayman El Gazwy",
+      "Jane Haubrich",
+      "Soma Helmi",
+      "Jennifer M. Howd",
+      "Aditya Kolli",
+      "Gabor Kukucska",
+      "Francesco La Regina",
+      "Frederic Lumiere",
+      "Marek Mackovic",
+      "Linda Matarasso",
+      "Kevin McMahon",
+      "Joseph Michael",
+      "Joaquin Montalvan",
+      "Lilit Movsisyan",
+      "Emmanuelle Pickett",
+      "Alaa Sheikh Hassan",
+      "Marcus Tedenryd",
+      "Zuqy"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "573a13d4f29313caabd97463"
+    },
+    "directors": [
+      "Kaare Andrews",
+      "Angela Bettis",
+      "Hèlène Cattet",
+      "Ernesto Dèaz Espinoza",
+      "Jason Eisener",
+      "Bruno Forzani",
+      "Adrièn Garcèa Bogliano",
+      "Xavier Gens",
+      "Jorge Michel Grau",
+      "Lee Hardcastle",
+      "Noboru Iguchi",
+      "Thomas Cappelen Malling",
+      "Anders Morgenthaler",
+      "Yoshihiro Nishimura",
+      "Banjong Pisanthanakun",
+      "Simon Rumley",
+      "Marcel Sarmiento",
+      "Jon Schnepp",
+      "Srdjan Spasojevic",
+      "Timo Tjahjanto",
+      "Andrew Traucki",
+      "Nacho Vigalondo",
+      "Jake West",
+      "Ti West",
+      "Ben Wheatley",
+      "Adam Wingard",
+      "Yudai Yamaguchi"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "573a13d7f29313caabda2c3d"
+    },
+    "directors": [
+      "Edna Luise Biesold",
+      "Sarah-Violet Bliss",
+      "Gabrielle Demeestere",
+      "Alexis Gambis",
+      "Brooke Goldfinch",
+      "Shripriya Mahesh",
+      "Pamela Romanowsky",
+      "Bruce Thierry Cheung",
+      "Tine Thomasen",
+      "Virginia Urreiztieta",
+      "Omar Zèèiga Hidalgo"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "573a13e4f29313caabdc11c8"
+    },
+    "directors": [
+      "Rodney Ascher",
+      "Julian Barratt",
+      "Robert Boocheck",
+      "Alejandro Bruguès",
+      "Kristina Buozyte",
+      "Alexandre Bustillo",
+      "Larry Fessenden",
+      "Julian Gilbey",
+      "Jim Hosking",
+      "Lancelot Oduwa Imasuen",
+      "E.L. Katz",
+      "Aharon Keshales",
+      "Steven Kostanski",
+      "Marvin Kren",
+      "Juan Martènez Moreno",
+      "Erik Matti",
+      "Julien Maury",
+      "Robert Morgan",
+      "Chris Nash",
+      "Vincenzo Natali",
+      "Hajime Ohata",
+      "Navot Papushado",
+      "Bill Plympton",
+      "Dennison Ramalho",
+      "Todd Rohal",
+      "Jerome Sable",
+      "Bruno Samper",
+      "Jen Soska",
+      "Sylvia Soska",
+      "Sèichi Umezawa"
+    ]
+  }
+]

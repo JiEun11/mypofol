@@ -1,0 +1,14 @@
+use('sample-airbnb');
+
+// ex1) Australia나(or) Canada 에 놀러 갈 꺼임 ($in)
+db.listingsAndReviews.find({ 'address.country': { $in: ['Australia', 'Canada'] } })
+
+// ex2) 그리고 흡연 객실이면 안 됨 ($nin)
+db.listingsAndReviews.find({ 'address.country': { $in: ['Australia', 'Canada'] }, 'amenities': { $nin: ['Smoking allowed'] } })
+
+// ex3) 그리고 일해야 하기 때문에 노트북 작업 환경 및 인테넷이 가능해야 함 ($all)
+db.listingsAndReviews.find({ 
+    'address.country': { $in: ['Australia', 'Canada'] }, 
+    'amenities': { $nin: ['Smoking allowed'], $all: ['Internet', 'Wifi', 'Laptop friendly workspace'] }
+})
+

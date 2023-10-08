@@ -5,7 +5,6 @@ const password = 'mydb';
 const database = 'mydb';
 const server = 'localhost';
 const port = 27017;
-
 const options = ``;
 
 const uri = `mongodb://${username}:${password}@${server}:${port}/${database}?${options}`;
@@ -21,17 +20,17 @@ const client = new MongoClient(uri, {
 
 async function test() {
     try {
-        await client.connect();
-        const database = client.db();
+        // get document
+        const db = client.db();
 
         // get collection
-        const accounts = database.collection('accounts');
+        const accounts = db.collection('accounts');
 
         // an array of document to insert
         const docs = [
-            { name: 'dounu', email: 'dounu@gmail.com', password: '1234' },
-            { name: 'ddochi', email: 'ddochi@gmail.com', password: '1234' },
-            { name: 'michol', email: 'michol@gmail.com', password: '1234' }
+            { name: 'loopy', email: 'loopy@gmail.com', password: '1234' },
+            { name: 'luffy', email: 'luffy@gmail.com', password: '1234' },
+            { name: 'bluepoet', email: 'bluepoet@gmail.com', password: '1234' }
         ];
 
         // if one fails, prevent additional documents from being inserted

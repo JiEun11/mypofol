@@ -5,10 +5,9 @@ const password = 'sample';
 const database = 'sample-mflix';
 const server = 'localhost';
 const port = 27017;
-
 const options = ``;
 
-const uri = `mongodb://${username}:${password}@${server}:${port}/${database}?&${options}`;
+const uri = `mongodb://${username}:${password}@${server}:${port}/${database}?${options}`;
 
 // create MongoClient object from connection
 const client = new MongoClient(uri, {
@@ -21,11 +20,11 @@ const client = new MongoClient(uri, {
 
 async function test() {
     try {
-        await client.connect();
-        const database = client.db();
+        // get database
+        const db = client.db();
 
         // get collection
-        const movies = database.collection("movies");
+        const movies = db.collection("movies");
 
         // the estimate of the number of documents in the "movies" collection
         const estimate = await movies.estimatedDocumentCount();

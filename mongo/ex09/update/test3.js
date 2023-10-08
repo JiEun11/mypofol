@@ -5,7 +5,6 @@ const password = 'mydb';
 const database = 'mydb';
 const server = 'localhost';
 const port = 27017;
-
 const options = ``;
 
 const uri = `mongodb://${username}:${password}@${server}:${port}/${database}?${options}`;
@@ -21,27 +20,26 @@ const client = new MongoClient(uri, {
 
 async function test() {
     try {
-        await client.connect();
-        const database = client.db();
+        // get database
+        const db = client.db();
 
         // get collection
-        const accounts = database.collection("account");
+        const accounts = db.collection("accounts");
 
-        // filter
-        const filter = { status: { $eq: null } }
+        // query selector
+        const query = { name: 'bella' }
 
         // update doc
-        const updateDoc = {
-            $set: {
-                status: 'frontend developer'
-            },
+        const replaceDoc = {
+            n: 'jjing',
+            e: 'jjing@gmail.com'
         };
 
         // execute
-        const result = await accounts.updateMany(filter, updateDoc);
+        const result = await accounts.replaceOne(query, replaceDoc);
 
         // print result
-        console.log(`updated ${result.modifiedCount} documents`);
+        console.log(`modified ${result.modifiedCount} document(s)`);
 
     } catch (error) {
         console.error(error);

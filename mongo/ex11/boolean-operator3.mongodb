@@ -1,0 +1,14 @@
+use('sample-training');
+
+// ex4) 'thumbnail' 속성을 갖고 있는 않는 문서 검색
+db.stories.find({ 'thumbnail': { $exists: false } })
+
+// ex5) 'thumbnail' 속성을 갖고 있는 문서 검색
+db.stories.find({ 'thumbnail': { $exists: true } })
+
+// ex6) ex4와 동일
+db.stories.find({ 'thumbnail': { $eq: null } })
+
+// ex7) ex5와 동일
+db.stories.find({ 'thumbnail': { $ne: null } })
+

@@ -5,7 +5,6 @@ const password = 'mydb';
 const database = 'mydb';
 const server = 'localhost';
 const port = 27017;
-
 const options = ``;
 
 const uri = `mongodb://${username}:${password}@${server}:${port}/${database}?${options}`;
@@ -21,27 +20,32 @@ const client = new MongoClient(uri, {
 
 async function test() {
     try {
-        await client.connect();
-        const database = client.db();
+        // get database
+        const db = client.db();
 
         // get collection
-        const accounts = database.collection("account");
+        const accounts = db.collection("accounts");
 
-        // query selector
-        const query = { name: { $regex: 'dooly' } }
+        // filter
+        const filter = { name: 'bella' }
+
+        // options
+        const options =  {
+            upsert: true    // to insert a document if no documents match
+        }
 
         // update doc
-        const replaceDoc = {
-            name: 'dully',
-            email: 'dully@gmail.com',
-            status: 'full-stack developer'
-        };
+        const updateDoc = {
+            $set: {
+              status: 'fullstack developer' 
+            },
+          };        
 
         // execute
-        const result = await accounts.replaceOne(query, replaceDoc);
+        const result = await accounts.updateOne(filter, updateDoc, options);
 
         // print result
-        console.log(`modified ${result.modifiedCount} document(s)`);
+        console.log(`${result.matchedCount} document(s) matched the filter, updated ${result.modifiedCount} document(s), upserted ${result.upsertedCount} document(s)`);
 
     } catch (error) {
         console.error(error);

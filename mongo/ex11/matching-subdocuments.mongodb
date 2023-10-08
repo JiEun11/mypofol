@@ -1,0 +1,13 @@
+use('sample-airbnb');
+
+// ex1) address 임베드 문서의 country 속성이 'Canada'인 문서 검색
+db.listingsAndReviews.find({ 'address.country': 'Canada' })
+
+// ex2) 동경 110~150, 북위 10 ~ 50의 숙박지 (동아시아)
+db.listingsAndReviews.find({
+    'address.location.coordinates.0': {$gt: 110, $lt: 150},
+    'address.location.coordinates.1': {$gt: 10, $lt:50}
+})
+
+
+db.listingsAndReviews.distinct('address.country')

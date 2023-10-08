@@ -1,0 +1,18 @@
+use('sample-mflix');
+
+// 하나의 Document 값에 대해 질의 하는 것과 동일한 문법
+// ex1) genre가 Romance인 Movie
+db.movies.find({ genres: 'Romance' })
+
+// ex2) 첫번째 쟝르가 'Romance' 인 영화(아무도 주 쟝르가 'Romance' ?)
+db.movies.find({ 'genres.0': 'Romance' })
+
+// ex3) 감독이 2명인 영화 검색
+db.movies.find({ directors: { $size: 2 } })
+
+// ex4) 감독이 2명 이상인 영화 검색 (오류)
+// 1. 배열의 크기가 정확히 일치하는 쿼리에만 제한
+// 2. 배열의 크기에 기초한 질의r가 필요한 경우, 문서내에 배열의 크기를 캐싱해야 한다. 예) countDirectors
+db.movies.find({ directors: { $size: {$gte: 2} } })
+
+

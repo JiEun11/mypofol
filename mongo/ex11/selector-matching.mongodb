@@ -1,0 +1,15 @@
+use('sample-mflix');
+
+// key-value pairs literally match (키-값 쌍이 문자적으로 일치)
+// 예제01) name이 'Jon Snow'인 사용자
+db.users.find({name: 'Jon Snow'});
+
+// find는 객체를 리턴하지만 findOne은 Document를 리턴한다.
+db.users.findOne({name: 'Jon Snow'});
+
+// more than one key-value pair: Boolean AND
+// 예제02) 1997년에 방영된 TV 씨리즈물
+db.movies.find({type: 'series', year: 1997})
+
+
+

@@ -1,0 +1,14 @@
+use('sample-airbnb');
+
+// ex4) amenity가 'Wifi', 'Internet' 중에 하나는 반드시 해당되고 그리고 'Air conditioning', 'Air purifier' 중에도 하나는 반드시 해당 되어야 하는 숙박시설 검색
+
+// 오류!!!
+db.listingsAndReviews.find({ amenities: { $in: ['Wifi', 'Internet'] }, amenities: { $in: ['Air conditioning', 'Air purifier'] } })
+
+// $and를 사용해야 함
+db.listingsAndReviews.find({
+    $and: [
+        { amenities: { $in: ['Wifi', 'Internet'] } },
+        { amenities: { $in: ['Air conditioning', 'Air purifier'] } }
+    ]
+})

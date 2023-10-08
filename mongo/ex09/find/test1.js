@@ -1,11 +1,10 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
-const username = 'mydb';
-const password = 'mydb';
-const database = 'mydb';
+const username = 'sample';
+const password = 'sample';
+const database = 'sample-mflix';
 const server = 'localhost';
 const port = 27017;
-
 const options = ``;
 
 const uri = `mongodb://${username}:${password}@${server}:${port}/${database}?${options}`;
@@ -21,25 +20,25 @@ const client = new MongoClient(uri, {
 
 async function test() {
     try {
-        await client.connect();
-        const database = client.db();
+        // get database
+        const db = client.db();
 
         // get collection
-        const accounts = database.collection("accounts");
+        const movies = db.collection("movies");
 
-        // query selector
-        const query = { name: 'dooly' }
+        // query
+        const query = { title: "One Week" }
 
         // options
         const options = {
-            projection: { _id: 0, name: 1, email: 1 }   // _id(x) name(o) email(o) 
+            projection: { _id: 0, title: 1, imdb: 1 }   // _id(x) title(o) imdb(o) 
         }
 
         // execute
-        const account = await accounts.findOne(query, options);
+        const movie = await movies.findOne(query, options);
 
         // print document
-        console.log(account);
+        console.log(movie);
 
     } catch (error) {
         console.error(error);
