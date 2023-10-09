@@ -1,0 +1,8 @@
+use('')
+
+//
+// $mod [(quotient),(result)]
+// modulo operation
+//
+
+// ex1) 리뷰의 갯수가 10 단위로 달린 
