@@ -1,11 +1,35 @@
 use('sample-mflix');
 
 // ex1) 러닝타임이 3시간 이상인 영화  
-db.movies.find({ type: 'movie', runtime: { $gte: 180 } })
+db.movies.find({
+    type: 'movie',
+    runtime: {
+        $gte: 180
+    }
+})
 
 // ex2) 2000 ~ 2010 에 릴리즈된 영화
-// 오류
-db.movies.find({ type: 'movie', year: { $gte: 2000 }, year: { $lte: 2010 } })
-// OK! 
-db.movies.find({ type: 'movie', year: { $gte: 2000, $lte: 2010 } })
+// a common mistake !!!
+// 1. repeating the search key as follow
+// 2. takes into account the last condition,,,
+db.movies.find({
+    type: 'movie',
+    year: {
+        $gte: 2000
+    },
+    year: {
+        $lte: 2010
+    }
+})
+
+//
+// properly express this query as follows
+//
+db.movies.find({
+    type: 'movie',
+    year: {
+        $gte: 2000,
+        $lte: 2010
+    }
+})
 

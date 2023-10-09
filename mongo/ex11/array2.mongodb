@@ -1,4 +1,11 @@
 use('sample-suplies');
 
 // ex5) backpack, 2개 구매한 내용의 문서 검색  
-db.sales.find({ items: { $elemMatch: { name: 'backpack', quantity: 2 } } })
+db.sales.find({
+    items: {
+        $elemMatch: {
+            name: 'backpack',
+            quantity: 2
+        }
+    }
+})
