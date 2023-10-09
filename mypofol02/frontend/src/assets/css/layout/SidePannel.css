@@ -122,14 +122,12 @@
     flex-direction: column !important;
 }
 
-
 .side-pannel-close-wrap {
     padding: 8px;
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
 }
-
 
 .side-pannel-close-wrap label {
     border: 1px solid #010409;
@@ -149,7 +147,6 @@
     user-select: none;
     width: 2rem;
 }
-
 
 .side-pannel-close-wrap label:hover {
     background-color: #010409;
@@ -247,6 +244,7 @@
     grid-area: label;
     line-height: 1.6;
     position: relative;
+    pointer-events: none;
     margin-left: 0.54rem;
 }
 

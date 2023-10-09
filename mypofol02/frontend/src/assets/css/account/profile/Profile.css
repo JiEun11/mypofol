@@ -1,0 +1,175 @@
+/**
+ *  Profile css
+ *  
+ */
+
+.profile .content-inner {
+    position: relative;
+    background: #ffffff;
+    border-radius: 6px 6px 0 0;
+    border-width: 1px 1px 0 1px;
+    border-style: solid;
+    border-color: #F6D155;    
+    padding: 30px 30px;
+    min-height: 700px;    
+    width:100%;
+}
+
+.profile .content-header {
+    position: relative;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+}
+
+.profile .content-header h2 {
+    color: #222222;
+    font-size: 35px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+.profile a {
+    color: #666;
+}
+
+.profile a:hover {
+    color: #FF6F61;
+}
+
+.profile .content-header::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background: #FF6F61;
+}
+
+.profile .col-md-12 ul:nth-child(2){
+    margin-top: 15px;
+}
+
+.profile .col-md-12 div {
+    margin-top: 15px;   
+}
+
+.profile .col-md-12 div p {
+    border: 1px solid #FF6F61;
+    padding: 10px;
+    line-height: 24px;
+    margin: 0;
+    height: 125px;
+}
+
+.profile ul {
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;    
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.profile li {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    grid-template-areas: "leadingAction leadingVisual";
+    grid-template-columns: 140px auto;
+    grid-template-rows: min-content;
+    text-align: left;   
+}
+
+.profile li span {
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 36px;
+    padding-left: 10px;
+}
+
+.profile h3 {
+    display: grid;
+    grid-template-areas: "leadingAction leadingVisual";
+    grid-template-columns: min-content minmax(0, auto);
+    grid-template-rows: min-content;
+    text-align: left;
+    margin: 0;
+}
+
+.profile h3 i {
+    align-items: center;
+    justify-content: left;
+    display: flex;    
+    font-size: 20px;
+    width: 22px;
+    color: #FF6F61;
+}
+
+.profile h3 span {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 40px;
+    padding-left: 10px;
+}
+
+.profile .large-btn {
+    position: relative;
+    width:100%;
+}
+
+.profile .large-btn div {
+    position: relative;
+    width:100%;    
+    font-size: 0;
+}
+
+.profile .large-btn a:first-child {
+    position: relative;
+    width: 50%;
+    padding: 15px 0 14px 0;
+    color: #FF6F61;
+    font-size: 20px;
+    background: #222222;
+    border-radius: 0 0 0 6px;
+    border-width: 0 0 1px 1px;
+    border-style: solid;
+    border-color: #F6D155;     
+}
+
+.profile .large-btn a:last-child {
+    position: relative;
+    width: 50%;
+    padding: 15px 0 14px 0;    
+    color: #222222;
+    font-size: 20px;
+    background: #FF6F61;
+    border-radius: 0 0 6px 0;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: #F6D155;     
+}
+
+.profile .large-btn a i {
+    margin-right: 8px;
+}
+
+.profile .large-btn a::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: all .3s;
+}
+
+.profile .large-btn a:hover::after {
+    width: 100%;
+    background: rgba(255, 255, 255, .1);
+}

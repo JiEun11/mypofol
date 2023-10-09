@@ -1,33 +1,40 @@
 import React from 'react';
-import { Route } from 'react-router';
+import { Routes, Route } from 'react-router';
 import { AuthContextRouter, AuthRoutes } from './auth';
-
-import Index from './component/main';
-import Profile from './component/account/profile';
-import Educations from './component/account/education';
-import Experiences from './component/account/experience';
-import Trainings from './component/account/training';
-import Skills from './component/account/skill';
-import Projects from './component/account/project';
+import { LayoutAccount, LayoutMain } from './component/layout';
+import { Main, Welcome, Error, DialogSignin, DialogSignup } from './component/main';
+import { AccountProfile, AccountExperiences, AccountTrainings, AccountEducations, AccountProjects, AccountSkills } from './component/account'
 
 export default function App() {
   return (
     <AuthContextRouter>
       <AuthRoutes>
-        <Route path={'/'} element={<Index />} />
-        <Route path={'/welcome'} element={<Index theme='welcome' />} />
-        <Route path={'/signin'} element={<Index dialog='signin' />} />
-        <Route path={'/signup'} element={<Index dialog='signup' />} />
+        <Route path={'/'} element={<LayoutMain />} >
+          <Route index element={<Main />} />
+          <Route path={'welcome'} element={<Welcome />} />
+          <Route path={'signin'} element={<DialogSignin />} />
+          <Route path={'signup'} element={<DialogSignup />} />
+        </Route>
       </AuthRoutes>
+
       <AuthRoutes authenticated>
-        <Route path={':accountName'} element={<Profile />} />
-        <Route path={':accountName/profile'} element={<Profile />} />
-        <Route path={':accountName/educations'} element={<Educations />} />
-        <Route path={':accountName/experiences'} element={<Experiences />} />
-        <Route path={':accountName/trainings'} element={<Trainings />} />
-        <Route path={':accountName/skills'} element={<Skills />} />
-        <Route path={':accountName/projects'} element={<Projects />} />
+        <Route path={'/:accountName'} element={<LayoutAccount />} >
+          <Route index element={<AccountProfile />} />
+          <Route path={'profile'} element={<AccountProfile />} />
+          <Route path={'experiences'} element={<AccountExperiences />} />
+          <Route path={'educations'} element={<AccountEducations />} />
+          <Route path={'trainings'} element={<AccountTrainings />} />
+          <Route path={'skills'} element={<AccountSkills />} />
+          <Route path={'projects'} element={<AccountProjects />} />
+        </Route>
       </AuthRoutes>
+
+      <Routes>
+        <Route path={'/'} element={<LayoutMain />} >
+          <Route path={'error'} element={<Error />} />
+        </Route>
+      </Routes>
+
     </AuthContextRouter>
   );
 }

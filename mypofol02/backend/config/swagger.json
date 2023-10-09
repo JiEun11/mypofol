@@ -1,0 +1,23 @@
+{
+    "swaggerDefinition": {
+        "openapi": "3.0.0",
+        "info": {
+            "title": "MyPortfolio APIs",
+            "version": "1.0.0",
+            "description": "",
+            "license": {
+                "name": "Licensed Under MIT",
+                "url": "https://spdx.org/licenses/MIT.html"
+            },
+            "contact": {
+                "name": "MyPortfolio",
+                "url": "https://myportfolio.kickscar.me"
+            }
+        },
+        "servers": [{
+            "url": "http://localhost:8080",
+            "description": "development server"
+        }]
+    },
+    "apis": ["./routes/*.js", "./routes/swagger-components/*"]
+}

@@ -2,29 +2,30 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>MyPofol</title>
+<title>My Portfolio</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="/images/favicon.ico" rel="icon">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-
 <link href="/css/common/mypofol.css" rel="stylesheet">
 <link href="/css/common/header.css" rel="stylesheet">
-<link href="/css/common/sidepannel.css" rel="stylesheet">
 <link href="/css/error/content.css" rel="stylesheet">
-
 <script src="https://kit.fontawesome.com/031a3163b7.js" crossorigin="anonymous"></script>
 </head>
 <body>
-	<%-include('../includes/common/header') %>
-	<% if(req.session.authAccount) { %>
-		<%-include('../includes/common/sidepannel') %>
-	<% } %>		
+	<header class="header">
+		<div class="globalbar">
+			<div class="inner-start">
+				<a href="/" class="app-logo">MyPofol</a>
+			</div>
+			<div class="inner-end"></div>
+		</div>
+	</header>	
 	<div class="wrapper">
 		<div class="content-error">
 			<h1>500: Internal Server Error</h1>
 			<pre>
-<%=error%>
+        <%=error%>
 			</pre>
 		</div>
 	</div>

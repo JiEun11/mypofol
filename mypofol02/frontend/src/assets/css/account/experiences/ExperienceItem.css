@@ -1,0 +1,62 @@
+/**
+ *  ExperiencesItem css
+ *  
+ */
+
+.exp-col {
+    position: relative;
+    width: 100%;
+    padding: 20px 0 20px 20px;
+    border-bottom: 1px solid #FF6F61;
+}
+
+.col-md-12:last-child .exp-col {
+    border-bottom: none;
+}
+
+.exp-col span {
+    position: relative;
+    display: block;
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.exp-col span::before {
+    position: absolute;
+    content: "";
+    width: 11px;
+    height: 11px;
+    background: #FF6F61;
+    top: 3px;
+    left: -25px;
+    border-radius: 5px;
+}
+
+.exp-col span i {
+    color: #FF6F61;
+}
+
+.exp-col h3 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.exp-col h4 {
+    font-size: 14px;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.exp-col h5 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.exp-col p {
+    margin: 0;
+}

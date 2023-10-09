@@ -1,47 +1,25 @@
-const modelUser = require('../models/account');
-const modelSkill = require("../models/skill");
-const modelProject = require('../models/project');
+const { modelAccount, modelProfile }= require("../models");
 
-module.exports = {
-    profile: (req, res, next) => {
-        res.status(200).render('account/profile');
-    },
-    
-    experiences: (req, res, next) => {
-        res.status(200).render('account/experiences');
-    },
-
-    educations: (req, res, next) => {
-        res.status(200).render('account/educations');
-    },
-
-    trainings: (req, res, next) => {
-        res.status(200).render('account/trainings');
-    },
-
-    skills: async (req, res, next) => {
-      try {
-        const skills = await modelSkill.findByAccountId(req.account.id);
-        res.status(200).render('account/skills', {
-          skills: skills.reduce((result, skill) => {
-            (skill.skillSet in result) || (result[skill.skillSet] = [])
-            result[skill.skillSet].push(skill);
-            return result;
-          }, {})
-        });
-      } catch (error) {
-        next(error);
-      }        
-    },
-
-    projects: async (req, res, next) => {
-      try {
-        const projects = await modelProject.findByAccountId(req.account.id);
-        res.status(200).render('account/projects', {
-          projects
-        });
-      } catch(err) {
-        next(err);
-      }
+exports.get = async (req, res, next) => {
+    try {
+        /**
+         *  account name으로 account 정보를 DB에서 가져오는 것은
+         *  이미 앞의 validAccount interceptor 에서
+         *  validation과 함께 req에 넣어 놨기 때문에
+         *  model을 통해서 가져올 필요가 없음.
+         */
+        res.json(req.account);
+    } catch (error) {
+        next?.(error);
     }
-}
+};
+
+exports.create = async (req, res, next) => {
+    try {
+        const accountId = await modelAccount.insert(req.body);
+        await modelProfile.insertByDefault(accountId);
+        res.json(null);
+    } catch (error) {
+        next?.(error);
+    }
+};
