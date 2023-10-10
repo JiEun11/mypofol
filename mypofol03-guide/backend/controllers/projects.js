@@ -30,7 +30,7 @@ exports.update = async (req, res, next) => {
         });
 
         await modelProject.update(project);
-        res.redirect('/dashboard/projects')
+        res.json(project);
     } catch (error) {
         next(error)
     }

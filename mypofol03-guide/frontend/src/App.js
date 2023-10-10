@@ -2,12 +2,13 @@ import React from 'react';
 import { Routes, Route } from 'react-router';
 import { AuthContextRouter, AuthRoutes } from './auth';
 import { LayoutAccount, LayoutMain } from './component/layout';
-import { Main, Welcome, Error, DialogSignin, DialogSignup } from './component/main';
+import { Main, Welcome, Error, Error404, DialogSignin, DialogSignup } from './component/main';
 import { AccountProfile, AccountExperiences, AccountTrainings, AccountEducations, AccountProjects, AccountSkills } from './component/account'
 
 export default function App() {
   return (
     <AuthContextRouter>
+
       <AuthRoutes>
         <Route path={'/'} element={<LayoutMain />} >
           <Route index element={<Main />} />
@@ -32,6 +33,9 @@ export default function App() {
       <Routes>
         <Route path={'/'} element={<LayoutMain />} >
           <Route path={'error'} element={<Error />} />
+        </Route>
+        <Route path={'/'} element={<LayoutMain />} >
+          <Route path={'*'} element={<Error404 />} />
         </Route>
       </Routes>
 
