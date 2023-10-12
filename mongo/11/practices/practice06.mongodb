@@ -1,0 +1,6 @@
+use('sample-airbnb')
+
+// 숙박 시설 리뷰(reviews) 중에 리뷰어 이름(reviewer_name)이 'Fabian' 이고 리뷰(comment) 내용에 
+// 'best', 'worst' 라는 단어가 들어간 구매 검색, 리뷰 내용은 대소문자 구별 없음
+
+// [힌트] 정규 표현식 /best|worst/i 사용

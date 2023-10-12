@@ -1,0 +1,3 @@
+use('sample-airbnb')
+
+// 1. 리뷰갯수(number_of_reviews)가 10단위로 달린 숙박 시설 검색. 단, 0는 제외

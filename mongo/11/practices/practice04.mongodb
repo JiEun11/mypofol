@@ -1,0 +1,13 @@
+use('sample-mflix');
+
+// 1. genre가 'Romance'인 무비
+
+// 2. 첫 번째 쟝르가 'Romance' 인 무비(주 쟝르가 'Romance' ?)
+
+// 3. 쟝르가 'Romance', 'Family' 그리고 'Drama' 모두에 해당하는 무비
+
+// 4. 감독이 2명 무비
+
+// 5. 감독이 2명 이상인 무비
+
+

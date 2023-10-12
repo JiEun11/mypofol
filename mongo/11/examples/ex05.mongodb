@@ -1,0 +1,30 @@
+use('mydb');
+
+db.articles.createIndex({ subject: "text" })
+
+db.articles.insertMany([
+    { _id: 1, subject: "coffee", author: "xyz", views: 50 },
+    { _id: 2, subject: "Coffee Shopping", author: "efg", views: 5 },
+    { _id: 3, subject: "Baking a cake", author: "abc", views: 90 },
+    { _id: 4, subject: "baking", author: "xyz", views: 100 },
+    { _id: 5, subject: "coffee and cream", author: "efg", views: 10 },
+    { _id: 6, subject: "Cafe con Leche", author: "xyz", views: 10 }
+])
+
+// 01.
+db.articles.find({ $text: { $search: "coffee" } })
+
+// 02. 
+db.articles.find( { $text: { $search: "bake coffee cake" } } )
+
+// 03. phrase
+db.articles.find( { $text: { $search: "\"coffee shop\"" } } )
+
+
+// 04. exclude
+db.articles.find( { $text: { $search: "coffee -cream" } } )
+
+// 05. case sensitive
+db.articles.find( { $text: { $search: "Coffee", $caseSensitive: true } } )
+
+

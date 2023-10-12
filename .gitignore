@@ -42,3 +42,6 @@
 **/.njsproj
 **/.sln
 **/.sw?
+
+## mongo
+**/solutions

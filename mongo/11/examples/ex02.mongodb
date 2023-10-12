@@ -1,0 +1,10 @@
+use('sample-mflix');
+
+// 01
+db.movies.find({$and : [{type: {$eq: 'series'}}, {year: {$eq: 1997}}]})
+
+// 02
+db.movies.find({$and : [{type: 'series'}, {year: 1997}]})
+
+// 03
+db.movies.find({type: 'series', year: 1997})

@@ -1,0 +1,7 @@
+use('sample-mflix');
+
+// 01
+db.users.find({name: { $eq: 'Jon Snow' }});
+
+// 02
+db.users.find({ name: 'Jon Snow'});

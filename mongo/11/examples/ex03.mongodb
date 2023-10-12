@@ -1,0 +1,20 @@
+use('sample-supplies');
+
+// 01
+db.sales.find({
+    $and: [
+        {'customer.age': {$gte: 20}},
+        {'customer.age': {$lte: 29}}
+    ]
+}, {'customer.age': 1}) // 결과를 쉽게 알아보기 위해 customer만 projection
+
+// 02
+db.sales.find({
+    'customer.age': {$gte: 20},
+    'customer.age': {$lte: 29}    
+}, {'customer.age': 1})
+
+// 03
+db.sales.find({
+    'customer.age': {$gte: 20, $lte: 29}
+}, {'customer.age': 1})
