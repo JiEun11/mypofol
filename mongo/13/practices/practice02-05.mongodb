@@ -1,0 +1,9 @@
+use('sample-supplies')
+
+//
+// 구매 아이템의 종류가 5개 이상인 구매를 고객의 이메일 순으로 정렬
+//
+
+// 01. $project -> $match -> $sort 스테이징 순으로 풀기
+
+// 02. $unwind -> $group -> $match -> sort 스테이징 순으로 풀기

@@ -7,3 +7,11 @@ use('sample-mflix');
 
 
 
+db.movies.aggregate([
+    {$unwind: "$directors"},
+    {$group:{
+        _id: "$directors",
+        countOfMovie: {$sum: 1}
+    }},
+    {$sort: {countOfMovie: -1}}
+]).toArray()

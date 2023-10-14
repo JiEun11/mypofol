@@ -52,11 +52,15 @@ if (process.env.NODE_ENV === 'development') {
   app.use('/api/docs/', swaggerUi.serve, handler);
 }
 
-// 7. build application router
+// 7. connect to mongodb  
+//const {connectMongodb} = require(./models-mongodb);
+//connectMongodb();
+
+// 8. build application router
 const appRouter = require('./routes');
 appRouter(app);
 
-// 8. server startup
+// 9. server startup
 http
   .createServer(app)
   .on('listening', () => logger.info(`Listening on port ${process.env.PORT}`))

@@ -1,0 +1,30 @@
+use('sample-mflix')
+
+// 01. 전체 무비의 갯수
+db.movies.aggregate([
+    {$group: {
+        _id: null,
+        countOfMovie: {$count: {}}
+    }}
+])
+
+// 02. 제일 긴 러닝타임
+db.movies.aggregate([
+    {
+        $group: {
+            _id: null,
+            longestRuntime: {$max: "$runtime"}
+        }
+    }
+])
+
+// 03. 년도별 발표된 무비의 갯수
+db.movies.aggregate([
+    {$group: {
+        _id: "$year",
+        countOfRelease: {$count: {}}
+    }}
+]).toArray();
+
+
+
