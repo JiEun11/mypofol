@@ -4,23 +4,17 @@ use('sample-airbnb')
 //     갯수와 함께 나라 이름도 출력(단, 필드 이름을 'country'로 바꿔서 출력)
 //     그리고 리뷰 갯수가 제일 많은 순으로 출력
 db.listingsAndReviews.aggregate([    
-    {
-        $match: {
-            'address.country': {$eq: 'Canada'}
-        }
-    },
-    {
-        $project: {
-            country: {$getField: {field:"country", input: "$address"}},
-            countOfReviews: {
-                $size: "$reviews"
-            }
-        }
-    },
-    {
-        $sort: {
-            countOfReviews: -1
-        }
-    }
+    {$match: {
+        'address.country': {$eq: 'Canada'}
+    }},
+
+    {$project: {
+        country: {$getField: {field:"country", input: "$address"}},
+        countOfReviews: {$size: "$reviews"}
+    }},
+
+    {$sort: {
+        countOfReviews: -1
+    }}
 ]).toArray()
 

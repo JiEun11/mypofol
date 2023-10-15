@@ -1,0 +1,112 @@
+use('mydb')
+
+db.accounts.drop();
+db.accounts.insertMany([
+    {   id: 1,
+        name: 'bella'
+    },
+
+    {   id: 2,
+        name: 'kickscar'
+    }
+])
+
+db.educations.drop();
+db.educations.insertMany([
+    {
+        id: 1, 
+        title: '단국 대학교 / 응용 컴퓨터 공학과',
+        account_id: 1
+    },
+    
+    { 
+        id: 2, 
+        title: '천안 북일 여자고등학교',
+        account_id: 1
+    },
+    
+    { 
+        id: 3, 
+        title: '체코 오스트라바 공과 대학교 / 컴퓨터 엔지니어링',
+        account_id: 1
+    },
+
+    {   
+        id: 4,
+        title: '국민 대학교 / 토목 공학과',
+        account_id: 2
+    },
+
+    { 
+        id: 5,
+        title: '대성 고등학교',
+        account_id: 2
+    }
+])
+
+
+
+// 01. $lookup (join)
+db.educations.aggregate([
+
+    //
+    // educations collection의 "account_id" 와  accounts collection의 "id" 를 join 한다.
+    //
+    {$lookup: {
+        from: "accounts",
+        localField: "account_id",
+        foreignField: "id",
+        as: "account_mapping",
+    }}    
+]);
+
+// 02. reshaping 
+db.educations.aggregate([
+    {$lookup: {
+        from: "accounts",
+        localField: "account_id",
+        foreignField: "id",
+        as: "account_mapping",
+    }},
+
+    //
+    // $lookup stage 결과 data model를 보면,
+    // 참조하는 외부 도큐멘트가 항상 배열 안에 1개의 record로 존재한다. 
+    // $set stage를 이용해서 document를 reshaping 한다. ($project stage를 사용해도 좋다.)
+    //
+    // 배열의 첫번째 원소를 가져오는 $arrayElemAt array pipeline operator를 사용했는데,
+    // $set-$first 조합도 좋다.
+    //
+    {$set: {
+        "account_mapping": {$arrayElemAt: ["$account_mapping", 0]},
+    }}    
+]);
+
+// 03. $group stage 
+db.educations.aggregate([
+    {$lookup: {
+        from: "accounts",
+        localField: "account_id",
+        foreignField: "id",
+        as: "account_mapping",
+    }},
+
+    {$set: {
+        "account_mapping": {$arrayElemAt: ["$account_mapping", 0]},
+    }},
+    
+    {$group: {
+        _id: "$account_mapping.name",
+        countOfEducation: {$count: {}}
+    }},
+
+    {$set: {
+        "name": "$_id",
+    }},
+
+    {$unset: [
+        "_id"
+    ]}
+]);
+
+

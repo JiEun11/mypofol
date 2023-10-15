@@ -2,27 +2,18 @@ use('sample-airbnb')
 
 // 01. 숙박 시설 리뷰(reviews) 갯수 구하기 ($size)
 db.listingsAndReviews.aggregate([
-    {
-        $project: {
-            countOfReviews: {
-                $size: "$reviews"
-            }
-        }
-    }
+    {$project: {
+        countOfReviews: {$size: "$reviews"}
+    }}
 ])
 
 // 02. 숙박 시설의 guest 가능 인원()을 뺀 수용 인원(accommodates) 구하기 ($subtract)
 db.listingsAndReviews.aggregate([
-    {
-        $project: {
-            accommodates: 1,
-            guests_included: 1,
-            accurate_accommodates: {
-                $subtract: ["$accommodates", {$toInt: "$guests_included"}]
-            }
+    {$project: {
+        accommodates: 1,
+        guests_included: 1,
+        accurate_accommodates: {
+            $subtract: ["$accommodates", {$toInt: "$guests_included"}]
         }
-    }
+    }}
 ])
-
-
-
