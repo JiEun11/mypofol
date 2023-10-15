@@ -8,11 +8,13 @@ db.listingsAndReviews.aggregate([
     }},
 
     {$project: {
-        country: {$getField: {field:"country", input: "$address"}},
+//        country: {$getField: {field:"country", input: "$address"}},
+        country: "$address.country",
         countOfReviews: {$size: "$reviews"}
     }}
 ]).toArray()
 
+<<<<<<< HEAD
 db.listingsAndReviews.aggregate([    
   {$match: {
       'address.country': {$eq: 'Canada'}
@@ -24,4 +26,6 @@ db.listingsAndReviews.aggregate([
   }}
 ]).toArray()
 
+=======
+>>>>>>> c36a24e (.)
 db.listingsAndReviews.distinct("address.country")
