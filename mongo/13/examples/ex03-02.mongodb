@@ -23,3 +23,5 @@ db.listingsAndReviews.aggregate([
       countOfReviews: {$size: "$reviews"}
   }}
 ]).toArray()
+
+db.listingsAndReviews.distinct("address.country")
