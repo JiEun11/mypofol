@@ -1,0 +1,42 @@
+use('sample-mflix');
+
+//
+// 무비 아이디(movie_id)가 '573a13bff29313caabd5e91e'인 무비의 사용자평(comments) 페이징 하기
+//
+
+// 페이지당 리스팅 갯수
+COUNT_PER_PAGE = 3;
+
+// 현재 페이지
+currentPage = 2;
+
+db.comments.aggregate([
+    {$project:{
+        _id: 0,
+        name: 1,
+        text: 1,
+        date: {$dateToString: {
+            format: "%Y-%m-%d",
+            date: "$date"
+        }},
+        movie_id: 1
+    }},
+
+    {$match: {
+        movie_id: {
+            $eq: ObjectId('573a13bff29313caabd5e91e')
+        }       
+    }},
+
+    {$unset: [
+        "movie_id"
+    ]},
+
+    {$sort: {
+        date: -1
+    }},
+
+    {$skip: (currentPage - 1) * COUNT_PER_PAGE },
+    
+    {$limit: COUNT_PER_PAGE},
+])
