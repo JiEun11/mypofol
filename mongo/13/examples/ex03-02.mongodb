@@ -14,7 +14,6 @@ db.listingsAndReviews.aggregate([
     }}
 ]).toArray()
 
-<<<<<<< HEAD
 db.listingsAndReviews.aggregate([    
   {$match: {
       'address.country': {$eq: 'Canada'}
@@ -26,6 +25,4 @@ db.listingsAndReviews.aggregate([
   }}
 ]).toArray()
 
-=======
->>>>>>> c36a24e (.)
 db.listingsAndReviews.distinct("address.country")
