@@ -1,4 +1,5 @@
 const { modelAccount, modelProfile }= require("../models");
+const { Account } = require('../models-mongoose');
 
 exports.get = async (req, res, next) => {
     try {
@@ -18,6 +19,9 @@ exports.create = async (req, res, next) => {
     try {
         const accountId = await modelAccount.insert(req.body);
         await modelProfile.insertByDefault(accountId);
+
+        result = await Account.create(req.body);
+
         res.json(null);
     } catch (error) {
         next?.(error);

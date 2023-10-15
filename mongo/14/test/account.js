@@ -9,12 +9,12 @@ const { Account } = require('../models');
     console.log(result);
 
     // 1
-    const newAccount = new Account({
-        name: 'kickscar',
-        email: 'kickscar@gmail.com',
-        status: null,
-        pssword: '1234'});
-    result = await newAccount.save();
+    // const newAccount = new Account({
+    //     name: 'kickscar',
+    //     email: 'kickscar@gmail.com',
+    //     status: null,
+    //     pssword: '1234'});
+    // result = await newAccount.save();
 
     //2. 
     result = await Account.create({
