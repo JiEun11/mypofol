@@ -1,10 +1,26 @@
 use('sample-supplies');
 
-// 01. 고객의 나이('cutomer.age')가 19 이상인 구매
+// 01. 고객의 나이('customer.age')가 19 이상인 구매
+db.sales.find({
+  "customer.age": { 
+    $gt: 19 
+  }
+});
 
 // 02. 구매 만족도(customer.satisfaction)가 5 중에 구매수단(purchaseMethod)이 'Online' 구매가 아닌 구매
+db.sales.find({$and: [{"customer.satisfaction": { $eq: 5 } }, {purchaseMethod: { $ne : 'Online'}}]}, {"customer.satisfaction":1, purchaseMethod: 1})
+
+db.sales.find({
+  "customer.satisfaction": 5 , 
+  purchaseMethod: { $ne : 'Online'}
+}, 
+{"customer.satisfaction":1, purchaseMethod: 1}
+)
 
 // 03. 고객의 성별(customer.gender)이 여자('F') 이거나 구매수단(purchaseMethod)이 'Online'인 구매
+db.sales.find({$or: [{"customer.gender": {$eq: 'F'} }, {purchaseMethod: {$eq: 'Online'}} ]}, {"customer.gender":1, purchaseMethod: 1})
+
+db.sales.find({$or: [{"customer.gender": 'F' }, {purchaseMethod: 'Online'} ]}, {"customer.gender":1, purchaseMethod: 1})
 
 // 04. 여자 고객의 구매 만족도가 5인 구매
 
