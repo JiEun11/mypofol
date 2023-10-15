@@ -1,7 +1,4 @@
-const { MongoDB, Account } = require('../models');
-
-MongoDB.connect();
-
+const { Account } = require('../models');
 
 (async () => {
     let result;
@@ -11,13 +8,21 @@ MongoDB.connect();
     result = await Account.deleteMany({});
     console.log(result);
 
-    // result = await new Account({
-    //     name: 'kickscar',
-    //     email: 'kickscar@gmail.com',
-    //     status: null,
-    //     pssword: '1234'}).save();
+    // 1
+    const newAccount = new Account({
+        name: 'kickscar',
+        email: 'kickscar@gmail.com',
+        status: null,
+        pssword: '1234'});
+    result = await newAccount.save();
 
-    result = Account
+    //2. 
+    result = await Account.create({
+        name: 'kickscar',
+        email: 'kickscar@gmail.com',
+        status: null,
+        pssword: '1234'});
+
     console.log(result);
 
     result = await Account.find({});
