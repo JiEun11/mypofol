@@ -1,0 +1,87 @@
+use('sample-mflix')
+
+//
+// 쟝르별로 IMDb 평점(imdb.rating)이 가장 높은 무비는? 평점이 없는('') 무비는 제외
+// 'top_rating_movie_in_genre' collection에 최종 결과 저장
+//
+
+// 1)
+db.movies.aggregate([
+    {$match:{
+        'imdb.rating': {$ne: ''} 
+    }},
+
+    {$unwind: "$genres"},
+    
+    {$group:{
+        _id: "$genres",
+        topRating: {$max: "$imdb.rating"}
+    }}
+]).toArray().map((doc) => {
+    const movie = db.movies.findOne({$and: [
+        {genres: {$eq: doc._id}},
+        {'imdb.rating': {$eq: doc.topRating}}
+    ]})
+
+    doc.title = movie.title;
+    return doc;
+})
+
+
+// 2)
+// - javascript 처리 부분 -> $lookup stage로 변경
+// - multi field join 적용
+db.movies.aggregate([
+    {$match:{
+        'imdb.rating': {$ne: ''} 
+    }},
+
+    {$unwind: "$genres"},
+    
+    {$group:{
+        _id: "$genres",
+        topRating: {$max: "$imdb.rating"}
+    }},
+
+    // reshaping document (local document)
+    {$project: {
+        _id: 0, 
+        topGenre: "$_id",
+        topRating: 1
+    }},
+
+    {$lookup: {
+        from: "movies",
+        let: {
+            topGenre: "$topGenre",
+            topRating: "$topRating"
+        },
+        pipeline: [
+            {$match: {
+                $expr: { $eq: [{$type: "$genres"}, 'array'] }
+            }},
+
+            {$match: {
+                $expr: {$and: [
+                    {$in: ["$$topGenre", "$genres"]},
+                    {$eq: ["$$topRating", "$imdb.rating"]}            
+                ]}
+            }}
+        ],
+        as: "top_rating_genre_movie"
+    }},
+
+    {$set: {
+        "top_rating_genre_movie": {$arrayElemAt: ["$top_rating_genre_movie", 0]}
+    }},
+    
+    {$project: {
+        movieGenre: "$topGenre",
+        movieRating: "$topRating",
+        movieTitle: "$top_rating_genre_movie.title",
+        // movieGenre2: "$top_rating_genre_movie.genres",
+        // movieRating2: "$top_rating_genre_movie.imdb.rating"
+    }},
+    
+    {$out: 'top_rating_movie_in_genre'}
+])

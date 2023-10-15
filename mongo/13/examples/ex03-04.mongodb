@@ -1,0 +1,52 @@
+use('sample-mflix')
+
+// 01. 전체 무비의 갯수
+db.movies.aggregate([
+    {$group: {
+        _id: null,
+        countOfMovie: {$count: {}}
+    }}
+])
+
+// cf:01)
+// $group, $count: {} 는
+// $group, $sum: 1 과 동일하다.
+db.movies.aggregate([
+    {$group: {
+        _id: null,
+        countOfMovie: {$sum: 1}
+    }}
+])
+
+// cf:02)
+// grouping key가 없는 경우이기 때문에 _id: null 이다. 
+// _id 출력을 피하고 싶으면 다음과 같이 $project stage를 활용한다.
+db.movies.aggregate([
+    {$group: {
+        _id: null,
+        countOfMovie: {$sum: 1}
+    }},
+
+    {$project: {
+        _id: 0
+    }}
+])
+
+// 02. 제일 긴 러닝타임
+db.movies.aggregate([
+    {$group: {
+        _id: null,
+        longestRuntime: {$max: "$runtime"}
+    }}
+])
+
+// 03. 년도별 발표된 무비의 갯수
+db.movies.aggregate([
+    {$group: {
+        _id: "$year",
+        countOfRelease: {$count: {}}
+    }}
+]).toArray();
+
+
+

@@ -1,0 +1,38 @@
+use('sample-mflix')
+
+// 제일 긴 러닝타임의 무비는?
+db.movies.aggregate([
+
+    //  $group 가장 긴 러닝타임 구하기
+    {$group: {
+        _id: null,
+        longestRuntime: {$max: "$runtime"}
+    }},
+
+    // _id 제거
+    {$unset: [
+        "_id"
+    ]},
+
+    // movies collection과 join (타이틀이 궁금하니깐)
+    {$lookup: {
+        from: "movies",
+        localField: "longestRuntime",
+        foreignField: "runtime",
+        as: "movies_mapping",        
+    }},
+
+    // join 결과 배열에서 끄집어 내기
+    {$set: {
+        "movies_mapping": {$arrayElemAt: ["$movies_mapping", 0]},
+    }},
+    
+    // 출력 조절
+    {$project: {
+        movieTitle: "$movies_mapping.title",
+        movieRuntime: "$longestRuntime"
+    }}
+])
+
+
+

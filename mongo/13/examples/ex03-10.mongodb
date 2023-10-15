@@ -1,0 +1,35 @@
+use('sample-mflix');
+
+// 
+// 전체 무비의 갯수
+// 
+
+// 1. $count stage
+db.movies.aggregate([
+    {$count: "countOfMovie"}
+])
+
+
+// 2. $group stage I
+db.movies.aggregate([
+    {$group: {
+        _id: null,
+        countOfMovie: {$count: {}}
+    }},
+
+    {$project: {
+        _id: 0
+    }}    
+])
+
+// 3. $group stage II
+db.movies.aggregate([
+    {$group: {
+        _id: null,
+        countOfMovie: {$sum: 1}
+    }},
+
+    {$project: {
+        _id: 0
+    }}
+])

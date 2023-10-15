@@ -1,0 +1,14 @@
+use('sample-airbnb')
+
+// 캐나다('Canada')에 있는 숙박 시설들의 리뷰(reviews) 갯수를 출력하되,
+// 갯수와 함께 나라 이름도 출력(단, 필드 이름을 'country'로 바꿔서 출력)
+db.listingsAndReviews.aggregate([    
+    {$match: {
+        'address.country': {$eq: 'Canada'}
+    }},
+
+    {$project: {
+        country: {$getField: {field:"country", input: "$address"}},
+        countOfReviews: {$size: "$reviews"}
+    }}
+]).toArray()
