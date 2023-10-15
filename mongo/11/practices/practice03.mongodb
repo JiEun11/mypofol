@@ -23,3 +23,6 @@ db.listingsAndReviews.distinct('address.country')
 
 // (추가) 숙박 시설의 리뷰(reviews) 갯수 구하기
 db.listingsAndReviews.find({reviews: {$ne: null}}, {reviews: 1})
+db.listingsAndReviews.aggregate([
+  {$count: 'place'}
+])

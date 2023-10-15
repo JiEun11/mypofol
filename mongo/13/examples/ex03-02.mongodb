@@ -12,3 +12,14 @@ db.listingsAndReviews.aggregate([
         countOfReviews: {$size: "$reviews"}
     }}
 ]).toArray()
+
+db.listingsAndReviews.aggregate([    
+  {$match: {
+      'address.country': {$eq: 'Canada'}
+  }},
+
+  {$project: {
+      country: "$address.country",
+      countOfReviews: {$size: "$reviews"}
+  }}
+]).toArray()

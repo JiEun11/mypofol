@@ -3,7 +3,9 @@ use('sample-airbnb')
 // 01. 숙박 시설 리뷰(reviews) 갯수 구하기 ($size)
 db.listingsAndReviews.aggregate([
     {$project: {
-        countOfReviews: {$size: "$reviews"}
+        countOfReviews: {$size: "$reviews"},
+        _id: 0,
+        name: 1,
     }}
 ])
 
