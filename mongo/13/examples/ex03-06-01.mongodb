@@ -101,7 +101,7 @@ db.educations.aggregate([
     }},
 
     {$set: {
-        "name": "$_id",
+        names: "$_id",
     }},
 
     {$unset: [
