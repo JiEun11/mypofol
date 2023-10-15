@@ -3,6 +3,7 @@ const { Account } = require('../models');
 (async () => {
     let result;
     
+    // id라는 Slug 값 초기화 ( 얘가 매번 호출되면 안 됨 )
     // Account.counterReset('id', (err) => console.error(err));
 
     result = await Account.deleteMany({});
