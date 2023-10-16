@@ -3,3 +3,24 @@ use('sample-airbnb')
 // 캐나다('Canada')에 있는 숙박 시설들 중, guest 포함 인원이 4명 이상이고
 // 30% 할인 숙박비(소수점 첫째 자리 반올림)가 50달러 이하인 숙박 시설 찾기
 // 출력은 숙박비가 제일 싼 순으로 출력
+db.listingsAndReviews.aggregate([
+  {$match: {
+    $and: [
+      {'address.country': { $eq: 'Canada'}},
+      {guests_included: { $gte: 4}},
+    ]
+  }},
+  {$project: {
+    guests_included: "$guests_included",
+    address_country: "$address.country",
+    round_discount_price: {
+      $round: [{$multiply: ["$price", 0.7]}, 0]
+    }
+  }},
+  {$match: {
+    round_discount_price: {$lte: 50}
+  }},
+  {$sort: {
+    round_discount_price: 1
+  }}
+])
