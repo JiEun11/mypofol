@@ -81,7 +81,5 @@ db.movies.aggregate([
         movieTitle: "$top_rating_genre_movie.title",
         // movieGenre2: "$top_rating_genre_movie.genres",
         // movieRating2: "$top_rating_genre_movie.imdb.rating"
-    }},
-    
-    {$out: 'top_rating_movie_in_genre'}
+    }}
 ])

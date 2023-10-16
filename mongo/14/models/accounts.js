@@ -14,6 +14,7 @@ const schema = new mongoose.Schema({
         default: Date.now
     }
 }, {
+//    _id: false,
     versionKey: false
 });
 schema.plugin(AutoIncrement, {inc_field: 'id'});

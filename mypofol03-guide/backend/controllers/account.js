@@ -20,7 +20,7 @@ exports.create = async (req, res, next) => {
         const accountId = await modelAccount.insert(req.body);
         await modelProfile.insertByDefault(accountId);
 
-        result = await Account.create(req.body);
+        // result = await Account.create(req.body);
 
         res.json(null);
     } catch (error) {
