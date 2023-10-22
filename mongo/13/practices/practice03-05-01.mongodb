@@ -5,5 +5,34 @@ use('sample-supplies')
 //
 
 // 01. $project -> $match -> $sort 스테이징 순으로 풀기
+db.sales.aggregate([
+  {$project: {
+    countOfItems: {$size: "$items"},
+    customers_email: "$customer.email",
+    _id: 0
+  }},
+  {$match: {
+    countOfItems: {$gte: 5}
+  }},
+  {$sort: {
+    customers_email: 1
+  }}
+])
 
 // 02. $unwind -> $group -> $match -> sort 스테이징 순으로 풀기
+db.sales.aggregate([
+  {$unwind: "$items"},
+
+  {$group: {
+    _id: "$_id",
+    countOfItems: {$count: {}}
+  }},
+
+  {$match: {
+    countOfItems: {$gte: 5}
+  }},
+
+  {$sort: {
+    customers_email: 1
+  }}
+])
