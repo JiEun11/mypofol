@@ -19,3 +19,30 @@ db.listingsAndReviews.aggregate([
     round_discount_price: {$lte: 50}
   }}
 ])
+
+// const discountReate = 30;
+
+// db.listingsAndReviews.aggregate([
+//     {
+//         $match: {$and: [
+//             {'address.country': {$eq: 'Canada'}},
+//             {guests_included: {$gte: 4}}
+//         ]}
+//     },    
+//     {
+//         $project: {
+//             country: {$getField: {field:"country", input: "$address"}},
+//             guests_included: { $toInt: "$guests_included"},
+//             price: {$toInt: {$round: ["$price", 0]}},
+//             discount_rate: {$literal: `${discountReate}%`},
+//             discount_price: {$toInt: {
+//                 $round: [{ $subtract: ["$price", {$multiply: ["$price", discountReate/100]}] }, 0]
+//             }}
+//         }
+//     },
+//     {
+//         $match: {
+//             discount_price: {$lte: 50}
+//         }
+//     }    
+// ]).toArray()

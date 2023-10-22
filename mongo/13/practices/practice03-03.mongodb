@@ -24,3 +24,26 @@ db.listingsAndReviews.aggregate([
     round_discount_price: 1
   }}
 ])
+
+// --- 쌤 답
+db.listingsAndReviews.aggregate([
+  {$match: {
+    $and: [
+      {'address.country': { $eq: 'Canada'}},
+      {guests_included: { $gte: 4}},
+    ]
+  }},
+  {$project: {
+    guests_included: "$guests_included",
+    address_country: "$address.country",
+    round_discount_price: {
+      $round: [{$multiply: ["$price", 0.7]}, 0]
+    }
+  }},
+  {$match: {
+    round_discount_price: {$lte: 50}
+  }},
+  {$sort: {
+    round_discount_price: 1
+  }}
+])

@@ -12,3 +12,19 @@ db.listingsAndReviews.aggregate([
     }
   }}
 ])
+
+// 모든 숙박 시설의 30% 할인 숙박비(price) 구하기 (단, 소수점 첫째 자리 반올림)
+// db.listingsAndReviews.aggregate([
+//     {
+//         $project: {
+//             price: 1,
+//             discount_rate: '30%',
+//             discount_price: {
+//                 $subtract: ["$price", {$multiply: ["$price", 0.3]}]
+//             },
+//             round_discount_price: {
+//                 $round: [{ $subtract: ["$price", {$multiply: ["$price", 0.3]}] }, 0]
+//             }
+//         }
+//     }
+// ])

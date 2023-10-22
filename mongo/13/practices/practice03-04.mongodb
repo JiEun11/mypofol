@@ -44,3 +44,50 @@ db.comments.aggregate([
     _id: 0
   }}
 ])
+
+// --- 쌤 답
+
+// 01. 무비들의 타입별 갯수 출력, 갯수가 많은 순으로 출력
+db.movies.aggregate([
+  {$group: {
+    _id: "$type",
+    countNumberOfMovieForType: {
+      $count: {}
+    },
+  }},
+  {$sort: {
+    countNumberOfTypeForMovie: -1
+  }}
+])
+
+// 02. 무비별 평(comments) 갯수 출력, 갯수가 많은 순으로 출력
+db.comments.aggregate([
+  {$group: {
+    _id: "$movie_id",
+    countNumberOfMovieForType: {
+      $count: {}
+    }
+  }},
+  {$sort: {
+    countNumberOfMovieForType: -1
+  }}
+])
+
+// 03. 최고 많은 평(comments) 갯수는?
+db.comments.aggregate([
+  {$group: {
+    _id: "$movie_id",
+    countNumberOfMovieForType: {
+      $count: {}
+    }
+  }},
+  {$group: {
+    _id: null,
+    maxComments: {
+      $max: "$countNumberOfMovieForType"
+    }
+  }},
+  {$project: {
+    _id: 0
+  }}
+])
