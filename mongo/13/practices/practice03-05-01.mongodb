@@ -36,3 +36,37 @@ db.sales.aggregate([
     customers_email: 1
   }}
 ])
+
+// -- 쌤 답 
+//
+// 구매 아이템의 종류가 5개 이상인 구매를 고객의 이메일 순으로 정렬
+//
+
+// 01. $project -> $match -> $sort 스테이징 순으로 풀기
+db.sales.aggregate([
+    {$project: {
+        customer: 1,
+        countOfItem: { $size: "$items" }
+    }},
+    {$match: {
+        countOfItem: {$gt: 5}  
+    }},
+    {$sort: {
+        'customer.email': 1
+    }}
+]).toArray()
+
+// 02. $unwind -> $group -> $match -> sort 스테이징 순으로 풀기
+db.sales.aggregate([
+    {$unwind: "$items"},
+    {$group: {
+        _id: "$customer",
+        countOfItem: { $count: {} }
+    }},
+    {$match: {
+        countOfItem: {$gt: 5}
+    }},
+    {$sort: {
+        '_id.email': 1
+    }}
+]).toArray()
