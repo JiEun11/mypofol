@@ -1,0 +1,29 @@
+use('sample-mflix');
+
+// 1. 'poster'를  갖고 있는 않는 무비 검색
+db.movies.find({
+    poster: {
+        $exists: false
+    }
+}, {poster: 1})
+
+// 2. 'poster'를 갖고 있는 무비 검색
+db.movies.find({
+    poster: {
+        $exists: true
+    }
+}, {poster: 1})
+
+// 3. 'poster'를  갖고 있는 않는 무비 검색, $eq 사용
+db.movies.find({
+    poster: {
+        $eq: null
+    }
+}, {poster: 1})
+
+// 4. 'poster'를 갖고 있는 무비 검색, $ne 사용
+db.movies.find({
+    poster: {
+        $ne: null
+    }
+}, {poster: 1})

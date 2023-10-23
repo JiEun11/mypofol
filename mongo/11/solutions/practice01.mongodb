@@ -1,0 +1,62 @@
+use('sample-supplies');
+
+// 01. 고객의 나이('cutomer.age')가 19 이상인 구매
+db.sales.find({
+    'customer.age': {
+        $gte: 19
+    }
+}, { customer: 1 })
+
+// 02. 구매 만족도(customer.satisfaction)가 5 중에 구매수단(purchaseMethod)이 'Online' 구매가 아닌 구매
+db.sales.find({
+    'customer.satisfaction': 5,
+    purchaseMethod: {
+        $ne: 'Online'
+    }
+})
+
+
+// 03. 고객의 성별(customer.gender)이 여자('F') 이거나 구매수단(purchaseMethod)이 'Online'인 구매
+db.sales.find({
+    $or: [
+        { 'customer.gender': 'F' },
+        { 'purchaseMethod': 'Online' }
+    ]
+}, {
+    'customer.gender': 1,
+    'purchaseMethod': 1
+})
+
+// 04. 여자 고객의 구매 만족도가 5인 구매
+db.sales.find({
+    'customer.gender': 'F',
+    'customer.satisfaction': 5
+}, {
+    'customer.gender': 1,
+    'customer.satisfaction': 1
+})
+
+
+// 05. $not 연산자를 사용해서 19이하 고객의 구매
+// 1)
+db.sales.find({
+    $not: { 'customer.age': {
+        $gte: 19
+    }}
+}, { customer: 1 })
+
+// 2)
+db.sales.find({
+    'customer.age': {
+        $lt: 19
+    }
+}, { customer: 1 })
+
+
+// 06. 구매 만족도가 5 중에 A로 시작하는 도시가 아닌 매장의 구매
+db.sales.find({ 
+    'customer.satisfaction': 5,
+    storeLocation: { 
+        $not: /^A/
+    }
+})

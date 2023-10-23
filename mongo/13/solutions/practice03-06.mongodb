@@ -1,0 +1,104 @@
+use('sample-mflix')
+
+// 01. 무비별로 사용자평(comments) 갯수를 갯수가 많은 순으로 출력(0개는 출력 x)
+db.comments.aggregate([
+    {$lookup:{
+        from: "movies",
+        localField: "movie_id",
+        foreignField: "_id",
+        as: "movie_mapping",       
+    }},
+
+    {$set: {
+        "movie_mapping": {$arrayElemAt: ["$movie_mapping", 0]},
+    }},
+    
+    {$match: {
+        'movie_mapping': {$ne: null}
+    }},
+
+    {$group: {
+        _id: "$movie_mapping._id",
+        countOfComments: {$count: {}}
+    }},
+    
+    {$sort: {
+        countOfComments: -1
+    }}
+])
+
+// 02. 사용자평(comments)이 가장 많이 달린 무비는?
+db.comments.aggregate([
+    {$lookup:{
+        from: "movies",
+        localField: "movie_id",
+        foreignField: "_id",
+        as: "movie_mapping",       
+    }},
+
+    {$set: {
+        "movie_mapping": {$arrayElemAt: ["$movie_mapping", 0]},
+    }},
+    
+    {$match: {
+        'movie_mapping': {$ne: null}
+    }},
+
+    {$group: {
+        _id: "$movie_mapping._id",
+        countOfComments: {$count: {}}
+    }},
+    
+    {$sort: {
+        countOfComments: -1
+    }},
+
+    {$limit: 1},
+
+    {$lookup:{
+        from: "movies",
+        localField: "_id",
+        foreignField: "_id",
+        as: "movie_mapping2",       
+    }},
+
+    {$set: {
+        "movie_mapping2": {$arrayElemAt: ["$movie_mapping2", 0]},
+    }},
+
+    {$project: {
+        _id: 0,
+        titile: '$movie_mapping2.title',
+        countOfComments: 1,
+    }}
+])
+
+// 03. 작품이 가장 많은 감독은 누구?
+db.movies.aggregate([
+    {$unwind: "$directors"},
+    
+    {$group:{
+        _id: "$directors",
+        countOfMovie: {$count: {}}
+    }},
+    
+    {$sort: {countOfMovie: -1}},
+
+    {$limit: 1}
+
+]).toArray()
+
+// 04. 작품이 가장 많은 배우는 누구?
+db.movies.aggregate([
+    {$unwind: "$cast"},
+    
+    {$group:{
+        _id: "$cast",
+        countOfMovie: {$count: {}}
+    }},
+    
+    {$sort: {countOfMovie: -1}},
+
+    {$limit: 1}
+
+]).toArray()

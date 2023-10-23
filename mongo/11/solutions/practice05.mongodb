@@ -1,0 +1,13 @@
+use('sample-supplies')
+
+// 1. 구매 아이템(items) 중에 이름(name)이 'backpack' 이고 수량(quantity)이 2개인 아이템이 있는 문서 검색
+
+// 키가 객체 배열일 경우 $elemMatch 연산자를 사용한 selector 사용
+db.sales.find({
+    items: {
+        $elemMatch: {
+            name: 'backpack',
+            quantity: 2
+        }
+    }
+})

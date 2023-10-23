@@ -1,0 +1,35 @@
+use('sample-mflix')
+
+// 01. 무비들의 타입별 갯수 출력, 갯수가 많은 순으로 출력
+db.movies.aggregate([
+    {$group: {
+        _id: "$type",
+        countOfMovie: {$count: {}}
+    }},
+    {$sort: {
+        countOfMovie: -1
+    }}
+]).toArray();
+
+// 02. 무비별 평(comments) 갯수 출력, 갯수가 많은 순으로 출력
+db.comments.aggregate([
+    {$group: {
+        _id: "$movie_id",
+        countOfComments: {$count: {}}
+    }},
+    {$sort: {
+        countOfMovie: -1
+    }}    
+]).toArray();
+
+// 03. 최고 많은 평 갯수는?
+db.comments.aggregate([
+    {$group: {
+        _id: "$movie_id",
+        countOfComments: {$count: {}}
+    }},
+    {$group: {
+        _id: null,
+        maxCommentCount: {$max: "$countOfComments"}
+    }},    
+])

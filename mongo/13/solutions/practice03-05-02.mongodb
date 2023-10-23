@@ -1,0 +1,56 @@
+use('sample-mflix')
+
+// 01. 감독별로 작품 갯수 출력, 가장 많은 무비 갯수 순으로 출력 
+db.movies.aggregate([
+    {$unwind: "$directors"},
+    {$group:{
+        _id: "$directors",
+        countOfMovie: {$count: {}}
+    }},
+    {$sort: {countOfMovie: -1}}
+]).toArray()
+
+// 02. 쟝르별로 무비 갯수, 가장 많은 무비 갯수 순으로 출력 
+db.movies.aggregate([
+    {$unwind: "$genres"},
+    {$group:{
+        _id: "$genres",
+        countOfMovie: {$count: {}}
+    }}
+]).toArray()
+
+// 03. 쟝르별로 가장 높은 IMDb 평점(imdb.rating)은? (평점이 없는('') 무비는 제외)
+db.movies.aggregate([
+    {$match:{
+        'imdb.rating': {$ne: ''} 
+    }},
+
+    {$unwind: "$genres"},
+    
+    {$group:{
+        _id: "$genres",
+        topRating: {$max: "$imdb.rating"}
+    }}
+]).toArray()
+
+// 04. 쟝르별로 IMDb 평점(imdb.rating)이 가장 높은 무비는? 평점이 없는('') 무비는 제외
+db.movies.aggregate([
+    {$match:{
+        'imdb.rating': {$ne: ''} 
+    }},
+
+    {$unwind: "$genres"},
+    
+    {$group:{
+        _id: "$genres",
+        topRating: {$max: "$imdb.rating"}
+    }}
+]).toArray().map((doc) => {
+    const movie = db.movies.findOne({$and: [
+        {genres: {$eq: doc._id}},
+        {'imdb.rating': {$eq: doc.topRating}}
+    ]})
+
+    doc.title = movie.title;
+    return doc;
+})
