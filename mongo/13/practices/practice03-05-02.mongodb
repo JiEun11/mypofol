@@ -24,5 +24,19 @@ db.movies.aggregate([
   }}
 ]).toArray()
 // 03. 쟝르별로 가장 높은 IMDb 평점(imdb.rating)은? (평점이 없는('') 무비는 제외)
-
+db.getCollection('movies').aggregate([
+  {$match:{
+    'imdb.rating': {$ne: ''}
+  }},
+  {$unwind: "$genres"},
+  {$project: {
+    genres : 1,
+    title : 1,
+    'imdb.rating' : 1
+  }},
+  {$group: {
+    _id: "$genres",
+    maxImDbRating: { $max: "$imdb.rating" }
+  }}
+])
 // 04. 쟝르별로 IMDb 평점(imdb.rating)이 가장 높은 무비는? 평점이 없는('') 무비는 제외
