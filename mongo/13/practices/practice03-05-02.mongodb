@@ -48,9 +48,28 @@ db.getCollection('movies').aggregate([
   {$group: {
     _id: "$genres",
     maxImDbRating: { $max: "$imdb.rating" },
-    title: {$first: "$title"}
   }},
   {$sort: {
     maxImDbRating: -1
   }}
 ])
+
+// 쌤 답
+db.getCollection('movies').aggregate([
+  {$match:{
+    'imdb.rating': {$ne: ''}
+  }},
+  {$unwind: "$genres"},
+  {$group: {
+    _id: "$genres",
+    maxImDbRating: { $max: "$imdb.rating" },
+  }}
+]).toArray().map((doc)=> {
+  const movie = db.movies.findOne({$and: [
+    {genres: {$eq: doc._id}},
+    {'imdb.rating': {$eq: doc.maxImDbRating}}
+  ]})
+
+  doc.title = movie.title;
+  return doc;
+})
